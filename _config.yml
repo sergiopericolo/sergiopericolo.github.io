@@ -1,0 +1,18 @@
+# DATI DEL MIO SITO
+# Il file yml contiene di dati della configurazioni di base
+
+
+title: sergiodilapi
+email: sergio.dilapi02@gmail.com
+description: I'll try... to live.
+baseurl: "/sergiodilapi"
+url: "https://sergiopericolo.github.io"
+github_username: sergiopericolo
+
+
+# Configurazione di Jekyll
+markdown: kramdown
+theme: minima 
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag

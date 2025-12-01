@@ -10,22 +10,28 @@ title: Home Page
   </div>
 </header>
 
-<nav>
-    <h2>Navigazione Principale</h2>
-    <ul>
-        <li>
-            <a href="{% link skills.html %}">Skills</a>
-        </li>
-        <li>
-            <a href="{% link study.html %}">Study In Public</a>
-        </li>
-        <li>
-            <a href="{% link blog.html %}">Blog</a>
-        </li>
-        <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
-    </ul>
-</nav>
-
-<section>
-    <h3>Ultimi Articoli</h3>
-</section>
+<main class="content-wrapper"> 
+    
+    <section class="feature-boxes">
+        
+        <div class="feature-box">
+            <h2>Le Mie Skills</h2>
+            <p>Esplora il mio set di competenze tecniche e le aree di specializzazione in cui mi sto dedicando.</p>
+            <a href="#" class="cta-button">Vai alle Skills</a>
+        </div>
+        
+        <div class="feature-box">
+            <h2>Study In Public</h2>
+            <p>Una raccolta dei miei appunti di studio, dalle basi del web development ai concetti di programmazione più avanzati.</p>
+            <a href="#" class="cta-button">Vedi gli Appunti</a>
+        </div>
+        
+        <div class="feature-box">
+            <h2>Il Mio Blog</h2>
+            <p>Riflessioni personali, recensioni tecnologiche e approfondimenti sulle ultime tendenze del settore IT.</p>
+            <a href="#" class="cta-button">Leggi il Blog</a>
+        </div>
+        
+    </section>
+    
+</main>

@@ -7,7 +7,9 @@
 
 header {
     background-color: rgb(25, 25, 25);
-    padding: 40px;
+    padding-left: 200px;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
 .header-content{
@@ -24,4 +26,57 @@ nav {
     color: #333; 
     background-color: #e0e0e0; 
     padding: 50px;
+}
+
+/* ====================================
+   STRUTTURA BASE DEL CONTENUTO 
+   ==================================== */
+.content-wrapper {
+    max-width: 1500px; /* Larghezza massima per centrare i box */
+    margin: 40px auto;
+    padding: 0 20px; /* Padding laterale per schermi piccoli */
+}
+
+/* ====================================
+   LAYOUT DEI 3 BOX (Flexbox) 
+   ==================================== */
+
+.feature-boxes {
+    display: flex; /* Attiva il layout Flexbox */
+    gap: 20px;     /* Spazio tra i box */
+    flex-wrap: wrap; /* Importante: permette ai box di andare a capo su schermi stretti */
+    justify-content: space-between; /* Distribuisce lo spazio tra i box */
+}
+
+.feature-box {
+    /* Il 30% circa per lasciare spazio al gap e permettere 3 box sulla stessa riga */
+    flex: 1 1 300px; /* Cresce, non si restringe, dimensione base di 300px */
+    
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Leggera ombra */
+    text-align: center; /* Centra il testo all'interno del box */
+}
+
+/* ====================================
+   STILE CTA (Call to Action) 
+   ==================================== */
+
+.cta-button {
+    display: inline-block; /* Rende il link un blocco per il padding */
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-family: Courier, Arial, sans-serif;    
+    /* Colori di stile */
+    background-color: #3a3a3a; /* Blu accattivante */
+    color: white !important; /* Forza il colore bianco sul testo */
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: background-color 0.3s; /* Animazione al passaggio del mouse */
+}
+
+.cta-button:hover {
+    background-color: #0056b3;
 }

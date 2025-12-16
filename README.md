@@ -5,5 +5,5 @@ Questo repository contiene il codice del mio sito.
 E' stato costruito con **Jekyll** e viene ospitato su **GitHub Pages**.
 
 
-[**link**](https://sergiopericolo.github.io/sergiodilapi)
+[**link**](https://sergiopericolo.github.io)
 

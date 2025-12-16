@@ -80,7 +80,7 @@ footer {
     color: #fff;
     text-align: right;
     background-color: rgb(25, 25, 25);
-    padding: 40px;
+    padding: 20px;
     width: 100%;
 }
 
@@ -126,4 +126,40 @@ footer {
 .cta-button:hover {
     color: rgb(24, 24, 24) !important; 
     background-color: #ffcc00;
+}
+
+
+
+/* SKILLS PAGE STYLE */
+
+.skill-title {
+    padding-top: 15px;
+    padding-bottom: 10px;
+    text-align: center;
+}
+
+.skills-container {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.left-column {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    flex: 1 1 350px;
+}
+
+.right-column {
+    flex: 2 1 600px; 
+}
+
+.skill-box {
+    background-color: #fff;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgb(25, 25, 25);
+    height: 100%;
 }

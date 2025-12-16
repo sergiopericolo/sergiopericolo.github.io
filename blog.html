@@ -3,4 +3,22 @@ layout: default
 title: Blog
 ---
 
-<h1>BLOG</h1>
+<header>
+  <div class="header-content">
+    <h1>{{ site.title }}</h1>
+    <p>statistics & BI dev</p>
+  </div>
+</header>
+
+<div class="collapsible-container">
+    <input type="checkbox" id="toggle-spiegazione" class="toggle-input">
+
+    <label for="toggle-spiegazione" class="toggle-label">
+        Clicca qui per la spiegazione (solo CSS)
+    </label>
+
+    <div class="collapsible-content-css">
+        <p>Questo è il contenuto nascosto che appare quando l'input è spuntato. </p>
+        <p>Non è richiesto JavaScript, solo un'attenta struttura HTML/CSS.</p>
+    </div>
+</div>

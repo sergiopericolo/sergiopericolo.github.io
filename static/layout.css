@@ -1,0 +1,278 @@
+/*
+ * ─────────────────────────────────────────────────────────────────────────────
+ *  GOTOMARK ENGINE — static/layout.css
+ *  SOLO GEOMETRIA del frontend: nessun colore, bordo, ombra o font qui.
+ *
+ *  ARCHITETTURA DEL MODULO
+ *  Questo foglio definisce esclusivamente la struttura spaziale, in stile
+ *  "documentazione" (sidebar fisse, contenuto a larghezza di lettura):
+ *   - CSS Grid a tutta altezza con sidebar a larghezza fissa e contenuto fluido;
+ *   - layout condizionale pilotato da body[data-depth]:
+ *       "multi" → 4 colonne (Cartelle | File | Contenuto | ToC);
+ *       "flat"  → 3 colonne (File | Contenuto | ToC), cartelle via;
+ *       "home"  → 1 colonna (intestazione + elenco sezioni);
+ *   - scroll verticale indipendente per ogni colonna;
+ *   - pannelli separati (Top Bar, colonne, Status Bar) distanziati da --gap,
+ *     come le finestre di un emulatore di terminale moderno.
+ *  Le larghezze arrivano da gotomark.toml ([style]) come variabili CSS
+ *  (--sidebar-width, --folders-width, --toc-width, --content-width).
+ * ─────────────────────────────────────────────────────────────────────────────
+ */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+:root {
+  --topbar-h: 46px;
+  --statusbar-h: 26px;
+  --gap: 6px;
+}
+
+html, body { height: 100%; margin: 0; }
+body {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap);
+  padding: var(--gap);
+  overflow: hidden;
+}
+
+/* ─── Top Bar ─────────────────────────────────────────────────────────────── */
+.topbar {
+  position: relative;
+  z-index: 10;
+  flex: none;
+  height: var(--topbar-h);
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  padding: 0 0.55rem;
+}
+.brand { display: flex; align-items: center; padding: 0.3rem 0.7rem; text-decoration: none; flex: none; }
+.sections { display: flex; align-items: center; gap: 0.25rem; min-width: 0; overflow-x: auto; }
+.section-link {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.3rem 0.7rem;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.topbar-end { margin-left: auto; display: flex; align-items: center; gap: 0.75rem; flex: none; }
+.lang-switch { display: inline-flex; }
+.lang-link { padding: 0.15rem 0.5rem; text-decoration: none; }
+.build-info { padding: 0.15rem 0.45rem; }
+
+/* ─── Griglia principale ──────────────────────────────────────────────────── */
+.grid {
+  flex: 1 1 auto;
+  display: grid;
+  gap: var(--gap);
+  min-height: 0;
+}
+body[data-depth="home"]  .grid { grid-template-columns: minmax(0, 1fr); }
+body[data-depth="flat"]  .grid { grid-template-columns: var(--sidebar-width, 256px) minmax(0, 1fr) var(--toc-width, 232px); }
+body[data-depth="multi"] .grid { grid-template-columns: var(--folders-width, 224px) var(--sidebar-width, 256px) minmax(0, 1fr) var(--toc-width, 232px); }
+body[data-toc="off"][data-depth="flat"]  .grid { grid-template-columns: var(--sidebar-width, 256px) minmax(0, 1fr); }
+body[data-toc="off"][data-depth="multi"] .grid { grid-template-columns: var(--folders-width, 224px) var(--sidebar-width, 256px) minmax(0, 1fr); }
+body[data-toc="off"] .col-toc { display: none !important; }
+
+/* ─── Colonne e scroll indipendenti ───────────────────────────────────────── */
+.col-folders, .col-files, .col-content, .col-toc {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+}
+.col-head {
+  flex: none;
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 1rem 1rem 0.5rem;
+  min-width: 0;
+}
+.col-head-path { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; min-width: 0; }
+.col-scroll, .content-scroll {
+  flex: 1 1 auto;
+  min-height: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  padding: 0.25rem 0.6rem 3rem;
+}
+.content-scroll { padding: 2.25rem 3rem 6rem; scroll-behavior: smooth; }
+.content-inner { max-width: var(--content-width, 780px); margin: 0 auto; }
+.col-toc .col-scroll { padding: 0.25rem 1rem 3rem; }
+
+/* ─── Home ────────────────────────────────────────────────────────────────── */
+.content-scroll.home { padding: 4.5rem 2rem 6rem; }
+.home-hero, .home-list { max-width: 880px; margin-left: auto; margin-right: auto; }
+.home-hero { margin-bottom: 3rem; }
+.home-sections { list-style: none; margin: 0; padding: 0; }
+.home-section {
+  display: grid;
+  grid-template-columns: 2.5rem minmax(0, 1fr) auto auto 1.5rem;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 0.95rem 0.75rem;
+  text-decoration: none;
+}
+.home-arrow { text-align: right; }
+
+/* ─── Liste file / indici ─────────────────────────────────────────────────── */
+.file-list { list-style: none; margin: 0; padding: 0; }
+.file-list li + li { margin-top: 1px; }
+.file-link { display: block; padding: 0.4rem 0.6rem; text-decoration: none; }
+.file-name, .file-path { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.file-empty { padding: 0.4rem 0.6rem; }
+
+.page-head { margin-bottom: 2rem; }
+.page-meta { display: flex; flex-wrap: wrap; gap: 0.35rem 1rem; margin-top: 0.75rem; }
+.page-notice { margin: -0.75rem 0 2rem; padding: 0.65rem 0.9rem; }
+
+.index-folders, .index-files { margin: 2rem 0; }
+.index-folders ul, .index-files ul { list-style: none; margin: 0; padding: 0; }
+.index-folders a, .index-files a {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.6rem 0.75rem;
+  text-decoration: none;
+}
+.idx-path { flex: none; }
+.index-label { margin-bottom: 0.6rem; }
+
+/* ─── Albero cartelle ─────────────────────────────────────────────────────── */
+.tree, .tree ul, .toc-tree, .toc-tree ul { list-style: none; margin: 0; padding: 0; }
+.tree-root { display: block; padding: 0.3rem 0.5rem; margin-bottom: 0.15rem; text-decoration: none; }
+.tree ul { margin-left: 0.95rem; padding-left: 0.35rem; }
+.tree-node > ul { display: none; }
+.tree-node.open > ul { display: block; }
+.tree-row { display: flex; align-items: center; gap: 0.1rem; }
+.tree-toggle, .tree-leaf {
+  flex: none;
+  width: 1.15rem;
+  height: 1.15rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  margin: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+}
+.tree-leaf { cursor: default; }
+.tree-folder {
+  flex: 1 1 auto;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.4rem;
+  padding: 0.28rem 0.45rem;
+  text-decoration: none;
+}
+.tree-name { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+/* ─── ToC: binario verticale + rientro per livello (--ind) ─────────────────── */
+.toc-tree { --ind: 0.7rem; }
+.toc-tree ul { --ind: 1.45rem; }
+.toc-tree ul ul { --ind: 2.2rem; }
+.toc-tree li { position: relative; }
+.toc-tree li + li, .toc-tree ul { padding-top: 2px; }
+.toc-tree a {
+  position: relative;
+  display: block;
+  margin-left: var(--ind);
+  padding: 0.22rem 0.5rem;
+  text-decoration: none;
+}
+/* bombatura sul binario: centrata sulla linea, larghezza per livello */
+.toc-tree a::before {
+  content: "";
+  position: absolute;
+  left: calc(-1 * var(--ind) - 0.5px);
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* ─── Blocchi di codice ───────────────────────────────────────────────────── */
+.code-block { margin: 1.5rem 0; }
+.code-head { display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: 0.3rem 0.5rem 0.3rem 0.9rem; }
+.code-copy { padding: 0.1rem 0.45rem; cursor: pointer; }
+.code-block pre { margin: 0 !important; }
+.table-wrap { overflow-x: auto; }
+
+/* ─── Status Bar ──────────────────────────────────────────────────────────── */
+.statusbar {
+  flex: none;
+  height: var(--statusbar-h);
+  display: flex;
+  align-items: stretch;
+  white-space: nowrap;
+  overflow: hidden;
+}
+.statusbar > span { display: flex; align-items: center; padding: 0 0.75rem; }
+.sb-path { min-width: 0; overflow: hidden; text-overflow: ellipsis; display: block !important; line-height: var(--statusbar-h); }
+.sb-spacer { flex: 1 1 auto; padding: 0 !important; }
+
+/* ─── Widget: contenitori geometrici (i colori sono in theme.css) ─────────── */
+.widget { margin: 1.75rem 0; }
+
+.w-kpi { display: grid; gap: 0.75rem; }
+.w-kpi-card { padding: 1rem 1.1rem; }
+.w-kpi-bar { position: relative; height: 4px; margin-top: 0.75rem; overflow: hidden; }
+.w-kpi-fill { height: 100%; }
+
+.w-timeline { list-style: none; margin: 0; padding: 0; }
+.w-timeline-vertical { padding-left: 1.5rem; margin-left: 0.4rem; }
+.w-timeline-item { position: relative; padding: 0.1rem 0 1.4rem; }
+.w-timeline-tags { margin-top: 0.55rem; }
+.w-tag { display: inline-block; padding: 0.05rem 0.45rem; margin: 0 0.35rem 0.3rem 0; }
+
+.w-chart { position: relative; height: 320px; padding: 1rem; }
+.w-lorenz { display: grid; gap: 0.75rem; }
+.w-lorenz-panel { min-width: 0; }
+.w-lorenz-title { padding: 0.35rem 0.6rem; }
+.w-lorenz-canvas { position: relative; overflow: hidden; }
+.w-lorenz-canvas canvas { display: block; }
+.w-lorenz-controls { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 0.6rem 1rem; align-items: end; padding: 0.75rem; }
+.w-lorenz-slider { display: grid; gap: 0.3rem; }
+.w-lorenz-slabel { display: flex; justify-content: space-between; gap: 0.5rem; }
+.w-lorenz-slider input { width: 100%; margin: 0; }
+.w-lorenz-buttons { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+.w-lorenz-btn { padding: 0.3rem 0.7rem; cursor: pointer; }
+.w-lorenz-stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 0.75rem; }
+.w-lorenz-stat { padding: 0.6rem 0.75rem; }
+.w-lorenz-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 0.75rem; }
+
+/* ─── Matematica (i delimitatori vengono resi da MathJax) ────────────────── */
+.math-inline { display: inline; }
+.math-display { display: block; margin: 1.25rem 0; overflow-x: auto; }
+
+/* ─── Schermi medi: la ToC scompare ───────────────────────────────────────── */
+@media (max-width: 1200px) {
+  body[data-depth="flat"]  .grid { grid-template-columns: var(--sidebar-width, 256px) minmax(0, 1fr); }
+  body[data-depth="multi"] .grid { grid-template-columns: var(--folders-width, 224px) var(--sidebar-width, 256px) minmax(0, 1fr); }
+  .col-toc { display: none !important; }
+  .content-scroll { padding: 2rem 2rem 5rem; }
+}
+
+/* ─── Schermi stretti: le colonne diventano sezioni impilate scrollabili ──── */
+@media (max-width: 900px) {
+  body { overflow: auto; height: auto; min-height: 100%; }
+  .topbar { flex-wrap: wrap; height: auto; gap: 0.4rem 1rem; padding: 0.5rem; }
+  .sections { flex-basis: 100%; order: 3; }
+  .grid { grid-template-columns: minmax(0, 1fr) !important; }
+  .statusbar { position: sticky; bottom: var(--gap); }
+  .col-folders, .col-files, .col-content, .col-toc { height: auto; overflow: visible; }
+  .col-scroll, .content-scroll { overflow: visible; }
+  .col-files .col-scroll, .col-folders .col-scroll { max-height: 240px; overflow-y: auto; }
+  .content-scroll, .content-scroll.home { padding: 1.75rem 1rem 4rem; }
+  .home-section { grid-template-columns: 2rem minmax(0, 1fr) 1.5rem; }
+  .home-path, .home-depth { display: none; }
+  .sb-item { display: none !important; }
+}

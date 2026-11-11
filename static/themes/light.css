@@ -1,0 +1,56 @@
+/*
+ * ─────────────────────────────────────────────────────────────────────────────
+ *  GOTOMARK THEME — light.css (default)
+ *  Pannelli color1 su cornice color2, box scuri color4, codice con i colori
+ *  del terminale.
+ *
+ *  Palette (nessun altro colore ammesso):
+ *    white #FFFFFF · color1 #CED3DE · color2 #969FB0 · color3 #6C7689
+ *    color4 #4D576A · color5 #2A2D35 · bg #1F2125
+ *
+ *  Questo file sovrascrive SOLO le variabili :root di theme.css.
+ * ─────────────────────────────────────────────────────────────────────────────
+ */
+:root {
+  --bg:           #CED3DE; /* color1 — sfondo */
+  --bg-alt:       #CED3DE; /* color1 — colonne laterali, status bar */
+  --surface:      #CED3DE; /* color1 — card dei widget */
+  --ink:          #1F2125; /* bg     — titoli, enfasi */
+  --text:         #2A2D35; /* color5 — testo dei paragrafi */
+  --gray:         #4D576A; /* color4 — testo secondario */
+  --gray-soft:    #6C7689; /* color3 — metadati, marcatori ## */
+  --line:         #969FB0; /* color2 — bordi */
+  --line-dash:    #969FB0; /* color2 */
+  --hover:        #CED3DE; /* color1 */
+  --frame:        #969FB0; /* color2 — cornice tra i pannelli */
+  --active-bg:    #4D576A; /* color4 — box scuri (marchio, sezione, voce attiva) */
+  --active-ink:   #FFFFFF; /* white */
+  --active-muted: #CED3DE; /* color1 */
+  --table-head:   #4D576A; /* color4 — intestazione tabelle (un po' meno scura del codice) */
+  --table-head-ink: #FFFFFF; /* white */
+  --heading:      #4D576A; /* color4 — titoli h1…h6 */
+  --top-active:   #2A2D35; /* color5 — box della barra in alto */
+  --file-active:  #6C7689; /* color3 — file attivo */
+  --toc-bg:       #CED3DE; /* color1 — pannello indice (chiaro) */
+  --toc-ink:      #1F2125; /* bg     — H1 */
+  --toc-text:     #2A2D35; /* color5 — H2 */
+  --toc-gray:     #4D576A; /* color4 — H3, intestazione */
+  --toc-soft:     #6C7689; /* color3 */
+  --toc-line:     #969FB0; /* color2 — binario */
+  --toc-active:   #969FB0; /* color2 — voce attiva: chiara, un gradino più scura */
+  --toc-active-ink: #1F2125; /* bg — testo sempre scuro */
+  --toc-active-muted: #2A2D35; /* color5 — testo secondario nella voce attiva */
+  --toc-bump:     #4D576A; /* color4 — bombatura della voce attiva */
+
+  --code-bg:      #2A2D35; /* color5 */
+  --code-head:    #2A2D35; /* color5 — separata dal corpo con un filo color4 */
+  --code-line:    #4D576A; /* color4 */
+  --code-ink:     #CED3DE; /* color1 — identificatori */
+  --code-strong:  #FFFFFF; /* white  — keyword (bold) */
+  --code-title:   #FFFFFF; /* white  — funzioni */
+  --code-number:  #FFFFFF; /* white  — numeri */
+  --code-type:    #969FB0; /* color2 — tipi (bold) */
+  --code-string:  #969FB0; /* color2 — stringhe */
+  --code-punct:   #6C7689; /* color3 — operatori */
+  --code-muted:   #6C7689; /* color3 — commenti (bold): color4 su color5 sarebbe illeggibile */
+}

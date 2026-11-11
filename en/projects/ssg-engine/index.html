@@ -1,0 +1,204 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Digital identity and computational knowledge base: résumé, projects and notes.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains&#43;Mono:wght@400;500;600;700;800&amp;family=IBM&#43;Plex&#43;Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <title>SSG Engine · Projects</title>
+  <link rel="alternate" hreflang="it" href="../../../it/projects/ssg-engine/index.html">
+  <link rel="stylesheet" href="../../../static/layout.css">
+  <link rel="stylesheet" href="../../../static/theme.css">
+  <link rel="stylesheet" href="../../../static/themes/light.css">
+  <style>:root { --mono:"JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;--sans:"IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;--font-body:var(--sans);--font-size:14px;--content-width:780px;--sidebar-width:256px;--folders-width:224px;--toc-width:232px;--radius:4px;--radius-sm:3px; }</style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+</head>
+<body data-depth="flat" data-theme="light" data-statusbar="on">
+
+  <header class="topbar">
+    <a class="brand" href="../../index.html">sergiopericolo</a>
+    <nav class="sections" aria-label="Sections">
+      
+      <a class="section-link" href="../../about/index.html">
+        <span class="section-idx">01</span>
+        <span class="section-title">About</span>
+      </a>
+      
+      <a class="section-link active" href="../../projects/index.html">
+        <span class="section-idx">02</span>
+        <span class="section-title">Projects</span>
+      </a>
+      
+      <a class="section-link" href="../../notes/index.html">
+        <span class="section-idx">03</span>
+        <span class="section-title">Notes</span>
+      </a>
+      
+    </nav>
+    <div class="topbar-end">
+      
+      <nav class="lang-switch" aria-label="Language">
+        <a class="lang-link" href="../../../it/projects/ssg-engine/index.html" hreflang="it" lang="it" title="Italiano" data-lang="it">it</a><a class="lang-link active" href="../../../en/projects/ssg-engine/index.html" hreflang="en" lang="en" title="English" data-lang="en" aria-current="true">en</a>
+      </nav>
+      
+      <span class="build-info">v1.0.0</span>
+    </div>
+  </header>
+
+  <main class="grid">
+
+    
+
+      
+
+      <aside class="col-files" aria-label="Files">
+        <div class="col-head">
+          <span>Files</span>
+          <span class="col-head-path">projects/</span>
+        </div>
+        <div class="col-scroll">
+          <ul class="file-list">
+            
+            <li>
+              <a class="file-link active" href="../ssg-engine/index.html">
+                <span class="file-name">SSG Engine</span>
+                <span class="file-path">ssg-engine.md</span>
+              </a>
+            </li>
+            
+          </ul>
+        </div>
+      </aside>
+
+      <section class="col-content" aria-label="sergiopericolo">
+        <div class="content-scroll" id="content">
+          <div class="content-inner">
+          
+            <div class="page-head">
+              <div class="page-crumb"><span class="crumb-home">~</span>/projects/ssg-engine.md</div>
+              <h1 class="page-title">SSG Engine</h1>
+              <div class="page-meta" data-page-meta><span class="meta-tag">en</span></div>
+            </div>
+            
+            <article class="page-body"><h1 id="ssg-engine">SSG Engine</h1>
+<h2 id="overview">Overview</h2>
+<p>Static generation engine with a subcommand-based CLI (<code>git</code> style), with no dependencies beyond Goldmark. Engine, workspace and output are fully separated and can be managed as independent Git repositories.</p>
+<h2 id="roadmap">Roadmap</h2>
+<pre><code class="language-widget-timeline">{
+  &quot;data&quot;: [
+    {
+      &quot;period&quot;: &quot;Phase 1&quot;,
+      &quot;title&quot;: &quot;Go engine and CLI&quot;,
+      &quot;description&quot;: &quot;Decoupled builder, MaxDepth walker, AST parser.&quot;,
+      &quot;tags&quot;: [&quot;Go&quot;, &quot;flag&quot;]
+    },
+    {
+      &quot;period&quot;: &quot;Phase 2&quot;,
+      &quot;title&quot;: &quot;Decoupled frontend&quot;,
+      &quot;description&quot;: &quot;Templates, 3/4-column layout and widget ecosystem.&quot;,
+      &quot;tags&quot;: [&quot;HTML&quot;, &quot;CSS&quot;, &quot;JS&quot;]
+    },
+    {
+      &quot;period&quot;: &quot;Phase 3&quot;,
+      &quot;title&quot;: &quot;Workspace and documentation&quot;,
+      &quot;description&quot;: &quot;Complete examples and documented architecture.&quot;,
+      &quot;tags&quot;: [&quot;Docs&quot;]
+    }
+  ],
+  &quot;config&quot;: { &quot;orientation&quot;: &quot;vertical&quot; }
+}
+</code></pre>
+<h2 id="metrics">Metrics</h2>
+<pre><code class="language-widget-kpi">{
+  &quot;data&quot;: [
+    { &quot;label&quot;: &quot;Generated pages&quot;, &quot;value&quot;: 128, &quot;target&quot;: 200 },
+    { &quot;label&quot;: &quot;Build time&quot;, &quot;value&quot;: 8, &quot;target&quot;: 50, &quot;unit&quot;: &quot;ms&quot; },
+    { &quot;label&quot;: &quot;Go dependencies&quot;, &quot;value&quot;: 1, &quot;target&quot;: 5 }
+  ],
+  &quot;config&quot;: { &quot;columns&quot;: 3 }
+}
+</code></pre>
+</article>
+          
+          </div>
+        </div>
+      </section>
+
+      <aside class="col-toc" aria-label="On this page">
+        <div class="col-head">On this page</div>
+        <div class="col-scroll">
+          
+            
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l1">
+    <a href="#ssg-engine">SSG Engine</a>
+    
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l2">
+    <a href="#overview">Overview</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#roadmap">Roadmap</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#metrics">Metrics</a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+</ul>
+
+          
+          
+        </div>
+      </aside>
+
+    
+  </main>
+
+  
+  <footer class="statusbar" aria-hidden="true">
+    <span class="sb-mode">READ</span>
+    <span class="sb-path">projects/ssg-engine.en.md</span>
+    <span class="sb-spacer"></span>
+    <span class="sb-item">en</span>
+    <span class="sb-item">utf-8</span>
+    <span class="sb-item">markdown</span>
+    <span class="sb-pos" data-scroll-pos>top</span>
+  </footer>
+  
+
+  <script>
+    window.GOTOMARK = {
+      lang: "en",
+      section: "projects",
+      i18n: { copy: "copy", copied: "copied", words: "words", minRead: "min read" }
+    };
+  </script>
+  <script src="../../../static/widgets.js"></script>
+  <script src="../../../static/widgets/kpi.js"></script>
+  <script src="../../../static/widgets/timeline.js"></script>
+  <script src="../../../static/widgets/chart.js"></script>
+  <script src="../../../static/widgets/lorenz.js"></script>
+  <script src="../../../static/engine.js"></script>
+  <script src="../../../static/ui.js"></script>
+</body>
+</html>
+
+
+
+

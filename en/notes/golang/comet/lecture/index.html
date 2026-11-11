@@ -1,0 +1,864 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Digital identity and computational knowledge base: résumé, projects and notes.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains&#43;Mono:wght@400;500;600;700;800&amp;family=IBM&#43;Plex&#43;Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <title>CoMet - Lecture 2: Dynamic Programming · Notes</title>
+  <link rel="alternate" hreflang="it" href="../../../../../it/notes/golang/comet/lecture/index.html">
+  <link rel="stylesheet" href="../../../../../static/layout.css">
+  <link rel="stylesheet" href="../../../../../static/theme.css">
+  <link rel="stylesheet" href="../../../../../static/themes/light.css">
+  <style>:root { --mono:"JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;--sans:"IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;--font-body:var(--sans);--font-size:14px;--content-width:780px;--sidebar-width:256px;--folders-width:224px;--toc-width:232px;--radius:4px;--radius-sm:3px; }</style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+</head>
+<body data-depth="multi" data-theme="light" data-statusbar="on">
+
+  <header class="topbar">
+    <a class="brand" href="../../../../index.html">sergiopericolo</a>
+    <nav class="sections" aria-label="Sections">
+      
+      <a class="section-link" href="../../../../about/index.html">
+        <span class="section-idx">01</span>
+        <span class="section-title">About</span>
+      </a>
+      
+      <a class="section-link" href="../../../../projects/index.html">
+        <span class="section-idx">02</span>
+        <span class="section-title">Projects</span>
+      </a>
+      
+      <a class="section-link active" href="../../../../notes/index.html">
+        <span class="section-idx">03</span>
+        <span class="section-title">Notes</span>
+      </a>
+      
+    </nav>
+    <div class="topbar-end">
+      
+      <nav class="lang-switch" aria-label="Language">
+        <a class="lang-link" href="../../../../../it/notes/golang/comet/lecture/index.html" hreflang="it" lang="it" title="Italiano" data-lang="it">it</a><a class="lang-link active" href="../../../../../en/notes/golang/comet/lecture/index.html" hreflang="en" lang="en" title="English" data-lang="en" aria-current="true">en</a>
+      </nav>
+      
+      <span class="build-info">v1.0.0</span>
+    </div>
+  </header>
+
+  <main class="grid">
+
+    
+
+      
+      <aside class="col-folders" aria-label="Folders">
+        <div class="col-head">Folders</div>
+        <div class="col-scroll">
+          <a class="tree-root" href="../../../index.html">~/notes/</a>
+          
+
+<ul class="tree">
+  
+  
+  <li class="tree-node" data-path="SIRVISUAL">
+    <div class="tree-row">
+      
+      <span class="tree-leaf" aria-hidden="true"></span>
+      
+      <a class="tree-folder" href="../../../SIRVISUAL/index.html">
+        <span class="tree-name">SIRVISUAL/</span>
+        <span class="tree-count">1</span>
+      </a>
+    </div>
+    
+  </li>
+  
+  
+  <li class="tree-node has-children open" data-path="golang">
+    <div class="tree-row">
+      
+      <button class="tree-toggle" type="button" aria-expanded="true" aria-label="golang"><span class="chev" aria-hidden="true"></span></button>
+      
+      <a class="tree-folder" href="../../../golang/index.html">
+        <span class="tree-name">golang/</span>
+        
+      </a>
+    </div>
+    
+      
+
+<ul class="tree">
+  
+  
+  <li class="tree-node open" data-path="golang/comet">
+    <div class="tree-row">
+      
+      <span class="tree-leaf" aria-hidden="true"></span>
+      
+      <a class="tree-folder active" href="../../../golang/comet/index.html">
+        <span class="tree-name">comet/</span>
+        <span class="tree-count">1</span>
+      </a>
+    </div>
+    
+  </li>
+  
+</ul>
+
+    
+  </li>
+  
+  
+  <li class="tree-node" data-path="systems">
+    <div class="tree-row">
+      
+      <span class="tree-leaf" aria-hidden="true"></span>
+      
+      <a class="tree-folder" href="../../../systems/index.html">
+        <span class="tree-name">systems/</span>
+        <span class="tree-count">1</span>
+      </a>
+    </div>
+    
+  </li>
+  
+  
+  <li class="tree-node has-children" data-path="theory">
+    <div class="tree-row">
+      
+      <button class="tree-toggle" type="button" aria-expanded="false" aria-label="theory"><span class="chev" aria-hidden="true"></span></button>
+      
+      <a class="tree-folder" href="../../../theory/index.html">
+        <span class="tree-name">theory/</span>
+        
+      </a>
+    </div>
+    
+      
+
+<ul class="tree">
+  
+  
+  <li class="tree-node" data-path="theory/DSA">
+    <div class="tree-row">
+      
+      <span class="tree-leaf" aria-hidden="true"></span>
+      
+      <a class="tree-folder" href="../../../theory/DSA/index.html">
+        <span class="tree-name">DSA/</span>
+        <span class="tree-count">1</span>
+      </a>
+    </div>
+    
+  </li>
+  
+</ul>
+
+    
+  </li>
+  
+</ul>
+
+        </div>
+      </aside>
+      
+
+      <aside class="col-files" aria-label="Files">
+        <div class="col-head">
+          <span>Files</span>
+          <span class="col-head-path">notes/golang/comet/</span>
+        </div>
+        <div class="col-scroll">
+          <ul class="file-list">
+            
+            <li>
+              <a class="file-link active" href="../../../golang/comet/lecture/index.html">
+                <span class="file-name">CoMet - Lecture 2: Dynamic Programming</span>
+                <span class="file-path">lecture.md</span>
+              </a>
+            </li>
+            
+          </ul>
+        </div>
+      </aside>
+
+      <section class="col-content" aria-label="sergiopericolo">
+        <div class="content-scroll" id="content">
+          <div class="content-inner">
+          
+            <div class="page-head">
+              <div class="page-crumb"><span class="crumb-home">~</span>/notes/golang/comet/lecture.md</div>
+              <h1 class="page-title">CoMet - Lecture 2: Dynamic Programming</h1>
+              <div class="page-meta" data-page-meta><span class="meta-tag">en</span></div>
+            </div>
+            
+            <article class="page-body"><h1 id="comet---lecture-2-dynamic-programming">CoMet - Lecture 2: Dynamic Programming</h1>
+<p><strong>Carlo FILIPPI</strong> | <a href="mailto:carlo.filippi@unibs.it">carlo.filippi@unibs.it</a><br>
+<strong>UNIVERSITY OF BRESCIA</strong> | Department of Economics and Management</p>
+<hr>
+<h2 id="outline">Outline</h2>
+<ul>
+<li><strong>[A] The Rod Cutting Problem</strong>
+<ul>
+<li><strong>[i]</strong> Serling Enterprises case</li>
+<li><strong>[ii]</strong> Recursive formula</li>
+<li><strong>[iii]</strong> Dynamic Programming algorithm</li>
+</ul>
+</li>
+<li><strong>[B] The Knapsack Problem</strong>
+<ul>
+<li><strong>[i]</strong> Paul Atreides' case</li>
+<li><strong>[ii]</strong> Recursive formula</li>
+<li><strong>[iii]</strong> Dynamic Programming algorithm</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="a-the-rod-cutting-problem">[A] The Rod Cutting Problem</h2>
+<h3 id="i-serling-enterprises-case">[i] Serling Enterprises case</h3>
+<p>Serling Enterprises buys long steel rods of length <span class="math math-inline">\(n\)</span> and cuts them into shorter rods, which it then sells.</p>
+<ul>
+<li>The shorter rods may take any integer length <span class="math math-inline">\(j = 1, 2, \dots, n\)</span></li>
+<li>A rod of length <span class="math math-inline">\(j\)</span> is sold at a price <span class="math math-inline">\(p_{j}\)</span></li>
+<li>Each cut is free</li>
+</ul>
+<p>Serling Enterprises wants to know the best way to cut up the long rods. We may call this the <strong>Rod Cutting Problem (RCP)</strong>.</p>
+<p>For example, let <span class="math math-inline">\(n = 4\)</span> and let the prices be defined as follows:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left"><span class="math math-inline">\(j\)</span></th>
+<th style="text-align:left">1</th>
+<th style="text-align:left">2</th>
+<th style="text-align:left">3</th>
+<th style="text-align:left">4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><span class="math math-inline">\(p_{j}\)</span></td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">5</td>
+<td style="text-align:left">8</td>
+<td style="text-align:left">9</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Questions:</strong></p>
+<ul>
+<li>In how many ways can we cut a rod of length 4?</li>
+<li>In this specific case, what is the maximum profit cutting pattern?</li>
+</ul>
+<p>Possible solutions (cutting patterns) when <span class="math math-inline">\(n = 4\)</span>:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Pattern A</th>
+<th style="text-align:left">Pattern B</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>(++++)</strong> = 9</td>
+<td style="text-align:left"><strong>(+)(+++)</strong> = 1 + 8 = 9</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>(++)(++)</strong> = 5 + 5 = 10</td>
+<td style="text-align:left"><strong>(+++)(+)</strong> = 8 + 1 = 9</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>(+)(+)(++)</strong> = 1 + 1 + 5 = 7</td>
+<td style="text-align:left"><strong>(+)(++)(+)</strong> = 1 + 5 + 1 = 7</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>(++)(+)(+)</strong> = 5 + 1 + 1 = 7</td>
+<td style="text-align:left"><strong>(+)(+)(+)(+)</strong> = 1 + 1 + 1 + 1 = 4</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="ii-recursive-formula-rcp">[ii] Recursive formula (RCP)</h3>
+<p>The search for an optimal solution can be set as a recursion:</p>
+<p><span class="math math-display">\[r_{n} = \max \{ p_{n}, r_{1} + r_{n-1}, r_{2} + r_{n-2}, \dots, r_{n-1} + r_{1} \}\]</span></p>
+<p>In other words, once we decide where to put the first cut, we have divided the problem into two subproblems, that can be solved using the same logic until a trivial problem <span class="math math-inline">\(r_{1}\)</span> is reached.</p>
+<blockquote>
+<p><strong>Optimal Substructure:</strong> Optimal solutions to a problem incorporate optimal solutions to related subproblems, which we may solve independently.</p>
+</blockquote>
+<p>An equivalent, but simpler, recursion is the following:</p>
+<p><span class="math math-display">\[r_{n} = \max_{1 \le j \le n} \{ p_{j} + r_{n-j} \} = \max \{ p_{1} + r_{n-1}; p_{2} + r_{n-2}; \dots; p_{n} + r_{0} \}\]</span></p>
+<p>Here, we decide the length <span class="math math-inline">\(j\)</span> of the first piece to be cut off on the left (and no further cut), and then we call recursively for the optimal decomposition of the piece of length <span class="math math-inline">\(n-j\)</span> on the right.</p>
+<p>We can understand how the recursion works by setting <span class="math math-inline">\(n=4\)</span>:</p>
+<ul>
+<li><span class="math math-inline">\(r_{4} = \max \{ p_{1} + r_{3}; p_{2} + r_{2}; p_{3} + r_{1}; p_{4} + r_{0} \}\)</span></li>
+<li><span class="math math-inline">\(r_{3} = \max \{ p_{1} + r_{2}; p_{2} + r_{1}; p_{3} + r_{0} \}\)</span></li>
+<li><span class="math math-inline">\(r_{2} = \max \{ p_{1} + r_{1}; p_{2} + r_{0} \}\)</span></li>
+<li><span class="math math-inline">\(r_{1} = p_{1} + r_{0}\)</span></li>
+<li><span class="math math-inline">\(r_{0} = 0\)</span></li>
+</ul>
+<p>To compute <span class="math math-inline">\(r_{n}\)</span> efficiently, it is convenient to compute all values of <span class="math math-inline">\(r_{j}\)</span> for all <span class="math math-inline">\(j = 0, 1, \dots, n\)</span> and for increasing values of <span class="math math-inline">\(j\)</span>. In this way, every value <span class="math math-inline">\(r_{j}\)</span> (i.e., every subproblem) is computed (solved) only once.</p>
+<p><strong>Algorithm (Profit Calculation):</strong></p>
+<ul>
+<li><strong>Step [1]:</strong> Initialize <span class="math math-inline">\(r = [r_{0}, r_{1}, \dots, r_{n-1}, r_{n}]\)</span>. Set <span class="math math-inline">\(r_{0} = 0\)</span> and <span class="math math-inline">\(j = 1\)</span>.</li>
+<li><strong>Step [2]:</strong> Compute <span class="math math-inline">\(r_{j} = \max \{ p_{1} + r_{j-1}; p_{2} + r_{j-2}; \dots; p_{j} + r_{0} \}\)</span>. Set <span class="math math-inline">\(j = j + 1\)</span>.</li>
+<li><strong>Step [3]:</strong> <code>if</code> <span class="math math-inline">\(j &gt; n\)</span> <code>then</code> return <span class="math math-inline">\(r_{n}\)</span> and <code>STOP</code>; <code>else</code> go to <code>Step [2]</code>.</li>
+</ul>
+<blockquote>
+<p><strong>EXERCISE 1:</strong> <em>Recursion for the RCP</em> (Notes space)</p>
+</blockquote>
+<hr>
+<h3 id="iii-dynamic-programming-for-the-rcp">[iii] Dynamic Programming for the RCP</h3>
+<p>The above algorithm finds the optimal profit, but it doesn't save the corresponding solution. To save the solution, we need another array <span class="math math-inline">\(s = [s_{0}, s_{1}, s_{2}, \dots, s_{n}]\)</span>.</p>
+<p>For all <span class="math math-inline">\(j = 0, 1, 2, \dots, n\)</span>, entry <span class="math math-inline">\(s_{j}\)</span> will be the size of the first piece cut from a rod of total length <span class="math math-inline">\(j\)</span> to get the optimal profit.</p>
+<p><strong>Solution reconstruction:</strong></p>
+<ul>
+<li>Let <span class="math math-inline">\(n = 5\)</span> and let <span class="math math-inline">\(s = [0, 1, 2, 3, 2, 2]\)</span></li>
+<li><span class="math math-inline">\(s_{5} = 2 \implies\)</span> a piece of length 2 must be cut; it remains a rod of length 3</li>
+<li><span class="math math-inline">\(s_{3} = 3 \implies\)</span> a piece of length 3 must be cut; it remains a rod of length 0</li>
+<li><strong>We are done.</strong></li>
+</ul>
+<p><strong>Revised Algorithm (with Solution Reconstruction):</strong></p>
+<ul>
+<li><strong>Step [1]:</strong> Initialize <span class="math math-inline">\(r = [r_{0}, r_{1}, \dots, r_{n}]\)</span> and <span class="math math-inline">\(s = [s_{0}, s_{1}, \dots, s_{n}]\)</span>. Set <span class="math math-inline">\(r_{0} = 0\)</span> and <span class="math math-inline">\(j = 1\)</span>.</li>
+<li><strong>Step [2]:</strong>
+<ul>
+<li>Compute <span class="math math-inline">\(r_{j} = \max \{ p_{1} + r_{j-1}; p_{2} + r_{j-2}; \dots; p_{j} + r_{0} \}\)</span></li>
+<li>Let <span class="math math-inline">\(i \in \{1, 2, \dots, j\}\)</span> be such that <span class="math math-inline">\(r_{j} = p_{i} + r_{j-i}\)</span></li>
+<li>Set <span class="math math-inline">\(s_{j} = i\)</span></li>
+<li>Set <span class="math math-inline">\(j = j + 1\)</span></li>
+</ul>
+</li>
+<li><strong>Step [3]:</strong> <code>if</code> <span class="math math-inline">\(j &gt; n\)</span> <code>then</code> return <span class="math math-inline">\(r_{n}\)</span> and <span class="math math-inline">\(s\)</span> and <code>STOP</code>; <code>else</code> go to <code>Step [2]</code>.</li>
+</ul>
+<blockquote>
+<p><strong>EXERCISE 2:</strong> <em>Recursion for the RCP</em> (Notes space)</p>
+</blockquote>
+<h4 id="running-time-rcp">Running Time (RCP)</h4>
+<p>Most of the work is done in Step 2. Step 2 sums <span class="math math-inline">\(j\)</span> pairs of numbers and executes a fixed number of additional elementary operations. Thus, the number of operations executed is proportional to:</p>
+<ul>
+<li><span class="math math-inline">\(1\)</span> when <span class="math math-inline">\(j=1\)</span></li>
+<li><span class="math math-inline">\(2\)</span> when <span class="math math-inline">\(j=2\)</span></li>
+<li><span class="math math-inline">\(\dots\)</span></li>
+<li><span class="math math-inline">\(n\)</span> when <span class="math math-inline">\(j=n\)</span></li>
+</ul>
+<p>The total number of operations is proportional to:</p>
+<p><span class="math math-display">\[1 + 2 + 3 + \dots + n = \frac{1}{2}n(n+1) = O(n^{2})\]</span></p>
+<p>The running time is <span class="math math-inline">\(O(n^{2})\)</span>.</p>
+<hr>
+<h2 id="b-the-knapsack-problem-kp">[B] The Knapsack Problem (KP)</h2>
+<h3 id="i-paul-atreides-problem">[i] Paul Atreides' problem</h3>
+<p>Paul Atreides must choose a few items to survive in the deadly desert of Arrakis (tent, water flask, food, ...). He has only a small bag and a few minutes before the Sardaukar arrive. Each item has a volume and a survival value; the bag has a capacity of 5 liters and cannot hold everything. How should Paul fill the bag to maximize the total survival value?</p>
+<p><strong>Data:</strong></p>
+<ul>
+<li>Let <span class="math math-inline">\(j = 1, \dots, n\)</span> be the available items</li>
+<li>Let <span class="math math-inline">\(p_{j}\)</span> be the value of item <span class="math math-inline">\(j\)</span>, and let <span class="math math-inline">\(v_{j}\)</span> be its volume <span class="math math-inline">\((j = 1, \dots, n)\)</span></li>
+<li>Let <span class="math math-inline">\(C\)</span> be the capacity of Paul's bag</li>
+</ul>
+<p><strong>Variables:</strong></p>
+<ul>
+<li>Let <span class="math math-inline">\(x_{j} = 1\)</span> if item <span class="math math-inline">\(j\)</span> is chosen, <span class="math math-inline">\(x_{j} = 0\)</span> otherwise <span class="math math-inline">\((j = 1, \dots, n)\)</span></li>
+</ul>
+<p><strong>Model:</strong></p>
+<p><span class="math math-display">\[\max \sum_{j=1}^{n} p_{j}x_{j}\]</span></p>
+<p><span class="math math-display">\[\text{s.t. } \sum_{j=1}^{n} v_{j}x_{j} \le C\]</span></p>
+<p><span class="math math-display">\[x_{j} \in \{0, 1\} \quad \text{for all } j = 1, \dots, n\]</span></p>
+<p>Assume Paul must choose among four items. Their values and volumes are as follows:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left"><span class="math math-inline">\(j\)</span></th>
+<th style="text-align:left">1</th>
+<th style="text-align:left">2</th>
+<th style="text-align:left">3</th>
+<th style="text-align:left">4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><span class="math math-inline">\(p_{j}\)</span></td>
+<td style="text-align:left">3</td>
+<td style="text-align:left">4</td>
+<td style="text-align:left">5</td>
+<td style="text-align:left">6</td>
+</tr>
+<tr>
+<td style="text-align:left"><span class="math math-inline">\(v_{j}\)</span></td>
+<td style="text-align:left">2</td>
+<td style="text-align:left">3</td>
+<td style="text-align:left">4</td>
+<td style="text-align:left">5</td>
+</tr>
+</tbody>
+</table>
+<p>Paul's problem can be formulated as:</p>
+<p><span class="math math-display">\[\max 3x_{1} + 4x_{2} + 5x_{3} + 6x_{4}\]</span></p>
+<p><span class="math math-display">\[\text{s.t. } 2x_{1} + 3x_{2} + 4x_{3} + 5x_{4} \le 5\]</span></p>
+<p><span class="math math-display">\[x_{j} \in \{0, 1\} \quad (j = 1, \dots, 4)\]</span></p>
+<p>As the Rod Cutting Problem (RCP), the Knapsack Problem (KP) has an <strong>optimal substructure</strong>: optimal solutions to a problem incorporate optimal solutions to related subproblems, which we may solve independently.</p>
+<p><strong>Differences between RCP and KP:</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Rod Cutting Problem (RCP)</th>
+<th style="text-align:left">Knapsack Problem (KP)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><span class="math math-inline">\(v_{j} = j = 1, 2, \dots, n\)</span></td>
+<td style="text-align:left"><span class="math math-inline">\(v_{j}\)</span>'s are specific integers</td>
+</tr>
+<tr>
+<td style="text-align:left">We can cut any number of pieces of length <span class="math math-inline">\(j\)</span></td>
+<td style="text-align:left">Every item <span class="math math-inline">\(j\)</span> can be loaded at most once</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>The first difference simplifies things in RCP.</li>
+<li>The second difference makes things more complicated in KP.</li>
+</ul>
+<hr>
+<h3 id="ii-subproblems-and-recursive-formula-kp">[ii] Subproblems and Recursive formula (KP)</h3>
+<p>The subproblems of a Knapsack Problem are obtained considering fewer item types and/or smaller knapsack capacity. For each pair of integers <span class="math math-inline">\(j, g\)</span> with <span class="math math-inline">\(0 \le j \le n\)</span> and <span class="math math-inline">\(0 \le g \le C\)</span>, let:</p>
+<p><span class="math math-display">\[f(g, j) = \max \sum_{i=1}^{j} p_{i}x_{i}\]</span></p>
+<p><span class="math math-display">\[\text{s.t. } \sum_{i=1}^{j} v_{i}x_{i} \le g\]</span></p>
+<p><span class="math math-display">\[x_{i} \in \{0, 1\} \quad \text{for all } i = 1, \dots, j\]</span></p>
+<p>The original problem is <span class="math math-inline">\(f(C, n)\)</span>.</p>
+<p>The subproblems can be solved by the following recursion:</p>
+<p><span class="math math-display">\[f(g, j) = \begin{cases} \max \{ p_{j} + f(g - v_{j}, j - 1), f(g, j - 1) \} &amp; \text{if } g - v_{j} \ge 0 \\ f(g, j - 1) &amp; \text{otherwise} \end{cases}\]</span></p>
+<ul>
+<li><span class="math math-inline">\(p_{j} + f(g - v_{j}, j - 1) \rightarrow\)</span> Item <span class="math math-inline">\(j\)</span> is selected</li>
+<li><span class="math math-inline">\(f(g, j - 1) \rightarrow\)</span> Item <span class="math math-inline">\(j\)</span> is not selected</li>
+</ul>
+<p><strong>Initial conditions:</strong></p>
+<ul>
+<li><span class="math math-inline">\(f(g, 0) = 0\)</span> for all <span class="math math-inline">\(g = 0, 1, \dots, C\)</span></li>
+<li><span class="math math-inline">\(f(0, j) = 0\)</span> for all <span class="math math-inline">\(j = 0, 1, \dots, n\)</span></li>
+</ul>
+<hr>
+<h3 id="iii-dynamic-programming-for-the-kp">[iii] Dynamic Programming for the KP</h3>
+<p>Every time the iteration step is run:</p>
+<ul>
+<li><strong>Condition A:</strong> <code>if</code> <span class="math math-inline">\(f(g, j) = p_{j} + f(g - v_{j}, j - 1)\)</span> <span class="math math-inline">\(\implies\)</span> item <span class="math math-inline">\(j\)</span> is included in the solution (we <strong>MARK</strong> entry <span class="math math-inline">\(f(g, j)\)</span>).</li>
+<li><strong>Condition B:</strong> <code>if</code> <span class="math math-inline">\(f(g, j) &gt; p_{j} + f(g - v_{j}, j - 1)\)</span> <span class="math math-inline">\(\implies\)</span> item <span class="math math-inline">\(j\)</span> is not included.</li>
+</ul>
+<p><strong>DP Algorithm (Forward Phase):</strong></p>
+<ul>
+<li><strong>Step [1] (Initialization):</strong>
+<ul>
+<li>Initialize <span class="math math-inline">\(f = [f(g, j): 0 \le g \le C, 0 \le j \le n]\)</span></li>
+<li>Set <span class="math math-inline">\(f(g, 0) = 0\)</span> for all <span class="math math-inline">\(g = 0, 1, \dots, C\)</span> and <span class="math math-inline">\(f(0, j) = 0\)</span> for all <span class="math math-inline">\(j = 1, 2, \dots, n\)</span></li>
+<li>Set <span class="math math-inline">\(j = 1\)</span> and <span class="math math-inline">\(g = 1\)</span></li>
+</ul>
+</li>
+<li><strong>Step [2] (Iteration):</strong>
+<ul>
+<li><code>if</code> <span class="math math-inline">\(g - v_{j} \ge 0\)</span> <code>then</code> <span class="math math-inline">\(f(g, j) = \max \{ p_{j} + f(g - v_{j}, j - 1); f(g, j - 1) \}\)</span>. If <span class="math math-inline">\(f(g, j) = p_{j} + f(g - v_{j}, j - 1)\)</span>, <strong>MARK</strong> <span class="math math-inline">\(f(g, j)\)</span>.</li>
+<li><code>else</code> <span class="math math-inline">\(f(g, j) = f(g, j - 1)\)</span></li>
+<li>Set <span class="math math-inline">\(g = g + 1\)</span></li>
+</ul>
+</li>
+<li><strong>Step [3] (End of column <span class="math math-inline">\(j\)</span>):</strong>
+<ul>
+<li><code>if</code> <span class="math math-inline">\(g \le C\)</span> <code>then</code> go to <code>Step [2]</code></li>
+<li><code>else</code> set <span class="math math-inline">\(j = j + 1\)</span> and continue</li>
+</ul>
+</li>
+<li><strong>Step [4] (End of all columns):</strong>
+<ul>
+<li><code>if</code> <span class="math math-inline">\(j \le n\)</span> <code>then</code> set <span class="math math-inline">\(g = 1\)</span> and go to <code>Step [2]</code></li>
+<li><code>else</code> return <span class="math math-inline">\(f(C, n)\)</span> and <code>STOP</code></li>
+</ul>
+</li>
+</ul>
+<p>The computations can be arranged on a table of dimensions <span class="math math-inline">\((C + 1) \times (n + 1)\)</span>:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left"><span class="math math-inline">\(f(g,j)\)</span></th>
+<th style="text-align:left">0</th>
+<th style="text-align:left"><span class="math math-inline">\(\dots\)</span></th>
+<th style="text-align:left"><span class="math math-inline">\(j-1\)</span></th>
+<th style="text-align:left"><span class="math math-inline">\(j\)</span></th>
+<th style="text-align:left"><span class="math math-inline">\(\dots\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>0</strong></td>
+<td style="text-align:left">0</td>
+<td style="text-align:left"><span class="math math-inline">\(\dots\)</span></td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left"><span class="math math-inline">\(\dots\)</span></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><span class="math math-inline">\(\vdots\)</span></strong></td>
+<td style="text-align:left"><span class="math math-inline">\(\vdots\)</span></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><span class="math math-inline">\(g - v_{j}\)</span></strong></td>
+<td style="text-align:left">0</td>
+<td style="text-align:left"><span class="math math-inline">\(\dots\)</span></td>
+<td style="text-align:left"><span class="math math-inline">\(f(g - v_{j}, j - 1)\)</span> <code>[2]</code></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"><span class="math math-inline">\(\dots\)</span></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><span class="math math-inline">\(\vdots\)</span></strong></td>
+<td style="text-align:left"><span class="math math-inline">\(\vdots\)</span></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><span class="math math-inline">\(g\)</span></strong></td>
+<td style="text-align:left">0</td>
+<td style="text-align:left"><span class="math math-inline">\(\dots\)</span></td>
+<td style="text-align:left"><span class="math math-inline">\(f(g, j - 1)\)</span> <code>[3]</code></td>
+<td style="text-align:left"><span class="math math-inline">\(f(g, j)\)</span> <code>[1]</code></td>
+<td style="text-align:left"><span class="math math-inline">\(\dots\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Where <code>[1]</code> <span class="math math-inline">\(= \max \{ p_{j} +\)</span> <code>[2]</code> <span class="math math-inline">\(;\)</span> <code>[3]</code> <span class="math math-inline">\(\}\)</span>.</p>
+<h4 id="reconstructing-a-solution-backward-phase">Reconstructing a Solution (Backward Phase)</h4>
+<p>In the end, the bottom-right corner of the DP table contains <span class="math math-inline">\(f(C, n)\)</span>, i.e., the optimal knapsack value. The following procedure reconstructs the optimal subset <span class="math math-inline">\(S\)</span> of items using the marked entries:</p>
+<ul>
+<li><strong>Step [5] (Initialization):</strong> Set <span class="math math-inline">\(g = C\)</span>, <span class="math math-inline">\(j = n\)</span>, and <span class="math math-inline">\(S = \emptyset\)</span>.</li>
+<li><strong>Step [6] (Termination):</strong> <code>if</code> <span class="math math-inline">\(g = 0\)</span> or <span class="math math-inline">\(j = 0\)</span> <code>then</code> return <span class="math math-inline">\(S\)</span> and <code>STOP</code>; <code>else</code> continue.</li>
+<li><strong>Step [7] (Iteration):</strong> <code>if</code> <span class="math math-inline">\(f(g, j)\)</span> is marked <code>then</code> set <span class="math math-inline">\(S = S \cup \{j\}\)</span> and <span class="math math-inline">\(g = g - v_{j}\)</span>; <code>else</code> continue.</li>
+<li><strong>Step [8] (Column update):</strong> Set <span class="math math-inline">\(j = j - 1\)</span> and go to <code>Step [6]</code>.</li>
+</ul>
+<h4 id="running-time-and-observations-kp">Running Time and Observations (KP)</h4>
+<ul>
+<li><strong>Step 1:</strong> Creates an array with <span class="math math-inline">\((C + 1) \times (n + 1)\)</span> entries.</li>
+<li><strong>Step 2 - Step 4:</strong> Fixed number of elementary operations executed <span class="math math-inline">\(n \times C\)</span> times.</li>
+<li><strong>Step 5 - Step 8:</strong> Fixed number of elementary operations executed at most <span class="math math-inline">\(n + C\)</span> times.</li>
+</ul>
+<p>The total number of elementary operations is proportional to <span class="math math-inline">\(C \times n\)</span>. The running time of the algorithm is <span class="math math-inline">\(O(nC)\)</span>, which in general is <strong>not polynomial in the input size</strong> (pseudopolynomial).</p>
+<blockquote>
+<p><strong>Observation:</strong> By construction, when solving a KP instance with <span class="math math-inline">\(n\)</span> items and capacity <span class="math math-inline">\(C\)</span> using Dynamic Programming, we simultaneously solve all instances with the first <span class="math math-inline">\(j\)</span> items and capacity <span class="math math-inline">\(g\)</span> where <span class="math math-inline">\(0 \le j \le n\)</span> and <span class="math math-inline">\(0 \le g \le C\)</span>.</p>
+</blockquote>
+<blockquote>
+<p><strong>EXERCISE 1:</strong> <em>Lara Croft's problem</em> (Notes space)<br>
+<strong>EXERCISE 2:</strong> <em>DP for the KP</em> (Notes space)</p>
+</blockquote>
+<hr>
+<h2 id="conclusion">Conclusion</h2>
+<p>Solving a KP with <span class="math math-inline">\(n\)</span> items and capacity <span class="math math-inline">\(C\)</span> using Dynamic Programming requires:</p>
+<ul>
+<li>Building a matrix with <span class="math math-inline">\(C + 1\)</span> rows and <span class="math math-inline">\(n + 1\)</span> columns</li>
+<li>Performing a constant number of elementary operations for each cell</li>
+<li><strong>Time complexity:</strong> Pseudopolynomial <span class="math math-inline">\(O(nC)\)</span></li>
+</ul>
+<p>The Knapsack Problem remains computationally hard in general, which explains the importance of heuristic approaches. Dynamic Programming is a general algorithmic idea that can be applied to many problems, including stochastic ones.</p>
+<h1 id="manifesto-of-monochrome-typographic-architecture">Manifesto of Monochrome Typographic Architecture</h1>
+<p>Designing a technical editorial system requires the systematic subtraction of every superfluous decorative element. When color is removed from the visual equation, the information hierarchy must rest exclusively on geometric proportion, on the luminous contrast between ink and surface, and on the structural tension between solids and voids. This first paragraph shows how text, kept at a small size and with very tight leading, forms a compact, dense rectangle on ivory paper, recalling the aesthetics of twentieth-century Swiss engineering manuals.</p>
+<p>Breaking the line in the Markdown source produces a clean spatial caesura. The vertical void between this block and the previous one is not a simple margin, but a deliberate cognitive pause that separates two distinct logical units (just like in a <em>Zettelkasten</em><!-- raw HTML omitted -->[01]<!-- raw HTML omitted --> system). Within the textual fabric, the eye immediately tells <strong>high-contrast structural emphasis</strong> apart from the <em>thinner editorial italic</em>, just as it recognizes inline technical elements such as the command <code>gotomark --build --strict</code> or the key sequence <!-- raw HTML omitted -->Ctrl<!-- raw HTML omitted --> + <!-- raw HTML omitted -->W<!-- raw HTML omitted --> + <!-- raw HTML omitted -->v<!-- raw HTML omitted -->, without ever breaking the horizontal rhythm of reading.</p>
+<h2 id="01-weight-tension-and-hierarchy-h2-light-300">01. Weight Tension and Hierarchy (H2 Light 300)</h2>
+<p>While the main title (<code>H1</code>) anchors the page with monumental weight, this second level (<code>H2</code>) works by subtraction, using an ultra-thin <em>Light</em> weight resting on a single-pixel horizontal rule. The contrast between extreme weights replaces the banal use of giant sizes or saturated colors, letting the page architecture breathe and keep an absolute minimal rigor.</p>
+<h3 id="11-indexing-subsystem-h3-bold-700">1.1. Indexing Subsystem (H3 Bold 700)</h3>
+<p>Going down to the third level, the typography becomes solid, compact and decisive again. Here we define the operating rules of the static engine through a <a href="#">minimal hyperlink</a> that shows how links blend silently into the text with a thin dashed line, becoming continuous only on hover.</p>
+<h4 id="system-parameter-specification-h4-medium-caps">SYSTEM PARAMETER SPECIFICATION (H4 MEDIUM CAPS)</h4>
+<p>The fourth level abandons the size scale and works entirely on extreme uppercase <em>letter-spacing</em>. It is designed to introduce technical lists or protocol specifications:</p>
+<ol>
+<li><strong>AST Parser Initialization</strong>: sequential reading of the source files in the root directory and construction of the abstract syntax tree without redundant memory allocations.</li>
+<li><strong>Zettelkasten Graph Resolution</strong>: mapping of cross-references between document nodes and integrity check of relative paths.</li>
+<li><strong>Static Serialization</strong>: generation of pure HTML output, free of superfluous JavaScript runtimes, ready to be deployed on edge infrastructure.</li>
+</ol>
+<h5 id="secondary-node-configuration-h5-regular">Secondary Node Configuration (H5 Regular)</h5>
+<p>Unordered lists follow the same vertical compression too: individual items sit close together, but the whole list block keeps a strict distance from the next paragraph.</p>
+<ul>
+<li>Complete isolation of geometry (<code>layout.css</code>) from pure aesthetics (<code>theme.css</code>).</li>
+<li>Total removal of <code>border-radius</code> and <code>box-shadow</code> from every single DOM node.</li>
+<li>Exclusive use of <code>JetBrains Mono</code> for the perimeter infrastructure and <code>Helvetica Neue</code> for the reading body.</li>
+</ul>
+<h6 id="-001a--control-micro-metadata-h6-mono">// 001.A — CONTROL MICRO-METADATA (H6 MONO)</h6>
+<blockquote>
+<p>Design perfection is reached not when there is nothing left to add, but when there is no superstructure left to remove. On a monochrome page, even a single off-axis pixel or an artificial shadow becomes unacceptable visual noise.</p>
+<p>This quote uses no filler backgrounds or ornamental glyphs: it is reduced to a surgical 1px vertical cut on the left and a light typographic weight, keeping the block's strict justification.</p>
+</blockquote>
+<hr>
+<h2 id="02-code-monolith-and-neovim-syntax-h2-light-300">02. Code Monolith and Neovim Syntax (H2 Light 300)</h2>
+<p>The following block tests the deliberate integration of your <strong>Ghostty / Neovim</strong> palette within the ivory document. Notice how comments are dark but <strong>bold</strong> (<code>color4</code> + <code>bold</code>), keywords and booleans shine in pure white (<code>white</code> + <code>bold</code>), functions and numbers stand out through brightness without bold, while strings, types and operators spread over the intermediate slate-gray tones (<code>color1</code>, <code>color2</code>, <code>color3</code>).</p>
+<pre><code class="language-go">// =========================================================================
+// GOTOMARK ENGINE — Static Renderer &amp; AST Pipeline
+// Comments use --code-c4 (#50545D) in BOLD, faithful to your init.lua
+// =========================================================================
+
+package engine
+
+import (
+	&quot;bytes&quot;
+	&quot;context&quot;
+	&quot;fmt&quot;
+	&quot;regexp&quot;
+)
+
+// MaxDepth defines the recursion limit of the Zettelkasten tree
+const MaxDepth int = 64
+
+var validSlugRegex = regexp.MustCompile(`^[a-z0-9]+(?:-[a-z0-9]+)*$`)
+
+// DocumentNode represents a single atomic unit of knowledge
+type DocumentNode struct {
+	ID       string            `json:&quot;id&quot;`
+	Title    string            `json:&quot;title&quot;`
+	RawBytes []byte            `json:&quot;-&quot;`
+	Metadata map[string]string `json:&quot;meta&quot;`
+	Published bool             `json:&quot;published&quot;`
+	Weight   float64           `json:&quot;weight&quot;`
+}
+
+// Compile turns the Markdown node into a minimal HTML fragment
+func (n *DocumentNode) Compile(ctx context.Context, strictMode bool) (string, error) {
+	if !n.Published &amp;&amp; strictMode {
+		return &quot;&quot;, fmt.Errorf(&quot;compile aborted: node %q is unpublished\n&quot;, n.ID)
+	}
+
+	var buf bytes.Buffer
+	const headerTpl = &quot;&lt;article data-node=\&quot;%s\&quot; data-weight=\&quot;%.2f\&quot;&gt;\n&quot;
+
+	for idx := 0; idx &lt; len(n.RawBytes); idx++ {
+		b := n.RawBytes[idx]
+		if b == 0x00 {
+			continue
+		}
+		buf.WriteByte(b)
+	}
+
+	result := fmt.Sprintf(headerTpl, n.ID, 1.05) + buf.String() + &quot;\n&lt;/article&gt;&quot;
+	return result, nil
+}
+</code></pre>
+<hr>
+<h2 id="03-data-matrix-without-vertical-grids-h2-light-300">03. Data Matrix Without Vertical Grids (H2 Light 300)</h2>
+<p>Tables drop the &quot;spreadsheet&quot; effect by removing all vertical borders and background fills. Only the thin horizontal rules remain, guiding the eye along the rows of technical data.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Syntax Token</th>
+<th style="text-align:left">CSS Variable</th>
+<th style="text-align:left">Hex Reference</th>
+<th style="text-align:left">Weight</th>
+<th style="text-align:left">Visual Role in the Code Block</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>Keyword</code> / <code>Boolean</code></td>
+<td style="text-align:left"><code>--code-white</code></td>
+<td style="text-align:left"><code>#F7F6F2</code></td>
+<td style="text-align:left"><code>700 (Bold)</code></td>
+<td style="text-align:left">Primary anchor with very high brightness</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>Function</code> / <code>Number</code></td>
+<td style="text-align:left"><code>--code-white</code></td>
+<td style="text-align:left"><code>#F7F6F2</code></td>
+<td style="text-align:left"><code>400 (Normal)</code></td>
+<td style="text-align:left">Pure luminous emphasis without weight</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>Identifier</code> / <code>Var</code></td>
+<td style="text-align:left"><code>--code-c1</code></td>
+<td style="text-align:left"><code>#D2D4D9</code></td>
+<td style="text-align:left"><code>400 (Normal)</code></td>
+<td style="text-align:left">Main body of the source code</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>Type</code> / <code>Constant</code></td>
+<td style="text-align:left"><code>--code-c2</code></td>
+<td style="text-align:left"><code>#9CA0A9</code></td>
+<td style="text-align:left"><code>700 (Bold)</code></td>
+<td style="text-align:left">Second-level typed structure</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>String</code> / <code>Attr</code></td>
+<td style="text-align:left"><code>--code-c2</code></td>
+<td style="text-align:left"><code>#9CA0A9</code></td>
+<td style="text-align:left"><code>400 (Normal)</code></td>
+<td style="text-align:left">Soft literals and static values</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>Operator</code> / <code>Punct</code></td>
+<td style="text-align:left"><code>--code-c3</code></td>
+<td style="text-align:left"><code>#70757F</code></td>
+<td style="text-align:left"><code>400 (Normal)</code></td>
+<td style="text-align:left">Syntactic connectors and delimiters</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>Comment</code></td>
+<td style="text-align:left"><code>--code-c4</code></td>
+<td style="text-align:left"><code>#50545D</code></td>
+<td style="text-align:left"><code>700 (Bold)</code></td>
+<td style="text-align:left">Low luminous contrast but solid in weight</td>
+</tr>
+</tbody>
+</table>
+<p>This closing paragraph ends the test document by checking the behavior of the bottom margin after a table. If the rendering matches the specifications, the whole page will look like a technical plate engraved on ivory paper: rigorous, dense, free of chromatic distractions and faithful to your aesthetic.</p>
+</article>
+          
+          </div>
+        </div>
+      </section>
+
+      <aside class="col-toc" aria-label="On this page">
+        <div class="col-head">On this page</div>
+        <div class="col-scroll">
+          
+            
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l1">
+    <a href="#comet---lecture-2-dynamic-programming">CoMet - Lecture 2: Dynamic Programming</a>
+    
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l2">
+    <a href="#outline">Outline</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#a-the-rod-cutting-problem">[A] The Rod Cutting Problem</a>
+    
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l3">
+    <a href="#i-serling-enterprises-case">[i] Serling Enterprises case</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l3">
+    <a href="#ii-recursive-formula-rcp">[ii] Recursive formula (RCP)</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l3">
+    <a href="#iii-dynamic-programming-for-the-rcp">[iii] Dynamic Programming for the RCP</a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#b-the-knapsack-problem-kp">[B] The Knapsack Problem (KP)</a>
+    
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l3">
+    <a href="#i-paul-atreides-problem">[i] Paul Atreides&#39; problem</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l3">
+    <a href="#ii-subproblems-and-recursive-formula-kp">[ii] Subproblems and Recursive formula (KP)</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l3">
+    <a href="#iii-dynamic-programming-for-the-kp">[iii] Dynamic Programming for the KP</a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#conclusion">Conclusion</a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+  <li class="toc-item toc-l1">
+    <a href="#manifesto-of-monochrome-typographic-architecture">Manifesto of Monochrome Typographic Architecture</a>
+    
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l2">
+    <a href="#01-weight-tension-and-hierarchy-h2-light-300">01. Weight Tension and Hierarchy (H2 Light 300)</a>
+    
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l3">
+    <a href="#11-indexing-subsystem-h3-bold-700">1.1. Indexing Subsystem (H3 Bold 700)</a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#02-code-monolith-and-neovim-syntax-h2-light-300">02. Code Monolith and Neovim Syntax (H2 Light 300)</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#03-data-matrix-without-vertical-grids-h2-light-300">03. Data Matrix Without Vertical Grids (H2 Light 300)</a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+</ul>
+
+          
+          
+        </div>
+      </aside>
+
+    
+  </main>
+
+  
+  <footer class="statusbar" aria-hidden="true">
+    <span class="sb-mode">READ</span>
+    <span class="sb-path">notes/golang/comet/lecture.en.md</span>
+    <span class="sb-spacer"></span>
+    <span class="sb-item">en</span>
+    <span class="sb-item">utf-8</span>
+    <span class="sb-item">markdown</span>
+    <span class="sb-pos" data-scroll-pos>top</span>
+  </footer>
+  
+
+  <script>
+    window.GOTOMARK = {
+      lang: "en",
+      section: "notes",
+      i18n: { copy: "copy", copied: "copied", words: "words", minRead: "min read" }
+    };
+  </script>
+  <script src="../../../../../static/widgets.js"></script>
+  <script src="../../../../../static/widgets/kpi.js"></script>
+  <script src="../../../../../static/widgets/timeline.js"></script>
+  <script src="../../../../../static/widgets/chart.js"></script>
+  <script src="../../../../../static/widgets/lorenz.js"></script>
+  <script src="../../../../../static/engine.js"></script>
+  <script src="../../../../../static/ui.js"></script>
+</body>
+</html>
+
+
+
+

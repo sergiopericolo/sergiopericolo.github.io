@@ -1,0 +1,55 @@
+/*
+ * ─────────────────────────────────────────────────────────────────────────────
+ *  GOTOMARK THEME — dark.css
+ *  Il terminale stesso: pannelli color5 su cornice bg, testo color1.
+ *
+ *  Palette (nessun altro colore ammesso):
+ *    white #FFFFFF · color1 #CED3DE · color2 #969FB0 · color3 #6C7689
+ *    color4 #4D576A · color5 #2A2D35 · bg #1F2125
+ *
+ *  Questo file sovrascrive SOLO le variabili :root di theme.css.
+ * ─────────────────────────────────────────────────────────────────────────────
+ */
+:root {
+  --bg:           #2A2D35; /* color5 — pannelli */
+  --bg-alt:       #2A2D35; /* color5 */
+  --surface:      #2A2D35; /* color5 */
+  --ink:          #FFFFFF; /* white  — titoli */
+  --text:         #CED3DE; /* color1 — paragrafi */
+  --gray:         #969FB0; /* color2 */
+  --gray-soft:    #6C7689; /* color3 */
+  --line:         #4D576A; /* color4 */
+  --line-dash:    #4D576A; /* color4 */
+  --hover:        #1F2125; /* bg */
+  --frame:        #1F2125; /* bg     — cornice */
+  --active-bg:    #4D576A; /* color4 — box */
+  --active-ink:   #FFFFFF; /* white */
+  --active-muted: #CED3DE; /* color1 */
+  --table-head:   #1F2125; /* bg */
+  --table-head-ink: #FFFFFF; /* white */
+  --heading:      #969FB0; /* color2 — titoli (color4 sarebbe illeggibile su color5) */
+  --top-active:   #1F2125; /* bg     — box della barra in alto */
+  --file-active:  #6C7689; /* color3 — file attivo */
+  --toc-bg:       #2A2D35; /* color5 — come gli altri pannelli */
+  --toc-ink:      #FFFFFF; /* white */
+  --toc-text:     #CED3DE; /* color1 */
+  --toc-gray:     #969FB0; /* color2 */
+  --toc-soft:     #6C7689; /* color3 */
+  --toc-line:     #4D576A; /* color4 */
+  --toc-active:   #4D576A; /* color4 — voce attiva */
+  --toc-active-ink: #FFFFFF; /* white */
+  --toc-active-muted: #CED3DE; /* color1 */
+  --toc-bump:     #CED3DE; /* color1 */
+
+  --code-bg:      #1F2125; /* bg */
+  --code-head:    #1F2125; /* bg */
+  --code-line:    #4D576A; /* color4 */
+  --code-ink:     #CED3DE; /* color1 */
+  --code-strong:  #FFFFFF; /* white */
+  --code-title:   #FFFFFF; /* white */
+  --code-number:  #FFFFFF; /* white */
+  --code-type:    #969FB0; /* color2 */
+  --code-string:  #969FB0; /* color2 */
+  --code-punct:   #6C7689; /* color3 */
+  --code-muted:   #6C7689; /* color3 */
+}

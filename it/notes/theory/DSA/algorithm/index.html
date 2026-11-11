@@ -1,0 +1,1044 @@
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Identità digitale e knowledge base computazionale: CV, progetti e appunti.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains&#43;Mono:wght@400;500;600;700;800&amp;family=IBM&#43;Plex&#43;Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <title>Guida Completa alla Regressione Lineare: Dalla Teoria Matematica all&#39;Implementazione da Zero in Go · Appunti</title>
+  <link rel="alternate" hreflang="en" href="../../../../../en/notes/theory/DSA/algorithm/index.html">
+  <link rel="stylesheet" href="../../../../../static/layout.css">
+  <link rel="stylesheet" href="../../../../../static/theme.css">
+  <link rel="stylesheet" href="../../../../../static/themes/light.css">
+  <style>:root { --mono:"JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;--sans:"IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;--font-body:var(--sans);--font-size:14px;--content-width:780px;--sidebar-width:256px;--folders-width:224px;--toc-width:232px;--radius:4px;--radius-sm:3px; }</style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+</head>
+<body data-depth="multi" data-theme="light" data-statusbar="on">
+
+  <header class="topbar">
+    <a class="brand" href="../../../../index.html">sergiopericolo</a>
+    <nav class="sections" aria-label="Sezioni">
+      
+      <a class="section-link" href="../../../../about/index.html">
+        <span class="section-idx">01</span>
+        <span class="section-title">Chi sono</span>
+      </a>
+      
+      <a class="section-link" href="../../../../projects/index.html">
+        <span class="section-idx">02</span>
+        <span class="section-title">Progetti</span>
+      </a>
+      
+      <a class="section-link active" href="../../../../notes/index.html">
+        <span class="section-idx">03</span>
+        <span class="section-title">Appunti</span>
+      </a>
+      
+    </nav>
+    <div class="topbar-end">
+      
+      <nav class="lang-switch" aria-label="Lingua">
+        <a class="lang-link active" href="../../../../../it/notes/theory/DSA/algorithm/index.html" hreflang="it" lang="it" title="Italiano" data-lang="it" aria-current="true">it</a><a class="lang-link" href="../../../../../en/notes/theory/DSA/algorithm/index.html" hreflang="en" lang="en" title="English" data-lang="en">en</a>
+      </nav>
+      
+      <span class="build-info">v1.0.0</span>
+    </div>
+  </header>
+
+  <main class="grid">
+
+    
+
+      
+      <aside class="col-folders" aria-label="Cartelle">
+        <div class="col-head">Cartelle</div>
+        <div class="col-scroll">
+          <a class="tree-root" href="../../../index.html">~/notes/</a>
+          
+
+<ul class="tree">
+  
+  
+  <li class="tree-node" data-path="SIRVISUAL">
+    <div class="tree-row">
+      
+      <span class="tree-leaf" aria-hidden="true"></span>
+      
+      <a class="tree-folder" href="../../../SIRVISUAL/index.html">
+        <span class="tree-name">SIRVISUAL/</span>
+        <span class="tree-count">1</span>
+      </a>
+    </div>
+    
+  </li>
+  
+  
+  <li class="tree-node has-children" data-path="golang">
+    <div class="tree-row">
+      
+      <button class="tree-toggle" type="button" aria-expanded="false" aria-label="golang"><span class="chev" aria-hidden="true"></span></button>
+      
+      <a class="tree-folder" href="../../../golang/index.html">
+        <span class="tree-name">golang/</span>
+        
+      </a>
+    </div>
+    
+      
+
+<ul class="tree">
+  
+  
+  <li class="tree-node" data-path="golang/comet">
+    <div class="tree-row">
+      
+      <span class="tree-leaf" aria-hidden="true"></span>
+      
+      <a class="tree-folder" href="../../../golang/comet/index.html">
+        <span class="tree-name">comet/</span>
+        <span class="tree-count">1</span>
+      </a>
+    </div>
+    
+  </li>
+  
+</ul>
+
+    
+  </li>
+  
+  
+  <li class="tree-node" data-path="systems">
+    <div class="tree-row">
+      
+      <span class="tree-leaf" aria-hidden="true"></span>
+      
+      <a class="tree-folder" href="../../../systems/index.html">
+        <span class="tree-name">systems/</span>
+        <span class="tree-count">1</span>
+      </a>
+    </div>
+    
+  </li>
+  
+  
+  <li class="tree-node has-children open" data-path="theory">
+    <div class="tree-row">
+      
+      <button class="tree-toggle" type="button" aria-expanded="true" aria-label="theory"><span class="chev" aria-hidden="true"></span></button>
+      
+      <a class="tree-folder" href="../../../theory/index.html">
+        <span class="tree-name">theory/</span>
+        
+      </a>
+    </div>
+    
+      
+
+<ul class="tree">
+  
+  
+  <li class="tree-node open" data-path="theory/DSA">
+    <div class="tree-row">
+      
+      <span class="tree-leaf" aria-hidden="true"></span>
+      
+      <a class="tree-folder active" href="../../../theory/DSA/index.html">
+        <span class="tree-name">DSA/</span>
+        <span class="tree-count">1</span>
+      </a>
+    </div>
+    
+  </li>
+  
+</ul>
+
+    
+  </li>
+  
+</ul>
+
+        </div>
+      </aside>
+      
+
+      <aside class="col-files" aria-label="File">
+        <div class="col-head">
+          <span>File</span>
+          <span class="col-head-path">notes/theory/DSA/</span>
+        </div>
+        <div class="col-scroll">
+          <ul class="file-list">
+            
+            <li>
+              <a class="file-link active" href="../../../theory/DSA/algorithm/index.html">
+                <span class="file-name">Guida Completa alla Regressione Lineare: Dalla Teoria Matematica all&#39;Implementazione da Zero in Go</span>
+                <span class="file-path">algorithm.md</span>
+              </a>
+            </li>
+            
+          </ul>
+        </div>
+      </aside>
+
+      <section class="col-content" aria-label="sergiopericolo">
+        <div class="content-scroll" id="content">
+          <div class="content-inner">
+          
+            <div class="page-head">
+              <div class="page-crumb"><span class="crumb-home">~</span>/notes/theory/DSA/algorithm.md</div>
+              <h1 class="page-title">Guida Completa alla Regressione Lineare: Dalla Teoria Matematica all&#39;Implementazione da Zero in Go</h1>
+              <div class="page-meta" data-page-meta><span class="meta-tag">it</span></div>
+            </div>
+            
+            <article class="page-body"><h1 id="guida-completa-alla-regressione-lineare-dalla-teoria-matematica-allimplementazione-da-zero-in-go">Guida Completa alla Regressione Lineare: Dalla Teoria Matematica all'Implementazione da Zero in Go</h1>
+<hr>
+<h2 id="1-introduzione-e-filosofia-del-progetto">1. Introduzione e Filosofia del Progetto</h2>
+<p>La regressione lineare è spesso considerata l'&quot;Hello World&quot; dell'apprendimento automatico supervisionato. Tuttavia, ridurla a un banale esercizio di inserimento dati in una libreria precompilata (come <em>scikit-learn</em> in Python) impedisce di comprenderne i meccanismi profondi: l'ottimizzazione matematica, il bilanciamento tra complessità e convergenza e i vincoli fisici della macchina che esegue i calcoli.</p>
+<p>Questa guida è strutturata per chi desidera esplorare la frontiera tra <strong>modellazione quantitativa</strong> (statistica, algebra lineare, analisi matematica) e <strong>software engineering di sistema</strong> attraverso il linguaggio <strong>Go</strong> (Golang).</p>
+<p>Go rappresenta una scelta eccezionale per questo scopo didattico:</p>
+<ol>
+<li><strong>Linguaggio compilato e fortemente tipizzato</strong>: Elimina il &quot;magic typing&quot; dei linguaggi interpretati, costringendo lo sviluppatore a comprendere esattamente la dimensione dei dati e l'occupazione in memoria (<code>float64</code>, array, slice).</li>
+<li><strong>Nessun overhead di librerie esterne opache</strong>: Scriveremo l'algoritmo usando esclusivamente la libreria standard di Go (<code>math</code>, <code>math/rand</code>, <code>fmt</code>), costruendo da zero le strutture per la manipolazione algebrica e l'ottimizzazione numerica.</li>
+<li><strong>Efficienza e trasparenza nell'accesso alla memoria</strong>: La gestione esplicita dei puntatori e l'allocazione contigua delle slice permettono di vedere come l'algebra matriciale interagisce con la memoria del calcolatore.</li>
+</ol>
+<hr>
+<h2 id="2-fondamenti-teorici-e-matematici">2. Fondamenti Teorici e Matematici</h2>
+<h3 id="21-formulazione-del-problema">2.1 Formulazione del Problema</h3>
+<p>Nel contesto dell'apprendimento supervisionato continuo, consideriamo un dataset composto da <span class="math math-inline">\(m\)</span> osservazioni:
+<span class="math math-display">\[\mathcal{D} = \{ (\mathbf{x}^{(i)}, y^{(i)}) \}_{i=1}^m\]</span></p>
+<p>Dove:</p>
+<ul>
+<li><span class="math math-inline">\(\mathbf{x}^{(i)} \in \mathbb{R}^n\)</span> rappresenta il vettore delle caratteristiche (<em>features</em>) dell'<span class="math math-inline">\(i\)</span>-esima osservazione, con dimensione <span class="math math-inline">\(n\)</span>.</li>
+<li><span class="math math-inline">\(y^{(i)} \in \mathbb{R}\)</span> rappresenta la variabile bersaglio continua (<em>target</em> o <em>label</em>).</li>
+</ul>
+<p>L'obiettivo della <strong>Regressione Lineare Multipla</strong> consiste nel definire una funzione di ipotesi <span class="math math-inline">\(h_{\mathbf{\theta}}(\mathbf{x})\)</span> che approssimi la relazione lineare sottostante tra le feature e il target:</p>
+<p><span class="math math-display">\[h_{\mathbf{\theta}}(\mathbf{x}) = \theta_0 + \theta_1 x_1 + \theta_2 x_2 + \dots + \theta_n x_n\]</span></p>
+<p>Per semplificare l'algebra e la futura implementazione, introduciamo la convenzione dell'intercetta (<em>bias trick</em>): definiamo <span class="math math-inline">\(x_0 = 1\)</span>. In questo modo, possiamo esprimere l'ipotesi come prodotto scalare tra il vettore dei pesi esteso <span class="math math-inline">\(\mathbf{\theta} \in \mathbb{R}^{n+1}\)</span> e il vettore delle feature esteso <span class="math math-inline">\(\mathbf{x} \in \mathbb{R}^{n+1}\)</span>:</p>
+<p><span class="math math-display">\[\mathbf{\theta} = \begin{bmatrix} \theta_0 \\ \theta_1 \\ \vdots \\ \theta_n \end{bmatrix}, \quad \mathbf{x} = \begin{bmatrix} 1 \\ x_1 \\ \vdots \\ x_n \end{bmatrix}\]</span></p>
+<p><span class="math math-display">\[h_{\mathbf{\theta}}(\mathbf{x}) = \mathbf{\theta}^T \mathbf{x} = \sum_{j=0}^n \theta_j x_j\]</span></p>
+<p>Estendendo il formalismo all'intero dataset di <span class="math math-inline">\(m\)</span> campioni contemporaneamente, costruiamo la <strong>matrice di disegno</strong> (<em>Design Matrix</em>) <span class="math math-inline">\(\mathbf{X} \in \mathbb{R}^{m \times (n+1)}\)</span> e il vettore target <span class="math math-inline">\(\mathbf{y} \in \mathbb{R}^m\)</span>:</p>
+<p>$$\mathbf{X} = \begin{bmatrix}
+1 &amp; x_1^{(1)} &amp; x_2^{(1)} &amp; \dots &amp; x_n^{(1)} \
+1 &amp; x_1^{(2)} &amp; x_2^{(2)} &amp; \dots &amp; x_n^{(2)} \
+\vdots &amp; \vdots &amp; \vdots &amp; \ddots &amp; \vdots \
+1 &amp; x_1^{(m)} &amp; x_2^{(m)} &amp; \dots &amp; x_n^{(m)}
+\end{bmatrix}, \quad \mathbf{y} = \begin{bmatrix} y^{(1)} \ y^{(2)} \ \vdots \ y^{(m)} \end{bmatrix}$$</p>
+<p>Le previsioni del modello per l'intero insieme di dati possono essere scritte in forma compatta come:
+<span class="math math-display">\[\mathbf{\hat{y}} = \mathbf{X}\mathbf{\theta}\]</span></p>
+<hr>
+<h3 id="22-la-funzione-di-costo-errore-quadratico-medio-mse">2.2 La Funzione di Costo: Errore Quadratico Medio (MSE)</h3>
+<p>Per quantificare la discrepanza tra le previsioni del modello <span class="math math-inline">\(\mathbf{\hat{y}}\)</span> e i valori osservati reali <span class="math math-inline">\(\mathbf{y}\)</span>, definiamo una funzione di perdita (<em>Loss Function</em>). La metrica standard è l'<strong>Errore Quadratico Medio</strong> (<em>Mean Squared Error</em>, MSE), definito per l'intero dataset come:</p>
+<p><span class="math math-display">\[J(\mathbf{\theta}) = \frac{1}{2m} \sum_{i=1}^m \left( h_{\mathbf{\theta}}(\mathbf{x}^{(i)}) - y^{(i)} \right)^2\]</span></p>
+<p><em>Nota didattica sul fattore <span class="math math-inline">\(\frac{1}{2}\)</span></em>: Il denominatore include <span class="math math-inline">\(2m\)</span> anziché semplicemente <span class="math math-inline">\(m\)</span>. Questo accorgimento algebrico serve a semplificare il calcolo della derivata: quando deriveremo il termine quadratico esponenziale <span class="math math-inline">\(( \dots )^2\)</span>, il <span class="math math-inline">\(2\)</span> moltiplicativo cancellerà esattamente il <span class="math math-inline">\(\frac{1}{2}\)</span> al denominatore.</p>
+<p>In notazione matriciale compatta, sapendo che per un vettore generico <span class="math math-inline">\(\mathbf{v}\)</span> la norma quadratica al quadrato è <span class="math math-inline">\(\|\mathbf{v}\|^2 = \mathbf{v}^T \mathbf{v}\)</span>, la funzione di costo può essere riscritta come:</p>
+<p><span class="math math-display">\[J(\mathbf{\theta}) = \frac{1}{2m} (\mathbf{X}\mathbf{\theta} - \mathbf{y})^T (\mathbf{X}\mathbf{\theta} - \mathbf{y})\]</span></p>
+<p>Espandendo la forma bilineare:
+<span class="math math-display">\[J(\mathbf{\theta}) = \frac{1}{2m} \left( \mathbf{\theta}^T \mathbf{X}^T \mathbf{X} \mathbf{\theta} - 2 \mathbf{y}^T \mathbf{X} \mathbf{\theta} + \mathbf{y}^T \mathbf{y} \right)\]</span></p>
+<hr>
+<h3 id="23-risoluzione-del-problema-di-ottimizzazione">2.3 Risoluzione del Problema di Ottimizzazione</h3>
+<p>La funzione di costo <span class="math math-inline">\(J(\mathbf{\theta})\)</span> è una funzione convessa (una forma quadratica con matrice hessiana semidefinita positiva <span class="math math-inline">\(\nabla^2 J = \frac{1}{m}\mathbf{X}^T\mathbf{X}\)</span>). Ciò garantisce che qualsiasi minimo locale trovato sia rigorosamente un <strong>minimo globale</strong>.</p>
+<p>Esistono due metodologie cardinali per identificare il vettore <span class="math math-inline">\(\mathbf{\theta}^*\)</span> che minimizza <span class="math math-inline">\(J(\mathbf{\theta})\)</span>:</p>
+<ol>
+<li><strong>La Soluzione Analitica (Equazioni Normali)</strong>.</li>
+<li><strong>L'Ottimizzazione Iterativa (Discesa del Gradiente)</strong>.</li>
+</ol>
+<h4 id="metodo-1-le-equazioni-normali-soluzione-chiusa">Metodo 1: Le Equazioni Normali (Soluzione Chiusa)</h4>
+<p>Ponendo il gradiente analitico uguale a zero:
+<span class="math math-display">\[\nabla_{\mathbf{\theta}} J(\mathbf{\theta}) = \frac{1}{m} \mathbf{X}^T (\mathbf{X}\mathbf{\theta} - \mathbf{y}) = \mathbf{0}\]</span></p>
+<p>Riorganizzando i termini:
+<span class="math math-display">\[\mathbf{X}^T \mathbf{X} \mathbf{\theta} = \mathbf{X}^T \mathbf{y}\]</span></p>
+<p>Se la matrice simmetrica <span class="math math-inline">\(\mathbf{X}^T \mathbf{X} \in \mathbb{R}^{(n+1) \times (n+1)}\)</span> è non singolare (invertibile), la soluzione ottimale unica è:
+<span class="math math-display">\[\mathbf{\theta}^* = (\mathbf{X}^T \mathbf{X})^{-1} \mathbf{X}^T \mathbf{y}\]</span></p>
+<p><em>Limiti computazionali</em>: Il calcolo esplicito dell'inversa ha una complessità temporale di circa <span class="math math-inline">\(\mathcal{O}((n+1)^3)\)</span>. Quando il numero di feature <span class="math math-inline">\(n\)</span> supera decine di migliaia, l'inversione diretta satura la memoria e richiede un tempo di calcolo proibitivo.</p>
+<h4 id="metodo-2-batch-gradient-descent-discesa-del-gradiente">Metodo 2: Batch Gradient Descent (Discesa del Gradiente)</h4>
+<p>La discesa del gradiente è un algoritmo iterativo del prim'ordine. Partendo da un vettore dei pesi iniziale <span class="math math-inline">\(\mathbf{\theta}^{(0)}\)</span> (spesso inizializzato a zeri o con piccoli valori casuali), si aggiornano i parametri nella direzione opposta a quella di massima pendenza indicata dal gradiente:</p>
+<p><span class="math math-display">\[\mathbf{\theta} \leftarrow \mathbf{\theta} - \alpha \nabla_{\mathbf{\theta}} J(\mathbf{\theta})\]</span></p>
+<p>Dove <span class="math math-inline">\(\alpha &gt; 0\)</span> è un iperparametro cruciale chiamato <strong>tasso di apprendimento</strong> (<em>learning rate</em>).</p>
+<p>Calcoliamo esplicitamente la derivata parziale rispetto al singolo parametro <span class="math math-inline">\(\theta_j\)</span>:
+<span class="math math-display">\[\frac{\partial J(\mathbf{\theta})}{\partial \theta_j} = \frac{\partial}{\partial \theta_j} \left[ \frac{1}{2m} \sum_{i=1}^m \left( \sum_{k=0}^n \theta_k x_k^{(i)} - y^{(i)} \right)^2 \right]\]</span></p>
+<p>Applicando la regola della catena (<em>chain rule</em>):
+<span class="math math-display">\[\frac{\partial J(\mathbf{\theta})}{\partial \theta_j} = \frac{1}{m} \sum_{i=1}^m \left( h_{\mathbf{\theta}}(\mathbf{x}^{(i)}) - y^{(i)} \right) \cdot \frac{\partial}{\partial \theta_j} \left( \sum_{k=0}^n \theta_k x_k^{(i)} - y^{(i)} \right)\]</span></p>
+<p>Poiché la derivata del termine interno rispetto a <span class="math math-inline">\(\theta_j\)</span> è semplicemente <span class="math math-inline">\(x_j^{(i)}\)</span>, otteniamo:
+<span class="math math-display">\[\frac{\partial J(\mathbf{\theta})}{\partial \theta_j} = \frac{1}{m} \sum_{i=1}^m \left( h_{\mathbf{\theta}}(\mathbf{x}^{(i)}) - y^{(i)} \right) x_j^{(i)}\]</span></p>
+<p>In forma vettoriale:
+<span class="math math-display">\[\nabla_{\mathbf{\theta}} J(\mathbf{\theta}) = \frac{1}{m} \mathbf{X}^T (\mathbf{X}\mathbf{\theta} - \mathbf{y})\]</span></p>
+<p>La regola di aggiornamento vettoriale per ogni epoca <span class="math math-inline">\(t\)</span> è dunque:
+<span class="math math-display">\[\mathbf{\theta}^{(t+1)} = \mathbf{\theta}^{(t)} - \frac{\alpha}{m} \mathbf{X}^T (\mathbf{X}\mathbf{\theta}^{(t)} - \mathbf{y})\]</span></p>
+<hr>
+<h3 id="24-preprocessing-la-standardizzazione-delle-feature">2.4 Preprocessing: La Standardizzazione delle Feature</h3>
+<p>Se le feature presentano scale numeriche marcatamente disomogenee (ad esempio, una feature che varia nell'intervallo <span class="math math-inline">\([0, 1]\)</span> e un'altra che misura prezzi nell'intervallo <span class="math math-inline">\([10^4, 10^6]\)</span>), le curve di livello della funzione di costo <span class="math math-inline">\(J(\mathbf{\theta})\)</span> assumono una conformazione ellissoidale estremamente allungata. In questo scenario, il gradiente oscilla perpendicolarmente alla traiettoria ottima, rallentando drasticamente la convergenza o richiedendo un learning rate microscopico per evitare la divergenza.</p>
+<p>Per garantire superfici di costo sferiche e discese stabili, si applica la <strong>standardizzazione z-score</strong>:</p>
+<p><span class="math math-display">\[z_j^{(i)} = \frac{x_j^{(i)} - \mu_j}{\sigma_j}\]</span></p>
+<p>Dove:</p>
+<ul>
+<li><span class="math math-inline">\(\mu_j = \frac{1}{m} \sum_{i=1}^m x_j^{(i)}\)</span> è la media empirica della feature <span class="math math-inline">\(j\)</span>.</li>
+<li><span class="math math-inline">\(\sigma_j = \sqrt{\frac{1}{m} \sum_{i=1}^m (x_j^{(i)} - \mu_j)^2}\)</span> è la deviazione standard della feature <span class="math math-inline">\(j\)</span>.</li>
+</ul>
+<p><em>Regola ferrea di validazione</em>: I parametri <span class="math math-inline">\(\mu_j\)</span> e <span class="math math-inline">\(\sigma_j\)</span> devono essere calcolati <strong>esclusivamente sul training set</strong> e successivamente riutilizzati per trasformare il validation set, il test set o nuovi campioni in fase di inferenza, per evitare il fenomeno di <em>data leakage</em>.</p>
+<hr>
+<h3 id="25-metriche-di-valutazione">2.5 Metriche di Valutazione</h3>
+<p>Oltre al costo <span class="math math-inline">\(J(\mathbf{\theta})\)</span>, nella pratica si utilizzano metriche statistiche standardizzate e interpretabili:</p>
+<ol>
+<li>
+<p><strong>Mean Absolute Error (MAE)</strong>:
+<span class="math math-display">\[\text{MAE} = \frac{1}{m} \sum_{i=1}^m |y^{(i)} - \hat{y}^{(i)}|\]</span>
+Robusto agli outlier rispetto all'MSE, esprime l'errore medio nelle stesse unità di misura del target.</p>
+</li>
+<li>
+<p><strong>Root Mean Squared Error (RMSE)</strong>:
+<span class="math math-display">\[\text{RMSE} = \sqrt{\frac{1}{m} \sum_{i=1}^m (y^{(i)} - \hat{y}^{(i)})^2}\]</span>
+Penalizza severamente i grandi errori residui.</p>
+</li>
+<li>
+<p><strong>Coefficiente di Determinazione (<span class="math math-inline">\(R^2\)</span>)</strong>:
+Misura la proporzione della varianza della variabile dipendente spiegata dalle variabili indipendenti:
+<span class="math math-display">\[R^2 = 1 - \frac{SS_{\text{res}}}{SS_{\text{tot}}} = 1 - \frac{\sum_{i=1}^m (y^{(i)} - \hat{y}^{(i)})^2}{\sum_{i=1}^m (y^{(i)} - \bar{y})^2}\]</span>
+Dove <span class="math math-inline">\(\bar{y} = \frac{1}{m}\sum_{i=1}^m y^{(i)}\)</span>. Un <span class="math math-inline">\(R^2 = 1\)</span> indica una previsione perfetta; un <span class="math math-inline">\(R^2 = 0\)</span> equivale a un modello banale che predice sempre la media empirica <span class="math math-inline">\(\bar{y}\)</span>.</p>
+</li>
+</ol>
+<hr>
+<h2 id="3-architettura-software-in-go">3. Architettura Software in Go</h2>
+<p>Per scrivere codice Go idiomatico, manutenibile ed efficiente, adottiamo principi di design chiari:</p>
+<pre><code>+-------------------------------------------------------------------+
+|                        Modello Lineare                            |
+|  - Theta: []float64 (Coefficienti + Bias esplicito o integrato)   |
+|  - Alpha: float64 (Learning Rate)                                 |
+|  - Iterations: int                                                |
++-------------------------------------------------------------------+
+                                  |
+                                  v
++-------------------------------------------------------------------+
+|                     Primitive Algebriche                          |
+|  - MatVecMult(X, theta) -&gt; y_hat                                  |
+|  - TransposeMatVecMult(X, residui) -&gt; gradiente                   |
+|  - DotProduct, VectorSubtraction, Standardize                     |
++-------------------------------------------------------------------+
+                                  |
+                                  v
++-------------------------------------------------------------------+
+|                  Pipeline di Training e Validazione               |
+|  1. Train/Test Split                                              |
+|  2. Standardize Features (calcola mu, sigma su Train, scala Test) |
+|  3. Fit (Gradient Descent con log periodico della Loss)           |
+|  4. Predict &amp; Evaluate (MSE, RMSE, MAE, R^2)                      |
++-------------------------------------------------------------------+
+</code></pre>
+<h3 id="note-sullallocazione-della-memoria">Note sull'allocazione della memoria</h3>
+<p>In Go, una matrice bidimensionale può essere modellata come slice di slice (<code>[][]float64</code>). Tuttavia, allocare ogni riga singolarmente comporta frammentazione della memoria nello heap e perdita di località della cache CPU. Per vettori e matrici usiamo slice piatte contigue dove appropriato, oppure una struttura strutturata con un'unica allocazione continua sottostante indicizzata con la formula classica:
+<span class="math math-display">\[\text{Index}(r, c) = r \cdot \text{cols} + c\]</span></p>
+<p>Nel nostro codice didattico, per mantenere un'alta leggibilità senza sacrificare la robustezza, implementiamo un tipo <code>Matrix</code> dedicato che gestisce layout contigui in memoria.</p>
+<hr>
+<h2 id="4-codice-sorgente-completo">4. Codice Sorgente Completo</h2>
+<p>Il seguente file rappresenta un'applicazione Go autoconsistente. Puoi salvarlo come <code>main.go</code> ed eseguirlo direttamente con il comando standard:</p>
+<pre><code class="language-bash">go run main.go
+</code></pre>
+<pre><code class="language-go">package main
+
+import (
+	&quot;errors&quot;
+	&quot;fmt&quot;
+	&quot;math&quot;
+	&quot;math/rand&quot;
+	&quot;time&quot;
+)
+
+// ============================================================================
+// 1. STRUTTURE DATI E ALGEBRA LINEARE FONDAMENTALE
+// ============================================================================
+
+// Matrix rappresenta una matrice bidimensionale memorizzata come un unico
+// slice contiguo unidimensionale (row-major order) per ottimizzare la cache CPU.
+type Matrix struct {
+	Rows int
+	Cols int
+	Data []float64
+}
+
+// NewMatrix alloca una matrice con le dimensioni specificate inizializzata a zero.
+func NewMatrix(rows, cols int) *Matrix {
+	return &amp;Matrix{
+		Rows: rows,
+		Cols: cols,
+		Data: make([]float64, rows*cols),
+	}
+}
+
+// At restituisce il valore in posizione (r, c).
+func (m *Matrix) At(r, c int) float64 {
+	return m.Data[r*m.Cols+c]
+}
+
+// Set imposta il valore in posizione (r, c).
+func (m *Matrix) Set(r, c int, val float64) {
+	m.Data[r*m.Cols+c] = val
+}
+
+// DotProduct calcola il prodotto scalare tra due slice di uguale lunghezza.
+func DotProduct(v1, v2 []float64) (float64, error) {
+	if len(v1) != len(v2) {
+		return 0.0, errors.New(&quot;dimensioni incompatibili per il prodotto scalare&quot;)
+	}
+	var sum float64
+	for i := 0; i &lt; len(v1); i++ {
+		sum += v1[i] * v2[i]
+	}
+	return sum, nil
+}
+
+// MatVecMul calcola il prodotto matrice-vettore: y = X * w
+// X ha dimensioni (m x n), w ha dimensione n, il risultato y ha dimensione m.
+func MatVecMul(X *Matrix, w []float64) ([]float64, error) {
+	if X.Cols != len(w) {
+		return nil, fmt.Errorf(&quot;incompatibilità dimensionale: matrice %dx%d, vettore %d&quot;, X.Rows, X.Cols, len(w))
+	}
+	res := make([]float64, X.Rows)
+	for i := 0; i &lt; X.Rows; i++ {
+		rowOffset := i * X.Cols
+		var rowSum float64
+		for j := 0; j &lt; X.Cols; j++ {
+			rowSum += X.Data[rowOffset+j] * w[j]
+		}
+		res[i] = rowSum
+	}
+	return res, nil
+}
+
+// MatTransposeVecMul calcola il prodotto tra la matrice trasposta e un vettore: g = X^T * v
+// X ha dimensioni (m x n), v ha dimensione m, il risultato g ha dimensione n.
+// Questa operazione è il cuore del calcolo del gradiente per l'intero batch.
+func MatTransposeVecMul(X *Matrix, v []float64) ([]float64, error) {
+	if X.Rows != len(v) {
+		return nil, fmt.Errorf(&quot;incompatibilità dimensionale: X.Rows=%d, len(v)=%d&quot;, X.Rows, len(v))
+	}
+	res := make([]float64, X.Cols)
+	for i := 0; i &lt; X.Rows; i++ {
+		val := v[i]
+		rowOffset := i * X.Cols
+		for j := 0; j &lt; X.Cols; j++ {
+			res[j] += X.Data[rowOffset+j] * val
+		}
+	}
+	return res, nil
+}
+
+// ============================================================================
+// 2. PREPROCESSING: STANDARD SCALER
+// ============================================================================
+
+// StandardScaler memorizza le medie e le deviazioni standard delle feature
+// per eseguire la normalizzazione z-score.
+type StandardScaler struct {
+	Means []float64
+	Stds  []float64
+}
+
+// NewStandardScaler crea una nuova istanza dello scaler.
+func NewStandardScaler() *StandardScaler {
+	return &amp;StandardScaler{}
+}
+
+// Fit calcola media e deviazione standard per ciascuna colonna del dataset.
+func (s *StandardScaler) Fit(X *Matrix) {
+	s.Means = make([]float64, X.Cols)
+	s.Stds = make([]float64, X.Cols)
+
+	// Calcolo della media
+	for i := 0; i &lt; X.Rows; i++ {
+		rowOffset := i * X.Cols
+		for j := 0; j &lt; X.Cols; j++ {
+			s.Means[j] += X.Data[rowOffset+j]
+		}
+	}
+	for j := 0; j &lt; X.Cols; j++ {
+		s.Means[j] /= float64(X.Rows)
+	}
+
+	// Calcolo della varianza e deviazione standard
+	for i := 0; i &lt; X.Rows; i++ {
+		rowOffset := i * X.Cols
+		for j := 0; j &lt; X.Cols; j++ {
+			diff := X.Data[rowOffset+j] - s.Means[j]
+			s.Stds[j] += diff * diff
+		}
+	}
+	for j := 0; j &lt; X.Cols; j++ {
+		variance := s.Stds[j] / float64(X.Rows)
+		std := math.Sqrt(variance)
+		// Evitiamo divisioni per zero nel caso di feature con varianza nulla
+		if std &lt; 1e-8 {
+			std = 1.0
+		}
+		s.Stds[j] = std
+	}
+}
+
+// Transform applica la trasformazione (x - mean) / std a una matrice esistente,
+// restituendo una nuova matrice scalata.
+func (s *StandardScaler) Transform(X *Matrix) *Matrix {
+	scaled := NewMatrix(X.Rows, X.Cols)
+	for i := 0; i &lt; X.Rows; i++ {
+		rowOffset := i * X.Cols
+		for j := 0; j &lt; X.Cols; j++ {
+			val := (X.Data[rowOffset+j] - s.Means[j]) / s.Stds[j]
+			scaled.Data[rowOffset+j] = val
+		}
+	}
+	return scaled
+}
+
+// FitTransform combina il calcolo dei parametri e la trasformazione in un'unica chiamata.
+func (s *StandardScaler) FitTransform(X *Matrix) *Matrix {
+	s.Fit(X)
+	return s.Transform(X)
+}
+
+// ============================================================================
+// 3. IL MODELLO: LINEAR REGRESSION CON GRADIENT DESCENT
+// ============================================================================
+
+// LinearRegression incapsula i parametri del modello e la configurazione di training.
+type LinearRegression struct {
+	LearningRate float64   // Tasso di apprendimento (alpha)
+	Epochs       int       // Numero di iterazioni del gradiente
+	Weights      []float64 // Vettore dei pesi theta (incluso l'intercetta)
+	CostHistory  []float64 // Storico dell'errore ad ogni epoca
+}
+
+// NewLinearRegression inizializza un nuovo estimatore lineare.
+func NewLinearRegression(lr float64, epochs int) *LinearRegression {
+	return &amp;LinearRegression{
+		LearningRate: lr,
+		Epochs:       epochs,
+		CostHistory:  make([]float64, 0, epochs),
+	}
+}
+
+// addInterceptColumn crea una nuova matrice aggiungendo una colonna di 1.0
+// nella prima colonna (bias trick).
+func addInterceptColumn(X *Matrix) *Matrix {
+	augmented := NewMatrix(X.Rows, X.Cols+1)
+	for i := 0; i &lt; X.Rows; i++ {
+		augmented.Set(i, 0, 1.0) // Bias term x_0 = 1
+		for j := 0; j &lt; X.Cols; j++ {
+			augmented.Set(i, j+1, X.At(i, j))
+		}
+	}
+	return augmented
+}
+
+// ComputeCost calcola la funzione di costo J(theta) = 1/(2m) * sum((y_hat - y)^2).
+func (lr *LinearRegression) ComputeCost(XAug *Matrix, y []float64) (float64, error) {
+	m := float64(XAug.Rows)
+	preds, err := MatVecMul(XAug, lr.Weights)
+	if err != nil {
+		return 0.0, err
+	}
+
+	var sumSquaredErrors float64
+	for i := 0; i &lt; len(y); i++ {
+		diff := preds[i] - y[i]
+		sumSquaredErrors += diff * diff
+	}
+
+	return sumSquaredErrors / (2.0 * m), nil
+}
+
+// Fit addestra il modello sui dati X e target y utilizzando Batch Gradient Descent.
+func (lr *LinearRegression) Fit(X *Matrix, y []float64) error {
+	if X.Rows != len(y) {
+		return errors.New(&quot;il numero di righe di X non corrisponde alla lunghezza di y&quot;)
+	}
+
+	m := float64(X.Rows)
+
+	// Applichiamo il bias trick espandendo la matrice con una colonna di 1
+	XAug := addInterceptColumn(X)
+	numFeaturesWithBias := XAug.Cols
+
+	// Inizializzazione pesi a zero
+	lr.Weights = make([]float64, numFeaturesWithBias)
+	lr.CostHistory = make([]float64, lr.Epochs)
+
+	residuals := make([]float64, XAug.Rows)
+
+	// Ciclo principale di ottimizzazione iterativa
+	for epoch := 0; epoch &lt; lr.Epochs; epoch++ {
+		// 1. Calcola le previsioni attuali: y_hat = X * theta
+		preds, err := MatVecMul(XAug, lr.Weights)
+		if err != nil {
+			return err
+		}
+
+		// 2. Calcola i residui: (y_hat - y)
+		for i := 0; i &lt; len(y); i++ {
+			residuals[i] = preds[i] - y[i]
+		}
+
+		// 3. Calcola il gradiente: grad = (1/m) * X^T * residuals
+		grad, err := MatTransposeVecMul(XAug, residuals)
+		if err != nil {
+			return err
+		}
+
+		// 4. Aggiorna i pesi: theta = theta - alpha * grad
+		stepFactor := lr.LearningRate / m
+		for j := 0; j &lt; numFeaturesWithBias; j++ {
+			lr.Weights[j] -= stepFactor * grad[j]
+		}
+
+		// 5. Registra il costo per monitorare la convergenza
+		cost, err := lr.ComputeCost(XAug, y)
+		if err != nil {
+			return err
+		}
+		lr.CostHistory[epoch] = cost
+
+		// Log diagnostico periodico
+		if (epoch+1)%(lr.Epochs/5) == 0 || epoch == 0 {
+			fmt.Printf(&quot;Epoch [%4d/%4d] - Loss (MSE/2): %10.5f\n&quot;, epoch+1, lr.Epochs, cost)
+		}
+	}
+
+	return nil
+}
+
+// Predict genera previsioni su nuovi dati non visti X.
+func (lr *LinearRegression) Predict(X *Matrix) ([]float64, error) {
+	if len(lr.Weights) == 0 {
+		return nil, errors.New(&quot;il modello non è ancora stato addestrato; invocare Fit prima di Predict&quot;)
+	}
+	XAug := addInterceptColumn(X)
+	return MatVecMul(XAug, lr.Weights)
+}
+
+// ============================================================================
+// 4. METRICHE DI VALUTAZIONE
+// ============================================================================
+
+// Metrics racchiude le statistiche aggregate di errore del modello.
+type Metrics struct {
+	MSE  float64
+	RMSE float64
+	MAE  float64
+	R2   float64
+}
+
+// Evaluate calcola MSE, RMSE, MAE e R^2 tra i valori reali e quelli predetti.
+func Evaluate(yTrue, yPred []float64) (Metrics, error) {
+	n := len(yTrue)
+	if n == 0 || n != len(yPred) {
+		return Metrics{}, errors.New(&quot;vettori di valutazione non validi o con lunghezze differenti&quot;)
+	}
+
+	var sumSqRes, sumAbsRes, sumY float64
+	for i := 0; i &lt; n; i++ {
+		diff := yTrue[i] - yPred[i]
+		sumSqRes += diff * diff
+		sumAbsRes += math.Abs(diff)
+		sumY += yTrue[i]
+	}
+
+	yMean := sumY / float64(n)
+	var sumSqTot float64
+	for i := 0; i &lt; n; i++ {
+		diffMean := yTrue[i] - yMean
+		sumSqTot += diffMean * diffMean
+	}
+
+	mse := sumSqRes / float64(n)
+	rmse := math.Sqrt(mse)
+	mae := sumAbsRes / float64(n)
+	r2 := 1.0 - (sumSqRes / sumSqTot)
+
+	return Metrics{
+		MSE:  mse,
+		RMSE: rmse,
+		MAE:  mae,
+		R2:   r2,
+	}, nil
+}
+
+// ============================================================================
+// 5. DATASET SYNTHETIC GENERATOR &amp; TRAIN-TEST SPLIT
+// ============================================================================
+
+// GenerateSyntheticData crea un dataset sintetico con relazione lineare nota:
+// y = 4.5 + 2.3*x_1 - 1.8*x_2 + 3.1*x_3 + rumore gaussiano
+func GenerateSyntheticData(samples int) (*Matrix, []float64, []float64) {
+	trueWeights := []float64{4.5, 2.3, -1.8, 3.1} // intercetta, w1, w2, w3
+	cols := 3
+	X := NewMatrix(samples, cols)
+	y := make([]float64, samples)
+
+	r := rand.New(rand.NewSource(42)) // Seed fisso per la riproducibilità didattica
+
+	for i := 0; i &lt; samples; i++ {
+		// Generazione feature uniformi tra -5.0 e +5.0
+		x1 := (r.Float64() * 10.0) - 5.0
+		x2 := (r.Float64() * 10.0) - 5.0
+		x3 := (r.Float64() * 10.0) - 5.0
+
+		X.Set(i, 0, x1)
+		X.Set(i, 1, x2)
+		X.Set(i, 2, x3)
+
+		// Aggiunta di rumore normale: N(0, 0.5^2)
+		noise := r.NormFloat64() * 0.5
+
+		// y = w0 + w1*x1 + w2*x2 + w3*x3 + noise
+		y[i] = trueWeights[0] + trueWeights[1]*x1 + trueWeights[2]*x2 + trueWeights[3]*x3 + noise
+	}
+
+	return X, y, trueWeights
+}
+
+// TrainTestSplit partiziona matrice X e target y in due insiemi in base al ratio specificato.
+func TrainTestSplit(X *Matrix, y []float64, testRatio float64) (*Matrix, []float64, *Matrix, []float64) {
+	total := X.Rows
+	testCount := int(float64(total) * testRatio)
+	trainCount := total - testCount
+
+	XTrain := NewMatrix(trainCount, X.Cols)
+	yTrain := make([]float64, trainCount)
+	XTest := NewMatrix(testCount, X.Cols)
+	yTest := make([]float64, testCount)
+
+	// Copia riga per riga per la partizione di Train
+	for i := 0; i &lt; trainCount; i++ {
+		copy(XTrain.Data[i*X.Cols:(i+1)*X.Cols], X.Data[i*X.Cols:(i+1)*X.Cols])
+		yTrain[i] = y[i]
+	}
+
+	// Copia riga per riga per la partizione di Test
+	for i := 0; i &lt; testCount; i++ {
+		srcRow := trainCount + i
+		copy(XTest.Data[i*X.Cols:(i+1)*X.Cols], X.Data[srcRow*X.Cols:(srcRow+1)*X.Cols])
+		yTest[i] = y[srcRow]
+	}
+
+	return XTrain, yTrain, XTest, yTest
+}
+
+// ============================================================================
+// 6. PIPELINE DI ESECUZIONE (MAIN)
+// ============================================================================
+
+func main() {
+	fmt.Println(&quot;====================================================================&quot;)
+	fmt.Println(&quot;   IMPLEMENTAZIONE DIDATTICA DI REGRESSIONE LINEARE IN GOLANG       &quot;)
+	fmt.Println(&quot;====================================================================&quot;)
+
+	// 1. Generazione del Dataset
+	const numSamples = 1000
+	fmt.Printf(&quot;\n[1] Generazione di %d campioni sintetici con rumore gaussiano...\n&quot;, numSamples)
+	XRaw, yRaw, trueW := GenerateSyntheticData(numSamples)
+	fmt.Printf(&quot;    Pesi Teorici Reali -&gt; Intercetta: %.2f, w1: %.2f, w2: %.2f, w3: %.2f\n&quot;,
+		trueW[0], trueW[1], trueW[2], trueW[3])
+
+	// 2. Partizione Train / Test (80% training, 20% testing)
+	fmt.Println(&quot;\n[2] Esecuzione Split Train/Test (80/20)...&quot;)
+	XTrainRaw, yTrain, XTestRaw, yTest := TrainTestSplit(XRaw, yRaw, 0.20)
+	fmt.Printf(&quot;    Campioni Train: %d, Campioni Test: %d\n&quot;, XTrainRaw.Rows, XTestRaw.Rows)
+
+	// 3. Preprocessing: Standardizzazione
+	fmt.Println(&quot;\n[3] Standardizzazione delle feature (Z-score Scaling)...&quot;)
+	scaler := NewStandardScaler()
+	// Importante: 'Fit' viene eseguito solo sul Train set!
+	XTrain := scaler.FitTransform(XTrainRaw)
+	// Trasformazione del Test set con media e varianza del Train
+	XTest := scaler.Transform(XTestRaw)
+
+	for j := 0; j &lt; XTrain.Cols; j++ {
+		fmt.Printf(&quot;    Feature %d -&gt; Media calcolata: %8.4f, Dev.Std: %8.4f\n&quot;,
+			j+1, scaler.Means[j], scaler.Stds[j])
+	}
+
+	// 4. Inizializzazione e Addestramento Modello
+	learningRate := 0.05
+	epochs := 300
+	fmt.Printf(&quot;\n[4] Avvio Addestramento con Batch Gradient Descent (lr=%.2f, epochs=%d)...\n&quot;,
+		learningRate, epochs)
+	
+	startTime := time.Now()
+	model := NewLinearRegression(learningRate, epochs)
+	if err := model.Fit(XTrain, yTrain); err != nil {
+		panic(err)
+	}
+	duration := time.Since(startTime)
+	fmt.Printf(&quot;    Addestramento completato in: %v\n&quot;, duration)
+
+	// 5. Valutazione sul Test Set
+	fmt.Println(&quot;\n[5] Valutazione e Inferenza sul Test Set (Dati mai visti)...&quot;)
+	yPred, err := model.Predict(XTest)
+	if err != nil {
+		panic(err)
+	}
+
+	metrics, err := Evaluate(yTest, yPred)
+	if err != nil {
+		panic(err)
+	}
+
+	fmt.Println(&quot;\n====================================================================&quot;)
+	fmt.Println(&quot;                       METRICHE DI PERFORMANCE                      &quot;)
+	fmt.Println(&quot;====================================================================&quot;)
+	fmt.Printf(&quot;  * Mean Squared Error (MSE):       %10.4f\n&quot;, metrics.MSE)
+	fmt.Printf(&quot;  * Root Mean Squared Error (RMSE):  %10.4f\n&quot;, metrics.RMSE)
+	fmt.Printf(&quot;  * Mean Absolute Error (MAE):       %10.4f\n&quot;, metrics.MAE)
+	fmt.Printf(&quot;  * Coefficiente di Determinazione R^2: %7.4f (o %5.2f%% spiegata)\n&quot;,
+		metrics.R2, metrics.R2*100)
+	fmt.Println(&quot;====================================================================&quot;)
+
+	// 6. Confronto tra pesi stimati e pesi originali
+	// Nota: Poiché abbiamo standardizzato le feature: z_j = (x_j - mu_j) / sigma_j,
+	// il modello stima: y = theta_0 + sum(theta_j * (x_j - mu_j) / sigma_j)
+	// Per riportare i pesi alla scala naturale originale:
+	// w_originale_j = theta_j / sigma_j
+	// w_originale_0 = theta_0 - sum(theta_j * mu_j / sigma_j)
+	var originalBias float64 = model.Weights[0]
+	originalWeights := make([]float64, XTrain.Cols)
+
+	for j := 0; j &lt; XTrain.Cols; j++ {
+		wScaled := model.Weights[j+1]
+		originalWeights[j] = wScaled / scaler.Stds[j]
+		originalBias -= (wScaled * scaler.Means[j]) / scaler.Stds[j]
+	}
+
+	fmt.Println(&quot;\n[6] De-standardizzazione e Validazione dei Coefficienti:&quot;)
+	fmt.Printf(&quot;    Parametro        | Valore Reale | Valore Stimato | Scostamento Rel.\n&quot;)
+	fmt.Printf(&quot;    -----------------+--------------+----------------+-----------------\n&quot;)
+	fmt.Printf(&quot;    Intercetta (b)   | %12.4f | %14.4f | %14.4f%%\n&quot;,
+		trueW[0], originalBias, math.Abs(originalBias-trueW[0])/trueW[0]*100)
+	for j := 0; j &lt; len(originalWeights); j++ {
+		fmt.Printf(&quot;    Peso w_%d         | %12.4f | %14.4f | %14.4f%%\n&quot;,
+			j+1, trueW[j+1], originalWeights[j], math.Abs(originalWeights[j]-trueW[j+1])/math.Abs(trueW[j+1])*100)
+	}
+	fmt.Println(&quot;====================================================================&quot;)
+
+	// 7. Ispezione visiva di 5 predizioni campionarie
+	fmt.Println(&quot;\n[7] Campione di 5 Previsioni vs Valori Reali:&quot;)
+	fmt.Printf(&quot;    Indice | Target Effettivo | Previsione Modello | Errore Residuo\n&quot;)
+	fmt.Printf(&quot;    -------+------------------+--------------------+----------------\n&quot;)
+	for i := 0; i &lt; 5; i++ {
+		res := math.Abs(yTest[i] - yPred[i])
+		fmt.Printf(&quot;    #%02d    | %16.4f | %18.4f | %14.4f\n&quot;, i+1, yTest[i], yPred[i], res)
+	}
+	fmt.Println(&quot;====================================================================&quot;)
+}
+</code></pre>
+<hr>
+<h2 id="5-analisi-del-codice-e-connessioni-con-il-software-di-sistema">5. Analisi del Codice e Connessioni con il Software di Sistema</h2>
+<h3 id="51-layout-della-memoria-e-localit-dei-dati">5.1 Layout della Memoria e Località dei Dati</h3>
+<p>In molti codici Python o approcci didattici ingenui, le matrici sono dichiarate come slice di puntatori a slice: <code>[][]float64</code>.
+A livello di sistema operativo e CPU cache, questo comporta due penalizzazioni:</p>
+<ol>
+<li><strong>Puntatori multipli indirection</strong>: Ogni riga è allocata in una regione disgiunta della memoria virtuale heap.</li>
+<li><strong>Cache misses</strong>: Quando il processore carica una riga nella cache L1/L2, non pre-carica la riga successiva (assenza di prefetching sequenziale efficiente).</li>
+</ol>
+<p>Nel nostro codice abbiamo implementato:</p>
+<pre><code class="language-go">type Matrix struct {
+    Rows int
+    Cols int
+    Data []float64 // Unico blocco continuo di memoria
+}
+</code></pre>
+<p>In questo modo, tutti gli <span class="math math-inline">\(m \times n\)</span> elementi si trovano in un blocco contiguo di byte. Durante il prodotto matrice-vettore:</p>
+<pre><code class="language-go">for j := 0; j &lt; X.Cols; j++ {
+    rowSum += X.Data[rowOffset+j] * w[j]
+}
+</code></pre>
+<p>L'iteratore avanza linearmente attraverso <code>X.Data</code>, massimizzando l'efficacia del caching hardware e azzerando le allocazioni durante i cicli di calcolo.</p>
+<h3 id="52-il-bias-trick-e-la-gestione-dei-buffer">5.2 Il Bias Trick e la Gestione dei Buffer</h3>
+<p>Nell'algoritmo abbiamo integrato l'intercetta <span class="math math-inline">\(\theta_0\)</span> aggiungendo una colonna fittizia pari a <span class="math math-inline">\(1.0\)</span> mediante <code>addInterceptColumn</code>.
+In un sistema ad alte prestazioni, questo passaggio viene spesso gestito senza duplicare la memoria:</p>
+<ul>
+<li>Si tiene il vettore <span class="math math-inline">\(\mathbf{w}\)</span> separato dal bias <span class="math math-inline">\(b\)</span>:
+<span class="math math-display">\[\mathbf{\hat{y}} = \mathbf{X}\mathbf{w} + b\]</span></li>
+<li>Si aggiorna <span class="math math-inline">\(\mathbf{w}\)</span> con il gradiente trasposto di <span class="math math-inline">\(\mathbf{X}\)</span> e <span class="math math-inline">\(b\)</span> calcolando semplicemente la media scalare della somma dei residui:
+<span class="math math-display">\[\frac{\partial J}{\partial b} = \frac{1}{m} \sum_{i=1}^m (\hat{y}^{(i)} - y^{(i)})\]</span>
+L'implementazione presentata nella guida usa il <em>bias trick</em> per consentire al lettore di verificare matematicamente l'omogeneità della moltiplicazione algebrica <span class="math math-inline">\(\mathbf{X}^T \mathbf{e}\)</span>.</li>
+</ul>
+<h3 id="53-stabilit-numerica-e-de-standardizzazione">5.3 Stabilità Numerica e De-standardizzazione</h3>
+<p>Un dettaglio teorico spesso trascurato è il motivo per cui de-standardizziamo i pesi alla fine:
+Se il modello è stato addestrato sulle feature normalizzate:
+<span class="math math-display">\[z_j = \frac{x_j - \mu_j}{\sigma_j}\]</span>
+La formula predetta è:
+<span class="math math-display">\[\hat{y} = \theta_0 + \sum_{j=1}^n \theta_j \left( \frac{x_j - \mu_j}{\sigma_j} \right)\]</span>
+Raggruppando i termini per isolare i coefficienti delle variabili originali <span class="math math-inline">\(x_j\)</span>:
+<span class="math math-display">\[\hat{y} = \left( \theta_0 - \sum_{j=1}^n \frac{\theta_j \mu_j}{\sigma_j} \right) + \sum_{j=1}^n \left( \frac{\theta_j}{\sigma_j} \right) x_j\]</span></p>
+<p>Da cui ricaviamo le formule esatte per ricostruire i parametri nel loro dominio fisico originale:</p>
+<ul>
+<li><span class="math math-inline">\(w_j^{\text{originale}} = \frac{\theta_j}{\sigma_j}\)</span></li>
+<li><span class="math math-inline">\(w_0^{\text{originale}} = \theta_0 - \sum_{j=1}^n w_j^{\text{originale}} \mu_j\)</span></li>
+</ul>
+<p>Questo passaggio illustra chiaramente l'intersezione tra formulazione matematica e applicazione pratica in produzione.</p>
+<hr>
+<h2 id="6-esercizi-di-approfondimento-e-ottimizzazioni-future">6. Esercizi di Approfondimento e Ottimizzazioni Future</h2>
+<p>Per continuare a sviluppare competenze sul software di sistema applicato al calcolo scientifico in Go, ecco tre percorsi di espansione consigliati:</p>
+<ol>
+<li><strong>Parallelizzazione con Goroutine</strong>:
+Nella funzione <code>MatVecMul</code> o nel calcolo del gradiente <code>MatTransposeVecMul</code>, suddividere l'intervallo delle righe <span class="math math-inline">\([0, m)\)</span> in segmenti paralleli affidati a worker pool di goroutine (<code>sync.WaitGroup</code>), sfruttando i core multipli della CPU.</li>
+<li><strong>Stochastic Gradient Descent (SGD) e Mini-batch</strong>:
+Modificare il metodo <code>Fit</code> per accettare una dimensione di <code>batchSize</code>. Anziché calcolare il gradiente sull'intero dataset (<span class="math math-inline">\(m\)</span>), calcolarlo su sottoinsiemi casuali (es. <span class="math math-inline">\(32\)</span> o <span class="math math-inline">\(64\)</span> campioni). Questo riduce drasticamente l'occupazione di memoria istantanea e permette di gestire dataset che superano la capacità della RAM (approccio <em>out-of-core</em>).</li>
+<li><strong>Regolarizzazione <span class="math math-inline">\(L_1\)</span> (Lasso) ed <span class="math math-inline">\(L_2\)</span> (Ridge)</strong>:
+Aggiungere una penalizzazione ai pesi nella funzione di costo per prevenire l'overfitting:
+<span class="math math-display">\[J_{\text{Ridge}}(\mathbf{\theta}) = J(\mathbf{\theta}) + \frac{\lambda}{2m} \sum_{j=1}^n \theta_j^2\]</span>
+Modificare il gradiente per includere il termine <span class="math math-inline">\(\frac{\lambda}{m}\theta_j\)</span> durante l'aggiornamento.</li>
+</ol>
+</article>
+          
+          </div>
+        </div>
+      </section>
+
+      <aside class="col-toc" aria-label="In questa pagina">
+        <div class="col-head">In questa pagina</div>
+        <div class="col-scroll">
+          
+            
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l1">
+    <a href="#guida-completa-alla-regressione-lineare-dalla-teoria-matematica-allimplementazione-da-zero-in-go">Guida Completa alla Regressione Lineare: Dalla Teoria Matematica all&#39;Implementazione da Zero in Go</a>
+    
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l2">
+    <a href="#1-introduzione-e-filosofia-del-progetto">1. Introduzione e Filosofia del Progetto</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#2-fondamenti-teorici-e-matematici">2. Fondamenti Teorici e Matematici</a>
+    
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l3">
+    <a href="#21-formulazione-del-problema">2.1 Formulazione del Problema</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l3">
+    <a href="#22-la-funzione-di-costo-errore-quadratico-medio-mse">2.2 La Funzione di Costo: Errore Quadratico Medio (MSE)</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l3">
+    <a href="#23-risoluzione-del-problema-di-ottimizzazione">2.3 Risoluzione del Problema di Ottimizzazione</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l3">
+    <a href="#24-preprocessing-la-standardizzazione-delle-feature">2.4 Preprocessing: La Standardizzazione delle Feature</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l3">
+    <a href="#25-metriche-di-valutazione">2.5 Metriche di Valutazione</a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#3-architettura-software-in-go">3. Architettura Software in Go</a>
+    
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l3">
+    <a href="#note-sullallocazione-della-memoria">Note sull&#39;allocazione della memoria</a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#4-codice-sorgente-completo">4. Codice Sorgente Completo</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#5-analisi-del-codice-e-connessioni-con-il-software-di-sistema">5. Analisi del Codice e Connessioni con il Software di Sistema</a>
+    
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l3">
+    <a href="#51-layout-della-memoria-e-localit-dei-dati">5.1 Layout della Memoria e Località dei Dati</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l3">
+    <a href="#52-il-bias-trick-e-la-gestione-dei-buffer">5.2 Il Bias Trick e la Gestione dei Buffer</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l3">
+    <a href="#53-stabilit-numerica-e-de-standardizzazione">5.3 Stabilità Numerica e De-standardizzazione</a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#6-esercizi-di-approfondimento-e-ottimizzazioni-future">6. Esercizi di Approfondimento e Ottimizzazioni Future</a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+</ul>
+
+          
+          
+        </div>
+      </aside>
+
+    
+  </main>
+
+  
+  <footer class="statusbar" aria-hidden="true">
+    <span class="sb-mode">READ</span>
+    <span class="sb-path">notes/theory/DSA/algorithm.md</span>
+    <span class="sb-spacer"></span>
+    <span class="sb-item">it</span>
+    <span class="sb-item">utf-8</span>
+    <span class="sb-item">markdown</span>
+    <span class="sb-pos" data-scroll-pos>top</span>
+  </footer>
+  
+
+  <script>
+    window.GOTOMARK = {
+      lang: "it",
+      section: "notes",
+      i18n: { copy: "copia", copied: "copiato", words: "parole", minRead: "min di lettura" }
+    };
+  </script>
+  <script src="../../../../../static/widgets.js"></script>
+  <script src="../../../../../static/widgets/kpi.js"></script>
+  <script src="../../../../../static/widgets/timeline.js"></script>
+  <script src="../../../../../static/widgets/chart.js"></script>
+  <script src="../../../../../static/widgets/lorenz.js"></script>
+  <script src="../../../../../static/engine.js"></script>
+  <script src="../../../../../static/ui.js"></script>
+</body>
+</html>
+
+
+
+

@@ -1,0 +1,864 @@
+
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Identità digitale e knowledge base computazionale: CV, progetti e appunti.">
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains&#43;Mono:wght@400;500;600;700;800&amp;family=IBM&#43;Plex&#43;Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <title>CoMet - Lezione 2: Programmazione Dinamica · Appunti</title>
+  <link rel="alternate" hreflang="en" href="../../../../../en/notes/golang/comet/lecture/index.html">
+  <link rel="stylesheet" href="../../../../../static/layout.css">
+  <link rel="stylesheet" href="../../../../../static/theme.css">
+  <link rel="stylesheet" href="../../../../../static/themes/light.css">
+  <style>:root { --mono:"JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;--sans:"IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;--font-body:var(--sans);--font-size:14px;--content-width:780px;--sidebar-width:256px;--folders-width:224px;--toc-width:232px;--radius:4px;--radius-sm:3px; }</style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+</head>
+<body data-depth="multi" data-theme="light" data-statusbar="on">
+
+  <header class="topbar">
+    <a class="brand" href="../../../../index.html">sergiopericolo</a>
+    <nav class="sections" aria-label="Sezioni">
+      
+      <a class="section-link" href="../../../../about/index.html">
+        <span class="section-idx">01</span>
+        <span class="section-title">Chi sono</span>
+      </a>
+      
+      <a class="section-link" href="../../../../projects/index.html">
+        <span class="section-idx">02</span>
+        <span class="section-title">Progetti</span>
+      </a>
+      
+      <a class="section-link active" href="../../../../notes/index.html">
+        <span class="section-idx">03</span>
+        <span class="section-title">Appunti</span>
+      </a>
+      
+    </nav>
+    <div class="topbar-end">
+      
+      <nav class="lang-switch" aria-label="Lingua">
+        <a class="lang-link active" href="../../../../../it/notes/golang/comet/lecture/index.html" hreflang="it" lang="it" title="Italiano" data-lang="it" aria-current="true">it</a><a class="lang-link" href="../../../../../en/notes/golang/comet/lecture/index.html" hreflang="en" lang="en" title="English" data-lang="en">en</a>
+      </nav>
+      
+      <span class="build-info">v1.0.0</span>
+    </div>
+  </header>
+
+  <main class="grid">
+
+    
+
+      
+      <aside class="col-folders" aria-label="Cartelle">
+        <div class="col-head">Cartelle</div>
+        <div class="col-scroll">
+          <a class="tree-root" href="../../../index.html">~/notes/</a>
+          
+
+<ul class="tree">
+  
+  
+  <li class="tree-node" data-path="SIRVISUAL">
+    <div class="tree-row">
+      
+      <span class="tree-leaf" aria-hidden="true"></span>
+      
+      <a class="tree-folder" href="../../../SIRVISUAL/index.html">
+        <span class="tree-name">SIRVISUAL/</span>
+        <span class="tree-count">1</span>
+      </a>
+    </div>
+    
+  </li>
+  
+  
+  <li class="tree-node has-children open" data-path="golang">
+    <div class="tree-row">
+      
+      <button class="tree-toggle" type="button" aria-expanded="true" aria-label="golang"><span class="chev" aria-hidden="true"></span></button>
+      
+      <a class="tree-folder" href="../../../golang/index.html">
+        <span class="tree-name">golang/</span>
+        
+      </a>
+    </div>
+    
+      
+
+<ul class="tree">
+  
+  
+  <li class="tree-node open" data-path="golang/comet">
+    <div class="tree-row">
+      
+      <span class="tree-leaf" aria-hidden="true"></span>
+      
+      <a class="tree-folder active" href="../../../golang/comet/index.html">
+        <span class="tree-name">comet/</span>
+        <span class="tree-count">1</span>
+      </a>
+    </div>
+    
+  </li>
+  
+</ul>
+
+    
+  </li>
+  
+  
+  <li class="tree-node" data-path="systems">
+    <div class="tree-row">
+      
+      <span class="tree-leaf" aria-hidden="true"></span>
+      
+      <a class="tree-folder" href="../../../systems/index.html">
+        <span class="tree-name">systems/</span>
+        <span class="tree-count">1</span>
+      </a>
+    </div>
+    
+  </li>
+  
+  
+  <li class="tree-node has-children" data-path="theory">
+    <div class="tree-row">
+      
+      <button class="tree-toggle" type="button" aria-expanded="false" aria-label="theory"><span class="chev" aria-hidden="true"></span></button>
+      
+      <a class="tree-folder" href="../../../theory/index.html">
+        <span class="tree-name">theory/</span>
+        
+      </a>
+    </div>
+    
+      
+
+<ul class="tree">
+  
+  
+  <li class="tree-node" data-path="theory/DSA">
+    <div class="tree-row">
+      
+      <span class="tree-leaf" aria-hidden="true"></span>
+      
+      <a class="tree-folder" href="../../../theory/DSA/index.html">
+        <span class="tree-name">DSA/</span>
+        <span class="tree-count">1</span>
+      </a>
+    </div>
+    
+  </li>
+  
+</ul>
+
+    
+  </li>
+  
+</ul>
+
+        </div>
+      </aside>
+      
+
+      <aside class="col-files" aria-label="File">
+        <div class="col-head">
+          <span>File</span>
+          <span class="col-head-path">notes/golang/comet/</span>
+        </div>
+        <div class="col-scroll">
+          <ul class="file-list">
+            
+            <li>
+              <a class="file-link active" href="../../../golang/comet/lecture/index.html">
+                <span class="file-name">CoMet - Lezione 2: Programmazione Dinamica</span>
+                <span class="file-path">lecture.md</span>
+              </a>
+            </li>
+            
+          </ul>
+        </div>
+      </aside>
+
+      <section class="col-content" aria-label="sergiopericolo">
+        <div class="content-scroll" id="content">
+          <div class="content-inner">
+          
+            <div class="page-head">
+              <div class="page-crumb"><span class="crumb-home">~</span>/notes/golang/comet/lecture.md</div>
+              <h1 class="page-title">CoMet - Lezione 2: Programmazione Dinamica</h1>
+              <div class="page-meta" data-page-meta><span class="meta-tag">it</span></div>
+            </div>
+            
+            <article class="page-body"><h1 id="comet---lezione-2-programmazione-dinamica">CoMet - Lezione 2: Programmazione Dinamica</h1>
+<p><strong>Carlo FILIPPI</strong> | <a href="mailto:carlo.filippi@unibs.it">carlo.filippi@unibs.it</a><br>
+<strong>UNIVERSITÀ DEGLI STUDI DI BRESCIA</strong> | Dipartimento di Economia e Management</p>
+<hr>
+<h2 id="indice">Indice</h2>
+<ul>
+<li><strong>[A] Il problema del taglio delle barre</strong>
+<ul>
+<li><strong>[i]</strong> Il caso Serling Enterprises</li>
+<li><strong>[ii]</strong> Formula ricorsiva</li>
+<li><strong>[iii]</strong> Algoritmo di programmazione dinamica</li>
+</ul>
+</li>
+<li><strong>[B] Il problema dello zaino</strong>
+<ul>
+<li><strong>[i]</strong> Il caso di Paul Atreides</li>
+<li><strong>[ii]</strong> Formula ricorsiva</li>
+<li><strong>[iii]</strong> Algoritmo di programmazione dinamica</li>
+</ul>
+</li>
+</ul>
+<hr>
+<h2 id="a-il-problema-del-taglio-delle-barre">[A] Il problema del taglio delle barre</h2>
+<h3 id="i-il-caso-serling-enterprises">[i] Il caso Serling Enterprises</h3>
+<p>Serling Enterprises acquista lunghe barre d'acciaio di lunghezza <span class="math math-inline">\(n\)</span> e le taglia in barre più corte, che poi rivende.</p>
+<ul>
+<li>Le barre più corte possono avere qualsiasi lunghezza intera <span class="math math-inline">\(j = 1, 2, \dots, n\)</span></li>
+<li>Una barra di lunghezza <span class="math math-inline">\(j\)</span> viene venduta al prezzo <span class="math math-inline">\(p_{j}\)</span></li>
+<li>Ogni taglio è gratuito</li>
+</ul>
+<p>Serling Enterprises vuole sapere qual è il modo migliore di tagliare le barre lunghe. Chiamiamo questo problema <strong>Rod Cutting Problem (RCP)</strong>, il problema del taglio delle barre.</p>
+<p>Ad esempio, sia <span class="math math-inline">\(n = 4\)</span> e siano i prezzi definiti come segue:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left"><span class="math math-inline">\(j\)</span></th>
+<th style="text-align:left">1</th>
+<th style="text-align:left">2</th>
+<th style="text-align:left">3</th>
+<th style="text-align:left">4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><span class="math math-inline">\(p_{j}\)</span></td>
+<td style="text-align:left">1</td>
+<td style="text-align:left">5</td>
+<td style="text-align:left">8</td>
+<td style="text-align:left">9</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Domande:</strong></p>
+<ul>
+<li>In quanti modi possiamo tagliare una barra di lunghezza 4?</li>
+<li>In questo caso specifico, qual è lo schema di taglio di profitto massimo?</li>
+</ul>
+<p>Soluzioni possibili (schemi di taglio) quando <span class="math math-inline">\(n = 4\)</span>:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Schema A</th>
+<th style="text-align:left">Schema B</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>(++++)</strong> = 9</td>
+<td style="text-align:left"><strong>(+)(+++)</strong> = 1 + 8 = 9</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>(++)(++)</strong> = 5 + 5 = 10</td>
+<td style="text-align:left"><strong>(+++)(+)</strong> = 8 + 1 = 9</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>(+)(+)(++)</strong> = 1 + 1 + 5 = 7</td>
+<td style="text-align:left"><strong>(+)(++)(+)</strong> = 1 + 5 + 1 = 7</td>
+</tr>
+<tr>
+<td style="text-align:left"><strong>(++)(+)(+)</strong> = 5 + 1 + 1 = 7</td>
+<td style="text-align:left"><strong>(+)(+)(+)(+)</strong> = 1 + 1 + 1 + 1 = 4</td>
+</tr>
+</tbody>
+</table>
+<hr>
+<h3 id="ii-formula-ricorsiva-rcp">[ii] Formula ricorsiva (RCP)</h3>
+<p>La ricerca di una soluzione ottima può essere impostata come una ricorsione:</p>
+<p><span class="math math-display">\[r_{n} = \max \{ p_{n}, r_{1} + r_{n-1}, r_{2} + r_{n-2}, \dots, r_{n-1} + r_{1} \}\]</span></p>
+<p>In altre parole, una volta deciso dove fare il primo taglio, abbiamo diviso il problema in due sottoproblemi, che possono essere risolti con la stessa logica fino a raggiungere un problema banale <span class="math math-inline">\(r_{1}\)</span>.</p>
+<blockquote>
+<p><strong>Sottostruttura ottima:</strong> le soluzioni ottime di un problema contengono le soluzioni ottime di sottoproblemi correlati, che possiamo risolvere in modo indipendente.</p>
+</blockquote>
+<p>Una ricorsione equivalente, ma più semplice, è la seguente:</p>
+<p><span class="math math-display">\[r_{n} = \max_{1 \le j \le n} \{ p_{j} + r_{n-j} \} = \max \{ p_{1} + r_{n-1}; p_{2} + r_{n-2}; \dots; p_{n} + r_{0} \}\]</span></p>
+<p>Qui decidiamo la lunghezza <span class="math math-inline">\(j\)</span> del primo pezzo da tagliare a sinistra (senza ulteriori tagli), e poi richiamiamo ricorsivamente la scomposizione ottima del pezzo di lunghezza <span class="math math-inline">\(n-j\)</span> a destra.</p>
+<p>Possiamo capire come funziona la ricorsione ponendo <span class="math math-inline">\(n=4\)</span>:</p>
+<ul>
+<li><span class="math math-inline">\(r_{4} = \max \{ p_{1} + r_{3}; p_{2} + r_{2}; p_{3} + r_{1}; p_{4} + r_{0} \}\)</span></li>
+<li><span class="math math-inline">\(r_{3} = \max \{ p_{1} + r_{2}; p_{2} + r_{1}; p_{3} + r_{0} \}\)</span></li>
+<li><span class="math math-inline">\(r_{2} = \max \{ p_{1} + r_{1}; p_{2} + r_{0} \}\)</span></li>
+<li><span class="math math-inline">\(r_{1} = p_{1} + r_{0}\)</span></li>
+<li><span class="math math-inline">\(r_{0} = 0\)</span></li>
+</ul>
+<p>Per calcolare <span class="math math-inline">\(r_{n}\)</span> in modo efficiente conviene calcolare tutti i valori <span class="math math-inline">\(r_{j}\)</span> per ogni <span class="math math-inline">\(j = 0, 1, \dots, n\)</span>, in ordine crescente di <span class="math math-inline">\(j\)</span>. In questo modo ogni valore <span class="math math-inline">\(r_{j}\)</span> (cioè ogni sottoproblema) viene calcolato (risolto) una sola volta.</p>
+<p><strong>Algoritmo (calcolo del profitto):</strong></p>
+<ul>
+<li><strong>Passo [1]:</strong> Inizializza <span class="math math-inline">\(r = [r_{0}, r_{1}, \dots, r_{n-1}, r_{n}]\)</span>. Poni <span class="math math-inline">\(r_{0} = 0\)</span> e <span class="math math-inline">\(j = 1\)</span>.</li>
+<li><strong>Passo [2]:</strong> Calcola <span class="math math-inline">\(r_{j} = \max \{ p_{1} + r_{j-1}; p_{2} + r_{j-2}; \dots; p_{j} + r_{0} \}\)</span>. Poni <span class="math math-inline">\(j = j + 1\)</span>.</li>
+<li><strong>Passo [3]:</strong> <code>if</code> <span class="math math-inline">\(j &gt; n\)</span> <code>then</code> restituisci <span class="math math-inline">\(r_{n}\)</span> e <code>STOP</code>; <code>else</code> vai al <code>Passo [2]</code>.</li>
+</ul>
+<blockquote>
+<p><strong>ESERCIZIO 1:</strong> <em>Ricorsione per l'RCP</em> (spazio per gli appunti)</p>
+</blockquote>
+<hr>
+<h3 id="iii-programmazione-dinamica-per-lrcp">[iii] Programmazione dinamica per l'RCP</h3>
+<p>L'algoritmo precedente trova il profitto ottimo, ma non salva la soluzione corrispondente. Per salvarla serve un secondo vettore <span class="math math-inline">\(s = [s_{0}, s_{1}, s_{2}, \dots, s_{n}]\)</span>.</p>
+<p>Per ogni <span class="math math-inline">\(j = 0, 1, 2, \dots, n\)</span>, l'elemento <span class="math math-inline">\(s_{j}\)</span> sarà la lunghezza del primo pezzo tagliato da una barra di lunghezza totale <span class="math math-inline">\(j\)</span> per ottenere il profitto ottimo.</p>
+<p><strong>Ricostruzione della soluzione:</strong></p>
+<ul>
+<li>Sia <span class="math math-inline">\(n = 5\)</span> e sia <span class="math math-inline">\(s = [0, 1, 2, 3, 2, 2]\)</span></li>
+<li><span class="math math-inline">\(s_{5} = 2 \implies\)</span> va tagliato un pezzo di lunghezza 2; resta una barra di lunghezza 3</li>
+<li><span class="math math-inline">\(s_{3} = 3 \implies\)</span> va tagliato un pezzo di lunghezza 3; resta una barra di lunghezza 0</li>
+<li><strong>Abbiamo finito.</strong></li>
+</ul>
+<p><strong>Algoritmo rivisto (con ricostruzione della soluzione):</strong></p>
+<ul>
+<li><strong>Passo [1]:</strong> Inizializza <span class="math math-inline">\(r = [r_{0}, r_{1}, \dots, r_{n}]\)</span> e <span class="math math-inline">\(s = [s_{0}, s_{1}, \dots, s_{n}]\)</span>. Poni <span class="math math-inline">\(r_{0} = 0\)</span> e <span class="math math-inline">\(j = 1\)</span>.</li>
+<li><strong>Passo [2]:</strong>
+<ul>
+<li>Calcola <span class="math math-inline">\(r_{j} = \max \{ p_{1} + r_{j-1}; p_{2} + r_{j-2}; \dots; p_{j} + r_{0} \}\)</span></li>
+<li>Sia <span class="math math-inline">\(i \in \{1, 2, \dots, j\}\)</span> tale che <span class="math math-inline">\(r_{j} = p_{i} + r_{j-i}\)</span></li>
+<li>Poni <span class="math math-inline">\(s_{j} = i\)</span></li>
+<li>Poni <span class="math math-inline">\(j = j + 1\)</span></li>
+</ul>
+</li>
+<li><strong>Passo [3]:</strong> <code>if</code> <span class="math math-inline">\(j &gt; n\)</span> <code>then</code> restituisci <span class="math math-inline">\(r_{n}\)</span> e <span class="math math-inline">\(s\)</span> e <code>STOP</code>; <code>else</code> vai al <code>Passo [2]</code>.</li>
+</ul>
+<blockquote>
+<p><strong>ESERCIZIO 2:</strong> <em>Ricorsione per l'RCP</em> (spazio per gli appunti)</p>
+</blockquote>
+<h4 id="tempo-di-esecuzione-rcp">Tempo di esecuzione (RCP)</h4>
+<p>La maggior parte del lavoro avviene nel Passo 2. Il Passo 2 somma <span class="math math-inline">\(j\)</span> coppie di numeri ed esegue un numero fisso di operazioni elementari aggiuntive. Il numero di operazioni eseguite è quindi proporzionale a:</p>
+<ul>
+<li><span class="math math-inline">\(1\)</span> quando <span class="math math-inline">\(j=1\)</span></li>
+<li><span class="math math-inline">\(2\)</span> quando <span class="math math-inline">\(j=2\)</span></li>
+<li><span class="math math-inline">\(\dots\)</span></li>
+<li><span class="math math-inline">\(n\)</span> quando <span class="math math-inline">\(j=n\)</span></li>
+</ul>
+<p>Il numero totale di operazioni è proporzionale a:</p>
+<p><span class="math math-display">\[1 + 2 + 3 + \dots + n = \frac{1}{2}n(n+1) = O(n^{2})\]</span></p>
+<p>Il tempo di esecuzione è <span class="math math-inline">\(O(n^{2})\)</span>.</p>
+<hr>
+<h2 id="b-il-problema-dello-zaino-kp">[B] Il problema dello zaino (KP)</h2>
+<h3 id="i-il-problema-di-paul-atreides">[i] Il problema di Paul Atreides</h3>
+<p>Paul Atreides deve scegliere alcuni oggetti per sopravvivere nel deserto letale di Arrakis (tenda, borraccia, cibo, ...). Ha solo una piccola borsa e pochi minuti prima che arrivino i Sardaukar. Ogni oggetto ha un volume e un valore di sopravvivenza; la borsa ha una capacità di 5 litri e non può contenere tutto. Come dovrebbe riempire la borsa Paul per massimizzare il valore di sopravvivenza totale?</p>
+<p><strong>Dati:</strong></p>
+<ul>
+<li>Siano <span class="math math-inline">\(j = 1, \dots, n\)</span> gli oggetti disponibili</li>
+<li>Sia <span class="math math-inline">\(p_{j}\)</span> il valore dell'oggetto <span class="math math-inline">\(j\)</span> e sia <span class="math math-inline">\(v_{j}\)</span> il suo volume <span class="math math-inline">\((j = 1, \dots, n)\)</span></li>
+<li>Sia <span class="math math-inline">\(C\)</span> la capacità della borsa di Paul</li>
+</ul>
+<p><strong>Variabili:</strong></p>
+<ul>
+<li>Sia <span class="math math-inline">\(x_{j} = 1\)</span> se l'oggetto <span class="math math-inline">\(j\)</span> viene scelto, <span class="math math-inline">\(x_{j} = 0\)</span> altrimenti <span class="math math-inline">\((j = 1, \dots, n)\)</span></li>
+</ul>
+<p><strong>Modello:</strong></p>
+<p><span class="math math-display">\[\max \sum_{j=1}^{n} p_{j}x_{j}\]</span></p>
+<p><span class="math math-display">\[\text{s.t. } \sum_{j=1}^{n} v_{j}x_{j} \le C\]</span></p>
+<p><span class="math math-display">\[x_{j} \in \{0, 1\} \quad \text{per ogni } j = 1, \dots, n\]</span></p>
+<p>Supponiamo che Paul debba scegliere tra quattro oggetti, con i seguenti valori e volumi:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left"><span class="math math-inline">\(j\)</span></th>
+<th style="text-align:left">1</th>
+<th style="text-align:left">2</th>
+<th style="text-align:left">3</th>
+<th style="text-align:left">4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><span class="math math-inline">\(p_{j}\)</span></td>
+<td style="text-align:left">3</td>
+<td style="text-align:left">4</td>
+<td style="text-align:left">5</td>
+<td style="text-align:left">6</td>
+</tr>
+<tr>
+<td style="text-align:left"><span class="math math-inline">\(v_{j}\)</span></td>
+<td style="text-align:left">2</td>
+<td style="text-align:left">3</td>
+<td style="text-align:left">4</td>
+<td style="text-align:left">5</td>
+</tr>
+</tbody>
+</table>
+<p>Il problema di Paul può essere formulato come:</p>
+<p><span class="math math-display">\[\max 3x_{1} + 4x_{2} + 5x_{3} + 6x_{4}\]</span></p>
+<p><span class="math math-display">\[\text{s.t. } 2x_{1} + 3x_{2} + 4x_{3} + 5x_{4} \le 5\]</span></p>
+<p><span class="math math-display">\[x_{j} \in \{0, 1\} \quad (j = 1, \dots, 4)\]</span></p>
+<p>Come il problema del taglio delle barre (RCP), anche il problema dello zaino (KP) ha una <strong>sottostruttura ottima</strong>: le soluzioni ottime di un problema contengono le soluzioni ottime di sottoproblemi correlati, che possiamo risolvere in modo indipendente.</p>
+<p><strong>Differenze tra RCP e KP:</strong></p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Problema del taglio delle barre (RCP)</th>
+<th style="text-align:left">Problema dello zaino (KP)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><span class="math math-inline">\(v_{j} = j = 1, 2, \dots, n\)</span></td>
+<td style="text-align:left">i <span class="math math-inline">\(v_{j}\)</span> sono interi specifici</td>
+</tr>
+<tr>
+<td style="text-align:left">Possiamo tagliare un numero qualsiasi di pezzi di lunghezza <span class="math math-inline">\(j\)</span></td>
+<td style="text-align:left">Ogni oggetto <span class="math math-inline">\(j\)</span> può essere caricato al massimo una volta</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>La prima differenza semplifica le cose nell'RCP.</li>
+<li>La seconda differenza rende le cose più complicate nel KP.</li>
+</ul>
+<hr>
+<h3 id="ii-sottoproblemi-e-formula-ricorsiva-kp">[ii] Sottoproblemi e formula ricorsiva (KP)</h3>
+<p>I sottoproblemi di un problema dello zaino si ottengono considerando meno tipi di oggetti e/o una capacità minore dello zaino. Per ogni coppia di interi <span class="math math-inline">\(j, g\)</span> con <span class="math math-inline">\(0 \le j \le n\)</span> e <span class="math math-inline">\(0 \le g \le C\)</span>, sia:</p>
+<p><span class="math math-display">\[f(g, j) = \max \sum_{i=1}^{j} p_{i}x_{i}\]</span></p>
+<p><span class="math math-display">\[\text{s.t. } \sum_{i=1}^{j} v_{i}x_{i} \le g\]</span></p>
+<p><span class="math math-display">\[x_{i} \in \{0, 1\} \quad \text{per ogni } i = 1, \dots, j\]</span></p>
+<p>Il problema originale è <span class="math math-inline">\(f(C, n)\)</span>.</p>
+<p>I sottoproblemi possono essere risolti con la seguente ricorsione:</p>
+<p><span class="math math-display">\[f(g, j) = \begin{cases} \max \{ p_{j} + f(g - v_{j}, j - 1), f(g, j - 1) \} &amp; \text{se } g - v_{j} \ge 0 \\ f(g, j - 1) &amp; \text{altrimenti} \end{cases}\]</span></p>
+<ul>
+<li><span class="math math-inline">\(p_{j} + f(g - v_{j}, j - 1) \rightarrow\)</span> l'oggetto <span class="math math-inline">\(j\)</span> viene selezionato</li>
+<li><span class="math math-inline">\(f(g, j - 1) \rightarrow\)</span> l'oggetto <span class="math math-inline">\(j\)</span> non viene selezionato</li>
+</ul>
+<p><strong>Condizioni iniziali:</strong></p>
+<ul>
+<li><span class="math math-inline">\(f(g, 0) = 0\)</span> per ogni <span class="math math-inline">\(g = 0, 1, \dots, C\)</span></li>
+<li><span class="math math-inline">\(f(0, j) = 0\)</span> per ogni <span class="math math-inline">\(j = 0, 1, \dots, n\)</span></li>
+</ul>
+<hr>
+<h3 id="iii-programmazione-dinamica-per-il-kp">[iii] Programmazione dinamica per il KP</h3>
+<p>Ogni volta che viene eseguito il passo di iterazione:</p>
+<ul>
+<li><strong>Condizione A:</strong> <code>if</code> <span class="math math-inline">\(f(g, j) = p_{j} + f(g - v_{j}, j - 1)\)</span> <span class="math math-inline">\(\implies\)</span> l'oggetto <span class="math math-inline">\(j\)</span> è incluso nella soluzione (<strong>MARCHIAMO</strong> l'elemento <span class="math math-inline">\(f(g, j)\)</span>).</li>
+<li><strong>Condizione B:</strong> <code>if</code> <span class="math math-inline">\(f(g, j) &gt; p_{j} + f(g - v_{j}, j - 1)\)</span> <span class="math math-inline">\(\implies\)</span> l'oggetto <span class="math math-inline">\(j\)</span> non è incluso.</li>
+</ul>
+<p><strong>Algoritmo DP (fase in avanti):</strong></p>
+<ul>
+<li><strong>Passo [1] (Inizializzazione):</strong>
+<ul>
+<li>Inizializza <span class="math math-inline">\(f = [f(g, j): 0 \le g \le C, 0 \le j \le n]\)</span></li>
+<li>Poni <span class="math math-inline">\(f(g, 0) = 0\)</span> per ogni <span class="math math-inline">\(g = 0, 1, \dots, C\)</span> e <span class="math math-inline">\(f(0, j) = 0\)</span> per ogni <span class="math math-inline">\(j = 1, 2, \dots, n\)</span></li>
+<li>Poni <span class="math math-inline">\(j = 1\)</span> e <span class="math math-inline">\(g = 1\)</span></li>
+</ul>
+</li>
+<li><strong>Passo [2] (Iterazione):</strong>
+<ul>
+<li><code>if</code> <span class="math math-inline">\(g - v_{j} \ge 0\)</span> <code>then</code> <span class="math math-inline">\(f(g, j) = \max \{ p_{j} + f(g - v_{j}, j - 1); f(g, j - 1) \}\)</span>. Se <span class="math math-inline">\(f(g, j) = p_{j} + f(g - v_{j}, j - 1)\)</span>, <strong>MARCA</strong> <span class="math math-inline">\(f(g, j)\)</span>.</li>
+<li><code>else</code> <span class="math math-inline">\(f(g, j) = f(g, j - 1)\)</span></li>
+<li>Poni <span class="math math-inline">\(g = g + 1\)</span></li>
+</ul>
+</li>
+<li><strong>Passo [3] (Fine della colonna <span class="math math-inline">\(j\)</span>):</strong>
+<ul>
+<li><code>if</code> <span class="math math-inline">\(g \le C\)</span> <code>then</code> vai al <code>Passo [2]</code></li>
+<li><code>else</code> poni <span class="math math-inline">\(j = j + 1\)</span> e continua</li>
+</ul>
+</li>
+<li><strong>Passo [4] (Fine di tutte le colonne):</strong>
+<ul>
+<li><code>if</code> <span class="math math-inline">\(j \le n\)</span> <code>then</code> poni <span class="math math-inline">\(g = 1\)</span> e vai al <code>Passo [2]</code></li>
+<li><code>else</code> restituisci <span class="math math-inline">\(f(C, n)\)</span> e <code>STOP</code></li>
+</ul>
+</li>
+</ul>
+<p>I calcoli possono essere organizzati in una tabella di dimensioni <span class="math math-inline">\((C + 1) \times (n + 1)\)</span>:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left"><span class="math math-inline">\(f(g,j)\)</span></th>
+<th style="text-align:left">0</th>
+<th style="text-align:left"><span class="math math-inline">\(\dots\)</span></th>
+<th style="text-align:left"><span class="math math-inline">\(j-1\)</span></th>
+<th style="text-align:left"><span class="math math-inline">\(j\)</span></th>
+<th style="text-align:left"><span class="math math-inline">\(\dots\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><strong>0</strong></td>
+<td style="text-align:left">0</td>
+<td style="text-align:left"><span class="math math-inline">\(\dots\)</span></td>
+<td style="text-align:left">0</td>
+<td style="text-align:left">0</td>
+<td style="text-align:left"><span class="math math-inline">\(\dots\)</span></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><span class="math math-inline">\(\vdots\)</span></strong></td>
+<td style="text-align:left"><span class="math math-inline">\(\vdots\)</span></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><span class="math math-inline">\(g - v_{j}\)</span></strong></td>
+<td style="text-align:left">0</td>
+<td style="text-align:left"><span class="math math-inline">\(\dots\)</span></td>
+<td style="text-align:left"><span class="math math-inline">\(f(g - v_{j}, j - 1)\)</span> <code>[2]</code></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"><span class="math math-inline">\(\dots\)</span></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><span class="math math-inline">\(\vdots\)</span></strong></td>
+<td style="text-align:left"><span class="math math-inline">\(\vdots\)</span></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+<td style="text-align:left"></td>
+</tr>
+<tr>
+<td style="text-align:left"><strong><span class="math math-inline">\(g\)</span></strong></td>
+<td style="text-align:left">0</td>
+<td style="text-align:left"><span class="math math-inline">\(\dots\)</span></td>
+<td style="text-align:left"><span class="math math-inline">\(f(g, j - 1)\)</span> <code>[3]</code></td>
+<td style="text-align:left"><span class="math math-inline">\(f(g, j)\)</span> <code>[1]</code></td>
+<td style="text-align:left"><span class="math math-inline">\(\dots\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Dove <code>[1]</code> <span class="math math-inline">\(= \max \{ p_{j} +\)</span> <code>[2]</code> <span class="math math-inline">\(;\)</span> <code>[3]</code> <span class="math math-inline">\(\}\)</span>.</p>
+<h4 id="ricostruzione-della-soluzione-fase-allindietro">Ricostruzione della soluzione (fase all'indietro)</h4>
+<p>Alla fine, l'angolo in basso a destra della tabella DP contiene <span class="math math-inline">\(f(C, n)\)</span>, cioè il valore ottimo dello zaino. La procedura seguente ricostruisce il sottoinsieme ottimo <span class="math math-inline">\(S\)</span> di oggetti usando gli elementi marcati:</p>
+<ul>
+<li><strong>Passo [5] (Inizializzazione):</strong> Poni <span class="math math-inline">\(g = C\)</span>, <span class="math math-inline">\(j = n\)</span> e <span class="math math-inline">\(S = \emptyset\)</span>.</li>
+<li><strong>Passo [6] (Terminazione):</strong> <code>if</code> <span class="math math-inline">\(g = 0\)</span> oppure <span class="math math-inline">\(j = 0\)</span> <code>then</code> restituisci <span class="math math-inline">\(S\)</span> e <code>STOP</code>; <code>else</code> continua.</li>
+<li><strong>Passo [7] (Iterazione):</strong> <code>if</code> <span class="math math-inline">\(f(g, j)\)</span> è marcato <code>then</code> poni <span class="math math-inline">\(S = S \cup \{j\}\)</span> e <span class="math math-inline">\(g = g - v_{j}\)</span>; <code>else</code> continua.</li>
+<li><strong>Passo [8] (Aggiornamento colonna):</strong> Poni <span class="math math-inline">\(j = j - 1\)</span> e vai al <code>Passo [6]</code>.</li>
+</ul>
+<h4 id="tempo-di-esecuzione-e-osservazioni-kp">Tempo di esecuzione e osservazioni (KP)</h4>
+<ul>
+<li><strong>Passo 1:</strong> crea un vettore con <span class="math math-inline">\((C + 1) \times (n + 1)\)</span> elementi.</li>
+<li><strong>Passi 2 - 4:</strong> numero fisso di operazioni elementari eseguite <span class="math math-inline">\(n \times C\)</span> volte.</li>
+<li><strong>Passi 5 - 8:</strong> numero fisso di operazioni elementari eseguite al massimo <span class="math math-inline">\(n + C\)</span> volte.</li>
+</ul>
+<p>Il numero totale di operazioni elementari è proporzionale a <span class="math math-inline">\(C \times n\)</span>. Il tempo di esecuzione dell'algoritmo è <span class="math math-inline">\(O(nC)\)</span>, che in generale <strong>non è polinomiale nella dimensione dell'input</strong> (pseudopolinomiale).</p>
+<blockquote>
+<p><strong>Osservazione:</strong> per costruzione, quando risolviamo con la programmazione dinamica un'istanza del KP con <span class="math math-inline">\(n\)</span> oggetti e capacità <span class="math math-inline">\(C\)</span>, risolviamo contemporaneamente tutte le istanze con i primi <span class="math math-inline">\(j\)</span> oggetti e capacità <span class="math math-inline">\(g\)</span>, dove <span class="math math-inline">\(0 \le j \le n\)</span> e <span class="math math-inline">\(0 \le g \le C\)</span>.</p>
+</blockquote>
+<blockquote>
+<p><strong>ESERCIZIO 1:</strong> <em>Il problema di Lara Croft</em> (spazio per gli appunti)<br>
+<strong>ESERCIZIO 2:</strong> <em>DP per il KP</em> (spazio per gli appunti)</p>
+</blockquote>
+<hr>
+<h2 id="conclusioni">Conclusioni</h2>
+<p>Risolvere un KP con <span class="math math-inline">\(n\)</span> oggetti e capacità <span class="math math-inline">\(C\)</span> tramite la programmazione dinamica richiede di:</p>
+<ul>
+<li>Costruire una matrice con <span class="math math-inline">\(C + 1\)</span> righe e <span class="math math-inline">\(n + 1\)</span> colonne</li>
+<li>Eseguire un numero costante di operazioni elementari per ogni cella</li>
+<li><strong>Complessità temporale:</strong> pseudopolinomiale <span class="math math-inline">\(O(nC)\)</span></li>
+</ul>
+<p>Il problema dello zaino resta in generale computazionalmente difficile, il che spiega l'importanza degli approcci euristici. La programmazione dinamica è un'idea algoritmica generale che può essere applicata a molti problemi, compresi quelli stocastici.</p>
+<h1 id="manifesto-dellarchitettura-tipografica-monocromatica">Manifesto dell'Architettura Tipografica Monocromatica</h1>
+<p>La progettazione di un sistema editoriale tecnico richiede la sottrazione sistematica di ogni elemento decorativo superfluo. Quando il colore viene eliminato dall'equazione visiva, la gerarchia dell'informazione deve reggersi esclusivamente sulla proporzione geometrica, sul contrasto luminoso tra inchiostro e superficie, e sulla tensione strutturale tra pieni e vuoti. Questo primo paragrafo dimostra come il testo, mantenuto a una dimensione ridotta e con un'interlinea estremamente serrata, formi un rettangolo compatto e denso sulla carta avorio, richiamando l'estetica dei manuali di ingegneria svizzeri del ventesimo secolo.</p>
+<p>Andando a capo nel sorgente Markdown, si genera una cesura spaziale netta. Il vuoto verticale tra questo blocco e il precedente non è un semplice margine, ma una pausa cognitiva deliberata che separa due unità logiche distinte (proprio come in un sistema <em>Zettelkasten</em><!-- raw HTML omitted -->[01]<!-- raw HTML omitted -->). All'interno del tessuto testuale, l'occhio distingue immediatamente l'<strong>enfasi strutturale ad alto contrasto</strong> rispetto al <em>corsivo editoriale più sottile</em>, così come riconosce gli elementi tecnici inline quali il comando <code>gotomark --build --strict</code> oppure la sequenza di tasti <!-- raw HTML omitted -->Ctrl<!-- raw HTML omitted --> + <!-- raw HTML omitted -->W<!-- raw HTML omitted --> + <!-- raw HTML omitted -->v<!-- raw HTML omitted --> senza mai interrompere il ritmo orizzontale della lettura.</p>
+<h2 id="01-tensione-degli-spessori-e-gerarchia-h2-light-300">01. Tensione degli Spessori e Gerarchia (H2 Light 300)</h2>
+<p>Mentre il titolo principale (<code>H1</code>) ancora la pagina con un peso monumentale, questo secondo livello (<code>H2</code>) lavora per sottrazione utilizzando uno spessore <em>Light</em> ultrasottile appoggiato su un filetto orizzontale di un singolo pixel. Il contrasto tra pesi estremi sostituisce l'uso banale delle dimensioni giganti o dei colori saturi, permettendo all'architettura della pagina di respirare e mantenere un rigore minimale assoluto.</p>
+<h3 id="11-sottosistema-di-indicizzazione-h3-bold-700">1.1. Sottosistema di Indicizzazione (H3 Bold 700)</h3>
+<p>Scendendo al terzo livello, la tipografia torna solida, compatta e decisa. Qui definiamo le regole operative del motore statico tramite una <a href="#">connessione ipertestuale minimale</a> che mostra come i link si integrino silenziosamente nel testo tramite una sottile linea tratteggiata, diventando continui solo al passaggio del cursore.</p>
+<h4 id="specifica-dei-parametri-di-sistema-h4-medium-caps">SPECIFICA DEI PARAMETRI DI SISTEMA (H4 MEDIUM CAPS)</h4>
+<p>Il quarto livello abbandona la scala dimensionale e lavora interamente sul <em>letter-spacing</em> estremo in maiuscolo. È progettato per introdurre elenchi tecnici o specifiche di protocollo:</p>
+<ol>
+<li><strong>Inizializzazione del Parser AST</strong>: lettura sequenziale dei file sorgente nella directory radice e costruzione dell'albero sintattico astratto senza allocazioni ridondanti in memoria.</li>
+<li><strong>Risoluzione dei Grafo Zettelkasten</strong>: mappatura dei riferimenti incrociati tra i nodi documentali e verifica dell'integrità dei path relativi.</li>
+<li><strong>Serializzazione Statica</strong>: generazione dell'output HTML puro, privo di runtime JavaScript superflui, pronto per il deploy su infrastruttura edge.</li>
+</ol>
+<h5 id="configurazione-dei-nodi-secondari-h5-regular">Configurazione dei Nodi Secondari (H5 Regular)</h5>
+<p>Anche le liste non ordinate seguono la medesima compressione verticale: le singole voci sono ravvicinate, ma l'intero blocco lista mantiene una distanza rigorosa dal paragrafo successivo.</p>
+<ul>
+<li>Isolamento completo della geometria (<code>layout.css</code>) dall'estetica pura (<code>theme.css</code>).</li>
+<li>Eliminazione totale di <code>border-radius</code> e <code>box-shadow</code> su ogni singolo nodo del DOM.</li>
+<li>Utilizzo esclusivo di <code>JetBrains Mono</code> per l'infrastruttura perimetrale e <code>Helvetica Neue</code> per il corpo di lettura.</li>
+</ul>
+<h6 id="-001a--micro-metadato-di-controllo-h6-mono">// 001.A — MICRO-METADATO DI CONTROLLO (H6 MONO)</h6>
+<blockquote>
+<p>La perfezione progettuale non si raggiunge quando non c'è più nulla da aggiungere, ma quando non resta più alcuna sovrastruttura da rimuovere. In una pagina monocromatica, anche un singolo pixel fuori asse o un'ombra artificiale diventano rumore visivo inaccettabile.</p>
+<p>Questa citazione non utilizza sfondi riempitivi né glifi ornamentali: è ridotta a un taglio chirurgico verticale di 1px sulla sinistra e a un peso tipografico leggero, mantenendo la giustificazione rigorosa del blocco.</p>
+</blockquote>
+<hr>
+<h2 id="02-monolite-codice-e-sintassi-neovim-h2-light-300">02. Monolite Codice e Sintassi Neovim (H2 Light 300)</h2>
+<p>Il blocco seguente testa l'integrazione consapevole della tua palette <strong>Ghostty / Neovim</strong> all'interno del documento avorio. Osserva come i commenti siano scuri ma in <strong>grassetto</strong> (<code>color4</code> + <code>bold</code>), le parole chiave e i booleani brillino in bianco puro (<code>white</code> + <code>bold</code>), le funzioni e i numeri emergano per luminosità senza grassetto, mentre stringhe, tipi e operatori si distribuiscano sui toni intermedi di grigio ardesia (<code>color1</code>, <code>color2</code>, <code>color3</code>).</p>
+<pre><code class="language-go">// =========================================================================
+// GOTOMARK ENGINE — Renderer Statica &amp; Pipeline AST
+// I commenti usano --code-c4 (#50545D) in BOLD, fedele al tuo init.lua
+// =========================================================================
+
+package engine
+
+import (
+	&quot;bytes&quot;
+	&quot;context&quot;
+	&quot;fmt&quot;
+	&quot;regexp&quot;
+)
+
+// MaxDepth definisce il limite di ricorsione dell'albero Zettelkasten
+const MaxDepth int = 64
+
+var validSlugRegex = regexp.MustCompile(`^[a-z0-9]+(?:-[a-z0-9]+)*$`)
+
+// DocumentNode rappresenta una singola unità atomica di conoscenza
+type DocumentNode struct {
+	ID       string            `json:&quot;id&quot;`
+	Title    string            `json:&quot;title&quot;`
+	RawBytes []byte            `json:&quot;-&quot;`
+	Metadata map[string]string `json:&quot;meta&quot;`
+	Published bool             `json:&quot;published&quot;`
+	Weight   float64           `json:&quot;weight&quot;`
+}
+
+// Compile trasforma il nodo Markdown in un frammento HTML minimale
+func (n *DocumentNode) Compile(ctx context.Context, strictMode bool) (string, error) {
+	if !n.Published &amp;&amp; strictMode {
+		return &quot;&quot;, fmt.Errorf(&quot;compile aborted: node %q is unpublished\n&quot;, n.ID)
+	}
+
+	var buf bytes.Buffer
+	const headerTpl = &quot;&lt;article data-node=\&quot;%s\&quot; data-weight=\&quot;%.2f\&quot;&gt;\n&quot;
+
+	for idx := 0; idx &lt; len(n.RawBytes); idx++ {
+		b := n.RawBytes[idx]
+		if b == 0x00 {
+			continue
+		}
+		buf.WriteByte(b)
+	}
+
+	result := fmt.Sprintf(headerTpl, n.ID, 1.05) + buf.String() + &quot;\n&lt;/article&gt;&quot;
+	return result, nil
+}
+</code></pre>
+<hr>
+<h2 id="03-matrice-dati-senza-griglie-verticali-h2-light-300">03. Matrice Dati Senza Griglie Verticali (H2 Light 300)</h2>
+<p>Le tabelle abbandonano l'effetto &quot;foglio di calcolo&quot; eliminando tutti i bordi verticali e i riempimenti di sfondo. Rimangono soltanto i filetti orizzontali sottili per guidare l'occhio lungo le righe di dati tecnici.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:left">Token Sintattico</th>
+<th style="text-align:left">Variabile CSS</th>
+<th style="text-align:left">Hex Reference</th>
+<th style="text-align:left">Peso (Weight)</th>
+<th style="text-align:left">Ruolo Visivo nel Blocco Codice</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left"><code>Keyword</code> / <code>Boolean</code></td>
+<td style="text-align:left"><code>--code-white</code></td>
+<td style="text-align:left"><code>#F7F6F2</code></td>
+<td style="text-align:left"><code>700 (Bold)</code></td>
+<td style="text-align:left">Ancoraggio primario ad altissima luminosità</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>Function</code> / <code>Number</code></td>
+<td style="text-align:left"><code>--code-white</code></td>
+<td style="text-align:left"><code>#F7F6F2</code></td>
+<td style="text-align:left"><code>400 (Normal)</code></td>
+<td style="text-align:left">Emergenza luminosa pura senza spessore</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>Identifier</code> / <code>Var</code></td>
+<td style="text-align:left"><code>--code-c1</code></td>
+<td style="text-align:left"><code>#D2D4D9</code></td>
+<td style="text-align:left"><code>400 (Normal)</code></td>
+<td style="text-align:left">Corpo principale del codice sorgente</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>Type</code> / <code>Constant</code></td>
+<td style="text-align:left"><code>--code-c2</code></td>
+<td style="text-align:left"><code>#9CA0A9</code></td>
+<td style="text-align:left"><code>700 (Bold)</code></td>
+<td style="text-align:left">Struttura tipizzata di secondo livello</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>String</code> / <code>Attr</code></td>
+<td style="text-align:left"><code>--code-c2</code></td>
+<td style="text-align:left"><code>#9CA0A9</code></td>
+<td style="text-align:left"><code>400 (Normal)</code></td>
+<td style="text-align:left">Letterali e valori statici morbidi</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>Operator</code> / <code>Punct</code></td>
+<td style="text-align:left"><code>--code-c3</code></td>
+<td style="text-align:left"><code>#70757F</code></td>
+<td style="text-align:left"><code>400 (Normal)</code></td>
+<td style="text-align:left">Connettori sintattici e delimitatori</td>
+</tr>
+<tr>
+<td style="text-align:left"><code>Comment</code></td>
+<td style="text-align:left"><code>--code-c4</code></td>
+<td style="text-align:left"><code>#50545D</code></td>
+<td style="text-align:left"><code>700 (Bold)</code></td>
+<td style="text-align:left">Basso contrasto luminoso ma solido nello spessore</td>
+</tr>
+</tbody>
+</table>
+<p>Questo paragrafo conclusivo chiude il documento di test verificando il comportamento del margine inferiore dopo una tabella. Se la resa corrisponde alle specifiche, l'intera pagina apparirà come una tavola tecnica incisa su carta avorio: rigorosa, densa, priva di distrazioni cromatiche e fedele alla tua estetica.</p>
+</article>
+          
+          </div>
+        </div>
+      </section>
+
+      <aside class="col-toc" aria-label="In questa pagina">
+        <div class="col-head">In questa pagina</div>
+        <div class="col-scroll">
+          
+            
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l1">
+    <a href="#comet---lezione-2-programmazione-dinamica">CoMet - Lezione 2: Programmazione Dinamica</a>
+    
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l2">
+    <a href="#indice">Indice</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#a-il-problema-del-taglio-delle-barre">[A] Il problema del taglio delle barre</a>
+    
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l3">
+    <a href="#i-il-caso-serling-enterprises">[i] Il caso Serling Enterprises</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l3">
+    <a href="#ii-formula-ricorsiva-rcp">[ii] Formula ricorsiva (RCP)</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l3">
+    <a href="#iii-programmazione-dinamica-per-lrcp">[iii] Programmazione dinamica per l&#39;RCP</a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#b-il-problema-dello-zaino-kp">[B] Il problema dello zaino (KP)</a>
+    
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l3">
+    <a href="#i-il-problema-di-paul-atreides">[i] Il problema di Paul Atreides</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l3">
+    <a href="#ii-sottoproblemi-e-formula-ricorsiva-kp">[ii] Sottoproblemi e formula ricorsiva (KP)</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l3">
+    <a href="#iii-programmazione-dinamica-per-il-kp">[iii] Programmazione dinamica per il KP</a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#conclusioni">Conclusioni</a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+  <li class="toc-item toc-l1">
+    <a href="#manifesto-dellarchitettura-tipografica-monocromatica">Manifesto dell&#39;Architettura Tipografica Monocromatica</a>
+    
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l2">
+    <a href="#01-tensione-degli-spessori-e-gerarchia-h2-light-300">01. Tensione degli Spessori e Gerarchia (H2 Light 300)</a>
+    
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l3">
+    <a href="#11-sottosistema-di-indicizzazione-h3-bold-700">1.1. Sottosistema di Indicizzazione (H3 Bold 700)</a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#02-monolite-codice-e-sintassi-neovim-h2-light-300">02. Monolite Codice e Sintassi Neovim (H2 Light 300)</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#03-matrice-dati-senza-griglie-verticali-h2-light-300">03. Matrice Dati Senza Griglie Verticali (H2 Light 300)</a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+</ul>
+
+          
+          
+        </div>
+      </aside>
+
+    
+  </main>
+
+  
+  <footer class="statusbar" aria-hidden="true">
+    <span class="sb-mode">READ</span>
+    <span class="sb-path">notes/golang/comet/lecture.md</span>
+    <span class="sb-spacer"></span>
+    <span class="sb-item">it</span>
+    <span class="sb-item">utf-8</span>
+    <span class="sb-item">markdown</span>
+    <span class="sb-pos" data-scroll-pos>top</span>
+  </footer>
+  
+
+  <script>
+    window.GOTOMARK = {
+      lang: "it",
+      section: "notes",
+      i18n: { copy: "copia", copied: "copiato", words: "parole", minRead: "min di lettura" }
+    };
+  </script>
+  <script src="../../../../../static/widgets.js"></script>
+  <script src="../../../../../static/widgets/kpi.js"></script>
+  <script src="../../../../../static/widgets/timeline.js"></script>
+  <script src="../../../../../static/widgets/chart.js"></script>
+  <script src="../../../../../static/widgets/lorenz.js"></script>
+  <script src="../../../../../static/engine.js"></script>
+  <script src="../../../../../static/ui.js"></script>
+</body>
+</html>
+
+
+
+

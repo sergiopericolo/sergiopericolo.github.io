@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>sergiopericolo</title>
+<script>
+(function () {
+  var langs = ["it","en"], pick = "it";
+  try {
+    var saved = localStorage.getItem("gotomark-lang");
+    if (saved && langs.indexOf(saved) >= 0) { pick = saved; }
+    else {
+      var nav = (navigator.languages || [navigator.language || ""]);
+      for (var i = 0; i < nav.length; i++) {
+        var c = String(nav[i]).toLowerCase();
+        if (langs.indexOf(c) >= 0) { pick = c; break; }
+        if (langs.indexOf(c.split("-")[0]) >= 0) { pick = c.split("-")[0]; break; }
+      }
+    }
+  } catch (e) {}
+  location.replace("./" + pick + "/index.html");
+})();
+</script>
+<noscript><meta http-equiv="refresh" content="0; url=./it/index.html"></noscript>
+<style>body{font:14px ui-monospace,Menlo,monospace;margin:3rem;background:#CED3DE;color:#1F2125}a{color:inherit}</style>
+</head>
+<body><ul><li><a href="./it/index.html">Italiano</a></li><li><a href="./en/index.html">English</a></li></ul></body>
+</html>

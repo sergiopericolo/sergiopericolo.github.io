@@ -1,0 +1,545 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Identità digitale e knowledge base computazionale: CV, progetti e appunti.">
+  <meta name="author" content="Sergio Di Lapi">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains&#43;Mono:wght@400;500;600;700;800&amp;family=IBM&#43;Plex&#43;Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <title>Programmazione dinamica: taglio delle barre e problema dello zaino · Appunti</title>
+  <link rel="stylesheet" href="../../../static/layout.css">
+  <link rel="stylesheet" href="../../../static/theme.css">
+  <link rel="stylesheet" href="../../../static/wimark.css">
+  <link rel="stylesheet" href="../../../static/themes/light.css">
+  <link rel="alternate" hreflang="en" href="../../../../en/notes/computational-method/02-dynamic-programming/index.html">
+  <style>:root { --mono:"JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;--sans:"IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;--font-body:var(--sans);--font-heading:var(--mono);--font-size:14px;--content-width:780px;--sidebar-width:256px;--folders-width:224px;--toc-width:232px;--radius:4px;--radius-sm:3px;--radius-lg:10px; }</style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+</head>
+<body data-depth="multi" data-index="right" data-theme="light" data-theme-class="monochrome" data-heading="mono" data-statusbar="on">
+
+  <header class="topbar">
+    <a class="brand" href="../../../index.html">sergiopericolo</a>
+    <nav class="sections" aria-label="Sezioni">
+      
+      <a class="section-link" href="../../../about/index.html">
+        <span class="section-idx">01</span>
+        <span class="section-title">Chi sono</span>
+      </a>
+      
+      <a class="section-link" href="../../../projects/index.html">
+        <span class="section-idx">02</span>
+        <span class="section-title">Progetti</span>
+      </a>
+      
+      <a class="section-link active" href="../../../notes/index.html">
+        <span class="section-idx">03</span>
+        <span class="section-title">Appunti</span>
+      </a>
+      
+      <a class="section-link" href="../../../visual/index.html">
+        <span class="section-idx">04</span>
+        <span class="section-title">Visual</span>
+      </a>
+      
+      <a class="section-link" href="../../../art/index.html">
+        <span class="section-idx">05</span>
+        <span class="section-title">Arte</span>
+      </a>
+      
+    </nav>
+    <div class="topbar-end">
+      <button class="search-open" type="button" data-search-open aria-haspopup="dialog"><span>Cerca</span><kbd>⌘K</kbd></button>
+      
+
+<nav class="lang-switch" aria-label="Lingua">
+  <span class="lang-link current" aria-current="true">it</span><a class="lang-link" href="../../../../en/notes/computational-method/02-dynamic-programming/index.html" hreflang="en" lang="en" title="English">en</a>
+</nav>
+
+
+      <span class="build-info"><a class="build-name" href="https://github.com/sergiopericolo/GoMark">GoMark</a> v1.2.0</span>
+    </div>
+  </header>
+
+  <main class="grid" style="--grid: minmax(0, 15fr) minmax(0, 15fr) minmax(0, 55fr) minmax(0, 15fr); --grid-medium: minmax(0, 15fr) minmax(0, 15fr) minmax(0, 70fr)">
+
+    
+
+      
+      <aside class="col-folders" aria-label="Cartelle">
+        <div class="col-head">Cartelle</div>
+        <div class="col-scroll">
+          <a class="tree-root" href="../../index.html">~/notes/</a>
+          
+
+<ul class="tree">
+  
+  
+  <li class="tree-node open" data-path="computational-method">
+    <div class="tree-row">
+      
+      <span class="tree-leaf" aria-hidden="true"></span>
+      
+      <a class="tree-folder active" href="../../computational-method/index.html">
+        <span class="tree-name">computational-method/</span>
+        <span class="tree-count">5</span>
+      </a>
+    </div>
+    
+  </li>
+  
+  
+  <li class="tree-node" data-path="financial-economics">
+    <div class="tree-row">
+      
+      <span class="tree-leaf" aria-hidden="true"></span>
+      
+      <a class="tree-folder" href="../../financial-economics/index.html">
+        <span class="tree-name">financial-economics/</span>
+        <span class="tree-count">9</span>
+      </a>
+    </div>
+    
+  </li>
+  
+</ul>
+
+        </div>
+      </aside>
+      
+
+      <aside class="col-files" aria-label="File">
+        <div class="col-head">
+          <span>File <span class="badge">5</span></span>
+          <span class="col-head-path">notes/computational-method/</span>
+        </div>
+        <div class="col-scroll">
+          <ul class="file-list">
+            
+            <li>
+              <a class="file-link" href="../../computational-method/01-knapsack-heuristics/index.html">
+                <span class="file-name">Il problema dello zaino: euristiche greedy e ricerca locale</span>
+                <span class="file-path">01-knapsack-heuristics.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link active" href="../../computational-method/02-dynamic-programming/index.html">
+                <span class="file-name">Programmazione dinamica: taglio delle barre e problema dello zaino</span>
+                <span class="file-path">02-dynamic-programming.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../computational-method/03-tsp-heuristics/index.html">
+                <span class="file-name">Il problema del commesso viaggiatore: euristiche costruttive e 2-opt</span>
+                <span class="file-path">03-tsp-heuristics.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../computational-method/04-scheduling/index.html">
+                <span class="file-name">Scheduling: regole di priorità su una e più macchine</span>
+                <span class="file-path">04-scheduling.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../computational-method/05-location-models/index.html">
+                <span class="file-name">Modelli di localizzazione: p-median e p-center</span>
+                <span class="file-path">05-location-models.md</span>
+              </a>
+            </li>
+            
+          </ul>
+        </div>
+      </aside>
+
+      <section class="col-content" aria-label="sergiopericolo">
+        <div class="content-scroll" id="content">
+          <div class="content-inner">
+          
+            
+<div class="page-head">
+  <div class="page-crumb"><span class="crumb-home">~</span>/notes/computational-method/02-dynamic-programming.md</div>
+  <h1 class="page-title">Programmazione dinamica: taglio delle barre e problema dello zaino</h1>
+  <div class="page-meta" data-page-meta><span class="meta-tag">it</span></div>
+</div>
+
+<article class="page-body"><h1 id="programmazione-dinamica-taglio-delle-barre-e-problema-dello-zaino">Programmazione dinamica: taglio delle barre e problema dello zaino</h1>
+<p>Lezione 2 di <em>Computational Methods</em> (Carlo Filippi, Università di Brescia). Le euristiche della lezione 1 sono veloci ma non garantiscono l'ottimo. La <strong>programmazione dinamica</strong> (DP) è un metodo <strong>esatto</strong>: spezza il problema in sottoproblemi più piccoli, li risolve una volta sola ciascuno e ne combina le soluzioni.</p>
+<p>Percorso:</p>
+<ol>
+<li><strong>Il taglio delle barre</strong> — il caso Serling Enterprises, la forza bruta, la formula ricorsiva, l'algoritmo DP e la ricostruzione della soluzione.</li>
+<li><strong>Il problema dello zaino</strong> — il caso di Paul Atreides, i sottoproblemi <span class="math math-inline">\(f(g, j)\)</span>, la tabella DP, la ricostruzione e il tempo pseudopolinomiale.</li>
+</ol>
+<h2 id="il-taglio-delle-barre-rcp">Il taglio delle barre (RCP)</h2>
+<h3 id="il-caso-serling-enterprises">Il caso Serling Enterprises</h3>
+<p>Serling Enterprises compra lunghe barre d'acciaio di lunghezza <span class="math math-inline">\(n\)</span> e le taglia in barre più corte da rivendere.</p>
+<ul>
+<li>Le barre corte possono avere qualunque lunghezza intera <span class="math math-inline">\(j = 1, 2, \dots, n\)</span>.</li>
+<li>Una barra di lunghezza <span class="math math-inline">\(j\)</span> si vende al prezzo <span class="math math-inline">\(p_j\)</span>.</li>
+<li>Ogni taglio è gratuito.</li>
+</ul>
+<p>Qual è il modo migliore di tagliare una barra? È il <strong>Rod Cutting Problem</strong> (RCP). Per esempio, con <span class="math math-inline">\(n = 4\)</span>:</p>
+<table>
+<thead>
+<tr>
+<th><span class="math math-inline">\(j\)</span></th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="math math-inline">\(p_j\)</span></td>
+<td>1</td>
+<td>5</td>
+<td>8</td>
+<td>9</td>
+</tr>
+</tbody>
+</table>
+<p>Gli schemi di taglio possibili sono 8:</p>
+<table>
+<thead>
+<tr>
+<th>Schema</th>
+<th>Ricavo</th>
+<th>Schema</th>
+<th>Ricavo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(4)</td>
+<td>9</td>
+<td>(1)(3)</td>
+<td>1 + 8 = 9</td>
+</tr>
+<tr>
+<td>(2)(2)</td>
+<td>5 + 5 = <strong>10</strong></td>
+<td>(3)(1)</td>
+<td>8 + 1 = 9</td>
+</tr>
+<tr>
+<td>(1)(1)(2)</td>
+<td>1 + 1 + 5 = 7</td>
+<td>(1)(2)(1)</td>
+<td>1 + 5 + 1 = 7</td>
+</tr>
+<tr>
+<td>(2)(1)(1)</td>
+<td>5 + 1 + 1 = 7</td>
+<td>(1)(1)(1)(1)</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+<p>Il migliore è tagliare in due pezzi da 2: ricavo <strong>10</strong>.</p>
+<h3 id="forza-bruta">Forza bruta</h3>
+<p>Sia <span class="math math-inline">\(r_n\)</span> il ricavo ottimo per una barra di lunghezza <span class="math math-inline">\(n\)</span>. Se l'ottimo taglia la barra in <span class="math math-inline">\(k\)</span> pezzi, <span class="math math-inline">\(n = i_1 + i_2 + \dots + i_k\)</span> e <span class="math math-inline">\(r_n = p_{i_1} + p_{i_2} + \dots + p_{i_k}\)</span>. Si potrebbero enumerare tutte le scomposizioni di <span class="math math-inline">\(n\)</span> in somme di interi positivi e calcolare il ricavo di ciascuna. Ma:</p>
+<ul>
+<li>molte scomposizioni sono equivalenti (1 + 3 e 3 + 1 danno lo stesso ricavo);</li>
+<li>le valutazioni sono troppe: in ognuna delle <span class="math math-inline">\(n - 1\)</span> posizioni si taglia o no, quindi <span class="math math-inline">\(2^{n-1}\)</span>.</li>
+</ul>
+<h3 id="una-formula-ricorsiva">Una formula ricorsiva</h3>
+<p>Si può impostare la ricerca come una ricorsione:</p>
+<p><span class="math math-display">\[r_n = \max \{ p_n,\ r_1 + r_{n-1},\ r_2 + r_{n-2},\ \dots,\ r_{n-1} + r_1 \}\]</span></p>
+<p>Una volta deciso dove fare il primo taglio, il problema si divide in <strong>due sottoproblemi</strong> dello stesso tipo, che si risolvono con la stessa logica fino al caso banale <span class="math math-inline">\(r_1\)</span>.</p>
+<blockquote>
+<p><strong>Sottostruttura ottima.</strong> Le soluzioni ottime di un problema contengono soluzioni ottime di sottoproblemi correlati, risolvibili in modo indipendente.</p>
+</blockquote>
+<p>Una ricorsione equivalente, più semplice, decide solo la lunghezza <span class="math math-inline">\(j\)</span> del <strong>primo pezzo a sinistra</strong> (che non si taglia più) e chiama la ricorsione sul resto, lungo <span class="math math-inline">\(n - j\)</span>:</p>
+<p><span class="math math-display">\[r_n = \max_{1 \le j \le n} \{ p_j + r_{n-j} \} = \max \{ p_1 + r_{n-1},\ p_2 + r_{n-2},\ \dots,\ p_n + r_0 \}, \qquad r_0 = 0\]</span></p>
+<p>Per <span class="math math-inline">\(n = 4\)</span>:</p>
+<p><span class="math math-display">\[r_4 = \max \{ p_1 + r_3,\ p_2 + r_2,\ p_3 + r_1,\ p_4 + r_0 \}\]</span></p>
+<p><span class="math math-display">\[r_3 = \max \{ p_1 + r_2,\ p_2 + r_1,\ p_3 + r_0 \}\]</span></p>
+<p><span class="math math-display">\[r_2 = \max \{ p_1 + r_1,\ p_2 + r_0 \}, \qquad r_1 = p_1 + r_0, \qquad r_0 = 0\]</span></p>
+<p>Il trucco della DP: calcolare <strong>tutti</strong> gli <span class="math math-inline">\(r_j\)</span> per <span class="math math-inline">\(j = 0, 1, \dots, n\)</span> <strong>in ordine crescente</strong>. Così ogni sottoproblema si risolve una volta sola, e quando serve <span class="math math-inline">\(r_{n-j}\)</span> è già in tabella.</p>
+<h3 id="lalgoritmo-e-la-ricostruzione">L'algoritmo e la ricostruzione</h3>
+<p>L'algoritmo base trova il ricavo ottimo ma non dice <strong>come</strong> tagliare. Serve un secondo vettore <span class="math math-inline">\(s = [s_0, s_1, \dots, s_n]\)</span>: <span class="math math-inline">\(s_j\)</span> è la lunghezza del <strong>primo pezzo</strong> da tagliare da una barra di lunghezza <span class="math math-inline">\(j\)</span> per ottenere il ricavo ottimo.</p>
+<ol>
+<li>Si inizializzano <span class="math math-inline">\(r = [r_0, \dots, r_n]\)</span> e <span class="math math-inline">\(s = [s_0, \dots, s_n]\)</span>; <span class="math math-inline">\(r_0 = 0\)</span>, <span class="math math-inline">\(j = 1\)</span>.</li>
+<li>Si calcola <span class="math math-inline">\(r_j = \max \{ p_1 + r_{j-1},\ p_2 + r_{j-2},\ \dots,\ p_j + r_0 \}\)</span>; sia <span class="math math-inline">\(i\)</span> l'indice che realizza il massimo, <span class="math math-inline">\(r_j = p_i + r_{j-i}\)</span>: si pone <span class="math math-inline">\(s_j = i\)</span> e <span class="math math-inline">\(j = j + 1\)</span>.</li>
+<li>Se <span class="math math-inline">\(j &gt; n\)</span> si restituiscono <span class="math math-inline">\(r_n\)</span> e <span class="math math-inline">\(s\)</span>; altrimenti si torna al passo 2.</li>
+</ol>
+<p><strong>Ricostruzione.</strong> Con <span class="math math-inline">\(n = 5\)</span> e <span class="math math-inline">\(s = [0, 1, 2, 3, 2, 2]\)</span>: <span class="math math-inline">\(s_5 = 2\)</span>, si taglia un pezzo da 2 e resta una barra da 3; <span class="math math-inline">\(s_3 = 3\)</span>, si taglia un pezzo da 3 e resta 0. Fatto: <span class="math math-inline">\(5 = 2 + 3\)</span>.</p>
+<p>Nel widget i prezzi sono quelli dell'esempio esteso fino a 8: (1, 5, 8, 9, 10, 17, 17, 20). Premi &quot;prossimo&quot; per vedere ogni <span class="math math-inline">\(r_j\)</span> nascere dai valori già noti; in evidenza il candidato vincente. Poi sposta <span class="math math-inline">\(n\)</span> (con <span class="math math-inline">\(n = 5\)</span> ritrovi <span class="math math-inline">\(s = [0, 1, 2, 3, 2, 2]\)</span>).</p>
+<pre class="wimark-src"><code class="nohighlight" data-wimark="dp" data-opts="{&#34;problem&#34;: &#34;rod&#34;, &#34;prices&#34;: [1, 5, 8, 9, 10, 17, 17, 20], &#34;n&#34;: 4}"></code></pre>
+<h3 id="tempo-di-calcolo">Tempo di calcolo</h3>
+<p>Quasi tutto il lavoro è nel passo 2, che per il valore <span class="math math-inline">\(j\)</span> somma <span class="math math-inline">\(j\)</span> coppie di numeri e fa un numero fisso di altre operazioni. Le operazioni sono quindi proporzionali a</p>
+<p><span class="math math-display">\[1 + 2 + 3 + \dots + n = \frac{n(n+1)}{2} = O(n^2)\]</span></p>
+<p>contro le <span class="math math-inline">\(2^{n-1}\)</span> valutazioni della forza bruta. Con <span class="math math-inline">\(n = 30\)</span>: 465 contro più di 500 milioni.</p>
+<h2 id="il-problema-dello-zaino-kp">Il problema dello zaino (KP)</h2>
+<h3 id="il-caso-di-paul-atreides">Il caso di Paul Atreides</h3>
+<p>Paul Atreides deve scegliere pochi oggetti per sopravvivere nel deserto di Arrakis (tenda, borraccia, cibo…). Ha una borsa piccola, da <strong>5 litri</strong>, e pochi minuti prima che arrivino i Sardaukar. Ogni oggetto ha un volume e un valore di sopravvivenza. Come riempire la borsa?</p>
+<p>È un KP: oggetti <span class="math math-inline">\(j = 1, \dots, n\)</span> con valore <span class="math math-inline">\(p_j\)</span> e volume <span class="math math-inline">\(v_j\)</span>, capacità <span class="math math-inline">\(C\)</span>, <span class="math math-inline">\(x_j \in \{0, 1\}\)</span>.</p>
+<table>
+<thead>
+<tr>
+<th><span class="math math-inline">\(j\)</span></th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="math math-inline">\(p_j\)</span></td>
+<td>3</td>
+<td>4</td>
+<td>5</td>
+<td>6</td>
+</tr>
+<tr>
+<td><span class="math math-inline">\(v_j\)</span></td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+<td>5</td>
+</tr>
+</tbody>
+</table>
+<p><span class="math math-display">\[\max\ 3x_1 + 4x_2 + 5x_3 + 6x_4 \quad \text{s.t.} \quad 2x_1 + 3x_2 + 4x_3 + 5x_4 \le 5, \qquad x_j \in \{0, 1\}\]</span></p>
+<p>Come l'RCP, il KP ha una <strong>sottostruttura ottima</strong>. Le differenze:</p>
+<table>
+<thead>
+<tr>
+<th>RCP</th>
+<th>KP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>I &quot;volumi&quot; sono <span class="math math-inline">\(v_j = j = 1, 2, \dots, n\)</span></td>
+<td>I <span class="math math-inline">\(v_j\)</span> sono interi qualsiasi</td>
+</tr>
+<tr>
+<td>Si possono tagliare quanti pezzi si vuole di lunghezza <span class="math math-inline">\(j\)</span></td>
+<td>Ogni oggetto si carica <strong>al più una volta</strong></td>
+</tr>
+</tbody>
+</table>
+<p>La prima differenza semplifica le cose, la seconda le complica: non basta ricordare la capacità residua, bisogna sapere anche <strong>quali oggetti sono ancora disponibili</strong>.</p>
+<h3 id="sottoproblemi-e-ricorsione">Sottoproblemi e ricorsione</h3>
+<p>I sottoproblemi si ottengono considerando <strong>meno oggetti</strong> e/o una <strong>capacità più piccola</strong>. Per <span class="math math-inline">\(0 \le j \le n\)</span> e <span class="math math-inline">\(0 \le g \le C\)</span>:</p>
+<p><span class="math math-display">\[f(g, j) = \max \sum_{i=1}^{j} p_i x_i \quad \text{s.t.} \quad \sum_{i=1}^{j} v_i x_i \le g, \qquad x_i \in \{0, 1\}\]</span></p>
+<p>cioè il miglior valore usando solo i primi <span class="math math-inline">\(j\)</span> oggetti e capacità <span class="math math-inline">\(g\)</span>. Il problema originale è <span class="math math-inline">\(f(C, n)\)</span>. Per l'oggetto <span class="math math-inline">\(j\)</span> ci sono due possibilità:</p>
+<p><span class="math math-display">\[f(g, j) = \begin{cases} \max \{ p_j + f(g - v_j,\ j - 1),\ \ f(g,\ j - 1)  \} &amp; \text{se } g - v_j \ge 0 \\ f(g,\ j - 1) &amp; \text{altrimenti} \end{cases}\]</span></p>
+<ul>
+<li><span class="math math-inline">\(p_j + f(g - v_j, j - 1)\)</span>: l'oggetto <span class="math math-inline">\(j\)</span> <strong>viene preso</strong>, e resta capacità <span class="math math-inline">\(g - v_j\)</span> per i primi <span class="math math-inline">\(j - 1\)</span> oggetti.</li>
+<li><span class="math math-inline">\(f(g, j - 1)\)</span>: l'oggetto <span class="math math-inline">\(j\)</span> <strong>non viene preso</strong>.</li>
+</ul>
+<p>Condizioni iniziali: <span class="math math-inline">\(f(g, 0) = 0\)</span> per ogni <span class="math math-inline">\(g\)</span> (nessun oggetto) e <span class="math math-inline">\(f(0, j) = 0\)</span> per ogni <span class="math math-inline">\(j\)</span> (nessuna capacità).</p>
+<h3 id="la-tabella-dp">La tabella DP</h3>
+<p>I calcoli si dispongono in una tabella di <span class="math math-inline">\((C + 1)\)</span> righe (<span class="math math-inline">\(g = 0, \dots, C\)</span>) e <span class="math math-inline">\((n + 1)\)</span> colonne (<span class="math math-inline">\(j = 0, \dots, n\)</span>), riempita <strong>colonna per colonna</strong>. Ogni cella <span class="math math-inline">\(f(g, j)\)</span> legge due celle della colonna precedente: quella sulla stessa riga, <span class="math math-inline">\(f(g, j-1)\)</span>, e quella <span class="math math-inline">\(v_j\)</span> righe più in alto, <span class="math math-inline">\(f(g - v_j, j - 1)\)</span>.</p>
+<ol>
+<li><strong>Inizializzazione</strong>: riga 0 e colonna 0 a zero; <span class="math math-inline">\(j = 1\)</span>, <span class="math math-inline">\(g = 1\)</span>.</li>
+<li><strong>Iterazione</strong>: se <span class="math math-inline">\(g - v_j \ge 0\)</span>, <span class="math math-inline">\(f(g, j) = \max \{ p_j + f(g - v_j, j - 1),\ f(g, j - 1) \}\)</span>, e se vince il primo termine si <strong>marca</strong> la cella; altrimenti <span class="math math-inline">\(f(g, j) = f(g, j - 1)\)</span>. Poi <span class="math math-inline">\(g = g + 1\)</span>.</li>
+<li><strong>Fine colonna</strong>: se <span class="math math-inline">\(g \le C\)</span> si torna al passo 2; altrimenti <span class="math math-inline">\(j = j + 1\)</span>.</li>
+<li><strong>Fine tabella</strong>: se <span class="math math-inline">\(j \le n\)</span> si pone <span class="math math-inline">\(g = 1\)</span> e si torna al passo 2; altrimenti si restituisce <span class="math math-inline">\(f(C, n)\)</span>.</li>
+</ol>
+<p>Una cella marcata dice: &quot;in questo sottoproblema l'oggetto <span class="math math-inline">\(j\)</span> è nella soluzione&quot;.</p>
+<p><strong>Ricostruzione.</strong> L'angolo in basso a destra contiene il valore ottimo. Per sapere <strong>quali</strong> oggetti caricare si parte da lì e si usano le marcature:</p>
+<ol start="5">
+<li><span class="math math-inline">\(g = C\)</span>, <span class="math math-inline">\(j = n\)</span>, <span class="math math-inline">\(S = \emptyset\)</span>.</li>
+<li>Se <span class="math math-inline">\(g = 0\)</span> o <span class="math math-inline">\(j = 0\)</span> si restituisce <span class="math math-inline">\(S\)</span>.</li>
+<li>Se <span class="math math-inline">\(f(g, j)\)</span> è marcata: <span class="math math-inline">\(S = S \cup \{j\}\)</span> e <span class="math math-inline">\(g = g - v_j\)</span>.</li>
+<li><span class="math math-inline">\(j = j - 1\)</span> e si torna al passo 6.</li>
+</ol>
+<p>Riempi la tabella di Paul una cella alla volta. Il messaggio mostra il confronto tra &quot;prendo&quot; e &quot;lascio&quot;; in grassetto le due celle lette; alla fine il percorso a ritroso.</p>
+<pre class="wimark-src"><code class="nohighlight" data-wimark="dp" data-opts="{&#34;problem&#34;: &#34;kp&#34;, &#34;cap&#34;: 5}">[[&#34;1&#34;, 2, 3], [&#34;2&#34;, 3, 4], [&#34;3&#34;, 4, 5], [&#34;4&#34;, 5, 6]]
+</code></pre>
+<p>Paul carica gli oggetti 1 e 2 (volume 5, valore <strong>7</strong>).</p>
+<h3 id="tempo-di-calcolo-pseudopolinomiale">Tempo di calcolo: pseudopolinomiale</h3>
+<ul>
+<li><strong>Passo 1</strong>: crea una tabella di <span class="math math-inline">\((C + 1)(n + 1)\)</span> celle.</li>
+<li><strong>Passi 2–4</strong>: un numero fisso di operazioni per ciascuna delle <span class="math math-inline">\(n \cdot C\)</span> celle.</li>
+<li><strong>Passi 5–8</strong>: un numero fisso di operazioni al più <span class="math math-inline">\(n + C\)</span> volte.</li>
+</ul>
+<p>In totale <span class="math math-inline">\(O(nC)\)</span>. Sembra polinomiale, ma <strong>non lo è nella dimensione dell'input</strong>: per scrivere il numero <span class="math math-inline">\(C\)</span> bastano circa <span class="math math-inline">\(\log_2 C\)</span> cifre binarie, e <span class="math math-inline">\(C = 2^{\log_2 C}\)</span> cresce esponenzialmente rispetto a esse. Raddoppiare le cifre di <span class="math math-inline">\(C\)</span> eleva al quadrato il lavoro. Si parla di tempo <strong>pseudopolinomiale</strong>: ottimo se <span class="math math-inline">\(C\)</span> è piccolo, impraticabile se <span class="math math-inline">\(C\)</span> è enorme.</p>
+<p><strong>Un effetto collaterale utile.</strong> Per costruzione, risolvendo il KP con <span class="math math-inline">\(n\)</span> oggetti e capacità <span class="math math-inline">\(C\)</span> si risolvono <strong>tutte</strong> le istanze con i primi <span class="math math-inline">\(j\)</span> oggetti e capacità <span class="math math-inline">\(g\)</span>, per ogni <span class="math math-inline">\(0 \le j \le n\)</span> e <span class="math math-inline">\(0 \le g \le C\)</span>: l'ultima colonna dice subito, per esempio, cosa fare se la borsa fosse da 4 litri.</p>
+<h2 id="conclusioni">Conclusioni</h2>
+<ul>
+<li>Risolvere un KP con <span class="math math-inline">\(n\)</span> oggetti e capacità <span class="math math-inline">\(C\)</span> con la DP richiede una matrice di <span class="math math-inline">\(C + 1\)</span> righe e <span class="math math-inline">\(n + 1\)</span> colonne e un numero costante di operazioni per cella: <span class="math math-inline">\(O(nC)\)</span>, pseudopolinomiale.</li>
+<li>Il KP resta computazionalmente difficile in generale, e questo spiega l'importanza delle euristiche.</li>
+<li>La programmazione dinamica è un'idea algoritmica generale: si applica a molti problemi, anche stocastici.</li>
+</ul>
+<h2 id="punti-chiave">Punti chiave</h2>
+<ul>
+<li><strong>Sottostruttura ottima</strong>: l'ottimo di un problema contiene gli ottimi di sottoproblemi.</li>
+<li>La DP calcola ogni sottoproblema <strong>una sola volta</strong>, in un ordine in cui i sottoproblemi necessari sono già risolti.</li>
+<li>RCP: <span class="math math-inline">\(r_n = \max_{1 \le j \le n} \{ p_j + r_{n-j} \}\)</span>, <span class="math math-inline">\(r_0 = 0\)</span>; <span class="math math-inline">\(O(n^2)\)</span> contro <span class="math math-inline">\(2^{n-1}\)</span>; il vettore <span class="math math-inline">\(s\)</span> ricostruisce i tagli.</li>
+<li>KP: <span class="math math-inline">\(f(g, j) = \max \{ p_j + f(g - v_j, j - 1),\ f(g, j - 1) \}\)</span>; tabella <span class="math math-inline">\((C+1) \times (n+1)\)</span>; le marcature ricostruiscono la soluzione.</li>
+<li><span class="math math-inline">\(O(nC)\)</span> è <strong>pseudopolinomiale</strong>: polinomiale nel valore di <span class="math math-inline">\(C\)</span>, esponenziale nella sua lunghezza in bit.</li>
+</ul>
+<pre class="wimark-src"><code class="nohighlight" data-wimark="quiz" data-opts="{&#34;title&#34;: &#34;Verifica&#34;}">[
+  {&#34;q&#34;: &#34;Con prezzi $p = (1, 5, 8, 9)$, quanto vale $r_3$?&#34;, &#34;options&#34;: [&#34;8&#34;, &#34;6&#34;, &#34;9&#34;], &#34;answer&#34;: 0, &#34;why&#34;: &#34;$r_3 = \\max\\{p_1 + r_2, p_2 + r_1, p_3 + r_0\\} = \\max\\{1 + 5, 5 + 1, 8 + 0\\} = 8$.&#34;},
+  {&#34;q&#34;: &#34;Perché la DP per l&#39;RCP richiede $O(n^2)$ operazioni invece di $2^{n-1}$?&#34;, &#34;options&#34;: [&#34;Perché ignora alcuni schemi di taglio&#34;, &#34;Perché ogni sottoproblema $r_j$ viene calcolato una volta sola e poi riusato&#34;, &#34;Perché usa un&#39;euristica greedy&#34;], &#34;answer&#34;: 1},
+  {&#34;q&#34;: &#34;$s = [0, 1, 2, 3, 2, 2, 6]$. Come si taglia una barra di lunghezza 6?&#34;, &#34;options&#34;: [&#34;2 + 2 + 2&#34;, &#34;6, senza tagli&#34;, &#34;3 + 3&#34;], &#34;answer&#34;: 1, &#34;why&#34;: &#34;$s_6 = 6$: il primo pezzo è lungo 6, cioè tutta la barra; non resta nulla.&#34;},
+  {&#34;q&#34;: &#34;Nella tabella del KP, la cella $f(g, j)$ è marcata. Che cosa significa?&#34;, &#34;options&#34;: [&#34;Che $f(g, j) = f(g, j-1)$&#34;, &#34;Che nel sottoproblema con i primi $j$ oggetti e capacità $g$ l&#39;oggetto $j$ è preso&#34;, &#34;Che la capacità $g$ è piena&#34;], &#34;answer&#34;: 1, &#34;why&#34;: &#34;La marcatura registra che ha vinto $p_j + f(g - v_j, j - 1)$. Nella ricostruzione si aggiunge $j$ a $S$ e si scende a $g - v_j$.&#34;},
+  {&#34;q&#34;: &#34;Perché $O(nC)$ non è un tempo polinomiale?&#34;, &#34;options&#34;: [&#34;Perché $n$ può essere grande&#34;, &#34;Perché $C$ si scrive con circa $\\log_2 C$ bit, e $C$ è esponenziale in quella lunghezza&#34;, &#34;Perché la tabella va riempita due volte&#34;], &#34;answer&#34;: 1}
+]
+</code></pre>
+</article>
+
+          
+          </div>
+        </div>
+      </section>
+
+      <aside class="col-toc" aria-label="In questa pagina">
+        <div class="col-head">In questa pagina</div>
+        <div class="col-scroll">
+          
+            
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l1">
+    <a href="#programmazione-dinamica-taglio-delle-barre-e-problema-dello-zaino">Programmazione dinamica: taglio delle barre e problema dello zaino</a>
+    
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l2">
+    <a href="#il-taglio-delle-barre-rcp">Il taglio delle barre (RCP)</a>
+    
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l3">
+    <a href="#il-caso-serling-enterprises">Il caso Serling Enterprises</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l3">
+    <a href="#forza-bruta">Forza bruta</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l3">
+    <a href="#una-formula-ricorsiva">Una formula ricorsiva</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l3">
+    <a href="#lalgoritmo-e-la-ricostruzione">L&#39;algoritmo e la ricostruzione</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l3">
+    <a href="#tempo-di-calcolo">Tempo di calcolo</a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#il-problema-dello-zaino-kp">Il problema dello zaino (KP)</a>
+    
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l3">
+    <a href="#il-caso-di-paul-atreides">Il caso di Paul Atreides</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l3">
+    <a href="#sottoproblemi-e-ricorsione">Sottoproblemi e ricorsione</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l3">
+    <a href="#la-tabella-dp">La tabella DP</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l3">
+    <a href="#tempo-di-calcolo-pseudopolinomiale">Tempo di calcolo: pseudopolinomiale</a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#conclusioni">Conclusioni</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#punti-chiave">Punti chiave</a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+</ul>
+
+          
+          
+        </div>
+      </aside>
+
+    
+  </main>
+
+  
+  <footer class="statusbar" aria-hidden="true">
+    <span class="sb-mode">READ</span>
+    <span class="sb-path">it/notes/computational-method/02-dynamic-programming.md</span>
+    <span class="sb-spacer"></span>
+    <span class="sb-item">it</span>
+    <span class="sb-item">utf-8</span>
+    <span class="sb-item">markdown</span>
+    <span class="sb-pos" data-scroll-pos>top</span>
+  </footer>
+  
+
+  <div class="search" data-search hidden role="dialog" aria-modal="true" aria-label="Cerca">
+    <div class="search-panel">
+      <div class="search-bar"><span class="search-prompt" aria-hidden="true">❯</span>
+      <input class="search-input" type="search" placeholder="Cerca" autocomplete="off" spellcheck="false" aria-controls="search-results"></div>
+      <ul class="search-results" id="search-results" role="listbox"></ul>
+      <div class="search-hint" aria-hidden="true"><span><kbd>↑↓</kbd> scorri</span><span><kbd>↵</kbd> apri</span><span><kbd>esc</kbd> chiudi</span></div>
+    </div>
+  </div>
+
+  <script>
+    window.GOMARK = {
+      lang: "it",
+      root: "..\/..\/..\/",
+      theme: "light",
+      section: "notes",
+      i18n: { noResults: "Nessun risultato", copy: "copia", copied: "copiato", words: "parole", minRead: "min di lettura",
+        data: "dati", search: "cerca", noData: "nessun dato", other: "altro",
+        total: "totale", show: "mostra", hide: "nascondi", reset: "ripristina", all: "tutti" }
+    };
+  </script>
+  <script src="../../../static/widgets.js"></script>
+  <script src="../../../static/widgets/comet/dp.js"></script>
+  <script src="../../../static/widgets/quiz.js"></script>
+  <script src="../../../static/engine.js"></script>
+  <script src="../../../static/ui.js"></script>
+  <script src="../../../static/search.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

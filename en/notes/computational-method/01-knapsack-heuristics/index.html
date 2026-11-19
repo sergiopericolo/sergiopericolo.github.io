@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Digital identity and computational knowledge base: résumé, projects and notes.">
+  <meta name="author" content="Sergio Di Lapi">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains&#43;Mono:wght@400;500;600;700;800&amp;family=IBM&#43;Plex&#43;Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <title>The Knapsack Problem: greedy heuristics and local search · Notes</title>
+  <link rel="stylesheet" href="../../../static/layout.css">
+  <link rel="stylesheet" href="../../../static/theme.css">
+  <link rel="stylesheet" href="../../../static/wimark.css">
+  <link rel="stylesheet" href="../../../static/themes/light.css">
+  <link rel="alternate" hreflang="it" href="../../../../it/notes/computational-method/01-knapsack-heuristics/index.html">
+  <style>:root { --mono:"JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;--sans:"IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;--font-body:var(--sans);--font-heading:var(--mono);--font-size:14px;--content-width:780px;--sidebar-width:256px;--folders-width:224px;--toc-width:232px;--radius:4px;--radius-sm:3px;--radius-lg:10px; }</style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+</head>
+<body data-depth="multi" data-index="right" data-theme="light" data-theme-class="monochrome" data-heading="mono" data-statusbar="on">
+
+  <header class="topbar">
+    <a class="brand" href="../../../index.html">sergiopericolo</a>
+    <nav class="sections" aria-label="Sections">
+      
+      <a class="section-link" href="../../../about/index.html">
+        <span class="section-idx">01</span>
+        <span class="section-title">About</span>
+      </a>
+      
+      <a class="section-link" href="../../../projects/index.html">
+        <span class="section-idx">02</span>
+        <span class="section-title">Projects</span>
+      </a>
+      
+      <a class="section-link active" href="../../../notes/index.html">
+        <span class="section-idx">03</span>
+        <span class="section-title">Notes</span>
+      </a>
+      
+      <a class="section-link" href="../../../visual/index.html">
+        <span class="section-idx">04</span>
+        <span class="section-title">Visual</span>
+      </a>
+      
+      <a class="section-link" href="../../../art/index.html">
+        <span class="section-idx">05</span>
+        <span class="section-title">Art</span>
+      </a>
+      
+    </nav>
+    <div class="topbar-end">
+      <button class="search-open" type="button" data-search-open aria-haspopup="dialog"><span>Search</span><kbd>⌘K</kbd></button>
+      
+
+<nav class="lang-switch" aria-label="Language">
+  <a class="lang-link" href="../../../../it/notes/computational-method/01-knapsack-heuristics/index.html" hreflang="it" lang="it" title="Italiano">it</a><span class="lang-link current" aria-current="true">en</span>
+</nav>
+
+
+      <span class="build-info"><a class="build-name" href="https://github.com/sergiopericolo/GoMark">GoMark</a> v1.2.0</span>
+    </div>
+  </header>
+
+  <main class="grid" style="--grid: minmax(0, 15fr) minmax(0, 15fr) minmax(0, 55fr) minmax(0, 15fr); --grid-medium: minmax(0, 15fr) minmax(0, 15fr) minmax(0, 70fr)">
+
+    
+
+      
+      <aside class="col-folders" aria-label="Folders">
+        <div class="col-head">Folders</div>
+        <div class="col-scroll">
+          <a class="tree-root" href="../../index.html">~/notes/</a>
+          
+
+<ul class="tree">
+  
+  
+  <li class="tree-node open" data-path="computational-method">
+    <div class="tree-row">
+      
+      <span class="tree-leaf" aria-hidden="true"></span>
+      
+      <a class="tree-folder active" href="../../computational-method/index.html">
+        <span class="tree-name">computational-method/</span>
+        <span class="tree-count">5</span>
+      </a>
+    </div>
+    
+  </li>
+  
+  
+  <li class="tree-node" data-path="financial-economics">
+    <div class="tree-row">
+      
+      <span class="tree-leaf" aria-hidden="true"></span>
+      
+      <a class="tree-folder" href="../../financial-economics/index.html">
+        <span class="tree-name">financial-economics/</span>
+        <span class="tree-count">9</span>
+      </a>
+    </div>
+    
+  </li>
+  
+</ul>
+
+        </div>
+      </aside>
+      
+
+      <aside class="col-files" aria-label="Files">
+        <div class="col-head">
+          <span>Files <span class="badge">5</span></span>
+          <span class="col-head-path">notes/computational-method/</span>
+        </div>
+        <div class="col-scroll">
+          <ul class="file-list">
+            
+            <li>
+              <a class="file-link active" href="../../computational-method/01-knapsack-heuristics/index.html">
+                <span class="file-name">The Knapsack Problem: greedy heuristics and local search</span>
+                <span class="file-path">01-knapsack-heuristics.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../computational-method/02-dynamic-programming/index.html">
+                <span class="file-name">Dynamic programming: rod cutting and the knapsack</span>
+                <span class="file-path">02-dynamic-programming.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../computational-method/03-tsp-heuristics/index.html">
+                <span class="file-name">The Traveling Salesperson Problem: constructive heuristics and 2-opt</span>
+                <span class="file-path">03-tsp-heuristics.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../computational-method/04-scheduling/index.html">
+                <span class="file-name">Scheduling: priority rules on one and many machines</span>
+                <span class="file-path">04-scheduling.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../computational-method/05-location-models/index.html">
+                <span class="file-name">Location models: p-median and p-center</span>
+                <span class="file-path">05-location-models.md</span>
+              </a>
+            </li>
+            
+          </ul>
+        </div>
+      </aside>
+
+      <section class="col-content" aria-label="sergiopericolo">
+        <div class="content-scroll" id="content">
+          <div class="content-inner">
+          
+            
+<div class="page-head">
+  <div class="page-crumb"><span class="crumb-home">~</span>/notes/computational-method/01-knapsack-heuristics.md</div>
+  <h1 class="page-title">The Knapsack Problem: greedy heuristics and local search</h1>
+  <div class="page-meta" data-page-meta><span class="meta-tag">en</span></div>
+</div>
+
+<article class="page-body"><h1 id="the-knapsack-problem-greedy-heuristics-and-local-search">The Knapsack Problem: greedy heuristics and local search</h1>
+<p>Lecture 1 of <em>Computational Methods</em> (Carlo Filippi, University of Brescia). One truck, too many boxes, one question: which boxes go on board? The Knapsack Problem (KP) is the simplest of the &quot;hard&quot; optimization problems, and the perfect testbed to understand what <strong>heuristics</strong> are and how their quality is measured.</p>
+<p>Roadmap:</p>
+<ol>
+<li><strong>The Star Truck case</strong> — a real loading problem and the algorithm in use today.</li>
+<li><strong>The Knapsack Problem</strong> — the integer linear programming model.</li>
+<li><strong>Exact, approximate and heuristic methods</strong> — computing time, error, performance ratio.</li>
+<li><strong>Greedy algorithms</strong> — the idea, the sorting criteria, the worst case and the improved version with a 1/2 guarantee.</li>
+<li><strong>Local search</strong> — neighborhoods, swaps, local optima.</li>
+</ol>
+<h2 id="the-star-truck-case">The Star Truck case</h2>
+<p>Star Truck is a carrier. Every week one truck leaves Seattle for San Francisco and, the day before, a manager decides which boxes to load.</p>
+<ul>
+<li>The boxes are about as wide as the truck (≈ 220 cm out of 270 cm) and cannot be stacked.</li>
+<li>So <strong>length is the only dimension that matters</strong>: loading the truck means lining boxes up along its <strong>1200 cm</strong>.</li>
+<li>Each box has a <strong>priority</strong> from 1 to 10 (urgency of the shipment, importance of the customer).</li>
+</ul>
+<p>Today nine boxes are waiting:</p>
+<table>
+<thead>
+<tr>
+<th>Box</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+<th>5</th>
+<th>6</th>
+<th>7</th>
+<th>8</th>
+<th>9</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Length (cm)</td>
+<td>330</td>
+<td>360</td>
+<td>140</td>
+<td>400</td>
+<td>310</td>
+<td>220</td>
+<td>330</td>
+<td>360</td>
+<td>350</td>
+</tr>
+<tr>
+<td>Priority</td>
+<td>3</td>
+<td>8</td>
+<td>5</td>
+<td>8</td>
+<td>3</td>
+<td>2</td>
+<td>6</td>
+<td>7</td>
+<td>7</td>
+</tr>
+</tbody>
+</table>
+<p>Total length is 2800 cm &gt; 1200 cm: only a subset can ship. The natural criterion is to <strong>maximize the sum of the priorities</strong> loaded.</p>
+<p><strong>The current algorithm</strong> sorts boxes by decreasing priority and loads them in that order while there is room: 2, 4, 8 (1120 cm, priority 23); the others do not fit in the remaining 80 cm.</p>
+<p>Is this the best we can do? Try it: start from &quot;greedy P&quot; (the current algorithm), step through it, then click the boxes to build a better load, and compare with &quot;optimum&quot;.</p>
+<pre class="wimark-src"><code class="nohighlight" data-wimark="knapsack" data-opts="{&#34;cap&#34;: 1200, &#34;unit&#34;: &#34;cm&#34;, &#34;mode&#34;: &#34;P&#34;}">[[&#34;1&#34;, 330, 3], [&#34;2&#34;, 360, 8], [&#34;3&#34;, 140, 5], [&#34;4&#34;, 400, 8], [&#34;5&#34;, 310, 3], [&#34;6&#34;, 220, 2], [&#34;7&#34;, 330, 6], [&#34;8&#34;, 360, 7], [&#34;9&#34;, 350, 7]]
+</code></pre>
+<p>The optimum is <strong>26</strong> (for instance boxes 2, 3, 7, 9: 1180 cm): the current algorithm loses 3 priority points, more than 10%.</p>
+<h2 id="the-knapsack-problem-kp">The Knapsack Problem (KP)</h2>
+<p>We are given <span class="math math-inline">\(n\)</span> items and one bin (the knapsack). Each item has a <strong>profit</strong> and a <strong>volume</strong>; the knapsack has a <strong>capacity</strong> <span class="math math-inline">\(C\)</span>. Find the subset of items with total volume not larger than <span class="math math-inline">\(C\)</span> and maximum total profit. Star Truck is a KP: profits are priorities, volumes and capacity are lengths.</p>
+<p><strong>Data.</strong> Items <span class="math math-inline">\(j = 1, \dots, n\)</span>; profit <span class="math math-inline">\(p_j\)</span> and volume <span class="math math-inline">\(v_j\)</span> of each item; capacity <span class="math math-inline">\(C\)</span>.</p>
+<p><strong>Variables.</strong> <span class="math math-inline">\(x_j = 1\)</span> if item <span class="math math-inline">\(j\)</span> is chosen, <span class="math math-inline">\(x_j = 0\)</span> otherwise.</p>
+<p><span class="math math-display">\[\max \sum_{j=1}^{n} p_j x_j \quad \text{s.t.} \quad \sum_{j=1}^{n} v_j x_j \le C, \qquad x_j \in \{0, 1\} \quad (j = 1, \dots, n)\]</span></p>
+<ul>
+<li>It is the most basic <strong>integer linear programming</strong> (ILP) model and a basic <strong>discrete optimization</strong> problem.</li>
+<li>The number of solutions explodes: brute force must test up to <span class="math math-inline">\(2^n\)</span> subsets. With 9 boxes that is 512; with 60 boxes, more than <span class="math math-inline">\(10^{18}\)</span>.</li>
+</ul>
+<h2 id="exact-approximate-and-heuristic-methods">Exact, approximate and heuristic methods</h2>
+<table>
+<thead>
+<tr>
+<th>Method</th>
+<th>What it does</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Exact</strong></td>
+<td>Finds an optimal solution (or proves none exists)</td>
+</tr>
+<tr>
+<td><strong>Approximate / heuristic</strong></td>
+<td>Looks for a <strong>good</strong> feasible solution (value not too far from the optimum) in a <strong>short</strong> time (acceptable in practice and much smaller than an exact method's)</td>
+</tr>
+</tbody>
+</table>
+<p>Two things matter about a heuristic: <strong>computing time</strong> and <strong>error</strong> with respect to the optimum. They are studied in three ways:</p>
+<table>
+<thead>
+<tr>
+<th>Analysis</th>
+<th>How</th>
+<th>Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Experimental</strong></td>
+<td>Run the algorithm on many instances (random or real) and collect statistics on errors and times</td>
+<td>Easy and very useful in practice</td>
+</tr>
+<tr>
+<td><strong>Probabilistic</strong></td>
+<td>Error and time as random variables, studied with probability theory</td>
+<td>Mostly theoretical, only for simple algorithms</td>
+</tr>
+<tr>
+<td><strong>Worst case</strong></td>
+<td>Upper bounds on time and error in the worst possible scenario</td>
+<td>Informative but usually very pessimistic</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Computing time.</strong> Worst-case analysis bounds the order of magnitude at which time grows with the instance size: <span class="math math-inline">\(O(n)\)</span>, <span class="math math-inline">\(O(n \log n)\)</span>, <span class="math math-inline">\(O(n^2)\)</span>…</p>
+<p><strong>Error.</strong> Let <span class="math math-inline">\(I\)</span> be an instance of problem <span class="math math-inline">\(P\)</span>, <span class="math math-inline">\(OPT(I)\)</span> its optimal value and <span class="math math-inline">\(A(I)\)</span> the value returned by algorithm <span class="math math-inline">\(A\)</span>. In a <strong>maximization</strong> problem <span class="math math-inline">\(A(I) \le OPT(I)\)</span> and the <strong>performance ratio</strong> on <span class="math math-inline">\(I\)</span> is <span class="math math-inline">\(A(I)/OPT(I) \le 1\)</span>. The worst-case ratio is</p>
+<p><span class="math math-display">\[R_A = \inf_{I \in P} \left\{ \frac{A(I)}{OPT(I)} \right\}\]</span></p>
+<p>where the infimum runs over <strong>all</strong> possible instances. The closer to 1, the better: <span class="math math-inline">\(R_A = 0.5\)</span> means &quot;never below half the optimum, whatever the instance&quot;.</p>
+<p><strong>Terminology.</strong></p>
+<ul>
+<li><strong>Approximate methods</strong>: come with theoretical results (worst case, probabilistic analysis).</li>
+<li><strong>Heuristic methods</strong>: empirical analysis shows satisfactory practical performance.</li>
+<li><strong>Constructive (greedy) methods</strong>: build a solution through a simple scan of the data. Very efficient, limited effectiveness.</li>
+<li><strong>Local search methods</strong>: improve a given solution iteratively while possible. Efficient and quite effective.</li>
+</ul>
+<h2 id="greedy-algorithms">Greedy algorithms</h2>
+<p>The idea: start from an empty solution and add elements one at a time, following a simple criterion based on an <strong>order fixed in advance</strong>. <strong>No backtracking</strong>: every decision is permanent. Hence the name <em>greedy</em>.</p>
+<p>A classic example is <strong>Kruskal's algorithm</strong> for the minimum spanning tree. Given a graph <span class="math math-inline">\(G = (V, E)\)</span> with edge costs <span class="math math-inline">\(c_e\)</span>:</p>
+<ol>
+<li>Sort the edges from cheapest to most expensive; <span class="math math-inline">\(T = \emptyset\)</span>.</li>
+<li>Take the first edge <span class="math math-inline">\(e\)</span> of the list.</li>
+<li>If <span class="math math-inline">\(T \cup \{e\}\)</span> has no cycle, <span class="math math-inline">\(T = T \cup \{e\}\)</span>; otherwise discard <span class="math math-inline">\(e\)</span>.</li>
+<li>If the list is empty return <span class="math math-inline">\(T\)</span>, otherwise go back to step 2.</li>
+</ol>
+<p>Greedy methods are very fast, but guarantee optimality only for problems with a very specific structure, called a <strong>matroid</strong> (the minimum spanning tree has it). Elsewhere they can be used as heuristics, but the distance from the optimum may be large.</p>
+<h3 id="greedy-for-the-kp">Greedy for the KP</h3>
+<p><strong>Input</strong>: profits <span class="math math-inline">\(p_1, \dots, p_n\)</span>, volumes <span class="math math-inline">\(v_1, \dots, v_n\)</span>, capacity <span class="math math-inline">\(C\)</span>. <strong>Output</strong>: a feasible binary vector <span class="math math-inline">\(x\)</span>.</p>
+<ol>
+<li>Sort the items by a criterion; residual capacity <span class="math math-inline">\(R = C\)</span>.</li>
+<li>Take the first item <span class="math math-inline">\(j\)</span> of the list.</li>
+<li>If <span class="math math-inline">\(v_j \le R\)</span>: <span class="math math-inline">\(x_j = 1\)</span> and <span class="math math-inline">\(R = R - v_j\)</span>; otherwise <span class="math math-inline">\(x_j = 0\)</span>.</li>
+<li>If the list is empty return <span class="math math-inline">\(x\)</span>, otherwise go back to step 2.</li>
+</ol>
+<p>The sorting criteria:</p>
+<table>
+<thead>
+<tr>
+<th>Criterion</th>
+<th>Order</th>
+<th>Idea</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>P</strong></td>
+<td>Nonincreasing profit</td>
+<td>Most valuable items first</td>
+</tr>
+<tr>
+<td><strong>V</strong></td>
+<td>Nondecreasing volume</td>
+<td>Smallest items first, to fit many</td>
+</tr>
+<tr>
+<td><strong>UP</strong></td>
+<td>Nonincreasing unit profit: <span class="math math-inline">\(p_1/v_1 \ge p_2/v_2 \ge \dots\)</span></td>
+<td>Best &quot;profit per centimetre&quot; first</td>
+</tr>
+</tbody>
+</table>
+<p>Simple criteria often produce <strong>ties</strong>. Refined versions: <strong>P/V</strong> (nonincreasing profit, ties go to the smallest volume) and <strong>V/P</strong> (nondecreasing volume, ties go to the largest profit). In the widget above try the three criteria: on Star Truck they give 23, 13 and 23, against an optimum of 26. Criterion V fills the truck with small but unimportant boxes.</p>
+<h3 id="performance-fast-but-without-guarantees">Performance: fast but without guarantees</h3>
+<ul>
+<li><strong>Efficiency</strong>: after sorting, <span class="math math-inline">\(O(n \log n)\)</span>, the scan is linear, <span class="math math-inline">\(O(n)\)</span>.</li>
+<li><strong>Effectiveness</strong>: on average criterion <strong>UP</strong> is the best, but the performance ratio can be <strong>arbitrarily small</strong>.</li>
+</ul>
+<p>The instance that proves it has capacity <span class="math math-inline">\(C &gt; 1\)</span> and two items: item 1 with <span class="math math-inline">\(p_1 = 1, v_1 = 1\)</span> and item 2 with <span class="math math-inline">\(p_2 = C - 1, v_2 = C\)</span>. Item 1 has unit profit 1, item 2 has <span class="math math-inline">\((C-1)/C &lt; 1\)</span>: UP takes item 1, after which item 2 no longer fits. Greedy finds <span class="math math-inline">\(P^G = 1\)</span>, the optimum is <span class="math math-inline">\(P^* = C - 1\)</span>, and the ratio <span class="math math-inline">\(1/(C-1)\)</span> goes to 0 as <span class="math math-inline">\(C\)</span> grows. Here with <span class="math math-inline">\(C = 100\)</span>:</p>
+<pre class="wimark-src"><code class="nohighlight" data-wimark="knapsack" data-opts="{&#34;cap&#34;: 100, &#34;mode&#34;: &#34;UP&#34;}">[[&#34;1&#34;, 1, 1], [&#34;2&#34;, 100, 99]]
+</code></pre>
+<h3 id="improved-greedy-at-least-half-the-optimum">Improved greedy: at least half the optimum</h3>
+<p>The fix is simple. Run greedy UP (solution <span class="math math-inline">\(x^G\)</span>, profit <span class="math math-inline">\(P^G\)</span>); let <span class="math math-inline">\(k\)</span> be the <strong>first item that did not fit</strong>. Compare <span class="math math-inline">\(x^G\)</span> with the solution holding <span class="math math-inline">\(k\)</span> alone, and return the better one:</p>
+<p><span class="math math-display">\[\text{if } P^G &gt; p_k \text{ return } x^G, \text{ otherwise } \tilde x \text{ with } \tilde x_k = 1,\ \tilde x_j = 0 \ (j \ne k)\]</span></p>
+<p>In the widget above press &quot;UP + best item&quot;: the pathological instance is solved to optimality.</p>
+<blockquote>
+<p><strong>Claim.</strong> The performance ratio of the improved greedy is at least <strong>0.5</strong>.</p>
+</blockquote>
+<p><strong>Why.</strong> Let <span class="math math-inline">\(\hat P\)</span> be the optimal value of the <strong>linear relaxation</strong>, the same problem with <span class="math math-inline">\(0 \le x_j \le 1\)</span> (items can be &quot;cut&quot;). The relaxation is solved exactly by the UP order: load whole items while they fit, then <strong>a fraction</strong> of item <span class="math math-inline">\(k\)</span>. So:</p>
+<ol>
+<li><span class="math math-inline">\(P^* \le \hat P\)</span>: relaxing constraints cannot make the optimum worse.</li>
+<li><span class="math math-inline">\(\hat P \le P^G + p_k\)</span>: the whole items of the relaxation are among those greedy took, and the fraction of <span class="math math-inline">\(k\)</span> is worth less than <span class="math math-inline">\(p_k\)</span>.</li>
+<li>Hence <span class="math math-inline">\(P^* \le P^G + p_k \le 2 \max\{P^G, p_k\}\)</span>, that is <span class="math math-inline">\(\max\{P^G, p_k\} \ge P^*/2\)</span>.</li>
+</ol>
+<h2 id="local-search">Local search</h2>
+<p>Instead of building, we <strong>improve</strong> an existing solution.</p>
+<ol start="0">
+<li>Let a feasible solution <span class="math math-inline">\(x^0\)</span> be given (the current solution).</li>
+<li>Examine the set <span class="math math-inline">\(N(x^0)\)</span> of solutions &quot;close&quot; to the current one.</li>
+<li>If some <span class="math math-inline">\(\hat x \in N(x^0)\)</span> is &quot;better than&quot; <span class="math math-inline">\(x^0\)</span>, set <span class="math math-inline">\(x^0 = \hat x\)</span> and go to step 1; otherwise return <span class="math math-inline">\(x^0\)</span>.</li>
+</ol>
+<p>In a maximization problem &quot;better&quot; means &quot;with a higher objective value&quot;. <span class="math math-inline">\(N(\cdot)\)</span> is the <strong>neighborhood function</strong>: it defines which solutions are close under some metric.</p>
+<ul>
+<li>With two continuous variables: the points within Euclidean distance <span class="math math-inline">\(r\)</span>, <span class="math math-inline">\(\;N(x) = \{y \in \mathbb R^2 : \sqrt{(y_1 - x_1)^2 + (y_2 - x_2)^2} \le r\}\)</span>.</li>
+<li>With binary variables: the vectors that differ in at most <span class="math math-inline">\(k\)</span> bits, <span class="math math-inline">\(\;N(x) = \{y \in \{0,1\}^n : \sum_i |y_i - x_i| \le k\}\)</span>.</li>
+</ul>
+<p>The returned solution is a <strong>local optimum</strong>: no neighbour is better. It need not be the global optimum.</p>
+<h3 id="a-local-search-for-the-kp-the-swap">A local search for the KP: the swap</h3>
+<p>The worst-case analysis suggests a move: <strong>remove a selected item and insert a later one</strong> in the UP order.</p>
+<ol>
+<li>Run greedy UP, getting <span class="math math-inline">\(x\)</span> and residual capacity <span class="math math-inline">\(R\)</span>; items stay sorted by UP.</li>
+<li>Scan items from 1 to <span class="math math-inline">\(n\)</span>: if <span class="math math-inline">\(x_j = 1\)</span> and there is <span class="math math-inline">\(k &gt; j\)</span> with <span class="math math-inline">\(v_k \le R + v_j\)</span> and <span class="math math-inline">\(p_k &gt; p_j\)</span>, set <span class="math math-inline">\(x_j = 0\)</span>, <span class="math math-inline">\(x_k = 1\)</span>, <span class="math math-inline">\(R = R + v_j - v_k\)</span>.</li>
+<li>If step 2 gave no improvement, stop; otherwise repeat step 2.</li>
+</ol>
+<p>Press &quot;local search&quot; in both widgets. On the pathological instance one swap (out 1, in 2) reaches the optimum 99. On Star Truck, instead, no single swap improves the greedy UP solution (23): it is a <strong>local</strong> optimum but not a global one (26). Reaching the optimum would take richer moves, for instance two items out and one in.</p>
+<h2 id="conclusions">Conclusions</h2>
+<p>The Knapsack Problem is <strong>the simplest of the hard optimization problems</strong>:</p>
+<ul>
+<li><strong>In theory</strong>, no known algorithm solves all instances exactly in time polynomial in the input size.</li>
+<li><strong>In practice</strong>, many instances of real-world relevance are solved to optimality in short computing time.</li>
+</ul>
+<p>It lies at the core of many real <strong>packing and cutting</strong> problems: loading boxes on trucks, ships or airplanes; cutting rectangular pieces from large panels of wood, glass or metal.</p>
+<p>Next lecture: an <strong>exact</strong> method for the KP, <strong>dynamic programming</strong>.</p>
+<h2 id="key-takeaways">Key takeaways</h2>
+<ul>
+<li>KP: <span class="math math-inline">\(\max \sum p_j x_j\)</span> s.t. <span class="math math-inline">\(\sum v_j x_j \le C\)</span>, <span class="math math-inline">\(x_j \in \{0,1\}\)</span>; brute force tests <span class="math math-inline">\(2^n\)</span> subsets.</li>
+<li>A heuristic is judged on <strong>time</strong> and <strong>error</strong>; in a maximization problem <span class="math math-inline">\(R_A = \inf_I A(I)/OPT(I) \le 1\)</span>.</li>
+<li>Greedy: a fixed order, no backtracking. Optimal only on matroids (e.g. Kruskal).</li>
+<li>KP criteria: P, V, <strong>UP</strong> (best on average); yet the ratio can go to 0.</li>
+<li><strong>Improved greedy</strong>: the better of <span class="math math-inline">\(x^G\)</span> and the first item left out, guarantee <span class="math math-inline">\(\ge 0.5\)</span> via the linear relaxation.</li>
+<li><strong>Local search</strong>: neighborhood + move (swap); it stops at a <strong>local</strong> optimum.</li>
+</ul>
+<pre class="wimark-src"><code class="nohighlight" data-wimark="quiz" data-opts="{&#34;title&#34;: &#34;Check yourself&#34;}">[
+  {&#34;q&#34;: &#34;How many subsets must brute force examine on a KP with $n = 20$ items?&#34;, &#34;options&#34;: [&#34;$20^2 = 400$&#34;, &#34;$2^{20} \\approx 10^6$&#34;, &#34;$20! \\approx 2.4 \\cdot 10^{18}$&#34;], &#34;answer&#34;: 1, &#34;why&#34;: &#34;Each item is either in or out: $2^n$ combinations.&#34;},
+  {&#34;q&#34;: &#34;Criterion UP sorts the items by&#34;, &#34;options&#34;: [&#34;nonincreasing profit&#34;, &#34;nondecreasing volume&#34;, &#34;nonincreasing unit profit $p_j/v_j$&#34;], &#34;answer&#34;: 2},
+  {&#34;q&#34;: &#34;For an algorithm $A$ on a maximization problem, $R_A = 0.5$ means that&#34;, &#34;options&#34;: [&#34;on average it finds half the optimum&#34;, &#34;on no instance does it fall below half the optimum&#34;, &#34;it finds the optimum 50% of the time&#34;], &#34;answer&#34;: 1, &#34;why&#34;: &#34;$R_A$ is the infimum over all instances: a worst-case guarantee.&#34;},
+  {&#34;q&#34;: &#34;Greedy UP takes items 1, 2, 3 for a profit $P^G = 40$; the first item left out has $p_k = 55$. The improved greedy returns&#34;, &#34;options&#34;: [&#34;$\\{1, 2, 3\\}$&#34;, &#34;$\\{k\\}$&#34;, &#34;$\\{1, 2, 3, k\\}$&#34;], &#34;answer&#34;: 1, &#34;why&#34;: &#34;$P^G = 40 \\le p_k = 55$, so it returns the solution holding item $k$ alone. Together with the others it would not fit.&#34;},
+  {&#34;q&#34;: &#34;A local search stops when&#34;, &#34;options&#34;: [&#34;it has found the global optimum&#34;, &#34;no solution in the neighborhood is better than the current one&#34;, &#34;it has tried all $2^n$ solutions&#34;], &#34;answer&#34;: 1, &#34;why&#34;: &#34;It stops at a local optimum, which may not be global: on Star Truck the swap stops at 23 against an optimum of 26.&#34;}
+]
+</code></pre>
+</article>
+
+          
+          </div>
+        </div>
+      </section>
+
+      <aside class="col-toc" aria-label="On this page">
+        <div class="col-head">On this page</div>
+        <div class="col-scroll">
+          
+            
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l1">
+    <a href="#the-knapsack-problem-greedy-heuristics-and-local-search">The Knapsack Problem: greedy heuristics and local search</a>
+    
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l2">
+    <a href="#the-star-truck-case">The Star Truck case</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#the-knapsack-problem-kp">The Knapsack Problem (KP)</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#exact-approximate-and-heuristic-methods">Exact, approximate and heuristic methods</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#greedy-algorithms">Greedy algorithms</a>
+    
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l3">
+    <a href="#greedy-for-the-kp">Greedy for the KP</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l3">
+    <a href="#performance-fast-but-without-guarantees">Performance: fast but without guarantees</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l3">
+    <a href="#improved-greedy-at-least-half-the-optimum">Improved greedy: at least half the optimum</a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#local-search">Local search</a>
+    
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l3">
+    <a href="#a-local-search-for-the-kp-the-swap">A local search for the KP: the swap</a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#conclusions">Conclusions</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#key-takeaways">Key takeaways</a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+</ul>
+
+          
+          
+        </div>
+      </aside>
+
+    
+  </main>
+
+  
+  <footer class="statusbar" aria-hidden="true">
+    <span class="sb-mode">READ</span>
+    <span class="sb-path">en/notes/computational-method/01-knapsack-heuristics.md</span>
+    <span class="sb-spacer"></span>
+    <span class="sb-item">en</span>
+    <span class="sb-item">utf-8</span>
+    <span class="sb-item">markdown</span>
+    <span class="sb-pos" data-scroll-pos>top</span>
+  </footer>
+  
+
+  <div class="search" data-search hidden role="dialog" aria-modal="true" aria-label="Search">
+    <div class="search-panel">
+      <div class="search-bar"><span class="search-prompt" aria-hidden="true">❯</span>
+      <input class="search-input" type="search" placeholder="Search" autocomplete="off" spellcheck="false" aria-controls="search-results"></div>
+      <ul class="search-results" id="search-results" role="listbox"></ul>
+      <div class="search-hint" aria-hidden="true"><span><kbd>↑↓</kbd> move</span><span><kbd>↵</kbd> open</span><span><kbd>esc</kbd> close</span></div>
+    </div>
+  </div>
+
+  <script>
+    window.GOMARK = {
+      lang: "en",
+      root: "..\/..\/..\/",
+      theme: "light",
+      section: "notes",
+      i18n: { noResults: "No results", copy: "copy", copied: "copied", words: "words", minRead: "min read",
+        data: "data", search: "search", noData: "no data", other: "other",
+        total: "total", show: "show", hide: "hide", reset: "reset", all: "all" }
+    };
+  </script>
+  <script src="../../../static/widgets.js"></script>
+  <script src="../../../static/widgets/comet/knapsack.js"></script>
+  <script src="../../../static/widgets/quiz.js"></script>
+  <script src="../../../static/engine.js"></script>
+  <script src="../../../static/ui.js"></script>
+  <script src="../../../static/search.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

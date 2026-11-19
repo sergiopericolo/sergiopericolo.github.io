@@ -1,0 +1,483 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Identità digitale e knowledge base computazionale: CV, progetti e appunti.">
+  <meta name="author" content="Sergio Di Lapi">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains&#43;Mono:wght@400;500;600;700;800&amp;family=IBM&#43;Plex&#43;Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <title>Modelli di localizzazione: p-median e p-center · Appunti</title>
+  <link rel="stylesheet" href="../../../static/layout.css">
+  <link rel="stylesheet" href="../../../static/theme.css">
+  <link rel="stylesheet" href="../../../static/wimark.css">
+  <link rel="stylesheet" href="../../../static/themes/light.css">
+  <link rel="alternate" hreflang="en" href="../../../../en/notes/computational-method/05-location-models/index.html">
+  <style>:root { --mono:"JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;--sans:"IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;--font-body:var(--sans);--font-heading:var(--mono);--font-size:14px;--content-width:780px;--sidebar-width:256px;--folders-width:224px;--toc-width:232px;--radius:4px;--radius-sm:3px;--radius-lg:10px; }</style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+</head>
+<body data-depth="multi" data-index="right" data-theme="light" data-theme-class="monochrome" data-heading="mono" data-statusbar="on">
+
+  <header class="topbar">
+    <a class="brand" href="../../../index.html">sergiopericolo</a>
+    <nav class="sections" aria-label="Sezioni">
+      
+      <a class="section-link" href="../../../about/index.html">
+        <span class="section-idx">01</span>
+        <span class="section-title">Chi sono</span>
+      </a>
+      
+      <a class="section-link" href="../../../projects/index.html">
+        <span class="section-idx">02</span>
+        <span class="section-title">Progetti</span>
+      </a>
+      
+      <a class="section-link active" href="../../../notes/index.html">
+        <span class="section-idx">03</span>
+        <span class="section-title">Appunti</span>
+      </a>
+      
+      <a class="section-link" href="../../../visual/index.html">
+        <span class="section-idx">04</span>
+        <span class="section-title">Visual</span>
+      </a>
+      
+      <a class="section-link" href="../../../art/index.html">
+        <span class="section-idx">05</span>
+        <span class="section-title">Arte</span>
+      </a>
+      
+    </nav>
+    <div class="topbar-end">
+      <button class="search-open" type="button" data-search-open aria-haspopup="dialog"><span>Cerca</span><kbd>⌘K</kbd></button>
+      
+
+<nav class="lang-switch" aria-label="Lingua">
+  <span class="lang-link current" aria-current="true">it</span><a class="lang-link" href="../../../../en/notes/computational-method/05-location-models/index.html" hreflang="en" lang="en" title="English">en</a>
+</nav>
+
+
+      <span class="build-info"><a class="build-name" href="https://github.com/sergiopericolo/GoMark">GoMark</a> v1.2.0</span>
+    </div>
+  </header>
+
+  <main class="grid" style="--grid: minmax(0, 15fr) minmax(0, 15fr) minmax(0, 55fr) minmax(0, 15fr); --grid-medium: minmax(0, 15fr) minmax(0, 15fr) minmax(0, 70fr)">
+
+    
+
+      
+      <aside class="col-folders" aria-label="Cartelle">
+        <div class="col-head">Cartelle</div>
+        <div class="col-scroll">
+          <a class="tree-root" href="../../index.html">~/notes/</a>
+          
+
+<ul class="tree">
+  
+  
+  <li class="tree-node open" data-path="computational-method">
+    <div class="tree-row">
+      
+      <span class="tree-leaf" aria-hidden="true"></span>
+      
+      <a class="tree-folder active" href="../../computational-method/index.html">
+        <span class="tree-name">computational-method/</span>
+        <span class="tree-count">5</span>
+      </a>
+    </div>
+    
+  </li>
+  
+  
+  <li class="tree-node" data-path="financial-economics">
+    <div class="tree-row">
+      
+      <span class="tree-leaf" aria-hidden="true"></span>
+      
+      <a class="tree-folder" href="../../financial-economics/index.html">
+        <span class="tree-name">financial-economics/</span>
+        <span class="tree-count">9</span>
+      </a>
+    </div>
+    
+  </li>
+  
+</ul>
+
+        </div>
+      </aside>
+      
+
+      <aside class="col-files" aria-label="File">
+        <div class="col-head">
+          <span>File <span class="badge">5</span></span>
+          <span class="col-head-path">notes/computational-method/</span>
+        </div>
+        <div class="col-scroll">
+          <ul class="file-list">
+            
+            <li>
+              <a class="file-link" href="../../computational-method/01-knapsack-heuristics/index.html">
+                <span class="file-name">Il problema dello zaino: euristiche greedy e ricerca locale</span>
+                <span class="file-path">01-knapsack-heuristics.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../computational-method/02-dynamic-programming/index.html">
+                <span class="file-name">Programmazione dinamica: taglio delle barre e problema dello zaino</span>
+                <span class="file-path">02-dynamic-programming.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../computational-method/03-tsp-heuristics/index.html">
+                <span class="file-name">Il problema del commesso viaggiatore: euristiche costruttive e 2-opt</span>
+                <span class="file-path">03-tsp-heuristics.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../computational-method/04-scheduling/index.html">
+                <span class="file-name">Scheduling: regole di priorità su una e più macchine</span>
+                <span class="file-path">04-scheduling.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link active" href="../../computational-method/05-location-models/index.html">
+                <span class="file-name">Modelli di localizzazione: p-median e p-center</span>
+                <span class="file-path">05-location-models.md</span>
+              </a>
+            </li>
+            
+          </ul>
+        </div>
+      </aside>
+
+      <section class="col-content" aria-label="sergiopericolo">
+        <div class="content-scroll" id="content">
+          <div class="content-inner">
+          
+            
+<div class="page-head">
+  <div class="page-crumb"><span class="crumb-home">~</span>/notes/computational-method/05-location-models.md</div>
+  <h1 class="page-title">Modelli di localizzazione: p-median e p-center</h1>
+  <div class="page-meta" data-page-meta><span class="meta-tag">it</span></div>
+</div>
+
+<article class="page-body"><h1 id="modelli-di-localizzazione-p-median-e-p-center">Modelli di localizzazione: p-median e p-center</h1>
+<p>Lezione 5 di <em>Computational Methods</em> (Carlo Filippi, Università di Brescia). Dove aprire (o tenere aperti) sportelli, magazzini, negozi o servizi di emergenza? I <strong>modelli di localizzazione</strong> rispondono con due idee di &quot;servizio buono&quot;: la distanza <strong>media</strong> dei clienti (p-median) e la distanza del cliente <strong>peggio servito</strong> (p-center). Le due idee sono in conflitto, e la scelta finale spetta a chi decide.</p>
+<p>Percorso:</p>
+<ol>
+<li><strong>Il caso PopBank</strong> — da dodici filiali a cinque.</li>
+<li><strong>Il modello p-median</strong> — formulazione e struttura a due livelli.</li>
+<li><strong>Ricerca locale per il p-median</strong> — l'algoritmo di Teitz e Bart.</li>
+<li><strong>Il modello p-center</strong> — minimizzare la distanza massima.</li>
+<li><strong>Bilanciare obiettivi in conflitto</strong> — soluzioni di compromesso e frontiera di Pareto.</li>
+</ol>
+<h2 id="il-caso-popbank">Il caso PopBank</h2>
+<p>PopBank ha una filiale in ciascuno dei <strong>dodici</strong> villaggi di un'area rurale. La configurazione non è più competitiva e il Consiglio di amministrazione decide di ridurre le filiali a <strong>cinque</strong>. Il responsabile d'area deve scegliere quali restano aperte.</p>
+<p>Sulla mappa i nodi sono i villaggi, gli archi le strade, con le distanze e la domanda di servizi bancari di ogni villaggio. Due informazioni in più:</p>
+<ul>
+<li>tutte le filiali sono simili: il costo di mantenerne una <strong>non dipende da dove si trova</strong>;</li>
+<li>la domanda è moderata: la <strong>congestione si può trascurare</strong>.</li>
+</ul>
+<p>Un indicatore semplice del livello di servizio è la <strong>distanza del cliente medio</strong> dalla filiale. Se la domanda totale è un dato, minimizzare la distanza media equivale a minimizzare la <strong>distanza totale</strong>, pesata con la domanda. Il responsabile cerca quindi le cinque filiali che minimizzano la distanza totale dei clienti. Si noti che filiali e clienti stanno entrambi nei villaggi.</p>
+<h2 id="il-modello-p-median">Il modello p-median</h2>
+<ul>
+<li>Bisogna aprire <strong>esattamente <span class="math math-inline">\(p\)</span></strong> strutture (filiali) tra <span class="math math-inline">\(m\)</span> siti candidati (villaggi).</li>
+<li>Le strutture sono identiche e il loro costo non dipende dal sito.</li>
+<li>Ogni cliente (villaggio) è assegnato a <strong>una sola</strong> struttura e ha una domanda nota <span class="math math-inline">\(d_j\)</span>.</li>
+<li>Ogni coppia (struttura, cliente) ha un costo unitario noto <span class="math math-inline">\(c_{ij}\)</span> (la distanza).</li>
+</ul>
+<p><strong>Insiemi e variabili.</strong> <span class="math math-inline">\(I\)</span> è l'insieme dei siti candidati, <span class="math math-inline">\(J\)</span> quello dei clienti. <span class="math math-inline">\(y_i = 1\)</span> se si apre una struttura nel sito <span class="math math-inline">\(i\)</span>; <span class="math math-inline">\(x_{ij} = 1\)</span> se il cliente <span class="math math-inline">\(j\)</span> è servito dalla struttura in <span class="math math-inline">\(i\)</span>. Il costo di apertura delle <span class="math math-inline">\(p\)</span> strutture è fisso e non influisce sull'ottimizzazione.</p>
+<p><span class="math math-display">\[\min \sum_{i \in I} \sum_{j \in J} c_{ij} d_j x_{ij}\]</span></p>
+<table>
+<thead>
+<tr>
+<th>Vincolo</th>
+<th>Significato</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="math math-inline">\(\sum_{i \in I} y_i = p\)</span></td>
+<td>si aprono esattamente <span class="math math-inline">\(p\)</span> strutture</td>
+</tr>
+<tr>
+<td><span class="math math-inline">\(\sum_{i \in I} x_{ij} = 1\)</span> per ogni <span class="math math-inline">\(j \in J\)</span></td>
+<td>ogni cliente è assegnato a una struttura</td>
+</tr>
+<tr>
+<td><span class="math math-inline">\(\sum_{j \in J} x_{ij} \le m \cdot y_i\)</span> per ogni <span class="math math-inline">\(i \in I\)</span></td>
+<td>solo le strutture aperte servono clienti</td>
+</tr>
+<tr>
+<td><span class="math math-inline">\(y_i \in \{0, 1\}\)</span>, <span class="math math-inline">\(x_{ij} \in \{0, 1\}\)</span></td>
+<td>variabili binarie</td>
+</tr>
+</tbody>
+</table>
+<p>Il terzo vincolo è un &quot;interruttore&quot;: se <span class="math math-inline">\(y_i = 0\)</span> il lato destro è 0 e nessun cliente va in <span class="math math-inline">\(i\)</span>; se <span class="math math-inline">\(y_i = 1\)</span> il lato destro, grande abbastanza, non limita nulla.</p>
+<h3 id="complessit-e-struttura-a-due-livelli">Complessità e struttura a due livelli</h3>
+<p>Il p-median è <strong>NP-difficile</strong>. I metodi esatti diventano proibitivi sulle istanze grandi, soprattutto con vincoli pratici aggiuntivi, e si usano spesso euristiche: metodi costruttivi greedy, l'euristica di <strong>Teitz e Bart</strong>, metaeuristiche (tabu search, simulated annealing, algoritmi genetici…).</p>
+<p>Il problema ha <strong>due livelli</strong>:</p>
+<ul>
+<li>la parte difficile è scegliere <strong>quali siti aprire</strong> (le <span class="math math-inline">\(y\)</span>);</li>
+<li>fissate le <span class="math math-inline">\(y\)</span>, il resto è banale: <strong>ogni cliente va alla struttura aperta più vicina</strong>.</li>
+</ul>
+<p>In formule, se <span class="math math-inline">\(S \subseteq I\)</span> è l'insieme dei siti aperti (<span class="math math-inline">\(\hat y_i = 1\)</span> se <span class="math math-inline">\(i \in S\)</span>), per ogni cliente <span class="math math-inline">\(j\)</span> sia <span class="math math-inline">\(i_j \in S\)</span> il sito aperto di costo minimo, <span class="math math-inline">\(c_{i_j j} = \min_{i \in S} c_{ij}\)</span>; allora <span class="math math-inline">\(\hat x_{ij} = 1\)</span> se <span class="math math-inline">\(i = i_j\)</span> e 0 altrimenti. Il costo di una scelta è</p>
+<p><span class="math math-display">\[z(S) = \sum_{j \in J} d_j \min_{i \in S} c_{ij}\]</span></p>
+<h2 id="ricerca-locale-per-il-p-median">Ricerca locale per il p-median</h2>
+<p>Si progetta una ricerca locale <strong>solo sulle variabili <span class="math math-inline">\(y\)</span></strong>, cioè sugli insiemi <span class="math math-inline">\(S\)</span> di <span class="math math-inline">\(p\)</span> siti.</p>
+<ul>
+<li><strong>Soluzione iniziale</strong>: un qualunque insieme <span class="math math-inline">\(S\)</span> di <span class="math math-inline">\(p\)</span> siti.</li>
+<li><strong>Intorno</strong> <span class="math math-inline">\(N(S)\)</span>: tutti gli insiemi <span class="math math-inline">\(S&#39; = S \setminus \{i\} \cup \{k\}\)</span> con <span class="math math-inline">\(i \in S\)</span> e <span class="math math-inline">\(k \in I \setminus S\)</span>: si chiude un sito aperto e se ne apre uno chiuso (uno <strong>scambio</strong>).</li>
+<li><strong>Migliore</strong>: <span class="math math-inline">\(S&#39;\)</span> è migliore di <span class="math math-inline">\(S\)</span> se <span class="math math-inline">\(z(S&#39;) &lt; z(S)\)</span>.</li>
+</ul>
+<p>Per ridurre il lavoro, a ogni iterazione si esplora <span class="math math-inline">\(N(S)\)</span> solo in parte, <strong>fissando un sito candidato <span class="math math-inline">\(k\)</span></strong> da aprire e provandolo contro tutti i siti aperti.</p>
+<h3 id="lalgoritmo-di-teitz-e-bart">L'algoritmo di Teitz e Bart</h3>
+<p>Ogni sito ha un'etichetta <span class="math math-inline">\(\ell\)</span>: <span class="math math-inline">\(1\)</span> se è aperto, <span class="math math-inline">\(0\)</span> se è chiuso e ancora da provare, <span class="math math-inline">\(-1\)</span> se è chiuso e già provato senza successo.</p>
+<ol>
+<li><strong>Inizializzazione</strong>: <span class="math math-inline">\(S\)</span> è un insieme qualunque di <span class="math math-inline">\(p\)</span> siti; si calcola <span class="math math-inline">\(z(S)\)</span> e <span class="math math-inline">\(\bar S = I \setminus S\)</span>; <span class="math math-inline">\(\ell(i) = 1\)</span> per <span class="math math-inline">\(i \in S\)</span>, <span class="math math-inline">\(\ell(i) = 0\)</span> per <span class="math math-inline">\(i \in \bar S\)</span>.</li>
+<li><strong>Terminazione</strong>: se <span class="math math-inline">\(\ell(k) = -1\)</span> per ogni <span class="math math-inline">\(k \in \bar S\)</span>, si restituiscono <span class="math math-inline">\(S\)</span> e <span class="math math-inline">\(z(S)\)</span>.</li>
+<li><strong>Risparmi</strong>: si sceglie <span class="math math-inline">\(k \in \bar S\)</span> con <span class="math math-inline">\(\ell(k) = 0\)</span> e, per ogni <span class="math math-inline">\(i \in S\)</span>, si calcola <span class="math math-inline">\(s_{ik} = z(S) - z(S \setminus \{i\} \cup \{k\})\)</span>; sia <span class="math math-inline">\(s_{i^* k}\)</span> il massimo.</li>
+<li><strong>Iterazione</strong>: se <span class="math math-inline">\(s_{i^* k} \le 0\)</span> si pone <span class="math math-inline">\(\ell(k) = -1\)</span>. Altrimenti si scambia: <span class="math math-inline">\(S = S \setminus \{i^*\} \cup \{k\}\)</span>, si aggiornano le etichette (<span class="math math-inline">\(\ell = 1\)</span> sui siti aperti, <span class="math math-inline">\(\ell = 0\)</span> sui chiusi, <span class="math math-inline">\(\ell(i^*) = -1\)</span> per il sito appena chiuso) e si torna al passo 2.</li>
+</ol>
+<p>Il punto chiave: dopo ogni scambio riuscito <strong>tutti</strong> i siti chiusi tornano &quot;da provare&quot;, perché con il nuovo <span class="math math-inline">\(S\)</span> uno scambio prima inutile potrebbe diventare conveniente.</p>
+<p><strong>Un esempio.</strong> Cinque siti candidati, sei clienti (domanda unitaria), <span class="math math-inline">\(p = 2\)</span>, partenza da <span class="math math-inline">\(S = \{1, 2\}\)</span>. La matrice dei costi <span class="math math-inline">\(c_{ij}\)</span> è nel widget: segui l'algoritmo passo per passo. In grassetto il costo che ogni cliente paga verso il sito aperto più vicino; in evidenza il sito <span class="math math-inline">\(k\)</span> che si sta provando.</p>
+<pre class="wimark-src"><code class="nohighlight" data-wimark="teitzbart" data-opts="{&#34;p&#34;: 2, &#34;start&#34;: [1, 2]}">[[7, 7, 14, 3, 4, 8], [17, 16, 12, 11, 7, 15], [8, 9, 15, 1, 5, 7], [11, 6, 11, 13, 11, 17], [19, 14, 3, 17, 12, 23]]
+</code></pre>
+<p>Il percorso: <span class="math math-inline">\(\{1, 2\}\)</span> (<span class="math math-inline">\(z = 41\)</span>) → <span class="math math-inline">\(\{1, 3\}\)</span> (40) → <span class="math math-inline">\(\{3, 4\}\)</span> (38) → <span class="math math-inline">\(\{3, 5\}\)</span> (33) → <span class="math math-inline">\(\{1, 5\}\)</span> (<strong>32</strong>). Dopo l'ultimo scambio nessun sito chiuso migliora: è un ottimo locale, e in questo caso coincide con l'ottimo globale trovato provando tutte le 10 coppie.</p>
+<h2 id="il-modello-p-center">Il modello p-center</h2>
+<p>La soluzione p-median di PopBank ha una distanza media di <strong>7.8 km</strong>. Ma un membro del CdA obietta: &quot;È equa? Il cliente medio è a 7.8 km da una filiale, ma il villaggio 3 è a <strong>28 km</strong> dalla più vicina!&quot;. C'è una grande variabilità: qualcuno ha la filiale sotto casa, qualcun altro deve fare 28 km.</p>
+<p>Il Presidente propone: &quot;E se minimizzassimo la distanza <strong>massima</strong> di un villaggio da una filiale? La distanza media aumenterebbe?&quot;</p>
+<p>Il nuovo obiettivo è un <strong>minimax</strong>:</p>
+<p><span class="math math-display">\[\min\ \max_{j \in J} \sum_{i \in I} c_{ij} x_{ij}\]</span></p>
+<p>(<span class="math math-inline">\(\sum_i c_{ij} x_{ij}\)</span> è la distanza del cliente <span class="math math-inline">\(j\)</span> dalla sua struttura). Per scriverlo in forma lineare si aggiunge una variabile <span class="math math-inline">\(D_{\max}\)</span> e si impone che stia sopra ogni distanza:</p>
+<p><span class="math math-display">\[\min D_{\max} \quad \text{s.t.} \quad \sum_{i \in I} c_{ij} x_{ij} \le D_{\max} \quad (j \in J)\]</span></p>
+<p>più gli stessi vincoli del p-median su <span class="math math-inline">\(y\)</span> e <span class="math math-inline">\(x\)</span>.</p>
+<p>Minimizzando <span class="math math-inline">\(D_{\max}\)</span>, che deve superare tutte le distanze, la si spinge esattamente sul valore della distanza più grande. È il <strong>p-center</strong>.</p>
+<p>Risolto con un solver (AMPL), su PopBank la distanza massima scende <strong>da 28 a 19 km</strong>, ma la distanza media sale <strong>da 7.8 a 9.9 km</strong>: il p-center ignora la distanza totale.</p>
+<h2 id="bilanciare-obiettivi-in-conflitto">Bilanciare obiettivi in conflitto</h2>
+<p>Il Presidente: &quot;La nuova soluzione mi soddisfa di più: le filiali si raggiungono in meno di 20 minuti da ogni villaggio, e il tempo medio da 7.8 a 9.9 mi sembra accettabile. Ma prima di decidere vorrei sapere se esiste una soluzione comparabile con una distanza totale più bassa.&quot;</p>
+<p>Ci sono <strong>due obiettivi in conflitto</strong>: la distanza totale (o media) e quella massima. Il p-median ottimizza la prima e trascura la seconda; il p-center fa il contrario. Una <strong>soluzione di compromesso</strong> bilancia i due minimizzando una loro media pesata:</p>
+<p><span class="math math-display">\[\min\ \alpha \cdot D_{\max} + (1 - \alpha) \cdot \sum_{i \in I} \sum_{j \in J} c_{ij} d_j x_{ij}, \qquad 0 \le \alpha \le 1\]</span></p>
+<ul>
+<li><span class="math math-inline">\(\alpha\)</span> vicino a 0: conta soprattutto l'obiettivo del p-median;</li>
+<li><span class="math math-inline">\(\alpha\)</span> vicino a 1: conta soprattutto l'obiettivo del p-center.</li>
+</ul>
+<p>Le soluzioni trovate dal responsabile d'area:</p>
+<table>
+<thead>
+<tr>
+<th><span class="math math-inline">\(\alpha\)</span></th>
+<th>Distanza massima</th>
+<th>Distanza totale</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0</td>
+<td>28</td>
+<td>1444</td>
+</tr>
+<tr>
+<td>0.1</td>
+<td>28</td>
+<td>1444</td>
+</tr>
+<tr>
+<td>0.5</td>
+<td>22</td>
+<td>1447</td>
+</tr>
+<tr>
+<td>0.9</td>
+<td>19</td>
+<td>1465</td>
+</tr>
+<tr>
+<td>1</td>
+<td>19</td>
+<td>1838</td>
+</tr>
+</tbody>
+</table>
+<p>La riga <span class="math math-inline">\(\alpha = 0.9\)</span> risponde al Presidente: <strong>stessa distanza massima del p-center (19), distanza totale quasi uguale a quella del p-median (1465 contro 1444)</strong>. Con <span class="math math-inline">\(\alpha = 1\)</span> il modello guarda solo <span class="math math-inline">\(D_{\max}\)</span> e tra le tante soluzioni con <span class="math math-inline">\(D_{\max} = 19\)</span> può sceglierne una con un totale pessimo (1838). Si noti anche la differenza di scala: il totale è nelle migliaia, <span class="math math-inline">\(D_{\max}\)</span> nelle decine, per questo servono valori di <span class="math math-inline">\(\alpha\)</span> alti perché <span class="math math-inline">\(D_{\max}\)</span> &quot;pesi&quot;.</p>
+<p>&quot;Cari membri del CdA, ora scegliere la soluzione migliore spetta a voi!&quot; Provando valori diversi di <span class="math math-inline">\(\alpha\)</span> si trovano compromessi diversi; la scelta dipende dalle preferenze di chi decide. La ricerca di soluzioni di compromesso è il campo dell'<strong>ottimizzazione multiobiettivo</strong>.</p>
+<h3 id="esplora-tu">Esplora tu</h3>
+<p>La mappa di PopBank originale non è riprodotta qui: il widget usa una mappa <strong>illustrativa</strong> con dodici villaggi e le stesse domande del caso (distanze in linea d'aria). A destra, ogni possibile scelta di <span class="math math-inline">\(p\)</span> filiali è un punto (distanza totale, distanza massima): i punti collegati formano la <strong>frontiera di Pareto</strong>, le scelte che nessun'altra batte su entrambi gli obiettivi. Muovi <span class="math math-inline">\(\alpha\)</span> e guarda la soluzione scorrere lungo la frontiera; clicca sui villaggi per aprire o chiudere filiali a mano.</p>
+<pre class="wimark-src"><code class="nohighlight" data-wimark="location" data-opts="{&#34;p&#34;: 5, &#34;alpha&#34;: 0}">[[&#34;1&#34;, 4, 30, 15], [&#34;2&#34;, 10, 46, 10], [&#34;3&#34;, 24, 38, 12], [&#34;4&#34;, 35, 33, 18], [&#34;5&#34;, 54, 26, 5], [&#34;6&#34;, 31, 18, 24], [&#34;7&#34;, 6, 17, 15], [&#34;8&#34;, 16, 24, 16], [&#34;9&#34;, 22, 12, 13], [&#34;10&#34;, 40, 6, 22], [&#34;11&#34;, 27, 27, 19], [&#34;12&#34;, 12, 4, 20]]
+</code></pre>
+<p>Su questa mappa il p-median (<span class="math math-inline">\(\alpha = 0\)</span>) lascia il villaggio 5 a 24.4 km; il p-center (<span class="math math-inline">\(\alpha = 1\)</span>) scende a 15 km ma fa salire la distanza totale da 1130 a 1554; con <span class="math math-inline">\(\alpha = 0.9\)</span> si ottiene 20.2 km con un totale di 1157, appena sopra il minimo. Stessa lezione del caso reale.</p>
+<h2 id="conclusioni">Conclusioni</h2>
+<ul>
+<li>p-median e p-center sono gli esempi base dei <strong>modelli di localizzazione</strong>, progettati per ottimizzare la posizione di strutture in un territorio.</li>
+<li><span class="math math-inline">\(p\)</span> è un <strong>parametro</strong>: un'analisi di sensitività sul suo valore è spesso significativa (quanto peggiora il servizio passando da 6 a 5 filiali?).</li>
+<li>In generale, i modelli di localizzazione supportano decisioni strategiche o tattiche su numero, posizione e dimensione di magazzini, negozi, uffici, servizi di emergenza e altro.</li>
+</ul>
+<h2 id="punti-chiave">Punti chiave</h2>
+<ul>
+<li><strong>p-median</strong>: <span class="math math-inline">\(\min \sum_i \sum_j c_{ij} d_j x_{ij}\)</span> con esattamente <span class="math math-inline">\(p\)</span> strutture aperte; minimizza la distanza totale (media) pesata con la domanda. NP-difficile.</li>
+<li>Due livelli: scelte le strutture aperte <span class="math math-inline">\(S\)</span>, ogni cliente va alla più vicina; la parte difficile è <span class="math math-inline">\(S\)</span>.</li>
+<li><strong>Teitz e Bart</strong>: ricerca locale a scambi su <span class="math math-inline">\(S\)</span>, un candidato <span class="math math-inline">\(k\)</span> alla volta, etichette <span class="math math-inline">\(\ell \in \{1, 0, -1\}\)</span>; dopo uno scambio riuscito i siti chiusi tornano da provare.</li>
+<li><strong>p-center</strong>: <span class="math math-inline">\(\min D_{\max}\)</span> con <span class="math math-inline">\(\sum_i c_{ij} x_{ij} \le D_{\max}\)</span> per ogni cliente; più equo, ma ignora il totale.</li>
+<li><strong>Compromesso</strong>: <span class="math math-inline">\(\min \alpha D_{\max} + (1 - \alpha) \cdot \text{totale}\)</span>; al variare di <span class="math math-inline">\(\alpha\)</span> si percorre la frontiera di Pareto, e la scelta spetta al decisore.</li>
+</ul>
+<pre class="wimark-src"><code class="nohighlight" data-wimark="quiz" data-opts="{&#34;title&#34;: &#34;Verifica&#34;}">[
+  {&#34;q&#34;: &#34;Nel p-median, una volta scelte le strutture aperte, come si assegnano i clienti?&#34;, &#34;options&#34;: [&#34;Risolvendo un altro problema NP-difficile&#34;, &#34;Ogni cliente va alla struttura aperta più vicina&#34;, &#34;In modo da bilanciare il numero di clienti per struttura&#34;], &#34;answer&#34;: 1, &#34;why&#34;: &#34;Senza capacità né congestione, il costo di ogni cliente è minimo presso la struttura aperta più vicina: è la struttura a due livelli del problema.&#34;},
+  {&#34;q&#34;: &#34;A che cosa serve il vincolo $\\sum_j x_{ij} \\le m y_i$?&#34;, &#34;options&#34;: [&#34;A limitare la domanda servita&#34;, &#34;A impedire che una struttura chiusa ($y_i = 0$) serva clienti&#34;, &#34;A imporre esattamente $p$ strutture&#34;], &#34;answer&#34;: 1},
+  {&#34;q&#34;: &#34;Nell&#39;algoritmo di Teitz e Bart, che cosa significa $\\ell(k) = -1$?&#34;, &#34;options&#34;: [&#34;Il sito $k$ è aperto&#34;, &#34;Il sito $k$ è chiuso e scambiarlo non migliora la soluzione corrente&#34;, &#34;Il sito $k$ va aperto al passo successivo&#34;], &#34;answer&#34;: 1, &#34;why&#34;: &#34;Dopo uno scambio riuscito le etichette dei siti chiusi tornano a 0, perché con il nuovo $S$ potrebbero diventare convenienti.&#34;},
+  {&#34;q&#34;: &#34;Come si scrive in forma lineare l&#39;obiettivo $\\min \\max_j (\\text{distanza di } j)$?&#34;, &#34;options&#34;: [&#34;Con una variabile $D_{\\max}$, i vincoli distanza di $j \\le D_{\\max}$ per ogni $j$, e l&#39;obiettivo $\\min D_{\\max}$&#34;, &#34;Sommando le distanze&#34;, &#34;Non si può scrivere in forma lineare&#34;], &#34;answer&#34;: 0},
+  {&#34;q&#34;: &#34;Nella tabella di PopBank, perché $\\alpha = 0.9$ è preferibile ad $\\alpha = 1$?&#34;, &#34;options&#34;: [&#34;Perché ha una distanza massima più bassa&#34;, &#34;Perché ha la stessa distanza massima (19) con una distanza totale molto più bassa (1465 contro 1838)&#34;, &#34;Perché è la soluzione del p-median&#34;], &#34;answer&#34;: 1, &#34;why&#34;: &#34;Con $\\alpha = 1$ il modello non distingue tra soluzioni con la stessa $D_{\\max}$; un piccolo peso sul totale sceglie la migliore tra esse.&#34;}
+]
+</code></pre>
+</article>
+
+          
+          </div>
+        </div>
+      </section>
+
+      <aside class="col-toc" aria-label="In questa pagina">
+        <div class="col-head">In questa pagina</div>
+        <div class="col-scroll">
+          
+            
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l1">
+    <a href="#modelli-di-localizzazione-p-median-e-p-center">Modelli di localizzazione: p-median e p-center</a>
+    
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l2">
+    <a href="#il-caso-popbank">Il caso PopBank</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#il-modello-p-median">Il modello p-median</a>
+    
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l3">
+    <a href="#complessit-e-struttura-a-due-livelli">Complessità e struttura a due livelli</a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#ricerca-locale-per-il-p-median">Ricerca locale per il p-median</a>
+    
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l3">
+    <a href="#lalgoritmo-di-teitz-e-bart">L&#39;algoritmo di Teitz e Bart</a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#il-modello-p-center">Il modello p-center</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#bilanciare-obiettivi-in-conflitto">Bilanciare obiettivi in conflitto</a>
+    
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l3">
+    <a href="#esplora-tu">Esplora tu</a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#conclusioni">Conclusioni</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#punti-chiave">Punti chiave</a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+</ul>
+
+          
+          
+        </div>
+      </aside>
+
+    
+  </main>
+
+  
+  <footer class="statusbar" aria-hidden="true">
+    <span class="sb-mode">READ</span>
+    <span class="sb-path">it/notes/computational-method/05-location-models.md</span>
+    <span class="sb-spacer"></span>
+    <span class="sb-item">it</span>
+    <span class="sb-item">utf-8</span>
+    <span class="sb-item">markdown</span>
+    <span class="sb-pos" data-scroll-pos>top</span>
+  </footer>
+  
+
+  <div class="search" data-search hidden role="dialog" aria-modal="true" aria-label="Cerca">
+    <div class="search-panel">
+      <div class="search-bar"><span class="search-prompt" aria-hidden="true">❯</span>
+      <input class="search-input" type="search" placeholder="Cerca" autocomplete="off" spellcheck="false" aria-controls="search-results"></div>
+      <ul class="search-results" id="search-results" role="listbox"></ul>
+      <div class="search-hint" aria-hidden="true"><span><kbd>↑↓</kbd> scorri</span><span><kbd>↵</kbd> apri</span><span><kbd>esc</kbd> chiudi</span></div>
+    </div>
+  </div>
+
+  <script>
+    window.GOMARK = {
+      lang: "it",
+      root: "..\/..\/..\/",
+      theme: "light",
+      section: "notes",
+      i18n: { noResults: "Nessun risultato", copy: "copia", copied: "copiato", words: "parole", minRead: "min di lettura",
+        data: "dati", search: "cerca", noData: "nessun dato", other: "altro",
+        total: "totale", show: "mostra", hide: "nascondi", reset: "ripristina", all: "tutti" }
+    };
+  </script>
+  <script src="../../../static/widgets.js"></script>
+  <script src="../../../static/widgets/comet/teitzbart.js"></script>
+  <script src="../../../static/widgets/comet/location.js"></script>
+  <script src="../../../static/widgets/quiz.js"></script>
+  <script src="../../../static/engine.js"></script>
+  <script src="../../../static/ui.js"></script>
+  <script src="../../../static/search.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

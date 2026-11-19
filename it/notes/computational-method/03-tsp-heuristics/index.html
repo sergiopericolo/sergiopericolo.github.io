@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Identità digitale e knowledge base computazionale: CV, progetti e appunti.">
+  <meta name="author" content="Sergio Di Lapi">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains&#43;Mono:wght@400;500;600;700;800&amp;family=IBM&#43;Plex&#43;Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <title>Il problema del commesso viaggiatore: euristiche costruttive e 2-opt · Appunti</title>
+  <link rel="stylesheet" href="../../../static/layout.css">
+  <link rel="stylesheet" href="../../../static/theme.css">
+  <link rel="stylesheet" href="../../../static/wimark.css">
+  <link rel="stylesheet" href="../../../static/themes/light.css">
+  <link rel="alternate" hreflang="en" href="../../../../en/notes/computational-method/03-tsp-heuristics/index.html">
+  <style>:root { --mono:"JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;--sans:"IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;--font-body:var(--sans);--font-heading:var(--mono);--font-size:14px;--content-width:780px;--sidebar-width:256px;--folders-width:224px;--toc-width:232px;--radius:4px;--radius-sm:3px;--radius-lg:10px; }</style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+</head>
+<body data-depth="multi" data-index="right" data-theme="light" data-theme-class="monochrome" data-heading="mono" data-statusbar="on">
+
+  <header class="topbar">
+    <a class="brand" href="../../../index.html">sergiopericolo</a>
+    <nav class="sections" aria-label="Sezioni">
+      
+      <a class="section-link" href="../../../about/index.html">
+        <span class="section-idx">01</span>
+        <span class="section-title">Chi sono</span>
+      </a>
+      
+      <a class="section-link" href="../../../projects/index.html">
+        <span class="section-idx">02</span>
+        <span class="section-title">Progetti</span>
+      </a>
+      
+      <a class="section-link active" href="../../../notes/index.html">
+        <span class="section-idx">03</span>
+        <span class="section-title">Appunti</span>
+      </a>
+      
+      <a class="section-link" href="../../../visual/index.html">
+        <span class="section-idx">04</span>
+        <span class="section-title">Visual</span>
+      </a>
+      
+      <a class="section-link" href="../../../art/index.html">
+        <span class="section-idx">05</span>
+        <span class="section-title">Arte</span>
+      </a>
+      
+    </nav>
+    <div class="topbar-end">
+      <button class="search-open" type="button" data-search-open aria-haspopup="dialog"><span>Cerca</span><kbd>⌘K</kbd></button>
+      
+
+<nav class="lang-switch" aria-label="Lingua">
+  <span class="lang-link current" aria-current="true">it</span><a class="lang-link" href="../../../../en/notes/computational-method/03-tsp-heuristics/index.html" hreflang="en" lang="en" title="English">en</a>
+</nav>
+
+
+      <span class="build-info"><a class="build-name" href="https://github.com/sergiopericolo/GoMark">GoMark</a> v1.2.0</span>
+    </div>
+  </header>
+
+  <main class="grid" style="--grid: minmax(0, 15fr) minmax(0, 15fr) minmax(0, 55fr) minmax(0, 15fr); --grid-medium: minmax(0, 15fr) minmax(0, 15fr) minmax(0, 70fr)">
+
+    
+
+      
+      <aside class="col-folders" aria-label="Cartelle">
+        <div class="col-head">Cartelle</div>
+        <div class="col-scroll">
+          <a class="tree-root" href="../../index.html">~/notes/</a>
+          
+
+<ul class="tree">
+  
+  
+  <li class="tree-node open" data-path="computational-method">
+    <div class="tree-row">
+      
+      <span class="tree-leaf" aria-hidden="true"></span>
+      
+      <a class="tree-folder active" href="../../computational-method/index.html">
+        <span class="tree-name">computational-method/</span>
+        <span class="tree-count">5</span>
+      </a>
+    </div>
+    
+  </li>
+  
+  
+  <li class="tree-node" data-path="financial-economics">
+    <div class="tree-row">
+      
+      <span class="tree-leaf" aria-hidden="true"></span>
+      
+      <a class="tree-folder" href="../../financial-economics/index.html">
+        <span class="tree-name">financial-economics/</span>
+        <span class="tree-count">9</span>
+      </a>
+    </div>
+    
+  </li>
+  
+</ul>
+
+        </div>
+      </aside>
+      
+
+      <aside class="col-files" aria-label="File">
+        <div class="col-head">
+          <span>File <span class="badge">5</span></span>
+          <span class="col-head-path">notes/computational-method/</span>
+        </div>
+        <div class="col-scroll">
+          <ul class="file-list">
+            
+            <li>
+              <a class="file-link" href="../../computational-method/01-knapsack-heuristics/index.html">
+                <span class="file-name">Il problema dello zaino: euristiche greedy e ricerca locale</span>
+                <span class="file-path">01-knapsack-heuristics.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../computational-method/02-dynamic-programming/index.html">
+                <span class="file-name">Programmazione dinamica: taglio delle barre e problema dello zaino</span>
+                <span class="file-path">02-dynamic-programming.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link active" href="../../computational-method/03-tsp-heuristics/index.html">
+                <span class="file-name">Il problema del commesso viaggiatore: euristiche costruttive e 2-opt</span>
+                <span class="file-path">03-tsp-heuristics.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../computational-method/04-scheduling/index.html">
+                <span class="file-name">Scheduling: regole di priorità su una e più macchine</span>
+                <span class="file-path">04-scheduling.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../computational-method/05-location-models/index.html">
+                <span class="file-name">Modelli di localizzazione: p-median e p-center</span>
+                <span class="file-path">05-location-models.md</span>
+              </a>
+            </li>
+            
+          </ul>
+        </div>
+      </aside>
+
+      <section class="col-content" aria-label="sergiopericolo">
+        <div class="content-scroll" id="content">
+          <div class="content-inner">
+          
+            
+<div class="page-head">
+  <div class="page-crumb"><span class="crumb-home">~</span>/notes/computational-method/03-tsp-heuristics.md</div>
+  <h1 class="page-title">Il problema del commesso viaggiatore: euristiche costruttive e 2-opt</h1>
+  <div class="page-meta" data-page-meta><span class="meta-tag">it</span></div>
+</div>
+
+<article class="page-body"><h1 id="il-problema-del-commesso-viaggiatore-euristiche-costruttive-e-2-opt">Il problema del commesso viaggiatore: euristiche costruttive e 2-opt</h1>
+<p>Lezione 3 di <em>Computational Methods</em> (Carlo Filippi, Università di Brescia). Un furgone deve visitare un insieme di clienti e tornare al deposito percorrendo la strada più breve. Il <strong>Traveling Salesperson Problem</strong> (TSP) è molto più difficile dello zaino; qui si vedono le due famiglie di euristiche più usate: i <strong>metodi costruttivi</strong> e la <strong>ricerca locale</strong>.</p>
+<p>Percorso:</p>
+<ol>
+<li><strong>Il caso Wash Bowl</strong> — una lavanderia, un camion, un giro al giorno.</li>
+<li><strong>Il TSP</strong> — grafi, giri hamiltoniani, versione simmetrica e asimmetrica, rapporto di prestazione e disuguaglianza triangolare.</li>
+<li><strong>Metodi costruttivi</strong> — nearest neighbor, tre metodi di inserimento, Clarke &amp; Wright.</li>
+<li><strong>Ricerca locale</strong> — mosse k-opt, 2-opt e 3-opt.</li>
+</ol>
+<h2 id="il-caso-wash-bowl">Il caso Wash Bowl</h2>
+<p>Wash Bowl è una lavanderia di Brescia che, oltre ai privati, serve gli hotel della città e dei dintorni. Un camion visita ogni giorno un gruppo di hotel per consegnare biancheria pulita e ritirare quella sporca; ogni hotel è visitato due volte a settimana in giorni fissi (per esempio lunedì e giovedì). Il camion ha capacità sufficiente per tutti gli hotel del giorno.</p>
+<p>I costi sono di due tipi:</p>
+<ul>
+<li><strong>carico e scarico</strong>: il tempo che l'autista passa negli hotel. Si riduce se ogni hotel conosce in anticipo l'orario (approssimativo) di arrivo del camion;</li>
+<li><strong>viaggio</strong>: tempo dell'autista, costi fissi del camion, carburante, usura. Si riduce minimizzando la durata del giro.</li>
+</ul>
+<p>Se il giro è ottimizzato e fissato in anticipo, gli orari di arrivo si possono comunicare agli hotel: i due obiettivi si aiutano a vicenda. Il problema di ogni giorno è: <strong>trovare un giro che parta e torni al deposito, visiti tutti gli hotel del giorno e minimizzi il tempo totale di viaggio</strong>. È un TSP.</p>
+<h2 id="il-problema-del-commesso-viaggiatore">Il problema del commesso viaggiatore</h2>
+<p>Dati <span class="math math-inline">\(n + 1\)</span> punti <span class="math math-inline">\(0, 1, \dots, n\)</span>, si cerca un <strong>giro chiuso di costo minimo che visiti ogni punto esattamente una volta</strong>. Di solito il giro è percorso da un veicolo, il punto 0 è il deposito e <span class="math math-inline">\(1, \dots, n\)</span> sono i clienti.</p>
+<p>Formalmente si usa un grafo orientato completo <span class="math math-inline">\(G = (V, A, c)\)</span>:</p>
+<ul>
+<li><span class="math math-inline">\(V = \{0, 1, \dots, n\}\)</span> è l'insieme dei nodi (0 è il deposito);</li>
+<li><span class="math math-inline">\(A = \{(i, j) : i, j \in V,\ i \ne j\}\)</span> è l'insieme degli archi;</li>
+<li><span class="math math-inline">\(c = \{c_{ij}\}\)</span> sono i costi degli archi.</li>
+</ul>
+<p>Un <strong>giro hamiltoniano</strong> è un giro chiuso che visita tutti i nodi esattamente una volta: lo si descrive con una <strong>permutazione</strong> dei nodi. Il suo costo è la somma dei costi dei suoi archi. Il TSP chiede il giro hamiltoniano di costo minimo.</p>
+<ul>
+<li><strong>TSP asimmetrico</strong>: in generale <span class="math math-inline">\(c_{ij} \ne c_{ji}\)</span> (sensi unici, salite e discese…).</li>
+<li><strong>TSP simmetrico</strong>: <span class="math math-inline">\(c_{ij} = c_{ji}\)</span> per ogni coppia.</li>
+</ul>
+<p><strong>Grafi non completi.</strong> In una rete stradale solo alcune coppie di incroci sono collegate direttamente, e un giro che passi una sola volta per ogni nodo potrebbe non esistere. Se il grafo è connesso si definisce <span class="math math-inline">\(c_{ij}\)</span> come il costo del <strong>cammino minimo</strong> da <span class="math math-inline">\(i\)</span> a <span class="math math-inline">\(j\)</span>, e si torna a un grafo completo.</p>
+<p>Il TSP è <strong>NP-difficile</strong>, molto più del KP: è <strong>fortemente</strong> NP-difficile, cioè non ammette nemmeno algoritmi pseudopolinomiali come la DP del KP (a meno che P = NP). Le euristiche proposte sono di molte classi: metodi costruttivi, ricerca locale, metaeuristiche (Variable Neighborhood Search, Adaptive Large Neighborhood Search…). Qui ci si concentra sulle prime due.</p>
+<h3 id="il-rapporto-di-prestazione-in-un-problema-di-minimo">Il rapporto di prestazione in un problema di minimo</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Problema di massimo (KP)</th>
+<th>Problema di minimo (TSP)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Su un'istanza</td>
+<td><span class="math math-inline">\(R_A(I) = A(I)/OPT(I) \le 1\)</span></td>
+<td><span class="math math-inline">\(R_A(I) = A(I)/OPT(I) \ge 1\)</span></td>
+</tr>
+<tr>
+<td>Caso peggiore</td>
+<td><span class="math math-inline">\(R_A = \inf_I \{A(I)/OPT(I)\} \le 1\)</span></td>
+<td><span class="math math-inline">\(R_A = \sup_I \{A(I)/OPT(I)\} \ge 1\)</span></td>
+</tr>
+<tr>
+<td>Meglio se</td>
+<td>più alto (vicino a 1)</td>
+<td>più basso (vicino a 1)</td>
+</tr>
+</tbody>
+</table>
+<p><span class="math math-inline">\(R_A = 2\)</span> per un TSP significa: &quot;il giro trovato non è mai più lungo del doppio dell'ottimo&quot;.</p>
+<h3 id="la-disuguaglianza-triangolare">La disuguaglianza triangolare</h3>
+<p>Di solito si assume</p>
+<p><span class="math math-display">\[c_{ij} \le c_{ik} + c_{kj} \qquad \text{per ogni terna di nodi distinti } i, j, k\]</span></p>
+<p>cioè andare direttamente non costa mai più che passare da un terzo nodo (TSP <strong>metrico</strong> o <strong>euclideo</strong>). Evita comportamenti &quot;strani&quot; degli algoritmi ed è sempre soddisfatta se i costi sono cammini minimi su una rete stradale o distanze euclidee. Da qui in poi la si assume vera, e il <strong>costo</strong> di un arco si identifica con la sua <strong>lunghezza</strong>.</p>
+<h2 id="metodi-costruttivi">Metodi costruttivi</h2>
+<p>Costruiscono un giro da zero, partendo da un nodo. Si applicano allo stesso modo al TSP simmetrico e asimmetrico.</p>
+<h3 id="nearest-neighbor">Nearest neighbor</h3>
+<ol>
+<li>Si parte dal nodo 0 e si segue l'arco più corto che esce da lì.</li>
+<li>Da ogni nodo raggiunto si segue l'arco più corto verso un nodo <strong>non ancora visitato</strong>, finché l'unica scelta rimasta è il punto di partenza.</li>
+<li>Si torna al nodo 0.</li>
+</ol>
+<ul>
+<li><strong>Complessità</strong>: a ogni iterazione si scorrono le distanze dall'ultimo nodo ai restanti (al più <span class="math math-inline">\(n\)</span>), per <span class="math math-inline">\(n\)</span> iterazioni: <span class="math math-inline">\(O(n^2)\)</span>.</li>
+<li><strong>Rapporto nel caso peggiore</strong>: <span class="math math-inline">\(\tfrac12 \log_2 n + \tfrac12\)</span>, che cresce con <span class="math math-inline">\(n\)</span>.</li>
+<li><strong>Prestazione media</strong>: 1.25 (25% sopra l'ottimo).</li>
+</ul>
+<p>Il difetto tipico si vede bene nel widget: all'inizio le scelte sono ottime, ma gli ultimi nodi, &quot;dimenticati&quot; per strada, costringono a lunghi ritorni.</p>
+<h3 id="metodi-di-inserimento">Metodi di inserimento</h3>
+<p>Schema generale: si parte da un giro con <strong>due nodi</strong> e si aggiungono gli altri uno alla volta, ciascuno nel punto in cui <strong>allunga il giro il meno possibile</strong>. Inserire <span class="math math-inline">\(v\)</span> tra due nodi consecutivi <span class="math math-inline">\(i\)</span> e <span class="math math-inline">\(j\)</span> costa</p>
+<p><span class="math math-display">\[c_{iv} + c_{vj} - c_{ij}\]</span></p>
+<p>I metodi differiscono per la scelta dei due nodi iniziali e per la regola che sceglie il prossimo nodo.</p>
+<table>
+<thead>
+<tr>
+<th>Metodo</th>
+<th>Giro iniziale</th>
+<th>Prossimo nodo <span class="math math-inline">\(v\)</span></th>
+<th>Complessità</th>
+<th>Rapporto (caso peggiore)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Nearest insertion</strong></td>
+<td>0 e il nodo più vicino, andata e ritorno</td>
+<td>il non visitato <strong>più vicino</strong> a un nodo del giro</td>
+<td><span class="math math-inline">\(O(n^2)\)</span></td>
+<td>2</td>
+</tr>
+<tr>
+<td><strong>Cheapest insertion</strong></td>
+<td>come sopra</td>
+<td>quello il cui inserimento produce il giro <strong>più corto</strong> possibile</td>
+<td><span class="math math-inline">\(O(n^2 \log_2 n)\)</span></td>
+<td>2</td>
+</tr>
+<tr>
+<td><strong>Farthest insertion</strong></td>
+<td>0 e il nodo più <strong>lontano</strong></td>
+<td>il non visitato <strong>più lontano</strong> dal giro</td>
+<td><span class="math math-inline">\(O(n^2)\)</span></td>
+<td><span class="math math-inline">\(2 \ln n + 0.16\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>In tutti e tre il nodo scelto si inserisce tra i due nodi consecutivi che minimizzano l'aumento di lunghezza.</p>
+<p><strong>Confronto.</strong> Il rapporto di farthest insertion è stato dimostrato per un algoritmo di <strong>inserimento casuale</strong>: farthest insertion potrebbe avere un rapporto migliore. Ed è il metodo che <strong>funziona meglio in pratica</strong>: nearest insertion ha prestazione media 1.25, farthest insertion <strong>1.10</strong>. L'intuizione: fissare subito i punti lontani disegna lo &quot;scheletro&quot; del giro, e i punti vicini si inseriscono poi a basso costo.</p>
+<h3 id="clarke--wright-lalgoritmo-dei-risparmi">Clarke &amp; Wright: l'algoritmo dei risparmi</h3>
+<ol>
+<li>Si creano <span class="math math-inline">\(n\)</span> sottogiri <span class="math math-inline">\(0 \to i \to 0\)</span>, uno per cliente.</li>
+<li>Si calcolano i <strong>risparmi</strong> <span class="math math-inline">\(s_{ij} = c_{i0} + c_{0j} - c_{ij}\)</span> per <span class="math math-inline">\(i, j = 1, \dots, n\)</span>.</li>
+<li>Si ordinano i risparmi dal più grande al più piccolo.</li>
+<li>Scorrendo la lista dall'alto, si fondono sottogiri collegando <span class="math math-inline">\(i\)</span> e <span class="math math-inline">\(j\)</span> quando è possibile (<span class="math math-inline">\(i\)</span> e <span class="math math-inline">\(j\)</span> sono estremi di due sottogiri diversi), finché resta un solo giro.</li>
+</ol>
+<p>Sostituire <span class="math math-inline">\(0 \to i \to 0\)</span> e <span class="math math-inline">\(0 \to j \to 0\)</span> con <span class="math math-inline">\(0 \to i \to j \to 0\)</span> fa risparmiare esattamente <span class="math math-inline">\(s_{ij}\)</span>: si eliminano gli archi <span class="math math-inline">\((i, 0)\)</span> e <span class="math math-inline">\((0, j)\)</span> e si aggiunge <span class="math math-inline">\((i, j)\)</span>. Lo stesso vale fondendo due sottogiri più lunghi <span class="math math-inline">\(0 \to \dots \to i \to 0\)</span> e <span class="math math-inline">\(0 \to j \to \dots \to 0\)</span>.</p>
+<ul>
+<li><strong>Complessità</strong>: <span class="math math-inline">\(O(n^2 \log_2 n)\)</span> (domina l'ordinamento degli <span class="math math-inline">\(n^2\)</span> risparmi).</li>
+<li><strong>Rapporto nel caso peggiore</strong>: non noto (lineare in <span class="math math-inline">\(\log_2 n\)</span> per una variante).</li>
+<li>Si adatta facilmente a problemi di instradamento più generali: <strong>più veicoli</strong>, veicoli con <strong>capacità limitata</strong>. È il punto di partenza classico del <em>Vehicle Routing Problem</em>.</li>
+</ul>
+<p>Prova i cinque metodi sugli stessi punti (il quadrato è il deposito 0). Scorri i passi: in evidenza gli archi appena aggiunti, tratteggiati quelli appena tolti. &quot;nuovi punti&quot; genera un'altra istanza; l'ottimo è calcolato in modo esatto.</p>
+<pre class="wimark-src"><code class="nohighlight" data-wimark="tsp" data-opts="{&#34;n&#34;: 10, &#34;seed&#34;: 3, &#34;algo&#34;: &#34;nn&#34;}"></code></pre>
+<h2 id="ricerca-locale">Ricerca locale</h2>
+<p>Lo schema è quello della lezione 1: da una soluzione <span class="math math-inline">\(x^0\)</span> si esamina il suo intorno <span class="math math-inline">\(N(x^0)\)</span> e ci si sposta su una soluzione migliore finché ne esiste una. In un problema di minimo &quot;migliore&quot; significa &quot;con valore <strong>più basso</strong> della funzione obiettivo&quot;.</p>
+<p>I metodi costruttivi trattano allo stesso modo TSP simmetrico e asimmetrico; la ricerca locale per il TSP si sviluppa di solito per il <strong>TSP simmetrico</strong>, su un grafo completo non orientato <span class="math math-inline">\(G = (V, E, c)\)</span> con <span class="math math-inline">\(E = \{(i, j) : i, j \in V,\ i &lt; j\}\)</span>.</p>
+<h3 id="mosse-k-opt">Mosse k-opt</h3>
+<p>L'intorno si ottiene con una mossa <strong>k-opt</strong>: dato un ciclo hamiltoniano (un ciclo che visita ogni nodo esattamente una volta), si tolgono <span class="math math-inline">\(k\)</span> archi e li si sostituisce con archi diversi in modo da ottenere un nuovo giro.</p>
+<ul>
+<li>La mossa è già efficace con <span class="math math-inline">\(k\)</span> piccolo, e diventa troppo complicata e lenta per <span class="math math-inline">\(k\)</span> grande: esplorare l'intorno costa <span class="math math-inline">\(O(n^k)\)</span>.</li>
+<li>In pratica si usano <strong>2-opt</strong> e <strong>3-opt</strong>.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Mossa</th>
+<th>Nuovi giri per ogni scelta di archi</th>
+<th>Scelte possibili</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>2-opt</strong></td>
+<td><strong>uno solo</strong></td>
+<td><span class="math math-inline">\(O(n^2)\)</span> coppie di archi</td>
+</tr>
+<tr>
+<td><strong>3-opt</strong></td>
+<td><strong>7</strong>, di cui 3 corrispondono a una 2-opt</td>
+<td><span class="math math-inline">\(O(n^3)\)</span> terne di archi</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Perché un solo giro con la 2-opt.</strong> Togliendo gli archi <span class="math math-inline">\((i, j)\)</span> e <span class="math math-inline">\((p, q)\)</span> il giro si spezza in due cammini. Per richiuderlo senza ricreare gli archi tolti c'è un solo modo: collegare <span class="math math-inline">\(i\)</span> con <span class="math math-inline">\(p\)</span> e <span class="math math-inline">\(j\)</span> con <span class="math math-inline">\(q\)</span>, percorrendo al contrario il tratto tra <span class="math math-inline">\(j\)</span> e <span class="math math-inline">\(p\)</span>. Se due archi del giro si incrociano, la 2-opt li &quot;scioglie&quot;, e per la disuguaglianza triangolare il giro si accorcia sempre.</p>
+<h3 id="lalgoritmo-2-opt">L'algoritmo 2-opt</h3>
+<ol>
+<li>Si generano tutte le coppie di archi <span class="math math-inline">\((i, j), (p, q)\)</span> del giro che si possono togliere.</li>
+<li>Per ogni coppia si calcola la variazione <span class="math math-inline">\(s = c_{ip} + c_{jq} - (c_{ij} + c_{pq})\)</span>.</li>
+<li>Sia <span class="math math-inline">\(s^*\)</span> il minimo degli <span class="math math-inline">\(s\)</span>.</li>
+<li>Se <span class="math math-inline">\(s^* &lt; 0\)</span> si esegue la mossa corrispondente e si torna al passo 1; altrimenti ci si ferma.</li>
+</ol>
+<p>La 3-opt è identica, con le terne di archi e il miglior risparmio tra i 7 nuovi giri di ciascuna terna.</p>
+<p><strong>La matrice <span class="math math-inline">\(S\)</span>.</strong> I valori <span class="math math-inline">\(s\)</span> si organizzano in una matrice <span class="math math-inline">\((n+1) \times (n+1)\)</span>, grande quanto la matrice dei costi, le cui righe e colonne sono gli <strong>archi del giro corrente</strong>, elencati partendo da 0 e seguendo il giro. Con <span class="math math-inline">\(n = 6\)</span> e giro <span class="math math-inline">\(0 - 3 - 2 - 4 - 1 - 5 - 6 - 0\)</span>, righe e colonne sono <span class="math math-inline">\((0,3), (3,2), (2,4), (4,1), (1,5), (5,6), (6,0)\)</span>.</p>
+<ul>
+<li>La coppia <span class="math math-inline">\((i, j) - (p, q)\)</span> è una 2-opt valida solo se i quattro nodi sono <strong>tutti diversi</strong> (due archi adiacenti non si possono scambiare).</li>
+<li>In quella posizione si scrive <span class="math math-inline">\(c_{ip} + c_{jq} - (c_{ij} + c_{pq})\)</span>.</li>
+<li>Con costi simmetrici basta la parte sopra la diagonale.</li>
+<li>Se c'è almeno un valore negativo si sceglie <strong>il più negativo</strong>, si esegue la mossa, si ricalcola <span class="math math-inline">\(S\)</span> e si ripete; se sono tutti non negativi il giro corrente è un ottimo locale.</li>
+</ul>
+<p>Attiva &quot;+ 2-opt&quot; e scorri i passi dopo la costruzione: ogni mossa toglie due archi (tratteggiati) e ne aggiunge due (in evidenza). Nota quanto migliora nearest neighbor.</p>
+<pre class="wimark-src"><code class="nohighlight" data-wimark="tsp" data-opts="{&#34;n&#34;: 12, &#34;seed&#34;: 7, &#34;algo&#34;: &#34;nn&#34;, &#34;opt2&#34;: true}"></code></pre>
+<h2 id="conclusioni">Conclusioni</h2>
+<table>
+<thead>
+<tr>
+<th>Strategia</th>
+<th>Errore medio osservato</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Metodi costruttivi, ripetuti da punti di partenza diversi tenendo il giro migliore</td>
+<td>5–7%</td>
+</tr>
+<tr>
+<td><strong>Metodo composito</strong>: costruttivo + 2-opt / 3-opt</td>
+<td>2–3%</td>
+</tr>
+<tr>
+<td>Metodo composito iterato da punti di partenza diversi</td>
+<td>1–2%</td>
+</tr>
+</tbody>
+</table>
+<p>Oggi, con formulazioni adeguate e metodi <strong>branch-and-cut</strong> specializzati, si risolvono all'ottimo TSP con migliaia di nodi: un esempio celebre è il giro ottimo tra i 49 603 siti del National Register of Historic Places degli Stati Uniti. Le euristiche viste restano importanti perché sono <strong>semplici</strong> da implementare, <strong>velocissime</strong>, e sono i mattoni delle <strong>metaeuristiche</strong> per i problemi di instradamento reali e complessi.</p>
+<h2 id="punti-chiave">Punti chiave</h2>
+<ul>
+<li>TSP: il giro hamiltoniano di costo minimo su un grafo completo; simmetrico (<span class="math math-inline">\(c_{ij} = c_{ji}\)</span>) o asimmetrico. Fortemente NP-difficile.</li>
+<li>In un problema di minimo <span class="math math-inline">\(R_A = \sup_I A(I)/OPT(I) \ge 1\)</span>: più basso è, meglio è.</li>
+<li>Disuguaglianza triangolare <span class="math math-inline">\(c_{ij} \le c_{ik} + c_{kj}\)</span>: vale per distanze euclidee e cammini minimi.</li>
+<li><strong>Nearest neighbor</strong>: <span class="math math-inline">\(O(n^2)\)</span>, media 1.25. <strong>Inserimento</strong>: nearest e cheapest con rapporto 2; <strong>farthest</strong> il migliore in pratica (media 1.10).</li>
+<li><strong>Clarke &amp; Wright</strong>: risparmi <span class="math math-inline">\(s_{ij} = c_{i0} + c_{0j} - c_{ij}\)</span>; si estende a più veicoli con capacità.</li>
+<li><strong>2-opt</strong>: si tolgono due archi, un solo modo di richiudere; si esegue la mossa con <span class="math math-inline">\(s^* &lt; 0\)</span> più negativo. Costruttivo + 2-opt/3-opt: errore medio 2–3%.</li>
+</ul>
+<pre class="wimark-src"><code class="nohighlight" data-wimark="quiz" data-opts="{&#34;title&#34;: &#34;Verifica&#34;}">[
+  {&#34;q&#34;: &#34;Un algoritmo per il TSP ha rapporto nel caso peggiore $R_A = 2$. Che cosa garantisce?&#34;, &#34;options&#34;: [&#34;Che trova l&#39;ottimo almeno una volta su due&#34;, &#34;Che il giro trovato non supera mai il doppio della lunghezza ottima&#34;, &#34;Che il giro trovato è lungo almeno metà dell&#39;ottimo&#34;], &#34;answer&#34;: 1, &#34;why&#34;: &#34;In un problema di minimo $R_A = \\sup_I A(I)/OPT(I)$: un limite superiore al rapporto tra giro trovato e giro ottimo.&#34;},
+  {&#34;q&#34;: &#34;Inserire il nodo $v$ tra i nodi consecutivi $i$ e $j$ allunga il giro di&#34;, &#34;options&#34;: [&#34;$c_{iv} + c_{vj}$&#34;, &#34;$c_{iv} + c_{vj} - c_{ij}$&#34;, &#34;$c_{ij} - c_{iv}$&#34;], &#34;answer&#34;: 1, &#34;why&#34;: &#34;Si aggiungono gli archi $(i, v)$ e $(v, j)$ e si toglie $(i, j)$.&#34;},
+  {&#34;q&#34;: &#34;$c_{10} = 8$, $c_{02} = 6$, $c_{12} = 5$. Il risparmio di Clarke &amp; Wright $s_{12}$ vale&#34;, &#34;options&#34;: [&#34;19&#34;, &#34;9&#34;, &#34;3&#34;], &#34;answer&#34;: 1, &#34;why&#34;: &#34;$s_{12} = c_{10} + c_{02} - c_{12} = 8 + 6 - 5 = 9$.&#34;},
+  {&#34;q&#34;: &#34;Quale metodo costruttivo funziona meglio in pratica secondo le prestazioni medie?&#34;, &#34;options&#34;: [&#34;Nearest neighbor&#34;, &#34;Nearest insertion&#34;, &#34;Farthest insertion&#34;], &#34;answer&#34;: 2, &#34;why&#34;: &#34;Media 1.10 contro 1.25 di nearest neighbor e nearest insertion.&#34;},
+  {&#34;q&#34;: &#34;Togliendo due archi non adiacenti da un giro, quanti nuovi giri diversi si possono formare con una 2-opt?&#34;, &#34;options&#34;: [&#34;Uno&#34;, &#34;Tre&#34;, &#34;Sette&#34;], &#34;answer&#34;: 0, &#34;why&#34;: &#34;C&#39;è un solo modo di richiudere i due cammini senza ricreare gli archi tolti. Sette sono i nuovi giri di una 3-opt.&#34;}
+]
+</code></pre>
+</article>
+
+          
+          </div>
+        </div>
+      </section>
+
+      <aside class="col-toc" aria-label="In questa pagina">
+        <div class="col-head">In questa pagina</div>
+        <div class="col-scroll">
+          
+            
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l1">
+    <a href="#il-problema-del-commesso-viaggiatore-euristiche-costruttive-e-2-opt">Il problema del commesso viaggiatore: euristiche costruttive e 2-opt</a>
+    
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l2">
+    <a href="#il-caso-wash-bowl">Il caso Wash Bowl</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#il-problema-del-commesso-viaggiatore">Il problema del commesso viaggiatore</a>
+    
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l3">
+    <a href="#il-rapporto-di-prestazione-in-un-problema-di-minimo">Il rapporto di prestazione in un problema di minimo</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l3">
+    <a href="#la-disuguaglianza-triangolare">La disuguaglianza triangolare</a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#metodi-costruttivi">Metodi costruttivi</a>
+    
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l3">
+    <a href="#nearest-neighbor">Nearest neighbor</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l3">
+    <a href="#metodi-di-inserimento">Metodi di inserimento</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l3">
+    <a href="#clarke--wright-lalgoritmo-dei-risparmi">Clarke &amp; Wright: l&#39;algoritmo dei risparmi</a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#ricerca-locale">Ricerca locale</a>
+    
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l3">
+    <a href="#mosse-k-opt">Mosse k-opt</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l3">
+    <a href="#lalgoritmo-2-opt">L&#39;algoritmo 2-opt</a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#conclusioni">Conclusioni</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#punti-chiave">Punti chiave</a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+</ul>
+
+          
+          
+        </div>
+      </aside>
+
+    
+  </main>
+
+  
+  <footer class="statusbar" aria-hidden="true">
+    <span class="sb-mode">READ</span>
+    <span class="sb-path">it/notes/computational-method/03-tsp-heuristics.md</span>
+    <span class="sb-spacer"></span>
+    <span class="sb-item">it</span>
+    <span class="sb-item">utf-8</span>
+    <span class="sb-item">markdown</span>
+    <span class="sb-pos" data-scroll-pos>top</span>
+  </footer>
+  
+
+  <div class="search" data-search hidden role="dialog" aria-modal="true" aria-label="Cerca">
+    <div class="search-panel">
+      <div class="search-bar"><span class="search-prompt" aria-hidden="true">❯</span>
+      <input class="search-input" type="search" placeholder="Cerca" autocomplete="off" spellcheck="false" aria-controls="search-results"></div>
+      <ul class="search-results" id="search-results" role="listbox"></ul>
+      <div class="search-hint" aria-hidden="true"><span><kbd>↑↓</kbd> scorri</span><span><kbd>↵</kbd> apri</span><span><kbd>esc</kbd> chiudi</span></div>
+    </div>
+  </div>
+
+  <script>
+    window.GOMARK = {
+      lang: "it",
+      root: "..\/..\/..\/",
+      theme: "light",
+      section: "notes",
+      i18n: { noResults: "Nessun risultato", copy: "copia", copied: "copiato", words: "parole", minRead: "min di lettura",
+        data: "dati", search: "cerca", noData: "nessun dato", other: "altro",
+        total: "totale", show: "mostra", hide: "nascondi", reset: "ripristina", all: "tutti" }
+    };
+  </script>
+  <script src="../../../static/widgets.js"></script>
+  <script src="../../../static/widgets/comet/tsp.js"></script>
+  <script src="../../../static/widgets/quiz.js"></script>
+  <script src="../../../static/engine.js"></script>
+  <script src="../../../static/ui.js"></script>
+  <script src="../../../static/search.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

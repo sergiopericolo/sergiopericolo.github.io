@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Identità digitale e knowledge base computazionale: CV, progetti e appunti.">
+  <meta name="author" content="Sergio Di Lapi">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains&#43;Mono:wght@400;500;600;700;800&amp;family=IBM&#43;Plex&#43;Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <title>Analisi empirica del CAPM · Appunti</title>
+  <link rel="stylesheet" href="../../../static/layout.css">
+  <link rel="stylesheet" href="../../../static/theme.css">
+  <link rel="stylesheet" href="../../../static/wimark.css">
+  <link rel="stylesheet" href="../../../static/themes/light.css">
+  <link rel="alternate" hreflang="en" href="../../../../en/notes/financial-economics/04-empirical-capm/index.html">
+  <style>:root { --mono:"JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;--sans:"IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;--font-body:var(--sans);--font-heading:var(--mono);--font-size:14px;--content-width:780px;--sidebar-width:256px;--folders-width:224px;--toc-width:232px;--radius:4px;--radius-sm:3px;--radius-lg:10px; }</style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+</head>
+<body data-depth="multi" data-index="right" data-theme="light" data-theme-class="monochrome" data-heading="mono" data-statusbar="on">
+
+  <header class="topbar">
+    <a class="brand" href="../../../index.html">sergiopericolo</a>
+    <nav class="sections" aria-label="Sezioni">
+      
+      <a class="section-link" href="../../../about/index.html">
+        <span class="section-idx">01</span>
+        <span class="section-title">Chi sono</span>
+      </a>
+      
+      <a class="section-link" href="../../../projects/index.html">
+        <span class="section-idx">02</span>
+        <span class="section-title">Progetti</span>
+      </a>
+      
+      <a class="section-link active" href="../../../notes/index.html">
+        <span class="section-idx">03</span>
+        <span class="section-title">Appunti</span>
+      </a>
+      
+      <a class="section-link" href="../../../visual/index.html">
+        <span class="section-idx">04</span>
+        <span class="section-title">Visual</span>
+      </a>
+      
+      <a class="section-link" href="../../../art/index.html">
+        <span class="section-idx">05</span>
+        <span class="section-title">Arte</span>
+      </a>
+      
+    </nav>
+    <div class="topbar-end">
+      <button class="search-open" type="button" data-search-open aria-haspopup="dialog"><span>Cerca</span><kbd>⌘K</kbd></button>
+      
+
+<nav class="lang-switch" aria-label="Lingua">
+  <span class="lang-link current" aria-current="true">it</span><a class="lang-link" href="../../../../en/notes/financial-economics/04-empirical-capm/index.html" hreflang="en" lang="en" title="English">en</a>
+</nav>
+
+
+      <span class="build-info"><a class="build-name" href="https://github.com/sergiopericolo/GoMark">GoMark</a> v1.2.0</span>
+    </div>
+  </header>
+
+  <main class="grid" style="--grid: minmax(0, 15fr) minmax(0, 15fr) minmax(0, 55fr) minmax(0, 15fr); --grid-medium: minmax(0, 15fr) minmax(0, 15fr) minmax(0, 70fr)">
+
+    
+
+      
+      <aside class="col-folders" aria-label="Cartelle">
+        <div class="col-head">Cartelle</div>
+        <div class="col-scroll">
+          <a class="tree-root" href="../../index.html">~/notes/</a>
+          
+
+<ul class="tree">
+  
+  
+  <li class="tree-node open" data-path="financial-economics">
+    <div class="tree-row">
+      
+      <span class="tree-leaf" aria-hidden="true"></span>
+      
+      <a class="tree-folder active" href="../../financial-economics/index.html">
+        <span class="tree-name">financial-economics/</span>
+        <span class="tree-count">9</span>
+      </a>
+    </div>
+    
+  </li>
+  
+</ul>
+
+        </div>
+      </aside>
+      
+
+      <aside class="col-files" aria-label="File">
+        <div class="col-head">
+          <span>File <span class="badge">9</span></span>
+          <span class="col-head-path">notes/financial-economics/</span>
+        </div>
+        <div class="col-scroll">
+          <ul class="file-list">
+            
+            <li>
+              <a class="file-link" href="../../financial-economics/01-choice-under-uncertainty/index.html">
+                <span class="file-name">Scelte in condizioni di incertezza</span>
+                <span class="file-path">01-choice-under-uncertainty.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../financial-economics/02-modern-portfolio-theory/index.html">
+                <span class="file-name">Teoria moderna del portafoglio</span>
+                <span class="file-path">02-modern-portfolio-theory.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../financial-economics/03-capm/index.html">
+                <span class="file-name">Il Capital Asset Pricing Model</span>
+                <span class="file-path">03-capm.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link active" href="../../financial-economics/04-empirical-capm/index.html">
+                <span class="file-name">Analisi empirica del CAPM</span>
+                <span class="file-path">04-empirical-capm.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../financial-economics/05-consumption-capm/index.html">
+                <span class="file-name">Il CAPM basato sul consumo</span>
+                <span class="file-path">05-consumption-capm.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../financial-economics/06-apt-multifactor/index.html">
+                <span class="file-name">Arbitrage Pricing Theory e modelli multifattoriali</span>
+                <span class="file-path">06-apt-multifactor.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../financial-economics/07-cross-sectional-asset-pricing/index.html">
+                <span class="file-name">Asset pricing empirico in cross-section</span>
+                <span class="file-path">07-cross-sectional-asset-pricing.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../financial-economics/08-black-litterman/index.html">
+                <span class="file-name">Il modello di Black–Litterman</span>
+                <span class="file-path">08-black-litterman.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../financial-economics/09-event-studies/index.html">
+                <span class="file-name">Analisi degli event study</span>
+                <span class="file-path">09-event-studies.md</span>
+              </a>
+            </li>
+            
+          </ul>
+        </div>
+      </aside>
+
+      <section class="col-content" aria-label="sergiopericolo">
+        <div class="content-scroll" id="content">
+          <div class="content-inner">
+          
+            
+<div class="page-head">
+  <div class="page-crumb"><span class="crumb-home">~</span>/notes/financial-economics/04-empirical-capm.md</div>
+  <h1 class="page-title">Analisi empirica del CAPM</h1>
+  <div class="page-meta" data-page-meta><span class="meta-tag">it</span></div>
+</div>
+
+<article class="page-body"><h1 id="analisi-empirica-del-capm">Analisi empirica del CAPM</h1>
+<p>Capitolo 4 di <em>Essentials of Financial Economics</em> (Donadelli, Costola, Gufler). Portare il CAPM sui dati: stimare alfa e beta con una regressione in serie storica, verificare se l'alfa è nullo, poi lasciare che alfa e beta varino nel tempo.</p>
+<p>Percorso:</p>
+<ol>
+<li><strong>Analisi di regressione univariata</strong> — il market model, OLS, l'alfa di Jensen e il suo test t.</li>
+<li><strong>Test statico</strong> — cinque titoli del DJIA, 2000–2022.</li>
+<li><strong>Analisi dinamica</strong> — alfa e beta a finestra mobile.</li>
+</ol>
+<h2 id="fondamenti">Fondamenti</h2>
+<ul>
+<li><strong>Aspettative razionali</strong>: nel lungo periodo i rendimenti realizzati ≈ rendimenti attesi, quindi le medie dei rendimenti passati approssimano <span class="math math-inline">\(E[\cdot]\)</span>.</li>
+<li><strong>Trade-off rischio–rendimento</strong>: nei mercati ideali è prezzato solo il rischio sistematico; le frizioni (costi, vincoli) distorcono i premi.</li>
+<li>Nessun modello universale: l'efficacia dipende dall'attività e dal contesto.</li>
+<li>Ipotesi standard: avversione al rischio, massimizzazione dell'utilità su un solo periodo, credenze omogenee, mercati senza frizioni, possibilità illimitata di prestare e prendere a prestito a <span class="math math-inline">\(r_f\)</span>.</li>
+</ul>
+<p>In extra-rendimenti <span class="math math-inline">\(\tilde z = \tilde r - r_f\)</span> il CAPM si scrive <span class="math math-inline">\(E(\tilde z_i) = \beta_{i,M}E(\tilde z_M)\)</span>: <strong>nessuna intercetta</strong>.</p>
+<p><strong>Prime evidenze</strong></p>
+<ul>
+<li>Alfa diversi da zero (Merton e Scholes, 1972): i titoli a beta basso ottengono alfa <strong>positivi</strong>.</li>
+<li>Le regressioni cross-section mostrano un'intercetta troppo alta e una pendenza troppo piatta (Black, Jensen e Scholes, 1972).</li>
+<li>La versione a <strong>due fattori</strong> (zero-beta) di Black: <span class="math math-inline">\(E(\tilde z_i) = (1 - \beta_i)E(\tilde z_l) + \beta_{i,M}E(\tilde z_M)\)</span>, dove <span class="math math-inline">\(\tilde z_l\)</span> è un portafoglio a beta zero.</li>
+</ul>
+<p><strong>Storia.</strong> Prima del CAPM il costo del capitale si ricavava dal dividend yield più la crescita (Gordon–Shapiro, <span class="math math-inline">\(r = D/P + g\)</span>), senza un aggiustamento esplicito per il rischio. Markowitz (1952) pose le basi; il CAPM introdusse il rischio nella determinazione dei prezzi e lo rese verificabile. È ancora il modello dominante per il costo del capitale (Welch, 2008: il 75% degli accademici lo sostiene).</p>
+<h2 id="il-market-model">Il market model</h2>
+<p>Extra-rendimento <span class="math math-inline">\(z_{i,t} = r_{i,t} - r_{f,t}\)</span> con <span class="math math-inline">\(r_{i,t} = \dfrac{p_{i,t} + d_{i,t} - p_{i,t-1}}{p_{i,t-1}}\)</span>:</p>
+<p><span class="math math-display">\[z_{i,t} = \alpha_i + \beta_{i,M}z_{M,t} + \varepsilon_{i,t}, \qquad t = 1, \dots, T\]</span></p>
+<ul>
+<li><span class="math math-inline">\(\alpha_i\)</span>: <strong>errore di prezzo</strong>; nullo se il CAPM vale.</li>
+<li><span class="math math-inline">\(\beta_{i,M}\)</span>: sensibilità all'extra-rendimento di mercato.</li>
+<li><span class="math math-inline">\(\varepsilon_{i,t}\)</span>: shock idiosincratico.</li>
+<li>Proxy di mercato: indici ampi (S&amp;P 500, FTSE All-Share), poiché il vero <span class="math math-inline">\(M\)</span> è inosservabile.</li>
+</ul>
+<p><strong>Ipotesi sugli errori</strong>: <span class="math math-inline">\(E[\varepsilon_{i,t} \mid z_{M,t}] = 0\)</span>; <span class="math math-inline">\(\mathrm{Cov}[\varepsilon_{i,t}, z_{M,t}] = 0\)</span>; omoschedasticità <span class="math math-inline">\(\mathrm{Var}[\varepsilon_{i,t} \mid z_{M,t}] = \sigma_{\varepsilon_i}^2\)</span>; assenza di autocorrelazione. Rendono l'OLS consistente ed efficiente e validano l'inferenza su <span class="math math-inline">\(\alpha_i\)</span> e <span class="math math-inline">\(\beta_{i,M}\)</span>.</p>
+<p><strong>Parametri di popolazione</strong></p>
+<p><span class="math math-display">\[\beta_{i,M} = \frac{\sigma_{i,M}}{\sigma_M^2}, \qquad \alpha_i = \mu_i - \beta_{i,M}\mu_M\]</span></p>
+<p><strong>Versione multivariata</strong> <span class="math math-inline">\(\mathbf z_t = \boldsymbol\alpha + \boldsymbol\beta z_{M,t} + \boldsymbol\varepsilon_t\)</span>: la stima congiunta (SUR, GLS) guadagna potenza e sfrutta la dipendenza tra attività, al prezzo di una maggiore complessità. Il libro usa regressioni univariate.</p>
+<h3 id="ols">OLS</h3>
+<p>Si minimizza la somma dei quadrati dei residui <span class="math math-inline">\(SSR = \sum_{t=1}^{T}(z_{i,t} - \alpha - \beta z_{m,t})^2\)</span>.</p>
+<ol>
+<li><span class="math math-inline">\(\partial SSR / \partial\alpha = 0 \Rightarrow \hat\alpha = \bar z_i - \hat\beta\bar z_m\)</span>.</li>
+<li><span class="math math-inline">\(\partial SSR / \partial\beta = 0 \Rightarrow\)</span></li>
+</ol>
+<p><span class="math math-display">\[\hat\beta = \frac{\sum_t (z_{i,t} - \bar z_i)(z_{m,t} - \bar z_m)}{\sum_t (z_{m,t} - \bar z_m)^2} = \frac{\sum_t z_{i,t}z_{m,t} - T\bar z_i\bar z_m}{\sum_t z_{m,t}^2 - T\bar z_m^2}, \qquad \hat\alpha = \bar z_i - \hat\beta\bar z_m\]</span></p>
+<h3 id="lalfa-di-jensen">L'alfa di Jensen</h3>
+<p><span class="math math-inline">\(\hat\alpha_i\)</span> è la parte del rendimento medio <strong>non spiegata dal mercato</strong> (Jensen, 1968), la misura classica dell'abilità di un gestore:</p>
+<ul>
+<li><span class="math math-inline">\(\hat\alpha_i &gt; 0\)</span>: in media fa meglio del benchmark CAPM.</li>
+<li><span class="math math-inline">\(\hat\alpha_i &lt; 0\)</span>: fa peggio.</li>
+</ul>
+<p><strong>Verificarlo.</strong> <span class="math math-inline">\(H_0: \alpha_i = 0\)</span> (il CAPM spiega i rendimenti) contro <span class="math math-inline">\(H_1: \alpha_i \ne 0\)</span>. L'<strong>appraisal ratio</strong> è la statistica t</p>
+<p><span class="math math-display">\[t_{\hat\alpha_i} = \frac{\hat\alpha_i}{\hat\sigma_{\hat\alpha_i}}, \qquad \hat\sigma_{\hat\alpha_i}^2 = \frac1T\left(1 + \frac{\bar z_M^2}{\hat\sigma_M^2}\right)\hat s_{\varepsilon_i}^2, \qquad \hat s_{\varepsilon_i}^2 = \frac{1}{T-2}\sum_{t=1}^{T}\hat\varepsilon_{i,t}^2\]</span></p>
+<p>Sotto normalità congiunta e <span class="math math-inline">\(H_0\)</span>, <span class="math math-inline">\(t_{\hat\alpha_i} \sim t_{T-2}\)</span>. Il termine <span class="math math-inline">\(\bar z_M^2/\hat\sigma_M^2\)</span> è il quadrato dell'indice di Sharpe del mercato: l'alfa è stimato con meno precisione quando la media del mercato è grande rispetto alla sua volatilità.</p>
+<p>Gioca con i parametri veri. Con molto rumore idiosincratico o un campione breve, anche un alfa vero dello 0,3% al mese spesso <strong>non</strong> è significativo; un nuovo campione cambia le stime.</p>
+<pre class="wimark-src"><code class="nohighlight" data-wimark="capmreg" data-opts="{&#34;alpha&#34;: 0.002, &#34;beta&#34;: 0.8, &#34;noise&#34;: 0.05, &#34;T&#34;: 276}"></code></pre>
+<h2 id="test-statico-cinque-titoli-del-djia">Test statico: cinque titoli del DJIA</h2>
+<p>Extra-rendimenti dai prezzi di chiusura rettificati (Yahoo Finance), extra-rendimento di mercato dalla libreria di Fama–French, mensili, gen 2000 – dic 2022 (276 oss.). Dati e codice: <a href="https://github.com/DoCoGu/EoFE_DCG_Springer">github.com/DoCoGu/EoFE_DCG_Springer</a>.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>P&amp;G</th>
+<th>3M</th>
+<th>IBM</th>
+<th>Merck</th>
+<th>AmEx</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="math math-inline">\(\hat\alpha_i\)</span></td>
+<td>0.00499*</td>
+<td>0.00203</td>
+<td>−0.00053</td>
+<td>0.00333</td>
+<td>0.00111</td>
+</tr>
+<tr>
+<td>t-stat</td>
+<td>(1.65)</td>
+<td>(0.71)</td>
+<td>(−0.15)</td>
+<td>(0.83)</td>
+<td>(0.26)</td>
+</tr>
+<tr>
+<td><span class="math math-inline">\(\hat\beta_{i,M}\)</span></td>
+<td>0.268***</td>
+<td>0.793***</td>
+<td>0.938***</td>
+<td>0.449***</td>
+<td>1.290***</td>
+</tr>
+<tr>
+<td>t-stat</td>
+<td>(4.13)</td>
+<td>(12.9)</td>
+<td>(12.3)</td>
+<td>(5.22)</td>
+<td>(14.2)</td>
+</tr>
+<tr>
+<td><span class="math math-inline">\(\bar R^2\)</span></td>
+<td>0.055</td>
+<td>0.376</td>
+<td>0.356</td>
+<td>0.087</td>
+<td>0.422</td>
+</tr>
+</tbody>
+</table>
+<p>*, **, ***: significativo al 10%, 5%, 1%.</p>
+<pre class="wimark-src"><code class="nohighlight" data-wimark="chart" data-opts="{&#34;type&#34;: &#34;bar&#34;, &#34;title&#34;: &#34;Regressioni CAPM: beta e R² corretto di cinque titoli del DJIA&#34;}">{
+  &#34;labels&#34;: [&#34;P&amp;G&#34;, &#34;3M&#34;, &#34;IBM&#34;, &#34;Merck&#34;, &#34;AmEx&#34;],
+  &#34;series&#34;: [{&#34;name&#34;: &#34;beta&#34;, &#34;values&#34;: [0.268, 0.793, 0.938, 0.449, 1.290]}, {&#34;name&#34;: &#34;R² corretto&#34;, &#34;values&#34;: [0.055, 0.376, 0.356, 0.087, 0.422]}]
+}
+</code></pre>
+<p><strong>Alfa.</strong> Solo P&amp;G ha un alfa significativo (al 10%, circa lo 0,5% al mese): rendimenti anomali oltre il rischio di mercato. Per gli altri quattro <strong>non si può rifiutare</strong> <span class="math math-inline">\(\alpha_i = 0\)</span> — coerente con il CAPM, come è tipico per le large cap.</p>
+<p><strong>Beta.</strong> Tutti positivi e significativi all'1%. AmEx ha <span class="math math-inline">\(\beta &gt; 1\)</span> (<strong>aggressivo</strong>); gli altri <span class="math math-inline">\(\beta &lt; 1\)</span> (<strong>difensivi</strong>). Se il mercato sale dell'1%, l'extra-rendimento atteso del titolo cambia di <span class="math math-inline">\(\beta \times 1\%\)</span>.</p>
+<p><strong>Adattamento.</strong> Il mercato spiega il 42% della variabilità di AmEx, circa il 36–38% per 3M e IBM, solo il 5,5% per P&amp;G e l'8,7% per Merck.</p>
+<p><strong>Limiti.</strong> Cinque titoli statunitensi grandi e liquidi di un solo indice. Un test serio richiede molti titoli di dimensione e liquidità diverse, mercati internazionali e condizioni di mercato differenti.</p>
+<h2 id="analisi-dinamica-alfa-e-beta-variabili-nel-tempo">Analisi dinamica: alfa e beta variabili nel tempo</h2>
+<p>Il CAPM statico assume <span class="math math-inline">\(\alpha_i\)</span> e <span class="math math-inline">\(\beta_i\)</span> costanti. In realtà variano con i modelli di business e la leva, il ciclo economico e la volatilità, l'abilità dei manager, la regolamentazione.</p>
+<p><strong>Regressioni a finestra mobile</strong> (finestre di 25, 40 o 60 mesi): si stima su <span class="math math-inline">\(t = 1, \dots, 40\)</span>, poi su <span class="math math-inline">\(t = 2, \dots, 41\)</span>, …, fino a <span class="math math-inline">\(t = T-39, \dots, T\)</span>. Ogni finestra dà una coppia <span class="math math-inline">\((\hat\alpha_{i,t}, \hat\beta_{i,t})\)</span>.</p>
+<p>Usi: valutazione dinamica del rischio e allocazione, valutazione del rischio in mercati volatili, valutazione della performance (abilità o market timing). Evidenza: <strong>i beta salgono nei periodi di stress</strong>; gli alfa variano, soprattutto per i gestori attivi.</p>
+<p>Qui sotto, il beta vero salta da 1,1 a 2,2 durante una crisi, poi scende. Una finestra breve segue il salto rapidamente ma è rumorosa; una finestra lunga è liscia ma in ritardo e sfuma la crisi.</p>
+<pre class="wimark-src"><code class="nohighlight" data-wimark="rolling" data-opts="{&#34;window&#34;: 40, &#34;T&#34;: 276}"></code></pre>
+<p><strong>Cosa mostrano i titoli del DJIA (finestre di 40 mesi)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Titolo</th>
+<th>Alfa mobile</th>
+<th>Beta mobile</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>P&amp;G</td>
+<td>Positivo 2003–05 e 2017–22, ≈ 0 nel mezzo</td>
+<td>Da negativo (anticiclico) prima del 2007 a 0,6–0,7, poi ≈ 0,5</td>
+</tr>
+<tr>
+<td>3M</td>
+<td>Positivo 2003–05, ≈ 0 2006–18, negativo dopo il 2018</td>
+<td>0,5–1 all'inizio, ≈ 1 dopo il 2008</td>
+</tr>
+<tr>
+<td>IBM</td>
+<td>Negativo 2004–06, positivo 2007–13, negativo dopo il 2014</td>
+<td>&gt; 1 nel 2003–08, 0,5–1 nel 2009–17, &gt; 1 dopo il 2017</td>
+</tr>
+<tr>
+<td>Merck</td>
+<td>Negativo 2003–06, ≈ 0 fino al 2018, positivo dopo</td>
+<td>Sempre tra 0 e 1</td>
+</tr>
+<tr>
+<td>AmEx</td>
+<td>Molto volatile per tutto il periodo</td>
+<td>1–1,5, sotto 1 nel 2006–07, <strong>sopra 2 nel 2008–09</strong>, sopra 1 dopo il 2012</td>
+</tr>
+</tbody>
+</table>
+<p>Ogni impresa ha il proprio andamento di sovra- e sottoperformance: contano fattori oltre il rischio sistematico. Anche i beta variano, ma meno degli alfa.</p>
+<p><strong>Limiti delle stime a finestra mobile</strong></p>
+<ul>
+<li><strong>Ex post</strong>: descrivono il passato, senza potere predittivo ex ante.</li>
+<li><strong>Ampiezza della finestra</strong>: nessuna regola universale; abbastanza dati per la precisione contro la reattività; dovrebbe corrispondere all'orizzonte dell'investitore.</li>
+<li><strong>Frequenza</strong>: dati giornalieri, settimanali, mensili o annuali cambiano la finestra adatta.</li>
+<li>Ne segue un trade-off soggettivo tra <strong>stabilità</strong> e <strong>adattabilità</strong>.</li>
+</ul>
+<h2 id="punti-chiave">Punti chiave</h2>
+<ul>
+<li>Market model: <span class="math math-inline">\(z_{i,t} = \alpha_i + \beta_{i,M}z_{M,t} + \varepsilon_{i,t}\)</span>; il CAPM implica <span class="math math-inline">\(\alpha_i = 0\)</span>.</li>
+<li>OLS: <span class="math math-inline">\(\hat\beta = \widehat{\mathrm{cov}}(z_i, z_m)/\widehat{\mathrm{var}}(z_m)\)</span>, <span class="math math-inline">\(\hat\alpha = \bar z_i - \hat\beta\bar z_m\)</span>.</li>
+<li>L'alfa di Jensen misura la performance; si verifica con <span class="math math-inline">\(t_{\hat\alpha} = \hat\alpha/\hat\sigma_{\hat\alpha} \sim t_{T-2}\)</span>.</li>
+<li>DJIA 2000–22: solo P&amp;G ha un alfa (debolmente) significativo; AmEx aggressivo (<span class="math math-inline">\(\beta = 1.29\)</span>), gli altri difensivi.</li>
+<li>Le finestre mobili rivelano alfa e beta variabili nel tempo (i beta impennano nelle crisi) ma sono ex post e dipendono dalla finestra.</li>
+</ul>
+<pre class="wimark-src"><code class="nohighlight" data-wimark="quiz" data-opts="{&#34;title&#34;: &#34;Verifica&#34;}">[
+  {&#34;q&#34;: &#34;Nella regressione $z_{i,t} = \\alpha_i + \\beta_{i,M}z_{M,t} + \\varepsilon_{i,t}$, il CAPM implica&#34;, &#34;options&#34;: [&#34;$\\beta_{i,M} = 1$&#34;, &#34;$\\alpha_i = 0$&#34;, &#34;$R^2 = 1$&#34;], &#34;answer&#34;: 1, &#34;why&#34;: &#34;In extra-rendimenti il CAPM non ha intercetta: ogni alfa diverso da zero è un errore di prezzo.&#34;},
+  {&#34;q&#34;: &#34;P&amp;G: $\\hat\\alpha = 0.00499$, $t = 1.65$. Al livello del 5%&#34;, &#34;options&#34;: [&#34;si rifiuta $H_0: \\alpha = 0$&#34;, &#34;non si rifiuta $H_0$&#34;, &#34;non si può dire senza $R^2$&#34;], &#34;answer&#34;: 1, &#34;why&#34;: &#34;$|1.65| &lt; 1.97$: significativo solo al 10%.&#34;},
+  {&#34;q&#34;: &#34;AmEx ha $\\hat\\beta = 1.29$. Se questo mese l&#39;extra-rendimento di mercato è +2%, l&#39;extra-rendimento atteso di AmEx è circa&#34;, &#34;options&#34;: [&#34;+1.29%&#34;, &#34;+2.58%&#34;, &#34;+3.29%&#34;], &#34;answer&#34;: 1, &#34;why&#34;: &#34;$\\beta \\times 2\\% = 2.58\\%$ (più un alfa non significativo).&#34;},
+  {&#34;q&#34;: &#34;P&amp;G ha $\\bar R^2 = 0.055$. Significa che&#34;, &#34;options&#34;: [&#34;il beta di P&amp;G è sbagliato&#34;, &#34;il mercato spiega solo circa il 5,5% della variabilità dei rendimenti di P&amp;G&#34;, &#34;P&amp;G non ha rischio sistematico&#34;], &#34;answer&#34;: 1, &#34;why&#34;: &#34;Gran parte della varianza di P&amp;G è idiosincratica; il suo beta resta comunque significativo.&#34;},
+  {&#34;q&#34;: &#34;Accorciare la finestra mobile da 60 a 20 mesi rende la stima del beta&#34;, &#34;options&#34;: [&#34;più liscia ma più lenta&#34;, &#34;più reattiva ma più rumorosa&#34;, &#34;non distorta in tutti i periodi&#34;], &#34;answer&#34;: 1, &#34;why&#34;: &#34;Meno osservazioni per finestra → più rumore di stima, ma i cambiamenti recenti pesano di più.&#34;}
+]
+</code></pre>
+</article>
+
+          
+          </div>
+        </div>
+      </section>
+
+      <aside class="col-toc" aria-label="In questa pagina">
+        <div class="col-head">In questa pagina</div>
+        <div class="col-scroll">
+          
+            
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l1">
+    <a href="#analisi-empirica-del-capm">Analisi empirica del CAPM</a>
+    
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l2">
+    <a href="#fondamenti">Fondamenti</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#il-market-model">Il market model</a>
+    
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l3">
+    <a href="#ols">OLS</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l3">
+    <a href="#lalfa-di-jensen">L&#39;alfa di Jensen</a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#test-statico-cinque-titoli-del-djia">Test statico: cinque titoli del DJIA</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#analisi-dinamica-alfa-e-beta-variabili-nel-tempo">Analisi dinamica: alfa e beta variabili nel tempo</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#punti-chiave">Punti chiave</a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+</ul>
+
+          
+          
+        </div>
+      </aside>
+
+    
+  </main>
+
+  
+  <footer class="statusbar" aria-hidden="true">
+    <span class="sb-mode">READ</span>
+    <span class="sb-path">it/notes/financial-economics/04-empirical-capm.md</span>
+    <span class="sb-spacer"></span>
+    <span class="sb-item">it</span>
+    <span class="sb-item">utf-8</span>
+    <span class="sb-item">markdown</span>
+    <span class="sb-pos" data-scroll-pos>top</span>
+  </footer>
+  
+
+  <div class="search" data-search hidden role="dialog" aria-modal="true" aria-label="Cerca">
+    <div class="search-panel">
+      <div class="search-bar"><span class="search-prompt" aria-hidden="true">❯</span>
+      <input class="search-input" type="search" placeholder="Cerca" autocomplete="off" spellcheck="false" aria-controls="search-results"></div>
+      <ul class="search-results" id="search-results" role="listbox"></ul>
+      <div class="search-hint" aria-hidden="true"><span><kbd>↑↓</kbd> scorri</span><span><kbd>↵</kbd> apri</span><span><kbd>esc</kbd> chiudi</span></div>
+    </div>
+  </div>
+
+  <script>
+    window.GOMARK = {
+      lang: "it",
+      root: "..\/..\/..\/",
+      theme: "light",
+      section: "notes",
+      i18n: { noResults: "Nessun risultato", copy: "copia", copied: "copiato", words: "parole", minRead: "min di lettura",
+        data: "dati", search: "cerca", noData: "nessun dato", other: "altro",
+        total: "totale", show: "mostra", hide: "nascondi", reset: "ripristina", all: "tutti" }
+    };
+  </script>
+  <script src="../../../static/widgets.js"></script>
+  <script src="../../../static/widgets/finance/capmreg.js"></script>
+  <script src="../../../static/widgets/chart.js"></script>
+  <script src="../../../static/widgets/finance/rolling.js"></script>
+  <script src="../../../static/widgets/quiz.js"></script>
+  <script src="../../../static/engine.js"></script>
+  <script src="../../../static/ui.js"></script>
+  <script src="../../../static/search.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

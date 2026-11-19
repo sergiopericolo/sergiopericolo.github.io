@@ -1,0 +1,61 @@
+/*
+ * class: monochrome
+ * light — anthracite on ivory. The frame is a warm ivory, the reading panel a
+ * paler one; the ink is a cool anthracite, never black. Greiges in between,
+ * in even steps of lightness. Code sits in a dark anthracite pane. One warm
+ * yellow, only in --mark*, --wm-warn* and --wm-hl*: a dot, a warning, a
+ * highlight.
+ */
+:root {
+  color-scheme: light;
+  --bg:          #EFECE6;
+  --surface:     #F9F7F3;
+  --hover:       #E6E2DA;
+  --line:        #DCD8CF;
+  --ink:         #25262A;
+  --text:        #3A3B3F;
+  --gray:        #6E6D68;
+  --gray-soft:   #9B9993;
+  --accent:      #25262A;
+  --on-accent:   #F9F7F3;
+  --accent-soft: #E6E2DA;
+
+  --mark:        #E2A928;
+  --mark-soft:   #F6E7BC;
+  --mark-ink:    #7A5A12;
+
+  /* Code is a dark pane on the ivory page, like a terminal window. */
+  --code-bg:     #232428;
+  --code-head:   #1E1F22;
+  --code-line:   #35363B;
+  --code-ink:    #CFCBC2;
+  --code-strong: #F1EDE4;
+  --code-title:  #F1EDE4;
+  --code-number: #E4E0D7;
+  --code-type:   #A5A39C;
+  --code-string: #B8B4AB;
+  --code-punct:  #85837E;
+  --code-muted:  #85837E;
+
+  /* Widgets: series tell apart by tone, dash and texture, never by hue; warn is the yellow. */
+  --wm-1: #25262A; --wm-on-1: #F9F7F3; --wm-dash-1: none;
+  --wm-2: #6E6D68; --wm-on-2: #F9F7F3; --wm-dash-2: none;
+  --wm-3: #AAA8A1; --wm-on-3: #25262A; --wm-dash-3: none;
+  --wm-4: #25262A; --wm-on-4: #F9F7F3; --wm-dash-4: 6 3;
+  --wm-5: #6E6D68; --wm-on-5: #F9F7F3; --wm-dash-5: 6 3;
+  --wm-6: #AAA8A1; --wm-on-6: #25262A; --wm-dash-6: 6 3;
+  --wm-7: #25262A; --wm-on-7: #F9F7F3; --wm-dash-7: 1 3;
+  --wm-8: #6E6D68; --wm-on-8: #F9F7F3; --wm-dash-8: 1 3;
+  --wm-fill-4: url(#wm-tex-4); --wm-bg-4: repeating-linear-gradient(45deg, var(--wm-4) 0 1px, var(--surface) 1px 5px);
+  --wm-fill-5: url(#wm-tex-5); --wm-bg-5: repeating-linear-gradient(135deg, var(--wm-5) 0 1px, var(--surface) 1px 5px);
+  --wm-fill-6: url(#wm-tex-6); --wm-bg-6: repeating-linear-gradient(45deg, var(--wm-6) 0 1px, var(--surface) 1px 5px);
+  --wm-fill-7: url(#wm-tex-7); --wm-bg-7: repeating-linear-gradient(135deg, var(--wm-7) 0 1px, var(--surface) 1px 5px);
+  --wm-fill-8: url(#wm-tex-8); --wm-bg-8: repeating-linear-gradient(45deg, var(--wm-8) 0 1px, var(--surface) 1px 5px);
+  --wm-accent: #25262A; --wm-on-accent: #F9F7F3;
+  --wm-pos: #25262A; --wm-neg: #25262A; --wm-warn: #E2A928; --wm-info: #9B9993;
+  --wm-on-pos: #F9F7F3; --wm-on-neg: #F9F7F3; --wm-on-warn: #25262A; --wm-on-info: #F9F7F3;
+  --wm-pos-soft: #E6E2DA; --wm-neg-soft: #E6E2DA; --wm-warn-soft: #F6E7BC; --wm-info-soft: #E6E2DA;
+  --wm-hl: #E2A928; --wm-on-hl: #25262A; --wm-hl-soft: #F6E7BC;
+  --wm-soft: #E6E2DA; --wm-grid: #DCD8CF;
+  --wm-heat-0: #E6E2DA; --wm-heat-1: #C9C6BE; --wm-heat-2: #9B9993; --wm-heat-3: #6E6D68; --wm-heat-4: #25262A;
+}

@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Identità digitale e knowledge base computazionale: CV, progetti e appunti.">
+  <meta name="author" content="Sergio Di Lapi">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains&#43;Mono:wght@400;500;600;700;800&amp;family=IBM&#43;Plex&#43;Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <title>Il modello di Black–Litterman · Appunti</title>
+  <link rel="stylesheet" href="../../../static/layout.css">
+  <link rel="stylesheet" href="../../../static/theme.css">
+  <link rel="stylesheet" href="../../../static/wimark.css">
+  <link rel="stylesheet" href="../../../static/themes/light.css">
+  <link rel="alternate" hreflang="en" href="../../../../en/notes/financial-economics/08-black-litterman/index.html">
+  <style>:root { --mono:"JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;--sans:"IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;--font-body:var(--sans);--font-heading:var(--mono);--font-size:14px;--content-width:780px;--sidebar-width:256px;--folders-width:224px;--toc-width:232px;--radius:4px;--radius-sm:3px;--radius-lg:10px; }</style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+</head>
+<body data-depth="multi" data-index="right" data-theme="light" data-theme-class="monochrome" data-heading="mono" data-statusbar="on">
+
+  <header class="topbar">
+    <a class="brand" href="../../../index.html">sergiopericolo</a>
+    <nav class="sections" aria-label="Sezioni">
+      
+      <a class="section-link" href="../../../about/index.html">
+        <span class="section-idx">01</span>
+        <span class="section-title">Chi sono</span>
+      </a>
+      
+      <a class="section-link" href="../../../projects/index.html">
+        <span class="section-idx">02</span>
+        <span class="section-title">Progetti</span>
+      </a>
+      
+      <a class="section-link active" href="../../../notes/index.html">
+        <span class="section-idx">03</span>
+        <span class="section-title">Appunti</span>
+      </a>
+      
+      <a class="section-link" href="../../../visual/index.html">
+        <span class="section-idx">04</span>
+        <span class="section-title">Visual</span>
+      </a>
+      
+      <a class="section-link" href="../../../art/index.html">
+        <span class="section-idx">05</span>
+        <span class="section-title">Arte</span>
+      </a>
+      
+    </nav>
+    <div class="topbar-end">
+      <button class="search-open" type="button" data-search-open aria-haspopup="dialog"><span>Cerca</span><kbd>⌘K</kbd></button>
+      
+
+<nav class="lang-switch" aria-label="Lingua">
+  <span class="lang-link current" aria-current="true">it</span><a class="lang-link" href="../../../../en/notes/financial-economics/08-black-litterman/index.html" hreflang="en" lang="en" title="English">en</a>
+</nav>
+
+
+      <span class="build-info"><a class="build-name" href="https://github.com/sergiopericolo/GoMark">GoMark</a> v1.2.0</span>
+    </div>
+  </header>
+
+  <main class="grid" style="--grid: minmax(0, 15fr) minmax(0, 15fr) minmax(0, 55fr) minmax(0, 15fr); --grid-medium: minmax(0, 15fr) minmax(0, 15fr) minmax(0, 70fr)">
+
+    
+
+      
+      <aside class="col-folders" aria-label="Cartelle">
+        <div class="col-head">Cartelle</div>
+        <div class="col-scroll">
+          <a class="tree-root" href="../../index.html">~/notes/</a>
+          
+
+<ul class="tree">
+  
+  
+  <li class="tree-node open" data-path="financial-economics">
+    <div class="tree-row">
+      
+      <span class="tree-leaf" aria-hidden="true"></span>
+      
+      <a class="tree-folder active" href="../../financial-economics/index.html">
+        <span class="tree-name">financial-economics/</span>
+        <span class="tree-count">9</span>
+      </a>
+    </div>
+    
+  </li>
+  
+</ul>
+
+        </div>
+      </aside>
+      
+
+      <aside class="col-files" aria-label="File">
+        <div class="col-head">
+          <span>File <span class="badge">9</span></span>
+          <span class="col-head-path">notes/financial-economics/</span>
+        </div>
+        <div class="col-scroll">
+          <ul class="file-list">
+            
+            <li>
+              <a class="file-link" href="../../financial-economics/01-choice-under-uncertainty/index.html">
+                <span class="file-name">Scelte in condizioni di incertezza</span>
+                <span class="file-path">01-choice-under-uncertainty.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../financial-economics/02-modern-portfolio-theory/index.html">
+                <span class="file-name">Teoria moderna del portafoglio</span>
+                <span class="file-path">02-modern-portfolio-theory.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../financial-economics/03-capm/index.html">
+                <span class="file-name">Il Capital Asset Pricing Model</span>
+                <span class="file-path">03-capm.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../financial-economics/04-empirical-capm/index.html">
+                <span class="file-name">Analisi empirica del CAPM</span>
+                <span class="file-path">04-empirical-capm.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../financial-economics/05-consumption-capm/index.html">
+                <span class="file-name">Il CAPM basato sul consumo</span>
+                <span class="file-path">05-consumption-capm.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../financial-economics/06-apt-multifactor/index.html">
+                <span class="file-name">Arbitrage Pricing Theory e modelli multifattoriali</span>
+                <span class="file-path">06-apt-multifactor.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../financial-economics/07-cross-sectional-asset-pricing/index.html">
+                <span class="file-name">Asset pricing empirico in cross-section</span>
+                <span class="file-path">07-cross-sectional-asset-pricing.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link active" href="../../financial-economics/08-black-litterman/index.html">
+                <span class="file-name">Il modello di Black–Litterman</span>
+                <span class="file-path">08-black-litterman.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../financial-economics/09-event-studies/index.html">
+                <span class="file-name">Analisi degli event study</span>
+                <span class="file-path">09-event-studies.md</span>
+              </a>
+            </li>
+            
+          </ul>
+        </div>
+      </aside>
+
+      <section class="col-content" aria-label="sergiopericolo">
+        <div class="content-scroll" id="content">
+          <div class="content-inner">
+          
+            
+<div class="page-head">
+  <div class="page-crumb"><span class="crumb-home">~</span>/notes/financial-economics/08-black-litterman.md</div>
+  <h1 class="page-title">Il modello di Black–Litterman</h1>
+  <div class="page-meta" data-page-meta><span class="meta-tag">it</span></div>
+</div>
+
+<article class="page-body"><h1 id="il-modello-di-blacklitterman">Il modello di Black–Litterman</h1>
+<p>Capitolo 8 di <em>Essentials of Financial Economics</em> (Donadelli, Costola, Gufler). Markowitz richiede i rendimenti attesi come input, e le stime storiche producono pesi estremi e instabili (Capitolo 2). Black e Litterman (1990, 1992) partono invece dall'<strong>equilibrio di mercato</strong> e lasciano che ogni investitore lo modifichi con le proprie <strong>view</strong>, combinate con la <strong>regola di Bayes</strong>.</p>
+<p>Percorso:</p>
+<ol>
+<li><strong>Motivazione</strong> — investitori omogenei ed eterogenei.</li>
+<li><strong>Equilibrio di mercato</strong> — ottimizzazione inversa, <span class="math math-inline">\(\Pi = \gamma\Sigma\mathbf w_{mkt}\)</span>, il ruolo di <span class="math math-inline">\(\tau\)</span>.</li>
+<li><strong>Le view dell'investitore</strong> — <span class="math math-inline">\(\mathbf P\)</span>, <span class="math math-inline">\(\mathbf Q\)</span>, <span class="math math-inline">\(\boldsymbol\Omega\)</span>.</li>
+<li><strong>La master formula</strong> — distribuzione a posteriori bayesiana dei rendimenti attesi e distribuzione dei rendimenti.</li>
+<li><strong>Esempi</strong> — quattro titoli tecnologici; cinque titoli del DJIA, M–V e B–L.</li>
+</ol>
+<h2 id="perch-andare-oltre-markowitz">Perché andare oltre Markowitz?</h2>
+<p>La MPT assume che tutti condividano le stesse aspettative su rendimenti, rischi e correlazioni. Allora un unico portafoglio di mercato è ottimo per tutti e, con conoscenza comune della razionalità, nessuno scambia (il <strong>teorema di non scambio</strong>, Milgrom e Stokey 1982). Nella realtà: razionalità limitata, asimmetrie informative, view eterogenee.</p>
+<table>
+<thead>
+<tr>
+<th>MPT classica</th>
+<th>Black–Litterman</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Aspettative omogenee</td>
+<td>View eterogenee ammesse</td>
+</tr>
+<tr>
+<td>Un unico portafoglio ottimo (il mercato)</td>
+<td>Allocazioni personalizzate</td>
+</tr>
+<tr>
+<td><span class="math math-inline">\((\mu, \Sigma)\)</span> puramente storici</td>
+<td>Equilibrio + view soggettive</td>
+</tr>
+<tr>
+<td>Sensibile all'errore di stima</td>
+<td>Aggiornamento bayesiano delle credenze</td>
+</tr>
+<tr>
+<td>Pesi estremi e poco intuitivi</td>
+<td>Pesi più stabili e diversificati</td>
+</tr>
+</tbody>
+</table>
+<p>Le view nascono dall'analisi fondamentale, dai modelli di sconto dei dividendi, dai modelli di VaR e di volatilità, dalle stime degli analisti.</p>
+<h2 id="equilibrio-di-mercato">Equilibrio di mercato</h2>
+<p><span class="math math-inline">\(N\)</span> attività con extra-rendimenti <span class="math math-inline">\(\mathbf r \sim N(\boldsymbol\mu, \Sigma)\)</span>. L'ipotesi chiave: <strong><span class="math math-inline">\(\boldsymbol\mu\)</span> è inosservabile</strong>, una variabile casuale latente centrata sui premi di equilibrio:</p>
+<p><span class="math math-display">\[\boldsymbol\mu \sim (\Pi, \tau\Sigma) \qquad\Longleftrightarrow\qquad \boldsymbol\mu = \Pi + \boldsymbol\varepsilon, \quad \boldsymbol\varepsilon \sim (0, \tau\Sigma)\]</span></p>
+<h3 id="ottimizzazione-inversa">Ottimizzazione inversa</h3>
+<p>Se tutti condividessero le stesse view, la domanda sarebbe uguale all'offerta. Un investitore media–varianza risolve</p>
+<p><span class="math math-display">\[\max_{\mathbf w}\; U = \mathbf w&#39;\Pi - \tfrac12\gamma\,\mathbf w&#39;\Sigma\mathbf w \quad\Rightarrow\quad \mathbf w^* = (\gamma\Sigma)^{-1}\Pi\]</span></p>
+<p>Markowitz va dai rendimenti ai pesi. B–L procede <strong>all'indietro</strong>: si pone <span class="math math-inline">\(\mathbf w^* = \mathbf w_{mkt}\)</span> (i pesi di capitalizzazione osservati) con l'avversione al rischio di mercato <span class="math math-inline">\(\gamma_{mkt}\)</span> e si ricavano i rendimenti che rendono ottimo il portafoglio di mercato:</p>
+<p><span class="math math-display">\[\boxed{\Pi = \gamma_{mkt}\,\Sigma\,\mathbf w_{mkt}}\]</span></p>
+<p>Sotto il CAPM (<span class="math math-inline">\(\alpha = 0\)</span>) questo è <span class="math math-inline">\(\Pi = \boldsymbol\beta\big(E(r_{mkt}) - r_f\big)\)</span>.</p>
+<h3 id="il-ruolo-di-tau">Il ruolo di <span class="math math-inline">\(\tau\)</span></h3>
+<p><span class="math math-inline">\(\tau\)</span> scala l'incertezza di <span class="math math-inline">\(\boldsymbol\mu\)</span> attorno a <span class="math math-inline">\(\Pi\)</span>: quanta fiducia si ripone nell'equilibrio.</p>
+<ul>
+<li><strong><span class="math math-inline">\(\tau\)</span> piccolo</strong>: forte fiducia nell'equilibrio; le view spostano poco i rendimenti.</li>
+<li><strong><span class="math math-inline">\(\tau\)</span> grande</strong>: meno fiducia; più spazio alle view.</li>
+<li>Letteratura: non specificato (Black–Litterman 1992); <span class="math math-inline">\(\tau = 1/T\)</span> (Litterman e He, 1999, la scelta più comune); <span class="math math-inline">\(\tau = 1\)</span> (Meucci, 2010); stimato (Allaj, 2013).</li>
+</ul>
+<h2 id="le-view-dellinvestitore">Le view dell'investitore</h2>
+<p><span class="math math-inline">\(k \le N\)</span> view sugli extra-rendimenti attesi:</p>
+<p><span class="math math-display">\[\mathbf P\boldsymbol\mu = \mathbf Q + \boldsymbol\eta, \qquad \boldsymbol\eta \sim N(0, \boldsymbol\Omega)\]</span></p>
+<ul>
+<li><span class="math math-inline">\(\mathbf Q\)</span> (<span class="math math-inline">\(k \times 1\)</span>): i rendimenti delle view.</li>
+<li><span class="math math-inline">\(\mathbf P\)</span> (<span class="math math-inline">\(k \times N\)</span>): la <strong>pick matrix</strong>, che collega le view alle attività.</li>
+<li><span class="math math-inline">\(\boldsymbol\Omega\)</span> (<span class="math math-inline">\(k \times k\)</span>): l'incertezza delle view.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>View relativa</th>
+<th>View assoluta</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Un'attività rispetto a un'altra</td>
+<td>Rendimento di una singola attività</td>
+</tr>
+<tr>
+<td>La riga di <span class="math math-inline">\(\mathbf P\)</span> somma a <strong>0</strong></td>
+<td>La riga di <span class="math math-inline">\(\mathbf P\)</span> somma a <strong>1</strong></td>
+</tr>
+<tr>
+<td>&quot;L'attività 1 batte l'attività 2 dell'1%&quot;</td>
+<td>&quot;L'attività 3 rende l'1,5%&quot;</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Esempio</strong> (4 attività): v1 = l'attività 1 fa meglio dell'attività 2 dell'1%, v2 = l'attività 3 rende l'1,5%:</p>
+<p><span class="math math-display">\[\mathbf P = \begin{pmatrix} 1 &amp; -1 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 1 &amp; 0 \end{pmatrix}, \qquad \mathbf Q = \begin{pmatrix} 1.0\% \\ 1.5\% \end{pmatrix}\]</span></p>
+<p>Le view possono essere ponderate: la riga <span class="math math-inline">\((1, -0.25, -0.75, 0)\)</span> dice che l'attività 1 batte un mix 25/75 delle attività 2 e 3.</p>
+<p><strong>L'incertezza <span class="math math-inline">\(\boldsymbol\Omega\)</span>.</strong> Black–Litterman la prendono diagonale (view indipendenti). He e Litterman (1999, 2002) la pongono proporzionale alla varianza dei portafogli delle view,</p>
+<p><span class="math math-display">\[\boldsymbol\Omega = \mathbf P(\tau\Sigma)\mathbf P&#39; \quad\text{(diagonal part: } \omega_{jj} = \tau\,\mathbf p_j\Sigma\mathbf p_j&#39;\text{)}\]</span></p>
+<p>Idzorek (2007) lascia invece che l'investitore indichi una fiducia dallo 0% al 100%.</p>
+<h2 id="la-master-formula-di-bl">La master formula di B–L</h2>
+<p>Due fonti di informazione su <span class="math math-inline">\(\boldsymbol\mu\)</span>, assunte indipendenti:</p>
+<p><span class="math math-display">\[\begin{cases} \boldsymbol\mu = \Pi + \boldsymbol\varepsilon, &amp; \boldsymbol\varepsilon \sim (0, \tau\Sigma) \quad\text{(market equilibrium: prior)} \\ \mathbf P\boldsymbol\mu = \mathbf Q + \boldsymbol\eta, &amp; \boldsymbol\eta \sim (0, \boldsymbol\Omega) \quad\text{(investor&#39;s views: likelihood)} \end{cases}\]</span></p>
+<p>Bayes: <span class="math math-inline">\(P(\boldsymbol\mu \mid \mathbf Q) \propto P(\mathbf Q \mid \boldsymbol\mu)\,P(\boldsymbol\mu)\)</span>. La distribuzione a posteriori è <span class="math math-inline">\(N(\bar{\boldsymbol\mu}, \bar M^{-1})\)</span> con</p>
+<p><span class="math math-display">\[\boxed{\bar{\boldsymbol\mu} = \big[(\tau\Sigma)^{-1} + \mathbf P&#39;\boldsymbol\Omega^{-1}\mathbf P\big]^{-1}\big[(\tau\Sigma)^{-1}\Pi + \mathbf P&#39;\boldsymbol\Omega^{-1}\mathbf Q\big], \qquad \bar M^{-1} = \big[(\tau\Sigma)^{-1} + \mathbf P&#39;\boldsymbol\Omega^{-1}\mathbf P\big]^{-1}}\]</span></p>
+<p><span class="math math-inline">\(\bar{\boldsymbol\mu}\)</span> è una <strong>media ponderata per la precisione</strong> dell'equilibrio <span class="math math-inline">\(\Pi\)</span> e delle view <span class="math math-inline">\(\mathbf Q\)</span>: più l'investitore è sicuro (<span class="math math-inline">\(\boldsymbol\Omega\)</span> piccola), più la distribuzione a posteriori si sposta verso <span class="math math-inline">\(\mathbf Q\)</span>.</p>
+<p>Una forma equivalente e più semplice (una sola matrice di dimensione <span class="math math-inline">\(k\)</span> da invertire):</p>
+<p><span class="math math-display">\[\bar{\boldsymbol\mu} = \Pi + \tau\Sigma\mathbf P&#39;\big(\mathbf P\tau\Sigma\mathbf P&#39; + \boldsymbol\Omega\big)^{-1}(\mathbf Q - \mathbf P\Pi)\]</span></p>
+<p>La correzione è proporzionale alla <strong>sorpresa</strong> <span class="math math-inline">\(\mathbf Q - \mathbf P\Pi\)</span>: una view uguale a ciò che l'equilibrio già implica non cambia nulla.</p>
+<p><strong>Schema della derivazione.</strong> Si moltiplicano le due densità gaussiane e si raccolgono i termini in <span class="math math-inline">\(\boldsymbol\mu\)</span>:</p>
+<p><span class="math math-display">\[P(\boldsymbol\mu \mid \mathbf Q) \propto \exp\Big[-\tfrac12\big(\boldsymbol\mu&#39;A\boldsymbol\mu - 2\boldsymbol\mu&#39;B + C\big)\Big], \quad A = (\tau\Sigma)^{-1} + \mathbf P&#39;\boldsymbol\Omega^{-1}\mathbf P, \quad B = (\tau\Sigma)^{-1}\Pi + \mathbf P&#39;\boldsymbol\Omega^{-1}\mathbf Q\]</span></p>
+<p>Completando il quadrato, <span class="math math-inline">\(\propto \exp[-\tfrac12(\boldsymbol\mu - A^{-1}B)&#39;A(\boldsymbol\mu - A^{-1}B)]\)</span>, quindi <span class="math math-inline">\(\bar{\boldsymbol\mu} = A^{-1}B\)</span> (media a posteriori) e <span class="math math-inline">\(\bar M^{-1} = A^{-1}\)</span> (covarianza a posteriori). <span class="math math-inline">\(A\)</span> è la <strong>precisione</strong> a posteriori, <span class="math math-inline">\(B\)</span> il vettore informativo.</p>
+<h3 id="la-distribuzione-dei-rendimenti">La distribuzione dei rendimenti</h3>
+<p><span class="math math-inline">\(\boldsymbol\mu\)</span> è incerto, quindi i rendimenti hanno una varianza aggiuntiva:</p>
+<p><span class="math math-display">\[\mathbf r \sim N(\bar{\boldsymbol\mu}, \bar\Sigma), \qquad \bar\Sigma = \Sigma + \bar M^{-1}\]</span></p>
+<p><span class="math math-inline">\((\bar{\boldsymbol\mu}, \bar\Sigma)\)</span> sono gli input della consueta ottimizzazione media–varianza.</p>
+<p><strong>Nessuna fiducia nelle view</strong>, <span class="math math-inline">\(\boldsymbol\Omega \to \infty\)</span>: <span class="math math-inline">\(\bar{\boldsymbol\mu} \to \Pi\)</span> e <span class="math math-inline">\(\bar\Sigma \to (1 + \tau)\Sigma\)</span>. Il modello ricade sull'equilibrio di mercato — una rete di sicurezza incorporata.</p>
+<p>Prova: tre attività, una view relativa &quot;A batte C di <span class="math math-inline">\(q\)</span>&quot;. Con fiducia allo 0% la distribuzione a posteriori coincide con l'equilibrio e i pesi sono uguali a quelli di mercato; aumentando la fiducia <span class="math math-inline">\(\bar\mu_A - \bar\mu_C\)</span> si avvicina a <span class="math math-inline">\(q\)</span>, e i pesi si muovono <strong>solo lungo la view</strong> (più A, meno C). Imposta <span class="math math-inline">\(q\)</span> uguale al valore di equilibrio e nulla si muove. (Qui i pesi usano <span class="math math-inline">\((\gamma\Sigma)^{-1}\bar{\boldsymbol\mu}\)</span>, cioè <span class="math math-inline">\(\Sigma\)</span> invece di <span class="math math-inline">\(\bar\Sigma\)</span>, per semplicità.)</p>
+<pre class="wimark-src"><code class="nohighlight" data-wimark="bl" data-opts="{&#34;assets&#34;: [&#34;A&#34;, &#34;B&#34;, &#34;C&#34;], &#34;vol&#34;: [0.15, 0.2, 0.25], &#34;rho&#34;: 0.4, &#34;w&#34;: [0.5, 0.3, 0.2], &#34;gamma&#34;: 2.5, &#34;tau&#34;: 0.05, &#34;view&#34;: [1, 0, -1], &#34;q&#34;: 0.04}"></code></pre>
+<h2 id="esempio-numerico-quattro-titoli-tecnologici">Esempio numerico: quattro titoli tecnologici</h2>
+<p>Apple (A), Banana (B), Cherry (C), Date (D). <span class="math math-inline">\(r_M = 5\%\)</span>, <span class="math math-inline">\(\sigma_M^2 = 2.25\%\)</span>, <span class="math math-inline">\(r_f = 1\%\)</span>. Con i beta CAPM, <span class="math math-inline">\(\Pi = \boldsymbol\beta(5\% - 1\%)\)</span>:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>A</th>
+<th>B</th>
+<th>C</th>
+<th>D</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="math math-inline">\(\hat\beta\)</span></td>
+<td>1.10</td>
+<td>1.05</td>
+<td>1.01</td>
+<td>1.50</td>
+</tr>
+<tr>
+<td><span class="math math-inline">\(\hat\Pi\)</span> (%)</td>
+<td>4.40</td>
+<td>4.20</td>
+<td>4.04</td>
+<td>6.00</td>
+</tr>
+<tr>
+<td><span class="math math-inline">\(\bar{\boldsymbol\mu}\)</span> (%)</td>
+<td><strong>5.92</strong></td>
+<td>4.66</td>
+<td><strong>3.85</strong></td>
+<td><strong>6.70</strong></td>
+</tr>
+</tbody>
+</table>
+<p>View: v1 &quot;A fa meglio di C del 5%&quot; (relativa), v2 &quot;D rende il 7%&quot; (assoluta):</p>
+<p><span class="math math-display">\[\mathbf P = \begin{pmatrix} 1 &amp; 0 &amp; -1 &amp; 0 \\ 0 &amp; 0 &amp; 0 &amp; 1 \end{pmatrix}, \qquad \mathbf Q = \begin{pmatrix} 5 \\ 7 \end{pmatrix}, \qquad \tau = 1/20, \quad \boldsymbol\Omega = \mathbf P(\tau\Sigma)\mathbf P&#39;\]</span></p>
+<p>Le view inclinano i rendimenti: A sale da 4,40 a 5,92, C scende leggermente a 3,85 (A − C passa da 0,36 a 2,07, una parte della strada verso 5); D si sposta da 6,00 verso il 7 rialzista. Anche B si muove (4,66), solo per la sua correlazione con gli altri.</p>
+<h2 id="in-pratica-cinque-titoli-del-djia">In pratica: cinque titoli del DJIA</h2>
+<p>PG, MMM, IBM, MRK, AXP, gen 2000 – dic 2022 (275 oss. mensili), <span class="math math-inline">\(\gamma_{mkt} = 2.5\)</span>, <span class="math math-inline">\(\tau = 1/T\)</span>.</p>
+<p>View:</p>
+<ul>
+<li>v1 (relativa): PG fa meglio di IBM del 4%;</li>
+<li>v2 (relativa): MMM fa peggio di MRK del 2%;</li>
+<li>v3 (assoluta): AXP rende il 10%.</li>
+</ul>
+<p><span class="math math-display">\[\mathbf P = \begin{pmatrix} 1 &amp; 0 &amp; -1 &amp; 0 &amp; 0 \\ 0 &amp; -1 &amp; 0 &amp; 1 &amp; 0 \\ 0 &amp; 0 &amp; 0 &amp; 0 &amp; 1 \end{pmatrix}, \qquad \mathbf Q = \begin{pmatrix} 4\% \\ -2\% \\ 10\% \end{pmatrix}\]</span></p>
+<table>
+<thead>
+<tr>
+<th>% annuo</th>
+<th>PG</th>
+<th>MMM</th>
+<th>IBM</th>
+<th>MRK</th>
+<th>AXP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="math math-inline">\(\boldsymbol\mu\)</span> storico</td>
+<td>7.66</td>
+<td>7.40</td>
+<td>5.23</td>
+<td>6.81</td>
+<td>9.40</td>
+</tr>
+<tr>
+<td><span class="math math-inline">\(\bar{\boldsymbol\mu}\)</span> B–L</td>
+<td>3.07</td>
+<td>5.44</td>
+<td>2.50</td>
+<td>3.03</td>
+<td><strong>11.06</strong></td>
+</tr>
+<tr>
+<td>Pesi M–V (obiettivo 7,2%)</td>
+<td>47.38</td>
+<td>21.34</td>
+<td>13.18</td>
+<td>15.38</td>
+<td>2.72</td>
+</tr>
+<tr>
+<td>Pesi B–L (obiettivo 7,2%)</td>
+<td>23.48</td>
+<td>16.56</td>
+<td><strong>−5.55</strong></td>
+<td>20.97</td>
+<td><strong>44.54</strong></td>
+</tr>
+</tbody>
+</table>
+<pre class="wimark-src"><code class="nohighlight" data-wimark="chart" data-opts="{&#34;type&#34;: &#34;bar&#34;, &#34;unit&#34;: &#34;%&#34;, &#34;title&#34;: &#34;Pesi del portafoglio: media–varianza e Black–Litterman&#34;}">{
+  &#34;labels&#34;: [&#34;PG&#34;, &#34;MMM&#34;, &#34;IBM&#34;, &#34;MRK&#34;, &#34;AXP&#34;],
+  &#34;series&#34;: [{&#34;name&#34;: &#34;pesi M–V&#34;, &#34;values&#34;: [47.38, 21.34, 13.18, 15.38, 2.72]}, {&#34;name&#34;: &#34;pesi B–L&#34;, &#34;values&#34;: [23.48, 16.56, -5.55, 20.97, 44.54]}]
+}
+</code></pre>
+<ul>
+<li><strong>v1</strong> (PG e IBM): IBM passa da +13,18% a −5,55%, da lungo a corto.</li>
+<li><strong>v2</strong> (MMM e MRK): MRK sale dal 15,38% al 20,97%, MMM scende dal 21,34% al 16,56%.</li>
+<li><strong>v3</strong> (AXP): rendimento atteso dal 9,40% all'11,06%, peso dal 2,72% al 44,54%.</li>
+</ul>
+<p>Covarianza a posteriori <span class="math math-inline">\(\bar\Sigma\)</span> (annua, ×100): diagonale 3,17 (PG), 4,29 (MMM), 6,36 (IBM), 5,74 (MRK), 10,14 (AXP).</p>
+<p><strong>Frontiera M–V e frontiera B–L.</strong> La frontiera M–V usa solo <span class="math math-inline">\((\boldsymbol\mu, \Sigma)\)</span> storici; la frontiera B–L usa <span class="math math-inline">\((\bar{\boldsymbol\mu}, \bar\Sigma)\)</span> e riflette le view dell'investitore. <strong>Non vanno confrontate in termini di dominanza</strong>: view diverse danno frontiere diverse.</p>
+<h2 id="punti-chiave">Punti chiave</h2>
+<ul>
+<li>B–L parte dall'equilibrio: <strong>ottimizzazione inversa</strong> <span class="math math-inline">\(\Pi = \gamma_{mkt}\Sigma\mathbf w_{mkt}\)</span>; <span class="math math-inline">\(\boldsymbol\mu \sim (\Pi, \tau\Sigma)\)</span>.</li>
+<li>View: <span class="math math-inline">\(\mathbf P\boldsymbol\mu = \mathbf Q + \boldsymbol\eta\)</span>, <span class="math math-inline">\(\boldsymbol\eta \sim N(0, \boldsymbol\Omega)\)</span>; le righe relative sommano a 0, quelle assolute a 1.</li>
+<li>Master formula: <span class="math math-inline">\(\bar{\boldsymbol\mu} = [(\tau\Sigma)^{-1} + \mathbf P&#39;\boldsymbol\Omega^{-1}\mathbf P]^{-1}[(\tau\Sigma)^{-1}\Pi + \mathbf P&#39;\boldsymbol\Omega^{-1}\mathbf Q]\)</span> — una media ponderata per la precisione; <span class="math math-inline">\(\bar\Sigma = \Sigma + \bar M^{-1}\)</span>.</li>
+<li><span class="math math-inline">\(\boldsymbol\Omega \to \infty\)</span> ⇒ si torna all'equilibrio; <span class="math math-inline">\(\boldsymbol\Omega\)</span> piccola ⇒ ci si sposta verso le view.</li>
+<li>Risultato: pesi più stabili, diversificati e intuitivi, che si muovono solo dove l'investitore ha delle view.</li>
+</ul>
+<pre class="wimark-src"><code class="nohighlight" data-wimark="quiz" data-opts="{&#34;title&#34;: &#34;Verifica&#34;}">[
+  {&#34;q&#34;: &#34;L&#39;ottimizzazione inversa calcola&#34;, &#34;options&#34;: [&#34;i pesi dai rendimenti storici&#34;, &#34;i rendimenti attesi che rendono ottimo il portafoglio di mercato: $\\Pi = \\gamma\\Sigma\\mathbf w_{mkt}$&#34;, &#34;la matrice di covarianza dalle view&#34;], &#34;answer&#34;: 1},
+  {&#34;q&#34;: &#34;La view &#39;L&#39;attività 2 farà meglio dell&#39;attività 4 del 2%&#39; (5 attività) ha come riga di $\\mathbf P$&#34;, &#34;options&#34;: [&#34;$(0, 1, 0, 0, 0)$&#34;, &#34;$(0, 1, 0, -1, 0)$&#34;, &#34;$(0, 1, 0, 1, 0)$&#34;], &#34;answer&#34;: 1, &#34;why&#34;: &#34;Una view relativa: la riga somma a zero.&#34;},
+  {&#34;q&#34;: &#34;Se l&#39;investitore non ha alcuna fiducia nelle view ($\\boldsymbol\\Omega \\to \\infty$), allora&#34;, &#34;options&#34;: [&#34;$\\bar{\\boldsymbol\\mu} \\to \\mathbf Q$&#34;, &#34;$\\bar{\\boldsymbol\\mu} \\to \\Pi$&#34;, &#34;$\\bar{\\boldsymbol\\mu} \\to$ medie storiche&#34;], &#34;answer&#34;: 1, &#34;why&#34;: &#34;Il modello torna all&#39;equilibrio, e $\\bar\\Sigma \\to (1 + \\tau)\\Sigma$.&#34;},
+  {&#34;q&#34;: &#34;Una view il cui rendimento $\\mathbf Q$ è uguale a $\\mathbf P\\Pi$ cambia i rendimenti attesi&#34;, &#34;options&#34;: [&#34;molto&#34;, &#34;per nulla&#34;, &#34;solo per le attività fuori dalla view&#34;], &#34;answer&#34;: 1, &#34;why&#34;: &#34;L&#39;aggiornamento è proporzionale alla sorpresa $\\mathbf Q - \\mathbf P\\Pi$.&#34;},
+  {&#34;q&#34;: &#34;Un $\\tau$ più grande significa&#34;, &#34;options&#34;: [&#34;più fiducia nell&#39;equilibrio&#34;, &#34;meno fiducia nell&#39;equilibrio, quindi le view spostano di più i rendimenti&#34;, &#34;le view vengono ignorate&#34;], &#34;answer&#34;: 1},
+  {&#34;q&#34;: &#34;Nell&#39;esempio DJIA, perché il peso di AXP salta dal 2,72% al 44,54%?&#34;, &#34;options&#34;: [&#34;La sua volatilità è scesa&#34;, &#34;La view assoluta rialzista (AXP rende il 10%) ha alzato il suo rendimento atteso all&#39;11,06%&#34;, &#34;Le vendite allo scoperto erano vietate&#34;], &#34;answer&#34;: 1}
+]
+</code></pre>
+</article>
+
+          
+          </div>
+        </div>
+      </section>
+
+      <aside class="col-toc" aria-label="In questa pagina">
+        <div class="col-head">In questa pagina</div>
+        <div class="col-scroll">
+          
+            
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l1">
+    <a href="#il-modello-di-blacklitterman">Il modello di Black–Litterman</a>
+    
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l2">
+    <a href="#perch-andare-oltre-markowitz">Perché andare oltre Markowitz?</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#equilibrio-di-mercato">Equilibrio di mercato</a>
+    
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l3">
+    <a href="#ottimizzazione-inversa">Ottimizzazione inversa</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l3">
+    <a href="#il-ruolo-di-tau">Il ruolo di</a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#le-view-dellinvestitore">Le view dell&#39;investitore</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#la-master-formula-di-bl">La master formula di B–L</a>
+    
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l3">
+    <a href="#la-distribuzione-dei-rendimenti">La distribuzione dei rendimenti</a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#esempio-numerico-quattro-titoli-tecnologici">Esempio numerico: quattro titoli tecnologici</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#in-pratica-cinque-titoli-del-djia">In pratica: cinque titoli del DJIA</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#punti-chiave">Punti chiave</a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+</ul>
+
+          
+          
+        </div>
+      </aside>
+
+    
+  </main>
+
+  
+  <footer class="statusbar" aria-hidden="true">
+    <span class="sb-mode">READ</span>
+    <span class="sb-path">it/notes/financial-economics/08-black-litterman.md</span>
+    <span class="sb-spacer"></span>
+    <span class="sb-item">it</span>
+    <span class="sb-item">utf-8</span>
+    <span class="sb-item">markdown</span>
+    <span class="sb-pos" data-scroll-pos>top</span>
+  </footer>
+  
+
+  <div class="search" data-search hidden role="dialog" aria-modal="true" aria-label="Cerca">
+    <div class="search-panel">
+      <div class="search-bar"><span class="search-prompt" aria-hidden="true">❯</span>
+      <input class="search-input" type="search" placeholder="Cerca" autocomplete="off" spellcheck="false" aria-controls="search-results"></div>
+      <ul class="search-results" id="search-results" role="listbox"></ul>
+      <div class="search-hint" aria-hidden="true"><span><kbd>↑↓</kbd> scorri</span><span><kbd>↵</kbd> apri</span><span><kbd>esc</kbd> chiudi</span></div>
+    </div>
+  </div>
+
+  <script>
+    window.GOMARK = {
+      lang: "it",
+      root: "..\/..\/..\/",
+      theme: "light",
+      section: "notes",
+      i18n: { noResults: "Nessun risultato", copy: "copia", copied: "copiato", words: "parole", minRead: "min di lettura",
+        data: "dati", search: "cerca", noData: "nessun dato", other: "altro",
+        total: "totale", show: "mostra", hide: "nascondi", reset: "ripristina", all: "tutti" }
+    };
+  </script>
+  <script src="../../../static/widgets.js"></script>
+  <script src="../../../static/widgets/finance/bl.js"></script>
+  <script src="../../../static/widgets/chart.js"></script>
+  <script src="../../../static/widgets/quiz.js"></script>
+  <script src="../../../static/engine.js"></script>
+  <script src="../../../static/ui.js"></script>
+  <script src="../../../static/search.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

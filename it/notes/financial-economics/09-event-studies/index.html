@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Identità digitale e knowledge base computazionale: CV, progetti e appunti.">
+  <meta name="author" content="Sergio Di Lapi">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains&#43;Mono:wght@400;500;600;700;800&amp;family=IBM&#43;Plex&#43;Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <title>Analisi degli event study · Appunti</title>
+  <link rel="stylesheet" href="../../../static/layout.css">
+  <link rel="stylesheet" href="../../../static/theme.css">
+  <link rel="stylesheet" href="../../../static/wimark.css">
+  <link rel="stylesheet" href="../../../static/themes/light.css">
+  <link rel="alternate" hreflang="en" href="../../../../en/notes/financial-economics/09-event-studies/index.html">
+  <style>:root { --mono:"JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;--sans:"IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;--font-body:var(--sans);--font-heading:var(--mono);--font-size:14px;--content-width:780px;--sidebar-width:256px;--folders-width:224px;--toc-width:232px;--radius:4px;--radius-sm:3px;--radius-lg:10px; }</style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+</head>
+<body data-depth="multi" data-index="right" data-theme="light" data-theme-class="monochrome" data-heading="mono" data-statusbar="on">
+
+  <header class="topbar">
+    <a class="brand" href="../../../index.html">sergiopericolo</a>
+    <nav class="sections" aria-label="Sezioni">
+      
+      <a class="section-link" href="../../../about/index.html">
+        <span class="section-idx">01</span>
+        <span class="section-title">Chi sono</span>
+      </a>
+      
+      <a class="section-link" href="../../../projects/index.html">
+        <span class="section-idx">02</span>
+        <span class="section-title">Progetti</span>
+      </a>
+      
+      <a class="section-link active" href="../../../notes/index.html">
+        <span class="section-idx">03</span>
+        <span class="section-title">Appunti</span>
+      </a>
+      
+      <a class="section-link" href="../../../visual/index.html">
+        <span class="section-idx">04</span>
+        <span class="section-title">Visual</span>
+      </a>
+      
+      <a class="section-link" href="../../../art/index.html">
+        <span class="section-idx">05</span>
+        <span class="section-title">Arte</span>
+      </a>
+      
+    </nav>
+    <div class="topbar-end">
+      <button class="search-open" type="button" data-search-open aria-haspopup="dialog"><span>Cerca</span><kbd>⌘K</kbd></button>
+      
+
+<nav class="lang-switch" aria-label="Lingua">
+  <span class="lang-link current" aria-current="true">it</span><a class="lang-link" href="../../../../en/notes/financial-economics/09-event-studies/index.html" hreflang="en" lang="en" title="English">en</a>
+</nav>
+
+
+      <span class="build-info"><a class="build-name" href="https://github.com/sergiopericolo/GoMark">GoMark</a> v1.2.0</span>
+    </div>
+  </header>
+
+  <main class="grid" style="--grid: minmax(0, 15fr) minmax(0, 15fr) minmax(0, 55fr) minmax(0, 15fr); --grid-medium: minmax(0, 15fr) minmax(0, 15fr) minmax(0, 70fr)">
+
+    
+
+      
+      <aside class="col-folders" aria-label="Cartelle">
+        <div class="col-head">Cartelle</div>
+        <div class="col-scroll">
+          <a class="tree-root" href="../../index.html">~/notes/</a>
+          
+
+<ul class="tree">
+  
+  
+  <li class="tree-node open" data-path="financial-economics">
+    <div class="tree-row">
+      
+      <span class="tree-leaf" aria-hidden="true"></span>
+      
+      <a class="tree-folder active" href="../../financial-economics/index.html">
+        <span class="tree-name">financial-economics/</span>
+        <span class="tree-count">9</span>
+      </a>
+    </div>
+    
+  </li>
+  
+</ul>
+
+        </div>
+      </aside>
+      
+
+      <aside class="col-files" aria-label="File">
+        <div class="col-head">
+          <span>File <span class="badge">9</span></span>
+          <span class="col-head-path">notes/financial-economics/</span>
+        </div>
+        <div class="col-scroll">
+          <ul class="file-list">
+            
+            <li>
+              <a class="file-link" href="../../financial-economics/01-choice-under-uncertainty/index.html">
+                <span class="file-name">Scelte in condizioni di incertezza</span>
+                <span class="file-path">01-choice-under-uncertainty.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../financial-economics/02-modern-portfolio-theory/index.html">
+                <span class="file-name">Teoria moderna del portafoglio</span>
+                <span class="file-path">02-modern-portfolio-theory.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../financial-economics/03-capm/index.html">
+                <span class="file-name">Il Capital Asset Pricing Model</span>
+                <span class="file-path">03-capm.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../financial-economics/04-empirical-capm/index.html">
+                <span class="file-name">Analisi empirica del CAPM</span>
+                <span class="file-path">04-empirical-capm.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../financial-economics/05-consumption-capm/index.html">
+                <span class="file-name">Il CAPM basato sul consumo</span>
+                <span class="file-path">05-consumption-capm.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../financial-economics/06-apt-multifactor/index.html">
+                <span class="file-name">Arbitrage Pricing Theory e modelli multifattoriali</span>
+                <span class="file-path">06-apt-multifactor.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../financial-economics/07-cross-sectional-asset-pricing/index.html">
+                <span class="file-name">Asset pricing empirico in cross-section</span>
+                <span class="file-path">07-cross-sectional-asset-pricing.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../financial-economics/08-black-litterman/index.html">
+                <span class="file-name">Il modello di Black–Litterman</span>
+                <span class="file-path">08-black-litterman.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link active" href="../../financial-economics/09-event-studies/index.html">
+                <span class="file-name">Analisi degli event study</span>
+                <span class="file-path">09-event-studies.md</span>
+              </a>
+            </li>
+            
+          </ul>
+        </div>
+      </aside>
+
+      <section class="col-content" aria-label="sergiopericolo">
+        <div class="content-scroll" id="content">
+          <div class="content-inner">
+          
+            
+<div class="page-head">
+  <div class="page-crumb"><span class="crumb-home">~</span>/notes/financial-economics/09-event-studies.md</div>
+  <h1 class="page-title">Analisi degli event study</h1>
+  <div class="page-meta" data-page-meta><span class="meta-tag">it</span></div>
+</div>
+
+<article class="page-body"><h1 id="analisi-degli-event-study">Analisi degli event study</h1>
+<p>Capitolo 9 di <em>Essentials of Financial Economics</em> (Donadelli, Costola, Gufler). Come reagiscono i prezzi alle notizie? Gli event study isolano l'effetto di un evento confrontando i rendimenti effettivi con quelli che un modello di prezzo (il CAPM) avrebbe previsto, in una breve finestra attorno all'evento.</p>
+<p>Percorso:</p>
+<ol>
+<li><strong>Comportamento umano ed eventi</strong> — perché sono le reazioni, non gli eventi, a muovere i prezzi.</li>
+<li><strong>Metodologie</strong> — rendimenti anomali e CAR; l'approccio basato sulla regressione.</li>
+<li><strong>Applicazione</strong> — disastri aerei e titoli dei trasporti USA: CAR, regressioni, una strategia di trading.</li>
+</ol>
+<h2 id="comportamento-umano-ed-eventi">Comportamento umano ed eventi</h2>
+<blockquote>
+<p>&quot;What is important in market fluctuations are not the events themselves but the human reactions to those events.&quot;</p>
+</blockquote>
+<ul>
+<li>I prezzi aggregano le <strong>interpretazioni</strong> delle notizie, non le notizie stesse.</li>
+<li>Le reazioni possono essere distorte: <strong>sottoreazione</strong> (credenze aggiornate troppo lentamente) o <strong>sovrareazione</strong> (estrapolazione eccessiva da esiti simili).</li>
+<li>Emozioni ed effetto gregge amplificano piccoli shock; i prezzi sono più volatili dei fondamentali (Shiller, 1981); i <strong>limiti all'arbitraggio</strong> lasciano persistere gli errori di prezzo.</li>
+<li>La percezione conta spesso più della realtà; i media sensazionalistici possono accentuare paura o euforia.</li>
+</ul>
+<h3 id="il-metodo-dellevent-study">Il metodo dell'event study</h3>
+<p><strong>Premessa</strong>: nei mercati efficienti la nuova informazione viene incorporata rapidamente nei prezzi, quindi l'andamento dei prezzi in una <strong>breve finestra</strong> attorno a un evento ne rivela l'effetto economico. Funziona per azioni, obbligazioni, opzioni e derivati, e verifica l'efficienza informativa.</p>
+<p><strong>Storia</strong>: Dolley (1933) studiò gli split azionari del 1921–1931 (i prezzi salirono in 57 casi su 95). Oggi: eventi d'impresa (utili, M&amp;A), eventi dell'intera economia (cambiamenti di politica), eventi non economici (guerre, pandemie, disastri).</p>
+<table>
+<thead>
+<tr>
+<th>Data</th>
+<th>Evento</th>
+<th>Dove</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>11.09.2001</td>
+<td>Attacchi terroristici dell'11 settembre</td>
+<td>USA</td>
+</tr>
+<tr>
+<td>15.09.2008</td>
+<td>Fallimento di Lehman Brothers</td>
+<td>USA</td>
+</tr>
+<tr>
+<td>23.06.2016</td>
+<td>Referendum sulla Brexit</td>
+<td>Regno Unito</td>
+</tr>
+<tr>
+<td>08.11.2016</td>
+<td>Elezione di Trump</td>
+<td>USA</td>
+</tr>
+<tr>
+<td>15.03.2019</td>
+<td>Sciopero globale per il clima</td>
+<td>Mondo</td>
+</tr>
+<tr>
+<td>07.03.2020</td>
+<td>OMS: casi di COVID-19 &gt; 100K</td>
+<td>Mondo</td>
+</tr>
+<tr>
+<td>24.02.2022</td>
+<td>Invasione russa dell'Ucraina</td>
+<td>Ucraina</td>
+</tr>
+<tr>
+<td>07.10.2023</td>
+<td>Guerra Israele–Hamas</td>
+<td>Israele</td>
+</tr>
+</tbody>
+</table>
+<h3 id="il-canale-del-sentiment">Il canale del sentiment</h3>
+<p><strong>Sentiment degli investitori</strong> (Baker e Wurgler, 2006): &quot;a belief regarding future cash flows and investment risks that is not substantiated by available facts&quot;.</p>
+<ul>
+<li><strong>Sport</strong>: le sconfitte nel calcio, nel cricket, nel rugby sono seguite da cali dei mercati (Edmans et al., 2007; Kaplansky e Levy, 2010a).</li>
+<li><strong>Disastri aerei</strong>: ansia del pubblico → vendite di attività rischiose (Kaplansky e Levy, 2010b).</li>
+<li><strong>Guerra</strong>: l'effetto negativo della guerra dello Yom Kippur del 1973 superò gli effetti festivi (Kaplansky e Levy, 2012).</li>
+<li><strong>Farmaceutica ed epidemie</strong> (Donadelli et al., 2017): gli allarmi dell'OMS e la copertura mediatica di SARS, H1N1, Ebola <strong>alzano</strong> i rendimenti farmaceutici, di più per le imprese piccole (agilità, potenziale di crescita).</li>
+<li><strong>Rischio di transizione climatica</strong> (Barnett, 2024): una probabilità più alta di politiche climatiche abbassa significativamente i rendimenti delle imprese ad alte emissioni (carbone, petrolio, estrazione, acciaio).</li>
+</ul>
+<h2 id="metodologia-1-rendimenti-anomali-e-car">Metodologia 1: rendimenti anomali e CAR</h2>
+<p>I <strong>rendimenti attesi</strong> vengono dal CAPM stimato sui dati precedenti all'evento:</p>
+<p><span class="math math-display">\[z_{i,t} = \alpha_i + \beta_{i,M}z_{M,t} + \varepsilon_{i,t} \quad\Rightarrow\quad \hat z_{i,t,e} = \hat\alpha_{i,e} + \hat\beta_{i,M,e}\,z_{M,t,e}\]</span></p>
+<p><strong>Rendimento anomalo</strong>: effettivo meno atteso,</p>
+<p><span class="math math-display">\[AR_{i,t,e} = z_{i,t} - \hat z_{i,t,e}\]</span></p>
+<p><strong>Rendimento anomalo cumulato</strong> sulla finestra dell'evento:</p>
+<p><span class="math math-display">\[CAR_{i,e} = \sum_{\tau = t-j}^{t+j} AR_{i,\tau,e}\]</span></p>
+<p>CAR positivo = reazione favorevole; negativo = sfavorevole; nullo = nessun impatto. I CAR vengono poi <strong>mediati</strong> tra titoli ed eventi (o tra eventi per un portafoglio), il che aumenta la potenza statistica.</p>
+<h3 id="tre-finestre">Tre finestre</h3>
+<table>
+<thead>
+<tr>
+<th>Finestra</th>
+<th>Giorni (esempio)</th>
+<th>Scopo</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Stima</strong></td>
+<td><span class="math math-inline">\(t-K\)</span> … <span class="math math-inline">\(t-k\)</span> (ad es. −250 … −30)</td>
+<td>Stimare <span class="math math-inline">\(\hat\alpha\)</span>, <span class="math math-inline">\(\hat\beta\)</span> su dati puliti, precedenti all'evento</td>
+</tr>
+<tr>
+<td><strong>Evento</strong></td>
+<td><span class="math math-inline">\(t-j\)</span> … <span class="math math-inline">\(t+j\)</span> (ad es. −1 … +5)</td>
+<td>Calcolare AR e CAR</td>
+</tr>
+<tr>
+<td><strong>Post-evento</strong></td>
+<td>dopo <span class="math math-inline">\(t+j\)</span></td>
+<td>Verificare l'efficienza: non devono restare AR</td>
+</tr>
+</tbody>
+</table>
+<p>Lo stacco tra la finestra di stima e quella dell'evento tiene l'impatto dell'evento stesso fuori dal benchmark.</p>
+<p><strong>Passi</strong>: (1) definire la finestra dell'evento; (2) scegliere il periodo di stima; (3) calcolare i rendimenti attesi (CAPM o modello a fattori); (4) AR; (5) CAR; (6) verificare la significatività. Attenzione alla lunghezza della finestra di stima, al modello di benchmark, agli eventi sovrapposti.</p>
+<p><strong>Cosa dicono i CAR</strong>: l'<strong>entità</strong> della reazione, la sua <strong>velocità</strong>, la sua <strong>persistenza</strong> (temporanea o permanente) e le differenze <strong>cross-section</strong> tra imprese o settori.</p>
+<p>Simulalo. Uno shock al giorno +1 che rientra del tutto al giorno +2 lascia alla fine CAR ≈ 0 — una sovrareazione. Con un solo evento il rumore copre tutto; la media su molti eventi restringe la banda di <span class="math math-inline">\(1/\sqrt N\)</span>.</p>
+<pre class="wimark-src"><code class="nohighlight" data-wimark="eventstudy" data-opts="{&#34;shock&#34;: -0.007, &#34;rebound&#34;: 1, &#34;noise&#34;: 0.015, &#34;events&#34;: 16}"></code></pre>
+<h2 id="metodologia-2-event-study-basato-sulla-regressione">Metodologia 2: event study basato sulla regressione</h2>
+<p>Kaplansky e Levy (2010b) stimano l'effetto dell'evento con una regressione sul rendimento dell'indice <span class="math math-inline">\(r_t\)</span> che controlla per i fattori confondenti:</p>
+<p><span class="math math-display">\[r_t = \delta_0 + \sum_{i=1}^{3}\delta_{1,i}r_{t-i} + \sum_{i=1}^{4}\delta_{2,i}D_{i,t} + \delta_3T_t + \delta_4E_t + \varepsilon_t\]</span></p>
+<table>
+<thead>
+<tr>
+<th>Termine</th>
+<th>Cosa controlla</th>
+<th>Perché</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="math math-inline">\(\sum\delta_{1,i}r_{t-i}\)</span></td>
+<td>Tre rendimenti ritardati</td>
+<td>I rendimenti dell'indice sono autocorrelati</td>
+</tr>
+<tr>
+<td><span class="math math-inline">\(\sum\delta_{2,i}D_{i,t}\)</span></td>
+<td>Dummy del giorno della settimana (lun–gio)</td>
+<td><strong>Effetto lunedì / weekend</strong> (Cho et al., 2007)</td>
+</tr>
+<tr>
+<td><span class="math math-inline">\(T_t\)</span></td>
+<td>Primi cinque giorni dell'anno fiscale</td>
+<td>Effetto di inizio anno (Dyl e Maberly, 1992)</td>
+</tr>
+<tr>
+<td><span class="math math-inline">\(E_t\)</span></td>
+<td><strong>Dummy dell'evento</strong> (1 il giorno dell'evento)</td>
+<td><span class="math math-inline">\(\delta_4\)</span> è il parametro di interesse</td>
+</tr>
+</tbody>
+</table>
+<p>Stesso disegno: partite dei Mondiali (Kaplansky e Levy, 2010a), Yom Kippur (2012), notizie sulle pandemie (Donadelli et al., 2017).</p>
+<p><strong>Attenzione prolungata.</strong> I disastri mantengono l'attenzione per giorni e possono innescare comportamenti gregari. Per cogliere reazioni ritardate e <strong>inversioni</strong>, si usano tre dummy dell'evento:</p>
+<p><span class="math math-display">\[r_t = \delta_0 + \sum_{i=1}^{3}\delta_{1,i}r_{t-i} + \sum_{i=1}^{4}\delta_{2,i}D_{i,t} + \delta_3T_t + \sum_{i=1}^{3}\delta_{4,i}E_{i,t} + \varepsilon_t\]</span></p>
+<table>
+<thead>
+<tr>
+<th>Coefficiente</th>
+<th>Tempistica</th>
+<th>Significato</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="math math-inline">\(\delta_{4,1}\)</span></td>
+<td>Giorno dell'evento</td>
+<td>Reazione immediata</td>
+</tr>
+<tr>
+<td><span class="math math-inline">\(\delta_{4,2}\)</span></td>
+<td>Giorno +1</td>
+<td>Persistenza o prima inversione</td>
+</tr>
+<tr>
+<td><span class="math math-inline">\(\delta_{4,3}\)</span></td>
+<td>Giorno +2</td>
+<td>Effetti ritardati, aggiustamento</td>
+</tr>
+</tbody>
+</table>
+<p>Gli schemi di significatività parlano dell'efficienza, i segni della direzione del sentiment, le grandezze dell'impatto economico.</p>
+<h2 id="applicazione-disastri-aerei">Applicazione: disastri aerei</h2>
+<p><strong>Domanda</strong>: i grandi disastri aerei colpiscono i titoli dei trasporti statunitensi?</p>
+<ul>
+<li>Disastri con ≥ 150 morti, 1969–2007, da EM-DAT (53–54 eventi; 16 nelle Americhe).</li>
+<li>Settore dei trasporti dai 17 portafogli settoriali di Fama–French, dic 1965 – dic 2007.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Paese</th>
+<th>Data</th>
+<th>Morti</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Isole Canarie</td>
+<td>28-3-1977</td>
+<td>562</td>
+</tr>
+<tr>
+<td>Giappone</td>
+<td>13-8-1985</td>
+<td>520</td>
+</tr>
+<tr>
+<td>RD del Congo</td>
+<td>8-1-1996</td>
+<td>422</td>
+</tr>
+<tr>
+<td>India</td>
+<td>12-11-1996</td>
+<td>351</td>
+</tr>
+<tr>
+<td>Francia</td>
+<td>3-3-1974</td>
+<td>346</td>
+</tr>
+<tr>
+<td>Irlanda</td>
+<td>23-6-1985</td>
+<td>329</td>
+</tr>
+<tr>
+<td>Arabia Saudita</td>
+<td>19-5-1980</td>
+<td>301</td>
+</tr>
+<tr>
+<td>Iran</td>
+<td>3-7-1988</td>
+<td>290</td>
+</tr>
+<tr>
+<td>USA</td>
+<td>12-11-2001</td>
+<td>265</td>
+</tr>
+<tr>
+<td>Giappone</td>
+<td>26-4-1994</td>
+<td>264</td>
+</tr>
+</tbody>
+</table>
+<h3 id="car">CAR</h3>
+<p>CAPM a un fattore con il fattore di mercato di Fama–French, finestra di stima <span class="math math-inline">\(t-250\)</span> … <span class="math math-inline">\(t-30\)</span>, finestra dell'evento <span class="math math-inline">\(t-1\)</span> … <span class="math math-inline">\(t+5\)</span>:</p>
+<p><span class="math math-display">\[CAR_{it} = \sum_{\tau = t-1}^{t+5}\big(R_{i\tau} - \hat R_{i\tau}\big)\]</span></p>
+<ul>
+<li><strong>Mondo</strong>: leggero aumento ai giorni +1, +2, poi un calo marcato entro il giorno +3, negativo fino al giorno +5; CAR finale <strong>−0,24%</strong>. Una reazione <strong>ritardata</strong>: le notizie dei disastri fuori dagli USA si diffondono più lentamente (copertura mediatica più tardiva).</li>
+<li><strong>Americhe</strong>: risposta <strong>immediata</strong> — un calo significativo al giorno +1, recupero parziale entro il giorno +4.</li>
+<li>Coerente con Kaplansky e Levy (2010b): forte calo iniziale, inversione dal giorno +3 (170 eventi, 1950–2007, compagnie aeree USA/europee).</li>
+</ul>
+<h3 id="regressioni-10570-giorni-di-contrattazione-19662007">Regressioni (10.570 giorni di contrattazione, 1966–2007)</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Mondo (54 eventi)</th>
+<th>Americhe (16 eventi)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="math math-inline">\(\delta_0\)</span></td>
+<td>0.084***</td>
+<td>0.084***</td>
+</tr>
+<tr>
+<td><span class="math math-inline">\(r_{t-1}\)</span></td>
+<td>0.174***</td>
+<td>0.175***</td>
+</tr>
+<tr>
+<td><span class="math math-inline">\(r_{t-2}\)</span></td>
+<td>−0.019*</td>
+<td>−0.019*</td>
+</tr>
+<tr>
+<td><span class="math math-inline">\(r_{t-3}\)</span></td>
+<td>0.030***</td>
+<td>0.030***</td>
+</tr>
+<tr>
+<td>Lunedì</td>
+<td>−0.201***</td>
+<td>−0.200***</td>
+</tr>
+<tr>
+<td>Giovedì</td>
+<td>−0.055*</td>
+<td>−0.060*</td>
+</tr>
+<tr>
+<td>Fiscale (primi 5 giorni)</td>
+<td>0.258***</td>
+<td>0.257**</td>
+</tr>
+<tr>
+<td><strong>Giorno dell'evento</strong> <span class="math math-inline">\(\delta_{4,1}\)</span></td>
+<td>−0.183 (t = −1.07)</td>
+<td><strong>−0.685</strong>** (t = −2.35)</td>
+</tr>
+<tr>
+<td><strong>Giorno +1</strong> <span class="math math-inline">\(\delta_{4,2}\)</span></td>
+<td>0.060 (0.35)</td>
+<td><strong>0.669</strong>** (2.30)</td>
+</tr>
+<tr>
+<td><strong>Giorno +2</strong> <span class="math math-inline">\(\delta_{4,3}\)</span></td>
+<td>0.074 (0.44)</td>
+<td>0.008 (0.03)</td>
+</tr>
+</tbody>
+</table>
+<p>(Martedì e mercoledì non significativi.)</p>
+<pre class="wimark-src"><code class="nohighlight" data-wimark="chart" data-opts="{&#34;type&#34;: &#34;bar&#34;, &#34;unit&#34;: &#34;% rendimento giornaliero&#34;, &#34;title&#34;: &#34;Coefficienti delle dummy dell&#39;evento: Mondo e Americhe&#34;}">{
+  &#34;labels&#34;: [&#34;Giorno dell&#39;evento&#34;, &#34;Giorno +1&#34;, &#34;Giorno +2&#34;],
+  &#34;series&#34;: [{&#34;name&#34;: &#34;Mondo&#34;, &#34;values&#34;: [-0.1833, 0.06025, 0.07443]}, {&#34;name&#34;: &#34;Americhe&#34;, &#34;values&#34;: [-0.6847, 0.66851, 0.00828]}]
+}
+</code></pre>
+<ul>
+<li>Forte autocorrelazione, un <strong>effetto lunedì</strong> negativo, un effetto di inizio anno positivo.</li>
+<li><strong>Mondo</strong>: effetto negativo nel giorno dell'evento, rimbalzo ai giorni +1/+2 — nessuno significativo.</li>
+<li><strong>Americhe</strong>: un <strong>calo significativo dello 0,68%</strong> nel giorno dell'evento e un <strong>rimbalzo quasi esatto dello 0,67%</strong> il giorno dopo: vendite dettate dal panico seguite da una rapida correzione. La vicinanza intensifica la reazione.</li>
+</ul>
+<p><strong>Interpretazione.</strong> Il sentiment guidato dalla paura muove i prezzi: una <strong>sovrareazione</strong> iniziale, amplificata dalla vicinanza regionale (attenzione limitata, distorsione da disponibilità). L'errore di prezzo dura poco (corretto entro due giorni di contrattazione) — sfruttabile da investitori contrarian, sofisticati o internazionali.</p>
+<h3 id="la-strategia-dellaviation-disaster-effect-ade">La strategia dell'aviation disaster effect (ADE)</h3>
+<p>Una strategia a costo nullo guidata dagli eventi (si vende allo scoperto un'attività per finanziare l'altra) che sfrutta il calo prevedibile dopo un disastro:</p>
+<ul>
+<li><strong>Mondo</strong> (54 eventi, 10.570 giorni): ADE <strong>231,90%</strong> cumulato contro <strong>222,24%</strong> buy-and-hold: <strong>+9,66%</strong>, costantemente avanti dopo il 1995.</li>
+<li><strong>Americhe</strong> (16 eventi): coefficienti più forti e significativi → segnale di qualità migliore e guadagni maggiori, soprattutto negli ultimi decenni.</li>
+</ul>
+<p>Esistono schemi prevedibili; il sentiment guida i movimenti di breve periodo; la vicinanza geografica aumenta la redditività.</p>
+<h2 id="punti-chiave">Punti chiave</h2>
+<ul>
+<li>Gli eventi contano attraverso le <strong>reazioni</strong>: sotto/sovrareazione, sentiment, effetto gregge, limiti all'arbitraggio.</li>
+<li><span class="math math-inline">\(AR = z - (\hat\alpha + \hat\beta z_M)\)</span> con parametri da una <strong>finestra di stima</strong> precedente all'evento; <span class="math math-inline">\(CAR\)</span> = somma degli AR sulla <strong>finestra dell'evento</strong>; la media tra eventi aumenta la potenza.</li>
+<li>Approccio di regressione: dummy dell'evento più controlli per autocorrelazione, giorno della settimana ed effetto di inizio anno; più dummy colgono le inversioni.</li>
+<li>Disastri aerei: CAR mondiale −0,24% con ritardo; Americhe un calo significativo di −0,68% il primo giorno e un rimbalzo di +0,67% → sovrareazione di breve durata, una strategia ADE redditizia (+9,66% sul buy-and-hold a livello globale).</li>
+</ul>
+<pre class="wimark-src"><code class="nohighlight" data-wimark="quiz" data-opts="{&#34;title&#34;: &#34;Verifica&#34;}">[
+  {&#34;q&#34;: &#34;Perché c&#39;è uno stacco tra la finestra di stima (… t−30) e la finestra dell&#39;evento (t−1 …)?&#34;, &#34;options&#34;: [&#34;Per avere più dati&#34;, &#34;Per tenere l&#39;effetto dell&#39;evento stesso (e le fughe di notizie prima di esso) fuori dalle stime di α e β&#34;, &#34;Perché i mercati sono chiusi&#34;], &#34;answer&#34;: 1},
+  {&#34;q&#34;: &#34;Il rendimento anomalo è&#34;, &#34;options&#34;: [&#34;$z_{i,t} - z_{M,t}$&#34;, &#34;$z_{i,t} - (\\hat\\alpha_i + \\hat\\beta_i z_{M,t})$&#34;, &#34;$\\hat\\alpha_i$&#34;], &#34;answer&#34;: 1},
+  {&#34;q&#34;: &#34;Un titolo scende del 2% in modo anomalo al giorno +1 e recupera il 2% al giorno +2. Il CAR sulla finestra è circa&#34;, &#34;options&#34;: [&#34;−2%&#34;, &#34;0%&#34;, &#34;+2%&#34;], &#34;answer&#34;: 1, &#34;why&#34;: &#34;Un&#39;inversione completa: evidenza di sovrareazione, non di un effetto duraturo sul valore.&#34;},
+  {&#34;q&#34;: &#34;Nella regressione di Kaplansky–Levy, il parametro di interesse è&#34;, &#34;options&#34;: [&#34;$\\delta_0$&#34;, &#34;il coefficiente della dummy del lunedì&#34;, &#34;il coefficiente della dummy dell&#39;evento $E_t$&#34;], &#34;answer&#34;: 2},
+  {&#34;q&#34;: &#34;Disastri nelle Americhe: $\\hat\\delta_{4,1} = -0.68^{**}$, $\\hat\\delta_{4,2} = +0.67^{**}$. Questo suggerisce&#34;, &#34;options&#34;: [&#34;una perdita di valore permanente&#34;, &#34;vendite dettate dal panico seguite da una rapida correzione&#34;, &#34;nessuna reazione&#34;], &#34;answer&#34;: 1},
+  {&#34;q&#34;: &#34;Perché i disastri nel mondo mostrano una reazione ritardata nei titoli dei trasporti USA?&#34;, &#34;options&#34;: [&#34;Diffusione più lenta delle notizie e copertura mediatica ritardata&#34;, &#34;Solo per orari di contrattazione diversi&#34;, &#34;I loro CAR sono calcolati con un modello diverso&#34;], &#34;answer&#34;: 0}
+]
+</code></pre>
+</article>
+
+          
+          </div>
+        </div>
+      </section>
+
+      <aside class="col-toc" aria-label="In questa pagina">
+        <div class="col-head">In questa pagina</div>
+        <div class="col-scroll">
+          
+            
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l1">
+    <a href="#analisi-degli-event-study">Analisi degli event study</a>
+    
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l2">
+    <a href="#comportamento-umano-ed-eventi">Comportamento umano ed eventi</a>
+    
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l3">
+    <a href="#il-metodo-dellevent-study">Il metodo dell&#39;event study</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l3">
+    <a href="#il-canale-del-sentiment">Il canale del sentiment</a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#metodologia-1-rendimenti-anomali-e-car">Metodologia 1: rendimenti anomali e CAR</a>
+    
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l3">
+    <a href="#tre-finestre">Tre finestre</a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#metodologia-2-event-study-basato-sulla-regressione">Metodologia 2: event study basato sulla regressione</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#applicazione-disastri-aerei">Applicazione: disastri aerei</a>
+    
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l3">
+    <a href="#car">CAR</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l3">
+    <a href="#regressioni-10570-giorni-di-contrattazione-19662007">Regressioni (10.570 giorni di contrattazione, 1966–2007)</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l3">
+    <a href="#la-strategia-dellaviation-disaster-effect-ade">La strategia dell&#39;aviation disaster effect (ADE)</a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#punti-chiave">Punti chiave</a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+</ul>
+
+          
+          
+        </div>
+      </aside>
+
+    
+  </main>
+
+  
+  <footer class="statusbar" aria-hidden="true">
+    <span class="sb-mode">READ</span>
+    <span class="sb-path">it/notes/financial-economics/09-event-studies.md</span>
+    <span class="sb-spacer"></span>
+    <span class="sb-item">it</span>
+    <span class="sb-item">utf-8</span>
+    <span class="sb-item">markdown</span>
+    <span class="sb-pos" data-scroll-pos>top</span>
+  </footer>
+  
+
+  <div class="search" data-search hidden role="dialog" aria-modal="true" aria-label="Cerca">
+    <div class="search-panel">
+      <div class="search-bar"><span class="search-prompt" aria-hidden="true">❯</span>
+      <input class="search-input" type="search" placeholder="Cerca" autocomplete="off" spellcheck="false" aria-controls="search-results"></div>
+      <ul class="search-results" id="search-results" role="listbox"></ul>
+      <div class="search-hint" aria-hidden="true"><span><kbd>↑↓</kbd> scorri</span><span><kbd>↵</kbd> apri</span><span><kbd>esc</kbd> chiudi</span></div>
+    </div>
+  </div>
+
+  <script>
+    window.GOMARK = {
+      lang: "it",
+      root: "..\/..\/..\/",
+      theme: "light",
+      section: "notes",
+      i18n: { noResults: "Nessun risultato", copy: "copia", copied: "copiato", words: "parole", minRead: "min di lettura",
+        data: "dati", search: "cerca", noData: "nessun dato", other: "altro",
+        total: "totale", show: "mostra", hide: "nascondi", reset: "ripristina", all: "tutti" }
+    };
+  </script>
+  <script src="../../../static/widgets.js"></script>
+  <script src="../../../static/widgets/finance/eventstudy.js"></script>
+  <script src="../../../static/widgets/chart.js"></script>
+  <script src="../../../static/widgets/quiz.js"></script>
+  <script src="../../../static/engine.js"></script>
+  <script src="../../../static/ui.js"></script>
+  <script src="../../../static/search.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

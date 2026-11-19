@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Identità digitale e knowledge base computazionale: CV, progetti e appunti.">
+  <meta name="author" content="Sergio Di Lapi">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains&#43;Mono:wght@400;500;600;700;800&amp;family=IBM&#43;Plex&#43;Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <title>Asset pricing empirico in cross-section · Appunti</title>
+  <link rel="stylesheet" href="../../../static/layout.css">
+  <link rel="stylesheet" href="../../../static/theme.css">
+  <link rel="stylesheet" href="../../../static/wimark.css">
+  <link rel="stylesheet" href="../../../static/themes/light.css">
+  <link rel="alternate" hreflang="en" href="../../../../en/notes/financial-economics/07-cross-sectional-asset-pricing/index.html">
+  <style>:root { --mono:"JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;--sans:"IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;--font-body:var(--sans);--font-heading:var(--mono);--font-size:14px;--content-width:780px;--sidebar-width:256px;--folders-width:224px;--toc-width:232px;--radius:4px;--radius-sm:3px;--radius-lg:10px; }</style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+</head>
+<body data-depth="multi" data-index="right" data-theme="light" data-theme-class="monochrome" data-heading="mono" data-statusbar="on">
+
+  <header class="topbar">
+    <a class="brand" href="../../../index.html">sergiopericolo</a>
+    <nav class="sections" aria-label="Sezioni">
+      
+      <a class="section-link" href="../../../about/index.html">
+        <span class="section-idx">01</span>
+        <span class="section-title">Chi sono</span>
+      </a>
+      
+      <a class="section-link" href="../../../projects/index.html">
+        <span class="section-idx">02</span>
+        <span class="section-title">Progetti</span>
+      </a>
+      
+      <a class="section-link active" href="../../../notes/index.html">
+        <span class="section-idx">03</span>
+        <span class="section-title">Appunti</span>
+      </a>
+      
+      <a class="section-link" href="../../../visual/index.html">
+        <span class="section-idx">04</span>
+        <span class="section-title">Visual</span>
+      </a>
+      
+      <a class="section-link" href="../../../art/index.html">
+        <span class="section-idx">05</span>
+        <span class="section-title">Arte</span>
+      </a>
+      
+    </nav>
+    <div class="topbar-end">
+      <button class="search-open" type="button" data-search-open aria-haspopup="dialog"><span>Cerca</span><kbd>⌘K</kbd></button>
+      
+
+<nav class="lang-switch" aria-label="Lingua">
+  <span class="lang-link current" aria-current="true">it</span><a class="lang-link" href="../../../../en/notes/financial-economics/07-cross-sectional-asset-pricing/index.html" hreflang="en" lang="en" title="English">en</a>
+</nav>
+
+
+      <span class="build-info"><a class="build-name" href="https://github.com/sergiopericolo/GoMark">GoMark</a> v1.2.0</span>
+    </div>
+  </header>
+
+  <main class="grid" style="--grid: minmax(0, 15fr) minmax(0, 15fr) minmax(0, 55fr) minmax(0, 15fr); --grid-medium: minmax(0, 15fr) minmax(0, 15fr) minmax(0, 70fr)">
+
+    
+
+      
+      <aside class="col-folders" aria-label="Cartelle">
+        <div class="col-head">Cartelle</div>
+        <div class="col-scroll">
+          <a class="tree-root" href="../../index.html">~/notes/</a>
+          
+
+<ul class="tree">
+  
+  
+  <li class="tree-node open" data-path="financial-economics">
+    <div class="tree-row">
+      
+      <span class="tree-leaf" aria-hidden="true"></span>
+      
+      <a class="tree-folder active" href="../../financial-economics/index.html">
+        <span class="tree-name">financial-economics/</span>
+        <span class="tree-count">9</span>
+      </a>
+    </div>
+    
+  </li>
+  
+</ul>
+
+        </div>
+      </aside>
+      
+
+      <aside class="col-files" aria-label="File">
+        <div class="col-head">
+          <span>File <span class="badge">9</span></span>
+          <span class="col-head-path">notes/financial-economics/</span>
+        </div>
+        <div class="col-scroll">
+          <ul class="file-list">
+            
+            <li>
+              <a class="file-link" href="../../financial-economics/01-choice-under-uncertainty/index.html">
+                <span class="file-name">Scelte in condizioni di incertezza</span>
+                <span class="file-path">01-choice-under-uncertainty.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../financial-economics/02-modern-portfolio-theory/index.html">
+                <span class="file-name">Teoria moderna del portafoglio</span>
+                <span class="file-path">02-modern-portfolio-theory.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../financial-economics/03-capm/index.html">
+                <span class="file-name">Il Capital Asset Pricing Model</span>
+                <span class="file-path">03-capm.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../financial-economics/04-empirical-capm/index.html">
+                <span class="file-name">Analisi empirica del CAPM</span>
+                <span class="file-path">04-empirical-capm.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../financial-economics/05-consumption-capm/index.html">
+                <span class="file-name">Il CAPM basato sul consumo</span>
+                <span class="file-path">05-consumption-capm.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../financial-economics/06-apt-multifactor/index.html">
+                <span class="file-name">Arbitrage Pricing Theory e modelli multifattoriali</span>
+                <span class="file-path">06-apt-multifactor.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link active" href="../../financial-economics/07-cross-sectional-asset-pricing/index.html">
+                <span class="file-name">Asset pricing empirico in cross-section</span>
+                <span class="file-path">07-cross-sectional-asset-pricing.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../financial-economics/08-black-litterman/index.html">
+                <span class="file-name">Il modello di Black–Litterman</span>
+                <span class="file-path">08-black-litterman.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../financial-economics/09-event-studies/index.html">
+                <span class="file-name">Analisi degli event study</span>
+                <span class="file-path">09-event-studies.md</span>
+              </a>
+            </li>
+            
+          </ul>
+        </div>
+      </aside>
+
+      <section class="col-content" aria-label="sergiopericolo">
+        <div class="content-scroll" id="content">
+          <div class="content-inner">
+          
+            
+<div class="page-head">
+  <div class="page-crumb"><span class="crumb-home">~</span>/notes/financial-economics/07-cross-sectional-asset-pricing.md</div>
+  <h1 class="page-title">Asset pricing empirico in cross-section</h1>
+  <div class="page-meta" data-page-meta><span class="meta-tag">it</span></div>
+</div>
+
+<article class="page-body"><h1 id="asset-pricing-empirico-in-cross-section">Asset pricing empirico in cross-section</h1>
+<p>Capitolo 7 di <em>Essentials of Financial Economics</em> (Donadelli, Costola, Gufler). Le regressioni in serie storica (Capitoli 4 e 6) chiedono se gli alfa sono nulli. I test cross-section pongono direttamente la domanda centrale: <strong>perché attività diverse hanno rendimenti medi diversi, e qual è il prezzo di ciascun rischio?</strong></p>
+<p>Percorso:</p>
+<ol>
+<li><strong>Teoria ed evidenza empirica</strong> — a cosa servono i test cross-section.</li>
+<li><strong>La procedura in due passi di Fama–MacBeth</strong> — prima i beta, poi i premi per il rischio.</li>
+<li><strong>Problemi econometrici</strong> — errori nelle variabili (Shanken), eteroschedasticità e autocorrelazione (Newey–West).</li>
+<li><strong>Applicazioni</strong> — l'incertezza di politica economica è prezzata? Il rischio di temperatura è prezzato?</li>
+</ol>
+<h2 id="teoria-ed-evidenza-empirica">Teoria ed evidenza empirica</h2>
+<p>Le fluttuazioni giornaliere dei rendimenti riflettono soprattutto le notizie. Le <strong>differenze di lungo periodo nei rendimenti medi</strong> richiedono un modello di come rischio, condizioni di mercato e comportamenti plasmano i rendimenti.</p>
+<ul>
+<li>La <strong>teoria</strong> produce previsioni verificabili sulla relazione rischio–rendimento.</li>
+<li>L'<strong>evidenza empirica</strong> documenta fatti stilizzati (anomalie) che la teoria non riesce a spiegare (Campbell, 2000). I fattori di rischio candidati sono <strong>macroeconomici</strong> (inflazione, produzione industriale, disoccupazione) o <strong>finanziari</strong> (dimensione, volatilità, liquidità).</li>
+</ul>
+<p>Test standard: le <strong>regressioni in due passi di Fama e MacBeth (1973)</strong>, usate oggi per l'incertezza macroeconomica, il rischio climatico e altro.</p>
+<h2 id="la-procedura-di-famamacbeth">La procedura di Fama–MacBeth</h2>
+<p><strong>Passo 1 — serie storica: si stimano i beta.</strong> Per ogni attività o portafoglio <span class="math math-inline">\(n\)</span>:</p>
+<p><span class="math math-display">\[r_{n,t} = \alpha_n + \beta_{n,f_1}f_{1,t} + \dots + \beta_{n,f_M}f_{M,t} + \varepsilon_{n,t}\]</span></p>
+<p><span class="math math-inline">\(\beta_{n,f_m}\)</span> è il loading di <span class="math math-inline">\(n\)</span> sul fattore <span class="math math-inline">\(m\)</span>.</p>
+<p><strong>Passo 2 — cross-section: si stimano i premi per il rischio.</strong> A ogni data <span class="math math-inline">\(t\)</span>, si regrediscono i rendimenti di tutte le <span class="math math-inline">\(N\)</span> attività sui loro beta stimati:</p>
+<p><span class="math math-display">\[r_{n,t} = \lambda_{t,0} + \lambda_{t,1}\hat\beta_{n,f_1} + \dots + \lambda_{t,M}\hat\beta_{n,f_M} + \nu_{n,t}\]</span></p>
+<p>Si ripete per <span class="math math-inline">\(t = 1, \dots, T\)</span> e si fa la media:</p>
+<p><span class="math math-display">\[\bar\lambda_m = \frac1T\sum_{t=1}^{T}\hat\lambda_{t,m}, \qquad t(\bar\lambda_m) = \frac{\bar\lambda_m}{\hat\sigma(\hat\lambda_{t,m})/\sqrt T}\]</span></p>
+<p><span class="math math-inline">\(\bar\lambda_m\)</span> è il <strong>prezzo del rischio</strong> del fattore <span class="math math-inline">\(m\)</span>: il rendimento medio aggiuntivo per unità di beta.</p>
+<p><strong>Alternativa: regressione sui rendimenti medi.</strong> Un'unica regressione cross-section sui rendimenti medi,</p>
+<p><span class="math math-display">\[E[R_n] = \lambda_0 + \lambda_1\hat\beta_{n,f_1} + \dots + \lambda_M\hat\beta_{n,f_M} + \nu_n\]</span></p>
+<p>dà gli <strong>stessi</strong> <span class="math math-inline">\(\hat\lambda_m\)</span> ma errori standard diversi; è più semplice, ma l'inferenza è più sensibile alla specificazione.</p>
+<p>La simulazione ha 25 portafogli con un fattore prezzato. A sinistra: la relazione cross-section (passo 2 sulle medie). A destra: le 276 pendenze mensili <span class="math math-inline">\(\lambda_t\)</span> — molto disperse, quindi il premio è significativo solo se il campione è lungo o il premio grande. Nota che <span class="math math-inline">\(\hat\lambda\)</span> segue la <strong>media campionaria</strong> del fattore (il premio effettivamente realizzato), non il vero <span class="math math-inline">\(\lambda\)</span>: premi &quot;nuovo campione&quot; qualche volta e a volte non troverai alcun premio.</p>
+<pre class="wimark-src"><code class="nohighlight" data-wimark="fmb" data-opts="{&#34;N&#34;: 25, &#34;T&#34;: 276, &#34;lambda&#34;: 0.006, &#34;noise&#34;: 0.04}"></code></pre>
+<h2 id="problemi-econometrici">Problemi econometrici</h2>
+<ul>
+<li><strong>Errori nelle variabili</strong>: i regressori del secondo passo <span class="math math-inline">\(\hat\beta\)</span> sono stime.</li>
+<li><strong>Eteroschedasticità e autocorrelazione cross-section</strong> dei residui.</li>
+<li><strong>L'intercetta</strong>: imporre o meno <span class="math math-inline">\(\lambda_0 = 0\)</span> cambia i risultati (con gli extra-rendimenti la teoria dice <span class="math math-inline">\(\lambda_0 = 0\)</span>).</li>
+<li>I <strong>fattori omessi</strong> distorcono i premi stimati.</li>
+</ul>
+<h3 id="errori-nelle-variabili-la-correzione-di-shanken">Errori nelle variabili: la correzione di Shanken</h3>
+<p>La varianza OLS ingenua di <span class="math math-inline">\(\hat\lambda\)</span> ignora che i beta sono stimati:</p>
+<p><span class="math math-display">\[\sigma^2_{OLS}(\hat\lambda) = \frac1T(\beta&#39;\beta)^{-1}\beta&#39;E(\epsilon\epsilon&#39;)\beta(\beta&#39;\beta)^{-1}\]</span></p>
+<p>Shanken (1992) la aumenta per tenere conto del primo passo:</p>
+<p><span class="math math-display">\[\sigma^2_{Shanken}(\hat\lambda) = \frac1T\Big[(\beta&#39;\beta)^{-1}\beta&#39;E(\epsilon\epsilon&#39;)\beta(\beta&#39;\beta)^{-1}\big(1 + \lambda&#39;E(ff&#39;)^{-1}\lambda\big) + \Sigma_f\Big]\]</span></p>
+<p>Il fattore <span class="math math-inline">\((1 + \lambda&#39;E(ff&#39;)^{-1}\lambda)\)</span> è la <strong>correzione per il primo passo</strong>: più alto è il quadrato dell'indice di Sharpe del fattore, maggiore è l'aumento. Le statistiche t di Shanken sono quindi <strong>più piccole</strong>.</p>
+<h3 id="eteroschedasticit-e-autocorrelazione-neweywest">Eteroschedasticità e autocorrelazione: Newey–West</h3>
+<p><span class="math math-display">\[\sigma^2_{NW}(\hat\lambda) = (\beta&#39;\beta)^{-1}\beta&#39;\Omega\beta(\beta&#39;\beta)^{-1}\]</span></p>
+<p>con</p>
+<p><span class="math math-display">\[\beta&#39;\Omega\beta = \frac{n}{n-k}\sum_{i=1}^{n}\nu_i^2\beta_i&#39;\beta_i + \frac{n}{n-k}\sum_{i=1}^{h}\Big(1 - \frac{i}{h+1}\Big)\sum_{j=i+1}^{n}\nu_j\nu_{j-1}\big(\beta_j&#39;\beta_{j-1} + \beta_{j-1}&#39;\beta_j\big)\]</span></p>
+<p>I pesi di Bartlett <span class="math math-inline">\(1 - i/(h+1)\)</span> riducono il peso dei ritardi lontani. I pacchetti statistici implementano questi errori standard <strong>HAC</strong>.</p>
+<h2 id="applicazioni-quali-rischi-sono-prezzati">Applicazioni: quali rischi sono prezzati?</h2>
+<p>Due filoni di ricerca:</p>
+<ul>
+<li><strong>Fattori a livello d'impresa</strong>: crescita delle attività (Cooper et al., 2008); il modello a cinque fattori di Fama–French aggiunge <strong>investimento</strong> e <strong>redditività</strong> (2015, 2016).</li>
+<li><strong>Fattori macroeconomici</strong>: shock specifici all'investimento (Garlappi e Song, 2017: non robusti per il 1964–2012, ruolo parziale nel lungo periodo); disaccordo macroeconomico dalla dispersione delle previsioni (Li, 2015: i titoli con beta macro alto rendono meno dopo periodi di forte disaccordo); incertezza di politica economica e rischio climatico, entrambi con evidenza di premi <strong>positivi</strong>.</li>
+</ul>
+<p><strong>Disegno</strong>: 25 portafogli Fama–French per dimensione × B/M, gen 2000 – dic 2022, regressioni in due passi di Fama–MacBeth. Una dimostrazione didattica del metodo.</p>
+<h3 id="lincertezza-di-politica-economica--prezzata">L'incertezza di politica economica è prezzata?</h3>
+<p><strong>Ipotesi</strong>: un'EPU più alta aumenta il rischio percepito, quindi gli investitori chiedono un compenso per l'esposizione agli shock di EPU. L'indice EPU (Baker, Bloom e Davis, 2016) conta gli articoli di giornale sull'incertezza di politica economica; ha picchi all'11 settembre (2001), a Lehman (2008), al COVID-19 (2020).</p>
+<p><strong>Passo 1</strong>, per ogni portafoglio:</p>
+<p><span class="math math-display">\[R_{n,t} - r_{f,t} = \alpha_n + \beta_{n,M}(R_{M,t} - r_{f,t}) + \beta_{n,\Delta C}\Delta C_t + \beta_{n,\Delta EPU}\Delta EPU_t + \varepsilon_{n,t}\]</span></p>
+<p><strong>Passo 2</strong> sui rendimenti medi, <span class="math math-inline">\(E[R_n - r_f] = \lambda_M\hat\beta_{n,M} + \lambda_{\Delta C}\hat\beta_{n,\Delta C} + \lambda_{\Delta EPU}\hat\beta_{n,\Delta EPU} + \nu_n\)</span>, oppure mese per mese e poi in media.</p>
+<p>Alcuni loading del primo stadio (25 portafogli):</p>
+<table>
+<thead>
+<tr>
+<th>Portafoglio</th>
+<th><span class="math math-inline">\(\beta_M\)</span></th>
+<th><span class="math math-inline">\(\beta_{\Delta C}\)</span></th>
+<th><span class="math math-inline">\(\beta_{\Delta EPU}\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Small, B/M basso</td>
+<td>1.406</td>
+<td>0.163</td>
+<td>−0.006</td>
+</tr>
+<tr>
+<td>Small, B/M alto</td>
+<td>1.055</td>
+<td>0.513</td>
+<td>−0.001</td>
+</tr>
+<tr>
+<td>ME3, BM3</td>
+<td>1.115</td>
+<td>0.153</td>
+<td>0.003</td>
+</tr>
+<tr>
+<td>Big, B/M basso</td>
+<td>1.052</td>
+<td>−0.028</td>
+<td>0.000</td>
+</tr>
+<tr>
+<td>Big, B/M alto</td>
+<td>1.134</td>
+<td>−0.009</td>
+<td>0.005</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><span class="math math-inline">\(\lambda_M\)</span></th>
+<th><span class="math math-inline">\(\lambda_{\Delta C}\)</span></th>
+<th><span class="math math-inline">\(\lambda_{\Delta EPU}\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Premio per il rischio</td>
+<td>0.0063</td>
+<td>0.0041</td>
+<td>0.5820</td>
+</tr>
+<tr>
+<td>Regressione sui rendimenti medi, t</td>
+<td>(17.07)**</td>
+<td>(1.91)*</td>
+<td>(4.34)***</td>
+</tr>
+<tr>
+<td>Cross-section mensili, t HAC</td>
+<td>(2.01)***</td>
+<td>(1.69)</td>
+<td>(1.69)</td>
+</tr>
+<tr>
+<td>Cross-section mensili, t di Shanken</td>
+<td>[2.01]</td>
+<td>[1.45]</td>
+<td>[1.29]</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>La maggior parte dei portafogli ha un'esposizione <strong>positiva</strong> alle innovazioni dell'EPU.</li>
+<li>Il premio EPU è <strong>positivo</strong> (<span class="math math-inline">\(\lambda_{\Delta EPU} = 0.582\)</span>) e significativo nella regressione sui rendimenti medi…</li>
+<li>…ma <strong>non</strong> lo è più quando gli errori standard tengono conto degli errori nelle variabili (t di Shanken = 1,29).</li>
+</ul>
+<p><strong>Lezione</strong>: un premio EPU positivo, ma statisticamente <strong>fragile</strong>. La significatività dipende dalla specificazione econometrica; i controlli di robustezza sono essenziali e nessun modello da solo dà una misura definitiva.</p>
+<h3 id="il-rischio-di-temperatura--prezzato">Il rischio di temperatura è prezzato?</h3>
+<p>La temperatura media annua negli USA è salita da circa 8,5°C a circa 11°C nel 1901–2021 (Banca Mondiale). Gli eventi meteorologici estremi distruggono capitale fisico e muovono i prezzi delle attività, quindi la temperatura è un candidato naturale come fattore di rischio.</p>
+<p>Stesso metodo, con le variazioni di temperatura <span class="math math-inline">\(\Delta T\)</span> al posto dell'EPU:</p>
+<p><span class="math math-display">\[R_{n,t} - r_{f,t} = \alpha_n + \beta_{n,M}(R_{M,t} - r_{f,t}) + \beta_{n,\Delta C}\Delta C_t + \beta_{n,\Delta T}\Delta T_t + \varepsilon_{n,t}\]</span></p>
+<p>Beta di temperatura del primo stadio per i 25 portafogli (righe: quintile di dimensione ME1 piccoli → ME5 grandi; all'interno di ciascuno, B/M da basso ad alto):</p>
+<pre class="wimark-src"><code class="nohighlight" data-wimark="chart" data-opts="{&#34;type&#34;: &#34;bar&#34;, &#34;horizontal&#34;: true, &#34;unit&#34;: &#34;β_ΔT&#34;, &#34;title&#34;: &#34;Beta di temperatura dei 25 portafogli dimensione × B/M&#34;}">{
+  &#34;labels&#34;: [&#34;Small LoBM&#34;, &#34;ME1 BM2&#34;, &#34;ME1 BM3&#34;, &#34;ME1 BM4&#34;, &#34;Small HiBM&#34;, &#34;ME2 BM1&#34;, &#34;ME2 BM2&#34;, &#34;ME2 BM3&#34;, &#34;ME2 BM4&#34;, &#34;ME2 BM5&#34;, &#34;ME3 BM1&#34;, &#34;ME3 BM2&#34;, &#34;ME3 BM3&#34;, &#34;ME3 BM4&#34;, &#34;ME3 BM5&#34;, &#34;ME4 BM1&#34;, &#34;ME4 BM2&#34;, &#34;ME4 BM3&#34;, &#34;ME4 BM4&#34;, &#34;ME4 BM5&#34;, &#34;Big LoBM&#34;, &#34;ME5 BM2&#34;, &#34;ME5 BM3&#34;, &#34;ME5 BM4&#34;, &#34;Big HiBM&#34;],
+  &#34;series&#34;: [{&#34;name&#34;: &#34;beta di temperatura&#34;, &#34;values&#34;: [0.016, 0.015, 0.019, 0.013, 0.022, 0.006, 0.012, 0.011, 0.007, 0.016, 0.003, 0.006, 0.010, 0.004, 0.005, 0.002, 0.001, 0.006, 0.004, 0.008, -0.005, -0.001, 0.000, -0.002, 0.003]}]
+}
+</code></pre>
+<p>I portafogli piccoli sono i più esposti; i più grandi sono intorno a zero o negativi. I beta del consumo mostrano lo stesso andamento per dimensione (da circa 1,36 per i piccoli a −0,66 per i grandi con B/M alto).</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><span class="math math-inline">\(\lambda_M\)</span></th>
+<th><span class="math math-inline">\(\lambda_{\Delta C}\)</span></th>
+<th><span class="math math-inline">\(\lambda_{\Delta T}\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Premio per il rischio</td>
+<td>0.007</td>
+<td>−0.002</td>
+<td><strong>0.231</strong></td>
+</tr>
+<tr>
+<td>Regressione sui rendimenti medi, t</td>
+<td>(11.46)***</td>
+<td>(−1.40)</td>
+<td>(2.04)**</td>
+</tr>
+<tr>
+<td>Cross-section mensili, t HAC</td>
+<td>(3.79)***</td>
+<td>(−1.47)</td>
+<td>(2.80)*</td>
+</tr>
+<tr>
+<td>Cross-section mensili, t di Shanken</td>
+<td>[3.73]</td>
+<td>[−0.85]</td>
+<td>[1.72]</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>Esposizione positiva alla temperatura per <strong>22 portafogli su 25</strong>.</li>
+<li>Un premio di temperatura positivo e significativo, <span class="math math-inline">\(\lambda_{\Delta T} = 0.231\)</span>; ancora significativo al 10% con la correzione di Shanken.</li>
+<li>Coerente con la letteratura di finanza climatica: l'esposizione all'aumento delle temperature richiede un compenso.</li>
+</ul>
+<p><strong>Implicazioni.</strong> Investitori: il rischio di temperatura è prezzato → strategie resilienti al clima, migliore gestione del rischio. Policymaker: evidenza di rischio finanziario legato al clima, base per la regolamentazione e l'analisi della stabilità. <strong>Limiti</strong>: risultati preliminari, pochi portafogli, solo USA; il lavoro futuro dovrebbe usare più portafogli, paesi, settori e misure climatiche.</p>
+<h2 id="punti-chiave">Punti chiave</h2>
+<ul>
+<li>Domanda cross-section: perché i rendimenti medi differiscono tra le attività? Risposta: esposizioni (beta) diverse moltiplicate per i prezzi del rischio (<span class="math math-inline">\(\lambda\)</span>).</li>
+<li><strong>Fama–MacBeth</strong>: (1) regressioni in serie storica → <span class="math math-inline">\(\hat\beta_n\)</span>; (2) regressioni cross-section ogni mese → <span class="math math-inline">\(\hat\lambda_t\)</span>; media → <span class="math math-inline">\(\bar\lambda\)</span>, statistica t dalla dispersione dei <span class="math math-inline">\(\hat\lambda_t\)</span>.</li>
+<li>Regressione sui rendimenti medi: stessi <span class="math math-inline">\(\hat\lambda\)</span>, errori standard diversi.</li>
+<li>I beta sono stimati → correzione di <strong>Shanken</strong> (statistiche t più piccole); i residui sono eteroschedastici/autocorrelati → HAC di <strong>Newey–West</strong>.</li>
+<li>EPU: premio positivo, non robusto agli errori nelle variabili. Temperatura: premio positivo (<span class="math math-inline">\(0.231\)</span>), più robusto; 22/25 portafogli esposti, soprattutto le small cap.</li>
+</ul>
+<pre class="wimark-src"><code class="nohighlight" data-wimark="quiz" data-opts="{&#34;title&#34;: &#34;Verifica&#34;}">[
+  {&#34;q&#34;: &#34;In Fama–MacBeth, i premi per il rischio $\\lambda$ vengono&#34;, &#34;options&#34;: [&#34;dalle regressioni in serie storica del passo 1&#34;, &#34;dalle regressioni cross-section del passo 2&#34;, &#34;dalle intercette $\\alpha_n$&#34;], &#34;answer&#34;: 1, &#34;why&#34;: &#34;Il passo 1 dà i beta; il passo 2 regredisce i rendimenti sui beta tra le attività.&#34;},
+  {&#34;q&#34;: &#34;La statistica t di Fama–MacBeth di $\\bar\\lambda$ usa&#34;, &#34;options&#34;: [&#34;la deviazione standard dei $\\hat\\lambda_t$ mensili divisa per $\\sqrt T$&#34;, &#34;l&#39;$R^2$ del passo 1&#34;, &#34;solo il numero di portafogli&#34;], &#34;answer&#34;: 0},
+  {&#34;q&#34;: &#34;Perché serve la correzione di Shanken?&#34;, &#34;options&#34;: [&#34;Perché i rendimenti non sono normali&#34;, &#34;Perché i regressori del secondo passo (i beta) sono a loro volta stimati&#34;, &#34;Perché l&#39;intercetta non è nulla&#34;], &#34;answer&#34;: 1, &#34;why&#34;: &#34;Errori nelle variabili: ignorare l&#39;errore di stima in $\\hat\\beta$ sottostima la varianza di $\\hat\\lambda$.&#34;},
+  {&#34;q&#34;: &#34;Il premio EPU è significativo nella regressione sui rendimenti medi ma non con le statistiche t di Shanken. La conclusione corretta è&#34;, &#34;options&#34;: [&#34;l&#39;EPU è sicuramente prezzata&#34;, &#34;l&#39;EPU sicuramente non è prezzata&#34;, &#34;l&#39;evidenza di un premio EPU positivo è fragile e dipende dalla specificazione&#34;], &#34;answer&#34;: 2},
+  {&#34;q&#34;: &#34;Quali portafogli sono più esposti agli shock di temperatura?&#34;, &#34;options&#34;: [&#34;Big, B/M basso&#34;, &#34;Small&#34;, &#34;Tutti allo stesso modo&#34;], &#34;answer&#34;: 1, &#34;why&#34;: &#34;I beta di temperatura sono più alti nel quintile delle small cap e vicini a zero o negativi per i portafogli più grandi.&#34;}
+]
+</code></pre>
+</article>
+
+          
+          </div>
+        </div>
+      </section>
+
+      <aside class="col-toc" aria-label="In questa pagina">
+        <div class="col-head">In questa pagina</div>
+        <div class="col-scroll">
+          
+            
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l1">
+    <a href="#asset-pricing-empirico-in-cross-section">Asset pricing empirico in cross-section</a>
+    
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l2">
+    <a href="#teoria-ed-evidenza-empirica">Teoria ed evidenza empirica</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#la-procedura-di-famamacbeth">La procedura di Fama–MacBeth</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#problemi-econometrici">Problemi econometrici</a>
+    
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l3">
+    <a href="#errori-nelle-variabili-la-correzione-di-shanken">Errori nelle variabili: la correzione di Shanken</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l3">
+    <a href="#eteroschedasticit-e-autocorrelazione-neweywest">Eteroschedasticità e autocorrelazione: Newey–West</a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#applicazioni-quali-rischi-sono-prezzati">Applicazioni: quali rischi sono prezzati?</a>
+    
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l3">
+    <a href="#lincertezza-di-politica-economica--prezzata">L&#39;incertezza di politica economica è prezzata?</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l3">
+    <a href="#il-rischio-di-temperatura--prezzato">Il rischio di temperatura è prezzato?</a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#punti-chiave">Punti chiave</a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+</ul>
+
+          
+          
+        </div>
+      </aside>
+
+    
+  </main>
+
+  
+  <footer class="statusbar" aria-hidden="true">
+    <span class="sb-mode">READ</span>
+    <span class="sb-path">it/notes/financial-economics/07-cross-sectional-asset-pricing.md</span>
+    <span class="sb-spacer"></span>
+    <span class="sb-item">it</span>
+    <span class="sb-item">utf-8</span>
+    <span class="sb-item">markdown</span>
+    <span class="sb-pos" data-scroll-pos>top</span>
+  </footer>
+  
+
+  <div class="search" data-search hidden role="dialog" aria-modal="true" aria-label="Cerca">
+    <div class="search-panel">
+      <div class="search-bar"><span class="search-prompt" aria-hidden="true">❯</span>
+      <input class="search-input" type="search" placeholder="Cerca" autocomplete="off" spellcheck="false" aria-controls="search-results"></div>
+      <ul class="search-results" id="search-results" role="listbox"></ul>
+      <div class="search-hint" aria-hidden="true"><span><kbd>↑↓</kbd> scorri</span><span><kbd>↵</kbd> apri</span><span><kbd>esc</kbd> chiudi</span></div>
+    </div>
+  </div>
+
+  <script>
+    window.GOMARK = {
+      lang: "it",
+      root: "..\/..\/..\/",
+      theme: "light",
+      section: "notes",
+      i18n: { noResults: "Nessun risultato", copy: "copia", copied: "copiato", words: "parole", minRead: "min di lettura",
+        data: "dati", search: "cerca", noData: "nessun dato", other: "altro",
+        total: "totale", show: "mostra", hide: "nascondi", reset: "ripristina", all: "tutti" }
+    };
+  </script>
+  <script src="../../../static/widgets.js"></script>
+  <script src="../../../static/widgets/finance/fmb.js"></script>
+  <script src="../../../static/widgets/chart.js"></script>
+  <script src="../../../static/widgets/quiz.js"></script>
+  <script src="../../../static/engine.js"></script>
+  <script src="../../../static/ui.js"></script>
+  <script src="../../../static/search.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,611 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Identità digitale e knowledge base computazionale: CV, progetti e appunti.">
+  <meta name="author" content="Sergio Di Lapi">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains&#43;Mono:wght@400;500;600;700;800&amp;family=IBM&#43;Plex&#43;Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <title>Il CAPM basato sul consumo · Appunti</title>
+  <link rel="stylesheet" href="../../../static/layout.css">
+  <link rel="stylesheet" href="../../../static/theme.css">
+  <link rel="stylesheet" href="../../../static/wimark.css">
+  <link rel="stylesheet" href="../../../static/themes/light.css">
+  <link rel="alternate" hreflang="en" href="../../../../en/notes/financial-economics/05-consumption-capm/index.html">
+  <style>:root { --mono:"JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;--sans:"IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;--font-body:var(--sans);--font-heading:var(--mono);--font-size:14px;--content-width:780px;--sidebar-width:256px;--folders-width:224px;--toc-width:232px;--radius:4px;--radius-sm:3px;--radius-lg:10px; }</style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+</head>
+<body data-depth="multi" data-index="right" data-theme="light" data-theme-class="monochrome" data-heading="mono" data-statusbar="on">
+
+  <header class="topbar">
+    <a class="brand" href="../../../index.html">sergiopericolo</a>
+    <nav class="sections" aria-label="Sezioni">
+      
+      <a class="section-link" href="../../../about/index.html">
+        <span class="section-idx">01</span>
+        <span class="section-title">Chi sono</span>
+      </a>
+      
+      <a class="section-link" href="../../../projects/index.html">
+        <span class="section-idx">02</span>
+        <span class="section-title">Progetti</span>
+      </a>
+      
+      <a class="section-link active" href="../../../notes/index.html">
+        <span class="section-idx">03</span>
+        <span class="section-title">Appunti</span>
+      </a>
+      
+      <a class="section-link" href="../../../visual/index.html">
+        <span class="section-idx">04</span>
+        <span class="section-title">Visual</span>
+      </a>
+      
+      <a class="section-link" href="../../../art/index.html">
+        <span class="section-idx">05</span>
+        <span class="section-title">Arte</span>
+      </a>
+      
+    </nav>
+    <div class="topbar-end">
+      <button class="search-open" type="button" data-search-open aria-haspopup="dialog"><span>Cerca</span><kbd>⌘K</kbd></button>
+      
+
+<nav class="lang-switch" aria-label="Lingua">
+  <span class="lang-link current" aria-current="true">it</span><a class="lang-link" href="../../../../en/notes/financial-economics/05-consumption-capm/index.html" hreflang="en" lang="en" title="English">en</a>
+</nav>
+
+
+      <span class="build-info"><a class="build-name" href="https://github.com/sergiopericolo/GoMark">GoMark</a> v1.2.0</span>
+    </div>
+  </header>
+
+  <main class="grid" style="--grid: minmax(0, 15fr) minmax(0, 15fr) minmax(0, 55fr) minmax(0, 15fr); --grid-medium: minmax(0, 15fr) minmax(0, 15fr) minmax(0, 70fr)">
+
+    
+
+      
+      <aside class="col-folders" aria-label="Cartelle">
+        <div class="col-head">Cartelle</div>
+        <div class="col-scroll">
+          <a class="tree-root" href="../../index.html">~/notes/</a>
+          
+
+<ul class="tree">
+  
+  
+  <li class="tree-node open" data-path="financial-economics">
+    <div class="tree-row">
+      
+      <span class="tree-leaf" aria-hidden="true"></span>
+      
+      <a class="tree-folder active" href="../../financial-economics/index.html">
+        <span class="tree-name">financial-economics/</span>
+        <span class="tree-count">9</span>
+      </a>
+    </div>
+    
+  </li>
+  
+</ul>
+
+        </div>
+      </aside>
+      
+
+      <aside class="col-files" aria-label="File">
+        <div class="col-head">
+          <span>File <span class="badge">9</span></span>
+          <span class="col-head-path">notes/financial-economics/</span>
+        </div>
+        <div class="col-scroll">
+          <ul class="file-list">
+            
+            <li>
+              <a class="file-link" href="../../financial-economics/01-choice-under-uncertainty/index.html">
+                <span class="file-name">Scelte in condizioni di incertezza</span>
+                <span class="file-path">01-choice-under-uncertainty.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../financial-economics/02-modern-portfolio-theory/index.html">
+                <span class="file-name">Teoria moderna del portafoglio</span>
+                <span class="file-path">02-modern-portfolio-theory.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../financial-economics/03-capm/index.html">
+                <span class="file-name">Il Capital Asset Pricing Model</span>
+                <span class="file-path">03-capm.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../financial-economics/04-empirical-capm/index.html">
+                <span class="file-name">Analisi empirica del CAPM</span>
+                <span class="file-path">04-empirical-capm.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link active" href="../../financial-economics/05-consumption-capm/index.html">
+                <span class="file-name">Il CAPM basato sul consumo</span>
+                <span class="file-path">05-consumption-capm.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../financial-economics/06-apt-multifactor/index.html">
+                <span class="file-name">Arbitrage Pricing Theory e modelli multifattoriali</span>
+                <span class="file-path">06-apt-multifactor.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../financial-economics/07-cross-sectional-asset-pricing/index.html">
+                <span class="file-name">Asset pricing empirico in cross-section</span>
+                <span class="file-path">07-cross-sectional-asset-pricing.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../financial-economics/08-black-litterman/index.html">
+                <span class="file-name">Il modello di Black–Litterman</span>
+                <span class="file-path">08-black-litterman.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../financial-economics/09-event-studies/index.html">
+                <span class="file-name">Analisi degli event study</span>
+                <span class="file-path">09-event-studies.md</span>
+              </a>
+            </li>
+            
+          </ul>
+        </div>
+      </aside>
+
+      <section class="col-content" aria-label="sergiopericolo">
+        <div class="content-scroll" id="content">
+          <div class="content-inner">
+          
+            
+<div class="page-head">
+  <div class="page-crumb"><span class="crumb-home">~</span>/notes/financial-economics/05-consumption-capm.md</div>
+  <h1 class="page-title">Il CAPM basato sul consumo</h1>
+  <div class="page-meta" data-page-meta><span class="meta-tag">it</span></div>
+</div>
+
+<article class="page-body"><h1 id="il-capm-basato-sul-consumo">Il CAPM basato sul consumo</h1>
+<p>Capitolo 5 di <em>Essentials of Financial Economics</em> (Donadelli, Costola, Gufler). Il CAPM è statico: un periodo, media e varianza. Il <strong>Consumption CAPM</strong> è un modello intertemporale di equilibrio generale in cui le attività sono prezzate in base a come si muovono con il <strong>consumo</strong>, e si scontra con due famosi puzzle.</p>
+<p>Percorso:</p>
+<ol>
+<li><strong>Il modello</strong> — l'albero di Lucas, l'equazione di Eulero, il fattore di sconto stocastico.</li>
+<li><strong>Derivare il CCAPM</strong> — i premi per il rischio come covarianze con l'utilità marginale.</li>
+<li><strong>Verificarlo</strong> — CRRA e consumo log-normale, dati USA 1930–2023.</li>
+<li><strong>I puzzle del premio azionario e del tasso privo di rischio</strong> — e le principali soluzioni proposte.</li>
+</ol>
+<h2 id="dal-capm-al-ccapm">Dal CAPM al CCAPM</h2>
+<p>I modelli statici ignorano che gli investitori rivedono i portafogli più volte, man mano che arriva informazione. Nel CCAPM (Rubinstein 1976; Breeden e Litzenberger 1978; Breeden 1979; Lucas 1978 con le equazioni di Eulero) gli investitori decidono in modo ricorsivo su molti periodi.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>CAPM</th>
+<th>CCAPM</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Orizzonte</td>
+<td>Un periodo</td>
+<td>Molti periodi, ricorsivo</td>
+</tr>
+<tr>
+<td>All'investitore interessa</td>
+<td>Media e varianza dei rendimenti</td>
+<td>Utilità attesa del consumo lungo la vita</td>
+</tr>
+<tr>
+<td>Il rischio è</td>
+<td>Covarianza con il <strong>mercato</strong></td>
+<td>Covarianza con l'<strong>utilità marginale del consumo</strong></td>
+</tr>
+<tr>
+<td>Focus</td>
+<td>Rischio di mercato</td>
+<td>Livellamento del consumo</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Agente rappresentativo</strong>: preferenze e dotazioni omogenee. Dà un legame trattabile tra prezzi e rischio aggregato, ma ignora l'eterogeneità (avversioni al rischio diverse) e non spiega il prezzo dei rischi idiosincratici.</p>
+<h2 id="il-modello-dellalbero">Il modello dell'albero</h2>
+<p>L'agente sceglie le quote <span class="math math-inline">\(q_{t+1}\)</span> di un albero (un'attività che paga il dividendo <span class="math math-inline">\(d_t\)</span>) per risolvere</p>
+<p><span class="math math-display">\[\max_{\{q_{t+1}\}} E_t\Big[\sum_{k=0}^{\infty}\beta^k u(\tilde c_{t+k})\Big] \quad\text{s.t.}\quad c_t + p_tq_{t+1} = d_tq_t + p_tq_t\]</span></p>
+<p>con <span class="math math-inline">\(\beta \in (0, 1)\)</span> il fattore di sconto e <span class="math math-inline">\(u\)</span> un'utilità VNM.</p>
+<p><strong>Condizione del primo ordine</strong></p>
+<p><span class="math math-display">\[-p_t u&#39;(c_t) + \beta E_t\big[u&#39;(\tilde c_{t+1})(\tilde d_{t+1} + \tilde p_{t+1})\big] = 0\]</span></p>
+<table>
+<thead>
+<tr>
+<th>Costo marginale (oggi)</th>
+<th>=</th>
+<th>Beneficio marginale (domani)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Comprare una quota in più costa <span class="math math-inline">\(p_t\)</span> di consumo: <span class="math math-inline">\(p_tu&#39;(c_t)\)</span></td>
+<td></td>
+<td>Paga <span class="math math-inline">\(\tilde d_{t+1} + \tilde p_{t+1}\)</span>, valutato all'utilità marginale scontata: <span class="math math-inline">\(\beta E_t[u&#39;(\tilde c_{t+1})(\tilde d_{t+1} + \tilde p_{t+1})]\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>L'agente investe finché l'utilità persa oggi è uguale all'utilità attesa scontata guadagnata domani.</p>
+<p><strong>Equilibrio</strong> con un solo albero: <span class="math math-inline">\(q_{t+1} = 1\)</span> e <span class="math math-inline">\(c_t = d_t\)</span>, quindi <span class="math math-inline">\(u&#39;(d_t)p_t = \beta E_t[u&#39;(\tilde d_{t+1})(\tilde d_{t+1} + \tilde p_{t+1})]\)</span>. Con molti titoli, l'<strong>equazione fondamentale di asset pricing</strong>:</p>
+<p><span class="math math-display">\[p_{i,t} = E_t\Big[\beta\frac{u&#39;(\tilde c_{t+1})}{u&#39;(c_t)}\big(\tilde d_{i,t+1} + \tilde p_{i,t+1}\big)\Big]\]</span></p>
+<h3 id="il-fattore-di-sconto-stocastico">Il fattore di sconto stocastico</h3>
+<p>Si definisce l'<strong>SDF</strong> (pricing kernel, saggio marginale di sostituzione intertemporale):</p>
+<p><span class="math math-display">\[\tilde m_{t+1} \equiv \beta\frac{u&#39;(\tilde c_{t+1})}{u&#39;(c_t)}, \qquad p_{i,t} = E_t\big[\tilde m_{t+1}(\tilde d_{i,t+1} + \tilde p_{i,t+1})\big]\]</span></p>
+<p>Si sostituisce <span class="math math-inline">\(\tilde p_{i,t+1}\)</span> in avanti <span class="math math-inline">\(K\)</span> volte:</p>
+<p><span class="math math-display">\[p_{i,t} = \sum_{k=1}^{K}E_t\Big[\prod_{j=1}^{k}\tilde m_{t+j}\,\tilde d_{i,t+k}\Big] + E_t\Big[\prod_{j=1}^{K}\tilde m_{t+j}\,\tilde p_{i,t+K}\Big]\]</span></p>
+<p>In <strong>assenza di bolle</strong> (trasversalità: l'ultimo termine → 0 per <span class="math math-inline">\(K \to \infty\)</span>):</p>
+<p><span class="math math-display">\[p_{i,t} = \sum_{k=1}^{\infty}\beta^k E_t\Big[\frac{u&#39;(\tilde c_{t+k})}{u&#39;(c_t)}\tilde d_{i,t+k}\Big]\]</span></p>
+<p><strong>Caso particolare di neutralità al rischio</strong>: <span class="math math-inline">\(u(c) = c \Rightarrow \tilde m_{t+1} = \beta\)</span>. Se esiste un tasso privo di rischio, <span class="math math-inline">\(\beta = 1/(1 + r_f)\)</span> e il prezzo è la classica somma scontata dei dividendi <span class="math math-inline">\(p_{i,t} = \sum_k E_t[\tilde d_{i,t+k}]/(1 + r_f)^k\)</span>.</p>
+<p>Punti chiave: <span class="math math-inline">\(\tilde m\)</span> è <strong>lo stesso per tutte le attività</strong>; i prezzi dipendono da come i flussi si muovono insieme a <span class="math math-inline">\(\tilde m\)</span>. Il CAPM, per trattabilità, sostituisce l'SDF con il rendimento di mercato.</p>
+<h3 id="il-titolo-privo-di-rischio">Il titolo privo di rischio</h3>
+<p>Un'obbligazione a sconto paga 1 unità di consumo in <span class="math math-inline">\(t+1\)</span>:</p>
+<p><span class="math math-display">\[p_{f,t} = E_t\Big[\beta\frac{u&#39;(\tilde c_{t+1})}{u&#39;(c_t)}\Big], \qquad \frac{1}{1 + r_{f,t+1}} = E_t[\tilde m_{t+1}]\]</span></p>
+<p>Nell'albero di Lucas l'attività priva di rischio è in offerta netta nulla: in equilibrio l'investitore rappresentativo ne detiene zero unità, e il prezzo è tale che non vi sia eccesso di domanda.</p>
+<h2 id="derivare-il-ccapm">Derivare il CCAPM</h2>
+<p>Con il rendimento lordo <span class="math math-inline">\(1 + \tilde r_{i,t+1} = (\tilde d_{i,t+1} + \tilde p_{i,t+1})/p_{i,t}\)</span>, l'equazione di prezzo diventa l'<strong>equazione di Eulero</strong></p>
+<p><span class="math math-display">\[1 = E_t\big[\tilde m_{t+1}(1 + \tilde r_{i,t+1})\big]\]</span></p>
+<p>Si usa <span class="math math-inline">\(E[XY] = E[X]E[Y] + \mathrm{cov}(X, Y)\)</span>:</p>
+<p><span class="math math-display">\[1 = E_t[\tilde m_{t+1}]\,E_t[1 + \tilde r_{i,t+1}] + \mathrm{cov}_t(\tilde m_{t+1}, \tilde r_{i,t+1})\]</span></p>
+<p>Si divide per <span class="math math-inline">\(E_t[\tilde m_{t+1}] = 1/(1 + r_{f,t+1})\)</span> e si riordina:</p>
+<p><span class="math math-display">\[\boxed{E_t[\tilde r_{i,t+1}] - r_{f,t+1} = -(1 + r_{f,t+1})\,\mathrm{cov}_t\Big(\beta\frac{u&#39;(\tilde c_{t+1})}{u&#39;(c_t)}, \tilde r_{i,t+1}\Big)}\]</span></p>
+<ul>
+<li><strong>Covarianza negativa</strong> con l'utilità marginale: l'attività paga bene quando il consumo è alto (UM bassa), male quando se ne ha più bisogno → deve offrire un rendimento <strong>più alto</strong>.</li>
+<li><strong>Covarianza positiva</strong>: paga quando l'UM è alta (tempi cattivi) → è un'assicurazione, si accetta un rendimento <strong>più basso</strong>.</li>
+</ul>
+<p><strong>Utilità logaritmica</strong>: <span class="math math-inline">\(u = \log c \Rightarrow \tilde m_{t+1} = \beta c_t/\tilde c_{t+1}\)</span>.</p>
+<p><strong>Legame con il CAPM.</strong> Si prenda un'attività il cui rendimento è perfettamente correlato con l'SDF, <span class="math math-inline">\(\tilde R_{c,t+1} = \tilde m_{t+1}\)</span>. Allora</p>
+<p><span class="math math-display">\[E_t[\tilde r_{i,t+1}] - r_{f,t+1} = \beta_{i,c}\big(E_t[\tilde r_{c,t+1}] - r_{f,t+1}\big), \qquad \beta_{i,c} = \frac{\mathrm{cov}_t(\tilde m_{t+1}, \tilde r_{i,t+1})}{\mathrm{Var}_t(\tilde m_{t+1})}\]</span></p>
+<p>La stessa forma a beta, con l'IMRS al posto del portafoglio di mercato. <strong>Intuizione comune</strong>: rendimenti attesi più alti compensano l'esposizione al rischio <strong>aggregato</strong>; i due modelli lo misurano solo in modo diverso.</p>
+<h2 id="verificare-il-ccapm">Verificare il CCAPM</h2>
+<p>Il CCAPM riesce a spiegare il premio per il rischio azionario osservato? Si assume:</p>
+<ul>
+<li>utilità <strong>CRRA</strong> <span class="math math-inline">\(U(c) = \dfrac{c^{1-\gamma}}{1-\gamma}\)</span>, <span class="math math-inline">\(u&#39;(c) = c^{-\gamma}\)</span>, avversione al rischio <span class="math math-inline">\(\gamma\)</span>;</li>
+<li>crescita del consumo e crescita dei dividendi i.i.d. <strong>log-normali</strong>, congiuntamente normali (nella derivazione del libro il titolo azionario paga il consumo).</li>
+</ul>
+<p><strong>Tasso privo di rischio</strong>: <span class="math math-inline">\(\dfrac{1}{1 + r_f} = E\big[\beta(c_{t+1}/c_t)^{-\gamma}\big]\)</span>, da cui</p>
+<p><span class="math math-display">\[\ln r_f = -\ln\beta + \gamma\mu_{\Delta c} - \tfrac12\gamma^2\sigma_{\Delta c}^2\]</span></p>
+<ul>
+<li><span class="math math-inline">\(\gamma\mu_{\Delta c}\)</span>: con un consumo in crescita, le persone vogliono indebitarsi contro il futuro → tassi alti.</li>
+<li><span class="math math-inline">\(-\tfrac12\gamma^2\sigma^2_{\Delta c}\)</span>: il <strong>risparmio precauzionale</strong> spinge i tassi verso il basso.</li>
+</ul>
+<p><strong>Azioni</strong>: il rapporto prezzo–dividendo è una somma geometrica,</p>
+<p><span class="math math-display">\[\frac{p_t}{d_t} = \sum_{j=1}^{\infty}\beta^j e^{j[(1-\gamma)\mu_{\Delta c} + \frac12(1-\gamma)^2\sigma_{\Delta c}^2]} = \frac{\beta e^{(1-\gamma)\mu_{\Delta c} + \frac12(1-\gamma)^2\sigma_{\Delta c}^2}}{1 - \beta e^{(1-\gamma)\mu_{\Delta c} + \frac12(1-\gamma)^2\sigma_{\Delta c}^2}}\]</span></p>
+<p>e il rendimento atteso è</p>
+<p><span class="math math-display">\[\ln E(r_i) = -\ln\beta + \gamma\mu_{\Delta c} + \tfrac12\sigma_{\Delta c}^2(2\gamma - \gamma^2)\]</span></p>
+<p>Sottraendo, il <strong>premio per il rischio azionario</strong>:</p>
+<p><span class="math math-display">\[\boxed{\ln E(r_i) - \ln r_f = \gamma\,\sigma_{\Delta c}^2}\]</span></p>
+<p>Cresce con l'avversione al rischio e con la volatilità del consumo. Ma il consumo negli USA è <strong>liscio</strong>.</p>
+<h3 id="i-dati-usa-19302023">I dati: USA 1930–2023</h3>
+<table>
+<thead>
+<tr>
+<th>Pannello</th>
+<th>Grandezza</th>
+<th>Valore</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A. Crescita del consumo</td>
+<td>Media <span class="math math-inline">\(E[\Delta c]\)</span></td>
+<td>2.03%</td>
+</tr>
+<tr>
+<td></td>
+<td>Varianza <span class="math math-inline">\(\sigma^2_{\Delta c}\)</span></td>
+<td>0.086%</td>
+</tr>
+<tr>
+<td></td>
+<td>Dev. std. <span class="math math-inline">\(\sigma_{\Delta c}\)</span></td>
+<td>2.94%</td>
+</tr>
+<tr>
+<td>B. Rendimenti delle attività</td>
+<td>Rendimento azionario medio <span class="math math-inline">\(E[r_M]\)</span></td>
+<td>8.59%</td>
+</tr>
+<tr>
+<td></td>
+<td>Rendimento medio privo di rischio <span class="math math-inline">\(E[r_f]\)</span></td>
+<td>0.11%</td>
+</tr>
+<tr>
+<td></td>
+<td>Premio azionario (azioni − T-bill a 1 mese)</td>
+<td><strong>8.48%</strong></td>
+</tr>
+<tr>
+<td>C. Alternative</td>
+<td>ERP (azioni − T-bill a 3 mesi)</td>
+<td>8.19%</td>
+</tr>
+<tr>
+<td></td>
+<td>ERP (azioni − T-bond a 10 anni)</td>
+<td>6.62%</td>
+</tr>
+</tbody>
+</table>
+<p>Fonti: BEA, FRED, BLS, Fama–French, Damodaran.</p>
+<h3 id="il-modello-con-gamma--10-beta--099">Il modello con <span class="math math-inline">\(\gamma = 10\)</span>, <span class="math math-inline">\(\beta = 0.99\)</span></h3>
+<p><span class="math math-display">\[\ln r_f = 0.01005 + 10(0.0203) - \tfrac12(100)(0.00086) = 17.01\%\]</span></p>
+<p><span class="math math-display">\[\ln E(r_i) = 0.01005 + 0.203 + \tfrac12(20 - 100)(0.00086) = 17.87\%\]</span></p>
+<p><span class="math math-display">\[\text{ERP} = 10 \times 0.086\% = 0.86\%\]</span></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Modello (<span class="math math-inline">\(\gamma = 10\)</span>)</th>
+<th>Dati</th>
+<th>Scarto</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tasso privo di rischio</td>
+<td>17.01%</td>
+<td>0.11%</td>
+<td>lo supera di oltre 100×</td>
+</tr>
+<tr>
+<td>Premio azionario</td>
+<td>0.86%</td>
+<td>8.48%</td>
+<td>gli resta sotto di ≈ 10×</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Puzzle del premio azionario</strong> (Mehra e Prescott): perché le azioni rendono così tanto più dei titoli di Stato a breve, quando il consumo — ciò che conta per l'utilità — è così liscio?</p>
+</blockquote>
+<p>Muovi <span class="math math-inline">\(\gamma\)</span>. Il premio raggiunge i dati solo vicino a <span class="math math-inline">\(\gamma \approx 100\)</span> (pannello di destra). Guarda il tasso privo di rischio a sinistra: prima sale oltre il 20% (il termine <span class="math math-inline">\(\gamma\mu\)</span>) e poi, per <span class="math math-inline">\(\gamma\)</span> grandi, prevale il termine precauzionale <span class="math math-inline">\(-\tfrac12\gamma^2\sigma^2\)</span>, che lo trascina molto sotto lo zero. In ogni caso resta lontanissimo dallo 0,11% dei dati. Abbassa <span class="math math-inline">\(\sigma\)</span> (consumo più liscio) e il <span class="math math-inline">\(\gamma\)</span> richiesto sale ancora.</p>
+<pre class="wimark-src"><code class="nohighlight" data-wimark="epp" data-opts="{&#34;gamma&#34;: 10, &#34;beta&#34;: 0.99, &#34;mu&#34;: 0.0203, &#34;sigma&#34;: 0.0294, &#34;erp&#34;: 0.0848, &#34;rf&#34;: 0.0011}"></code></pre>
+<p><strong>Quale <span class="math math-inline">\(\gamma\)</span> riproduce i dati?</strong></p>
+<p><span class="math math-display">\[8.482\% = \gamma \cdot 0.086\% \;\Rightarrow\; \gamma = 98.63\]</span></p>
+<p>La letteratura considera plausibile <span class="math math-inline">\(3 \le \gamma \le 10\)</span>. Con un <span class="math math-inline">\(\gamma\)</span> così alto il modello non riesce a dare un tasso privo di rischio sensato: il <strong>puzzle del tasso privo di rischio</strong> (Weil, 1989). Le slide lo descrivono come un <span class="math math-inline">\(r_f\)</span> &quot;irrealisticamente alto&quot;, che è ciò che accade nell'intervallo plausibile <span class="math math-inline">\(\gamma \le 10\)</span> (sopra il 15%).</p>
+<blockquote>
+<p>Nota: con la formula log-normale qui sopra e <span class="math math-inline">\(\sigma_{\Delta c} = 2.94\%\)</span>, per <span class="math math-inline">\(\gamma \approx 99\)</span> il termine <span class="math math-inline">\(-\tfrac12\gamma^2\sigma^2_{\Delta c} \approx -4.2\)</span> domina e <span class="math math-inline">\(\ln r_f\)</span> diventa fortemente negativo anziché alto. Il punto non cambia — nessun singolo <span class="math math-inline">\(\gamma\)</span> riproduce sia il premio sia <span class="math math-inline">\(r_f\)</span> — ma conviene saperlo se l'esame chiede il numero.</p>
+</blockquote>
+<h3 id="il-puzzle-nel-tempo">Il puzzle nel tempo</h3>
+<p>L'ERP non è costante; gli studi documentano un calo dagli anni '60 agli anni '90 (Siegel 1992; Jagannathan et al. 2001).</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Prima del 1975</th>
+<th>Dopo il 1975</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Premio azionario</td>
+<td>11.96%</td>
+<td>7.01%</td>
+</tr>
+<tr>
+<td>Volatilità del consumo <span class="math math-inline">\(\sigma_{\Delta c}\)</span></td>
+<td>2.92%</td>
+<td>1.72%</td>
+</tr>
+<tr>
+<td><span class="math math-inline">\(\gamma = \text{ERP}/\sigma^2_{\Delta c}\)</span> implicito</td>
+<td>11.96 / 0.085 = <strong>140.7</strong></td>
+<td>7.01 / 0.0296 = <strong>236.8</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Un premio più basso dovrebbe essere più facile da riprodurre, ma la volatilità del consumo è scesa ancora di più (migliore condivisione del rischio e livellamento, meno incertezza). <strong>Volatilità più bassa → <span class="math math-inline">\(\gamma\)</span> richiesto più alto</strong>: il puzzle peggiora. Con le medie successive al 1975, un risparmio precauzionale più debole spinge l'<span class="math math-inline">\(r_f\)</span> implicito a circa il <strong>21,8%</strong>.</p>
+<p><strong>Conclusione</strong>: il CCAPM standard non riesce a conciliare i premi azionari e i tassi privi di rischio osservati.</p>
+<h2 id="spiegazioni-alternative">Spiegazioni alternative</h2>
+<table>
+<thead>
+<tr>
+<th>Modello</th>
+<th>Idea</th>
+<th>Perché alza l'ERP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Formazione delle abitudini</strong> (Campbell e Cochrane, 1999)</td>
+<td>L'utilità dipende dal consumo rispetto a un livello di abitudine</td>
+<td>L'avversione al rischio sale quando il consumo si avvicina all'abitudine: avversione al rischio anticiclica e variabile nel tempo</td>
+</tr>
+<tr>
+<td><strong>Disastri rari</strong> (Barro, 2006, 2009)</td>
+<td>Piccola probabilità di shock catastrofici</td>
+<td>Il rischio di coda ottiene un premio elevato con un <span class="math math-inline">\(\gamma\)</span> ragionevole; spiega anche l'asimmetria</td>
+</tr>
+<tr>
+<td><strong>Rischio di lungo periodo</strong> (Bansal e Yaron, 2004)</td>
+<td>Shock persistenti e a bassa frequenza alla crescita; l'utilità di Epstein–Zin separa l'avversione al rischio dall'EIS</td>
+<td>Gli investitori temono rischi di crescita che si muovono lentamente e chiedono un compenso</td>
+</tr>
+</tbody>
+</table>
+<h2 id="punti-chiave">Punti chiave</h2>
+<ul>
+<li>Il CCAPM è intertemporale: le attività sono prezzate dall'<strong>SDF</strong> <span class="math math-inline">\(\tilde m_{t+1} = \beta u&#39;(\tilde c_{t+1})/u&#39;(c_t)\)</span>, con <span class="math math-inline">\(p_t = E_t[\tilde m_{t+1}x_{t+1}]\)</span> e <span class="math math-inline">\(1 + r_f = 1/E_t[\tilde m_{t+1}]\)</span>.</li>
+<li>Premio per il rischio: <span class="math math-inline">\(E_t[\tilde r_i] - r_f = -(1 + r_f)\mathrm{cov}_t(\tilde m_{t+1}, \tilde r_i)\)</span>: le attività che pagano nei tempi buoni rendono di più.</li>
+<li>CRRA + log-normale: <span class="math math-inline">\(\ln r_f = -\ln\beta + \gamma\mu - \tfrac12\gamma^2\sigma^2\)</span>, ERP <span class="math math-inline">\(= \gamma\sigma^2\)</span>.</li>
+<li>Dati USA: ERP ≈ 8,5%, <span class="math math-inline">\(r_f\)</span> ≈ 0,1%, <span class="math math-inline">\(\sigma_{\Delta c}\)</span> ≈ 2,9% → serve <span class="math math-inline">\(\gamma \approx 99\)</span> (<strong>puzzle del premio azionario</strong>) e allora <span class="math math-inline">\(r_f\)</span> è troppo alto (<strong>puzzle del tasso privo di rischio</strong>).</li>
+<li>Dopo il 1975 il puzzle peggiora (<span class="math math-inline">\(\gamma \approx 237\)</span>) perché il consumo è diventato più liscio.</li>
+<li>Rimedi proposti: formazione delle abitudini, disastri rari, rischio di lungo periodo.</li>
+</ul>
+<pre class="wimark-src"><code class="nohighlight" data-wimark="quiz" data-opts="{&#34;title&#34;: &#34;Verifica&#34;}">[
+  {&#34;q&#34;: &#34;Con $u(c) = c$ (neutralità al rischio), l&#39;SDF è&#34;, &#34;options&#34;: [&#34;$\\beta$&#34;, &#34;$\\beta c_t/c_{t+1}$&#34;, &#34;$1 + r_f$&#34;], &#34;answer&#34;: 0, &#34;why&#34;: &#34;$u&#39; = 1$, quindi $\\tilde m_{t+1} = \\beta$ e i prezzi sono i flussi attesi scontati a $r_f$.&#34;},
+  {&#34;q&#34;: &#34;Un&#39;attività paga molto proprio quando il consumo aggregato è basso. Secondo il CCAPM il suo rendimento atteso è&#34;, &#34;options&#34;: [&#34;alto&#34;, &#34;basso — è un&#39;assicurazione&#34;, &#34;uguale a quello del mercato&#34;], &#34;answer&#34;: 1, &#34;why&#34;: &#34;Covarianza positiva con l&#39;utilità marginale → contributo negativo al premio: gli investitori accettano un rendimento basso per una copertura.&#34;},
+  {&#34;q&#34;: &#34;Con CRRA e consumo log-normale, il premio azionario è uguale a&#34;, &#34;options&#34;: [&#34;$\\gamma\\mu_{\\Delta c}$&#34;, &#34;$\\gamma\\sigma^2_{\\Delta c}$&#34;, &#34;$\\tfrac12\\gamma^2\\sigma^2_{\\Delta c}$&#34;], &#34;answer&#34;: 1},
+  {&#34;q&#34;: &#34;ERP = 6% e $\\sigma_{\\Delta c} = 2\\%$. Il $\\gamma$ necessario è&#34;, &#34;options&#34;: [&#34;3&#34;, &#34;15&#34;, &#34;150&#34;], &#34;answer&#34;: 2, &#34;why&#34;: &#34;$\\gamma = 0.06/0.0004 = 150$: molto sopra l&#39;intervallo plausibile 3–10.&#34;},
+  {&#34;q&#34;: &#34;Dopo il 1975 l&#39;ERP è sceso, eppure il puzzle è peggiorato perché&#34;, &#34;options&#34;: [&#34;$\\beta$ è salito&#34;, &#34;la volatilità del consumo è scesa ancora di più, quindi serve un $\\gamma$ più alto&#34;, &#34;il tasso privo di rischio è sceso a zero&#34;], &#34;answer&#34;: 1, &#34;why&#34;: &#34;Il $\\gamma$ implicito è passato da circa 141 a circa 237.&#34;},
+  {&#34;q&#34;: &#34;Quale modello spiega un ERP alto con un&#39;avversione al rischio anticiclica?&#34;, &#34;options&#34;: [&#34;Disastri rari&#34;, &#34;Formazione delle abitudini&#34;, &#34;Rischio di lungo periodo&#34;], &#34;answer&#34;: 1}
+]
+</code></pre>
+</article>
+
+          
+          </div>
+        </div>
+      </section>
+
+      <aside class="col-toc" aria-label="In questa pagina">
+        <div class="col-head">In questa pagina</div>
+        <div class="col-scroll">
+          
+            
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l1">
+    <a href="#il-capm-basato-sul-consumo">Il CAPM basato sul consumo</a>
+    
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l2">
+    <a href="#dal-capm-al-ccapm">Dal CAPM al CCAPM</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#il-modello-dellalbero">Il modello dell&#39;albero</a>
+    
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l3">
+    <a href="#il-fattore-di-sconto-stocastico">Il fattore di sconto stocastico</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l3">
+    <a href="#il-titolo-privo-di-rischio">Il titolo privo di rischio</a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#derivare-il-ccapm">Derivare il CCAPM</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#verificare-il-ccapm">Verificare il CCAPM</a>
+    
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l3">
+    <a href="#i-dati-usa-19302023">I dati: USA 1930–2023</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l3">
+    <a href="#il-modello-con-gamma--10-beta--099">Il modello con ,</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l3">
+    <a href="#il-puzzle-nel-tempo">Il puzzle nel tempo</a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#spiegazioni-alternative">Spiegazioni alternative</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#punti-chiave">Punti chiave</a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+</ul>
+
+          
+          
+        </div>
+      </aside>
+
+    
+  </main>
+
+  
+  <footer class="statusbar" aria-hidden="true">
+    <span class="sb-mode">READ</span>
+    <span class="sb-path">it/notes/financial-economics/05-consumption-capm.md</span>
+    <span class="sb-spacer"></span>
+    <span class="sb-item">it</span>
+    <span class="sb-item">utf-8</span>
+    <span class="sb-item">markdown</span>
+    <span class="sb-pos" data-scroll-pos>top</span>
+  </footer>
+  
+
+  <div class="search" data-search hidden role="dialog" aria-modal="true" aria-label="Cerca">
+    <div class="search-panel">
+      <div class="search-bar"><span class="search-prompt" aria-hidden="true">❯</span>
+      <input class="search-input" type="search" placeholder="Cerca" autocomplete="off" spellcheck="false" aria-controls="search-results"></div>
+      <ul class="search-results" id="search-results" role="listbox"></ul>
+      <div class="search-hint" aria-hidden="true"><span><kbd>↑↓</kbd> scorri</span><span><kbd>↵</kbd> apri</span><span><kbd>esc</kbd> chiudi</span></div>
+    </div>
+  </div>
+
+  <script>
+    window.GOMARK = {
+      lang: "it",
+      root: "..\/..\/..\/",
+      theme: "light",
+      section: "notes",
+      i18n: { noResults: "Nessun risultato", copy: "copia", copied: "copiato", words: "parole", minRead: "min di lettura",
+        data: "dati", search: "cerca", noData: "nessun dato", other: "altro",
+        total: "totale", show: "mostra", hide: "nascondi", reset: "ripristina", all: "tutti" }
+    };
+  </script>
+  <script src="../../../static/widgets.js"></script>
+  <script src="../../../static/widgets/finance/epp.js"></script>
+  <script src="../../../static/widgets/quiz.js"></script>
+  <script src="../../../static/engine.js"></script>
+  <script src="../../../static/ui.js"></script>
+  <script src="../../../static/search.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

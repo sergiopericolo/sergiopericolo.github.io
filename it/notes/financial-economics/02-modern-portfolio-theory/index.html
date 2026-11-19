@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Identità digitale e knowledge base computazionale: CV, progetti e appunti.">
+  <meta name="author" content="Sergio Di Lapi">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains&#43;Mono:wght@400;500;600;700;800&amp;family=IBM&#43;Plex&#43;Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <title>Teoria moderna del portafoglio · Appunti</title>
+  <link rel="stylesheet" href="../../../static/layout.css">
+  <link rel="stylesheet" href="../../../static/theme.css">
+  <link rel="stylesheet" href="../../../static/wimark.css">
+  <link rel="stylesheet" href="../../../static/themes/light.css">
+  <link rel="alternate" hreflang="en" href="../../../../en/notes/financial-economics/02-modern-portfolio-theory/index.html">
+  <style>:root { --mono:"JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;--sans:"IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;--font-body:var(--sans);--font-heading:var(--mono);--font-size:14px;--content-width:780px;--sidebar-width:256px;--folders-width:224px;--toc-width:232px;--radius:4px;--radius-sm:3px;--radius-lg:10px; }</style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+</head>
+<body data-depth="multi" data-index="right" data-theme="light" data-theme-class="monochrome" data-heading="mono" data-statusbar="on">
+
+  <header class="topbar">
+    <a class="brand" href="../../../index.html">sergiopericolo</a>
+    <nav class="sections" aria-label="Sezioni">
+      
+      <a class="section-link" href="../../../about/index.html">
+        <span class="section-idx">01</span>
+        <span class="section-title">Chi sono</span>
+      </a>
+      
+      <a class="section-link" href="../../../projects/index.html">
+        <span class="section-idx">02</span>
+        <span class="section-title">Progetti</span>
+      </a>
+      
+      <a class="section-link active" href="../../../notes/index.html">
+        <span class="section-idx">03</span>
+        <span class="section-title">Appunti</span>
+      </a>
+      
+      <a class="section-link" href="../../../visual/index.html">
+        <span class="section-idx">04</span>
+        <span class="section-title">Visual</span>
+      </a>
+      
+      <a class="section-link" href="../../../art/index.html">
+        <span class="section-idx">05</span>
+        <span class="section-title">Arte</span>
+      </a>
+      
+    </nav>
+    <div class="topbar-end">
+      <button class="search-open" type="button" data-search-open aria-haspopup="dialog"><span>Cerca</span><kbd>⌘K</kbd></button>
+      
+
+<nav class="lang-switch" aria-label="Lingua">
+  <span class="lang-link current" aria-current="true">it</span><a class="lang-link" href="../../../../en/notes/financial-economics/02-modern-portfolio-theory/index.html" hreflang="en" lang="en" title="English">en</a>
+</nav>
+
+
+      <span class="build-info"><a class="build-name" href="https://github.com/sergiopericolo/GoMark">GoMark</a> v1.2.0</span>
+    </div>
+  </header>
+
+  <main class="grid" style="--grid: minmax(0, 15fr) minmax(0, 15fr) minmax(0, 55fr) minmax(0, 15fr); --grid-medium: minmax(0, 15fr) minmax(0, 15fr) minmax(0, 70fr)">
+
+    
+
+      
+      <aside class="col-folders" aria-label="Cartelle">
+        <div class="col-head">Cartelle</div>
+        <div class="col-scroll">
+          <a class="tree-root" href="../../index.html">~/notes/</a>
+          
+
+<ul class="tree">
+  
+  
+  <li class="tree-node open" data-path="financial-economics">
+    <div class="tree-row">
+      
+      <span class="tree-leaf" aria-hidden="true"></span>
+      
+      <a class="tree-folder active" href="../../financial-economics/index.html">
+        <span class="tree-name">financial-economics/</span>
+        <span class="tree-count">9</span>
+      </a>
+    </div>
+    
+  </li>
+  
+</ul>
+
+        </div>
+      </aside>
+      
+
+      <aside class="col-files" aria-label="File">
+        <div class="col-head">
+          <span>File <span class="badge">9</span></span>
+          <span class="col-head-path">notes/financial-economics/</span>
+        </div>
+        <div class="col-scroll">
+          <ul class="file-list">
+            
+            <li>
+              <a class="file-link" href="../../financial-economics/01-choice-under-uncertainty/index.html">
+                <span class="file-name">Scelte in condizioni di incertezza</span>
+                <span class="file-path">01-choice-under-uncertainty.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link active" href="../../financial-economics/02-modern-portfolio-theory/index.html">
+                <span class="file-name">Teoria moderna del portafoglio</span>
+                <span class="file-path">02-modern-portfolio-theory.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../financial-economics/03-capm/index.html">
+                <span class="file-name">Il Capital Asset Pricing Model</span>
+                <span class="file-path">03-capm.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../financial-economics/04-empirical-capm/index.html">
+                <span class="file-name">Analisi empirica del CAPM</span>
+                <span class="file-path">04-empirical-capm.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../financial-economics/05-consumption-capm/index.html">
+                <span class="file-name">Il CAPM basato sul consumo</span>
+                <span class="file-path">05-consumption-capm.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../financial-economics/06-apt-multifactor/index.html">
+                <span class="file-name">Arbitrage Pricing Theory e modelli multifattoriali</span>
+                <span class="file-path">06-apt-multifactor.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../financial-economics/07-cross-sectional-asset-pricing/index.html">
+                <span class="file-name">Asset pricing empirico in cross-section</span>
+                <span class="file-path">07-cross-sectional-asset-pricing.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../financial-economics/08-black-litterman/index.html">
+                <span class="file-name">Il modello di Black–Litterman</span>
+                <span class="file-path">08-black-litterman.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../financial-economics/09-event-studies/index.html">
+                <span class="file-name">Analisi degli event study</span>
+                <span class="file-path">09-event-studies.md</span>
+              </a>
+            </li>
+            
+          </ul>
+        </div>
+      </aside>
+
+      <section class="col-content" aria-label="sergiopericolo">
+        <div class="content-scroll" id="content">
+          <div class="content-inner">
+          
+            
+<div class="page-head">
+  <div class="page-crumb"><span class="crumb-home">~</span>/notes/financial-economics/02-modern-portfolio-theory.md</div>
+  <h1 class="page-title">Teoria moderna del portafoglio</h1>
+  <div class="page-meta" data-page-meta><span class="meta-tag">it</span></div>
+</div>
+
+<article class="page-body"><h1 id="teoria-moderna-del-portafoglio">Teoria moderna del portafoglio</h1>
+<p>Capitolo 2 di <em>Essentials of Financial Economics</em> (Donadelli, Costola, Gufler). Come combinare attività rischiose in modo che, a parità di rischio, il rendimento atteso sia il più alto possibile (Markowitz, 1952).</p>
+<p>Percorso:</p>
+<ol>
+<li><strong>Rendimenti e rischio</strong> — prezzi, rendimenti, PRI e TRI, volatilità.</li>
+<li><strong>Criteri di decisione</strong> — dominanza stato per stato, dominanza media–varianza, indice di Sharpe.</li>
+<li><strong>Il portafoglio GMV</strong> — due e tre attività rischiose, correlazione e diversificazione.</li>
+<li><strong>Markowitz con N attività rischiose</strong> — la frontiera dei portafogli, separazione in due fondi.</li>
+<li><strong>Aggiungere un'attività priva di rischio</strong> — CML, portafoglio di tangenza, teorema del fondo unico.</li>
+<li><strong>La teoria alla prova dei fatti</strong> — cinque titoli del DJIA, 2000–2022.</li>
+</ol>
+<h2 id="perch-la-finanza-e-i-modelli">Perché la finanza e i modelli</h2>
+<p>La finanza è il sistema circolatorio dell'economia: incanala il risparmio verso gli investimenti, favorisce la crescita ed è uno strumento per i problemi del XXI secolo (clima, disuguaglianza). I modelli razionalizzano scelte complesse e guidano le decisioni in condizioni di incertezza. La loro storia: guidati dalla teoria negli anni '50–'60, poi verificati sui dati, oggi basati sull'evidenza.</p>
+<p><strong>Gli attori principali</strong></p>
+<table>
+<thead>
+<tr>
+<th>Gruppo</th>
+<th>Chi</th>
+<th>Cosa fanno</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Banche</td>
+<td>Commerciali, d'investimento</td>
+<td>Depositi → prestiti (spread); M&amp;A, raccolta di capitale (commissioni)</td>
+</tr>
+<tr>
+<td>Assicurazioni</td>
+<td>Danni, vita, riassicurazione</td>
+<td>Trasferimento del rischio, protezione di lungo periodo</td>
+</tr>
+<tr>
+<td>Veicoli d'investimento</td>
+<td>Hedge fund, PE, VC, fondi comuni, ETF</td>
+<td>Raccolgono e gestiscono capitale</td>
+</tr>
+<tr>
+<td>Intermediari</td>
+<td>Broker, consulenti, banca postale</td>
+<td>Esecuzione, consulenza, accesso per il retail</td>
+</tr>
+<tr>
+<td>Regolatori</td>
+<td>Banche centrali</td>
+<td>Politica monetaria, stabilità, vigilanza</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Tipo di fondo</th>
+<th>Investitori</th>
+<th>Strategia</th>
+<th>Orizzonte</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hedge fund</td>
+<td>Istituzionali, HNWI</td>
+<td>Long/short, global macro, event-driven</td>
+<td>Flessibile</td>
+</tr>
+<tr>
+<td>Private equity</td>
+<td>Istituzionali, HNWI</td>
+<td>Buyout, ristrutturazioni</td>
+<td>5–10 anni</td>
+</tr>
+<tr>
+<td>Venture capital</td>
+<td>Istituzionali, HNWI</td>
+<td>Finanziamento in fase iniziale</td>
+<td>5–7 anni</td>
+</tr>
+<tr>
+<td>Fondi comuni</td>
+<td>Retail</td>
+<td>Diversificati, indicizzati</td>
+<td>Aperto</td>
+</tr>
+<tr>
+<td>ETF</td>
+<td>Tutti</td>
+<td>Indicizzazione passiva, settori</td>
+<td>Aperto</td>
+</tr>
+</tbody>
+</table>
+<p>Strumenti: azioni (diritto residuale, dividendi, voto), debito (obbligazioni, debito subordinato), derivati (opzioni, future, swap), prodotti cartolarizzati (ABS, MBS). <strong>Il corso si concentra sulle azioni e sui portafogli azionari.</strong></p>
+<h2 id="prezzi-rendimenti-e-rischio">Prezzi, rendimenti e rischio</h2>
+<p>Senza dividendi, il prezzo evolve come <span class="math math-inline">\(P_t = P_{t-1}(1 + R_t)\)</span>:</p>
+<p><span class="math math-display">\[1 + R_t = \frac{P_t}{P_{t-1}} \quad\text{(gross)}, \qquad R_t = \frac{P_t - P_{t-1}}{P_{t-1}} \quad\text{(net)}\]</span></p>
+<p><strong>PRI e TRI.</strong> Un <em>price return index</em> coglie solo i guadagni in conto capitale; un <em>total return index</em> aggiunge i dividendi <span class="math math-inline">\(D_t\)</span>:</p>
+<p><span class="math math-display">\[R_t^{PRI} = \frac{P_t - P_{t-1}}{P_{t-1}}, \qquad R_t^{TRI} = \frac{P_t - P_{t-1} + D_t}{P_{t-1}}\]</span></p>
+<p>Per lo stesso titolo <span class="math math-inline">\(R^{TRI} \ge R^{PRI}\)</span>; il TRI è oggi lo standard del settore.</p>
+<p><strong>Volatilità</strong> = deviazione standard dei rendimenti, la misura di rischio più comune:</p>
+<p><span class="math math-display">\[\sigma = \sqrt{\frac{1}{N}\sum_{t=1}^{N} (R_t - \bar R)^2}\]</span></p>
+<p>La catena da ricordare: <strong>prezzi → rendimenti → rischio</strong>.</p>
+<h2 id="criteri-di-decisione-in-condizioni-di-rischio">Criteri di decisione in condizioni di rischio</h2>
+<h3 id="scenari-mediavarianza">Scenari media–varianza</h3>
+<p>Si confrontano il portafoglio 1 e il portafoglio 2:</p>
+<table>
+<thead>
+<tr>
+<th>Scenario</th>
+<th>Condizione</th>
+<th>Conclusione</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td><span class="math math-inline">\(E(\tilde r_1) &gt; E(\tilde r_2)\)</span> e <span class="math math-inline">\(\sigma_1 \le \sigma_2\)</span></td>
+<td>1 <strong>domina in media–varianza</strong> 2</td>
+</tr>
+<tr>
+<td>B</td>
+<td><span class="math math-inline">\(E(\tilde r_1) \ge E(\tilde r_2)\)</span> e <span class="math math-inline">\(\sigma_1 &gt; \sigma_2\)</span></td>
+<td>Nessuna preferenza netta</td>
+</tr>
+<tr>
+<td>C</td>
+<td><span class="math math-inline">\(E(\tilde r_1) \le E(\tilde r_2)\)</span> e <span class="math math-inline">\(\sigma_1 &gt; \sigma_2\)</span></td>
+<td>1 è <strong>inefficiente</strong></td>
+</tr>
+</tbody>
+</table>
+<p>Un portafoglio <strong>efficiente</strong> offre il rendimento più alto per il suo rischio, o il rischio più basso per il suo rendimento.</p>
+<h3 id="un-esempio-numerico">Un esempio numerico</h3>
+<p>Tre azioni costano oggi 100; l'anno prossimo si ha lo stato Buono o Cattivo, ciascuno con probabilità 50%.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Buono</th>
+<th>Cattivo</th>
+<th><span class="math math-inline">\(E(R)\)</span></th>
+<th><span class="math math-inline">\(\sigma(R)\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Azione 1</td>
+<td>120 (+20%)</td>
+<td>105 (+5%)</td>
+<td>12.5%</td>
+<td>7.5%</td>
+</tr>
+<tr>
+<td>Azione 2</td>
+<td>160 (+60%)</td>
+<td>50 (−50%)</td>
+<td>5.0%</td>
+<td>55.0%</td>
+</tr>
+<tr>
+<td>Azione 3</td>
+<td>160 (+60%)</td>
+<td>105 (+5%)</td>
+<td>32.5%</td>
+<td>27.5%</td>
+</tr>
+</tbody>
+</table>
+<p><span class="math math-display">\[E(R_1) = 0.5(20\%) + 0.5(5\%) = 12.5\%, \qquad \sigma(R_1) = \sqrt{0.5(20 - 12.5)^2 + 0.5(5 - 12.5)^2} = 7.5\%\]</span></p>
+<ul>
+<li><strong>Dominanza stato per stato</strong>: l'Azione 3 paga almeno quanto le altre in ogni stato → è sempre preferita.</li>
+<li><strong>Dominanza media–varianza</strong>: l'Azione 1 domina l'Azione 2. Ma l'Azione 3 <em>non</em> domina l'Azione 1 (più rischio), pur dominandola stato per stato — un limite del criterio media–varianza.</li>
+</ul>
+<p>Quando nessuno dei due criteri ordina due attività, si usa l'<strong>indice di Sharpe</strong> (qui <span class="math math-inline">\(r_f = 0\)</span>):</p>
+<p><span class="math math-display">\[SR = \frac{E(R) - r_f}{\sigma(R)}\]</span></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Buono</th>
+<th>Cattivo</th>
+<th><span class="math math-inline">\(E(R)\)</span></th>
+<th><span class="math math-inline">\(\sigma(R)\)</span></th>
+<th>Sharpe</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Azione 4</td>
+<td>5%</td>
+<td>3%</td>
+<td>4.0%</td>
+<td>1.0%</td>
+<td>4.00</td>
+</tr>
+<tr>
+<td>Azione 5</td>
+<td>8%</td>
+<td>2%</td>
+<td>5.0%</td>
+<td>3.0%</td>
+<td>1.67</td>
+</tr>
+</tbody>
+</table>
+<p>Lo Sharpe preferisce l'Azione 4, ma presuppone un trade-off <strong>lineare</strong>: raddoppiare il rischio va bene se il rendimento raddoppia. Non tutti gli investitori avversi al rischio sono d'accordo.</p>
+<table>
+<thead>
+<tr>
+<th>Criterio</th>
+<th>Punto di forza</th>
+<th>Limite</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Stato per stato</td>
+<td>Il più robusto</td>
+<td>Raramente applicabile</td>
+</tr>
+<tr>
+<td>Media–varianza</td>
+<td>Ampiamente applicabile</td>
+<td>Può trarre in inganno, non ordina tutto</td>
+</tr>
+<tr>
+<td>Indice di Sharpe</td>
+<td>Ordina sempre</td>
+<td>Incorpora una specifica tolleranza al rischio</td>
+</tr>
+</tbody>
+</table>
+<p>Il riferimento resta l'<strong>utilità attesa</strong> (Capitolo 1): usa le preferenze dell'investitore stesso.</p>
+<h2 id="il-portafoglio-gmv-due-attivit-rischiose">Il portafoglio GMV: due attività rischiose</h2>
+<p>Con pesi <span class="math math-inline">\(w_1\)</span> e <span class="math math-inline">\(w_2 = 1 - w_1\)</span>:</p>
+<p><span class="math math-display">\[\mu_p = w_1\mu_1 + w_2\mu_2, \qquad \sigma_p^2 = w_1^2\sigma_1^2 + w_2^2\sigma_2^2 + 2w_1w_2\sigma_{1,2}, \qquad \sigma_{1,2} = \rho_{1,2}\sigma_1\sigma_2\]</span></p>
+<p>Minimizzando <span class="math math-inline">\(\sigma_p^2\)</span> con il vincolo <span class="math math-inline">\(w_1 + w_2 = 1\)</span> si ottiene il portafoglio a <strong>varianza minima globale</strong> (GMV):</p>
+<p><span class="math math-display">\[w_{1,gmv} = \frac{\sigma_2^2 - \sigma_{1,2}}{\sigma_1^2 + \sigma_2^2 - 2\sigma_{1,2}}, \qquad \sigma_{p,gmv}^2 = \frac{\sigma_1^2\sigma_2^2(1 - \rho_{1,2}^2)}{\sigma_1^2 + \sigma_2^2 - 2\rho_{1,2}\sigma_1\sigma_2}\]</span></p>
+<h3 id="il-ruolo-della-correlazione">Il ruolo della correlazione</h3>
+<ul>
+<li><span class="math math-inline">\(\rho = -1\)</span>: <strong>copertura perfetta</strong>. <span class="math math-inline">\(\sigma_p^2 = (w_a(\sigma_a + \sigma_b) - \sigma_b)^2 = 0\)</span> per
+<span class="math math-display">\[w_a = \frac{\sigma_b}{\sigma_a + \sigma_b}, \quad w_b = \frac{\sigma_a}{\sigma_a + \sigma_b}, \quad E(r_{ph}) = \frac{\sigma_b E(\tilde r_a) + \sigma_a E(\tilde r_b)}{\sigma_a + \sigma_b}\]</span>
+La frontiera ha concavità massima (due rette che si incontrano sull'asse <span class="math math-inline">\(\mu\)</span>).</li>
+<li><span class="math math-inline">\(\rho = +1\)</span>: la frontiera è una <strong>retta</strong>, nessun beneficio di diversificazione tra le due attività. Un portafoglio a rischio nullo esiste comunque <strong>con una posizione corta</strong>:
+<span class="math math-display">\[w_a = -\frac{\sigma_b}{\sigma_a - \sigma_b}, \quad w_b = \frac{\sigma_a}{\sigma_a - \sigma_b}\]</span></li>
+<li><span class="math math-inline">\(\rho = 0\)</span>: <span class="math math-inline">\(\sigma_{p,gmv}^2 = \dfrac{\sigma_a^2\sigma_b^2}{\sigma_a^2 + \sigma_b^2}\)</span>, sotto entrambe le varianze.</li>
+<li><span class="math math-inline">\(\rho \in (-1, 1)\)</span>: la frontiera è concava; più alto è <span class="math math-inline">\(\rho\)</span>, più si avvicina alla retta e più piccolo è il beneficio.</li>
+</ul>
+<p>Muovi <span class="math math-inline">\(\rho\)</span> e guarda la frontiera piegarsi tra i due estremi punteggiati (<span class="math math-inline">\(\rho = -1\)</span> e <span class="math math-inline">\(\rho = +1\)</span>). Con <span class="math math-inline">\(\rho = -1\)</span> il GMV raggiunge <span class="math math-inline">\(\sigma = 0\)</span>.</p>
+<pre class="wimark-src"><code class="nohighlight" data-wimark="frontier2" data-opts="{&#34;mua&#34;: 0.06, &#34;sa&#34;: 0.12, &#34;mub&#34;: 0.12, &#34;sb&#34;: 0.25, &#34;rho&#34;: 0.2}"></code></pre>
+<h3 id="pi-attivit-il-principio-assicurativo">Più attività: il principio assicurativo</h3>
+<p><span class="math math-display">\[\sigma_p^2 = \sum_{i=1}^{N} w_i^2\sigma_i^2 + \sum_{i=1}^{N}\sum_{j \ne i} w_iw_j\sigma_{ij}\]</span></p>
+<p>Con attività incorrelate, varianze uguali <span class="math math-inline">\(\sigma^2\)</span> e pesi uguali <span class="math math-inline">\(1/N\)</span>: <span class="math math-inline">\(\sigma_p^2 = \sigma^2 / N \to 0\)</span> per <span class="math math-inline">\(N \to \infty\)</span>. Le assicurazioni si basano su questo: le cattive notizie per alcune imprese sono compensate dalle buone notizie per altre. Con una correlazione media <span class="math math-inline">\(\rho &gt; 0\)</span>:</p>
+<p><span class="math math-display">\[\sigma_p^2 = \frac{\sigma^2}{N} + \Big(1 - \frac1N\Big)\rho\,\sigma^2 \;\longrightarrow\; \rho\,\sigma^2\]</span></p>
+<p>Il rischio <strong>idiosincratico</strong> scompare; il rischio <strong>sistematico</strong> (i crolli di mercato) no.</p>
+<pre class="wimark-src"><code class="nohighlight" data-wimark="diversification" data-opts="{&#34;sigma&#34;: 0.3, &#34;rho&#34;: 0.2, &#34;max&#34;: 50}"></code></pre>
+<h2 id="tre-attivit-rischiose-e-notazione-matriciale">Tre attività rischiose e notazione matriciale</h2>
+<p><span class="math math-display">\[\sigma_p^2 = w_1^2\sigma_1^2 + w_2^2\sigma_2^2 + w_3^2\sigma_3^2 + 2w_1w_2\sigma_{1,2} + 2w_1w_3\sigma_{1,3} + 2w_2w_3\sigma_{2,3}\]</span></p>
+<p>Tre varianze e sei covarianze: conviene usare i vettori. Con <span class="math math-inline">\(\mathbf w = (w_1, w_2, w_3)&#39;\)</span>, <span class="math math-inline">\(\boldsymbol\mu = E[\tilde{\mathbf r}]\)</span> e la matrice di covarianza <span class="math math-inline">\(\boldsymbol\Sigma\)</span>:</p>
+<p><span class="math math-display">\[\mu_p = \mathbf w&#39;\boldsymbol\mu, \qquad \sigma_p^2 = \mathbf w&#39;\boldsymbol\Sigma\mathbf w\]</span></p>
+<p><strong>GMV in forma matriciale.</strong> <span class="math math-inline">\(\min_{\mathbf w} \mathbf w&#39;\boldsymbol\Sigma\mathbf w\)</span> s.v. <span class="math math-inline">\(\mathbf w&#39;\mathbf 1 = 1\)</span>. Lagrangiana <span class="math math-inline">\(\Lambda = \mathbf w&#39;\boldsymbol\Sigma\mathbf w + \lambda(1 - \mathbf w&#39;\mathbf 1)\)</span>:</p>
+<ol>
+<li>Condizione del primo ordine: <span class="math math-inline">\(2\boldsymbol\Sigma\mathbf w - \lambda\mathbf 1 = \mathbf 0 \Rightarrow \mathbf w = \tfrac12\lambda\boldsymbol\Sigma^{-1}\mathbf 1\)</span>.</li>
+<li>Vincolo: <span class="math math-inline">\(\lambda = 2 / (\mathbf 1&#39;\boldsymbol\Sigma^{-1}\mathbf 1)\)</span>.</li>
+<li>Sostituendo:</li>
+</ol>
+<p><span class="math math-display">\[\mathbf w_{gmv} = \frac{\boldsymbol\Sigma^{-1}\mathbf 1}{\mathbf 1&#39;\boldsymbol\Sigma^{-1}\mathbf 1}\]</span></p>
+<p>Equivalentemente, le quattro condizioni del primo ordine formano il sistema lineare <span class="math math-inline">\(\begin{pmatrix} 2\boldsymbol\Sigma &amp; \mathbf 1 \\ \mathbf 1&#39; &amp; 0 \end{pmatrix}\begin{pmatrix}\mathbf w \\ \lambda\end{pmatrix} = \begin{pmatrix}\mathbf 0 \\ 1\end{pmatrix}\)</span>.</p>
+<h2 id="mediavarianza-di-markowitz-con-n-attivit-rischiose">Media–varianza di Markowitz con N attività rischiose</h2>
+<p><strong>Ipotesi</strong>: mercati senza frizioni (niente costi, tasse, spread), scambi e vendite allo scoperto illimitati, attività infinitamente divisibili, pari accesso all'informazione. Semplificazioni utili, non la realtà.</p>
+<p><strong>Problema.</strong> Per un rendimento obiettivo <span class="math math-inline">\(\mu_p\)</span>:</p>
+<p><span class="math math-display">\[\min_{\mathbf w} \tfrac12\mathbf w&#39;\boldsymbol\Sigma\mathbf w \quad\text{s.t.}\quad \mathbf w&#39;\boldsymbol\mu = \mu_p, \;\; \mathbf w&#39;\mathbf 1 = 1\]</span></p>
+<p><span class="math math-display">\[\Lambda = \tfrac12\mathbf w&#39;\boldsymbol\Sigma\mathbf w + \lambda(\mu_p - \mathbf w&#39;\boldsymbol\mu) + \psi(1 - \mathbf w&#39;\mathbf 1)\]</span></p>
+<p><strong>Soluzione.</strong></p>
+<ol>
+<li>Condizione del primo ordine in <span class="math math-inline">\(\mathbf w\)</span>: <span class="math math-inline">\(\boldsymbol\Sigma\mathbf w - \lambda\boldsymbol\mu - \psi\mathbf 1 = 0 \Rightarrow \mathbf w = \lambda\boldsymbol\Sigma^{-1}\boldsymbol\mu + \psi\boldsymbol\Sigma^{-1}\mathbf 1\)</span>.</li>
+<li>Si definiscono gli scalari <span class="math math-inline">\(A = \boldsymbol\mu&#39;\boldsymbol\Sigma^{-1}\boldsymbol\mu\)</span>, <span class="math math-inline">\(B = \boldsymbol\mu&#39;\boldsymbol\Sigma^{-1}\mathbf 1\)</span>, <span class="math math-inline">\(C = \mathbf 1&#39;\boldsymbol\Sigma^{-1}\mathbf 1\)</span>, <span class="math math-inline">\(\Delta = AC - B^2\)</span>.</li>
+<li>I vincoli danno <span class="math math-inline">\(\mu_p = A\lambda + B\psi\)</span> e <span class="math math-inline">\(1 = B\lambda + C\psi\)</span>, quindi
+<span class="math math-display">\[\lambda = \frac{C\mu_p - B}{\Delta}, \qquad \psi = \frac{A - B\mu_p}{\Delta}\]</span></li>
+<li>Sostituendo:</li>
+</ol>
+<p><span class="math math-display">\[\mathbf w = \mathbf g + \mathbf h\,\mu_p, \qquad \mathbf g = \frac{1}{\Delta}\big[A\,\boldsymbol\Sigma^{-1}\mathbf 1 - B\,\boldsymbol\Sigma^{-1}\boldsymbol\mu\big], \qquad \mathbf h = \frac1\Delta\big[C\,\boldsymbol\Sigma^{-1}\boldsymbol\mu - B\,\boldsymbol\Sigma^{-1}\mathbf 1\big]\]</span></p>
+<p><span class="math math-inline">\(\mathbf g\)</span> e <span class="math math-inline">\(\mathbf g + \mathbf h\)</span> sono i portafogli di frontiera per <span class="math math-inline">\(\mu_p = 0\)</span> e <span class="math math-inline">\(\mu_p = 1\)</span>.</p>
+<h3 id="la-frontiera-dei-portafogli">La frontiera dei portafogli</h3>
+<p><span class="math math-display">\[\sigma_p^2 = \frac1\Delta\big(C\mu_p^2 - 2B\mu_p + A\big) = \frac{C}{\Delta}\Big(\mu_p - \frac BC\Big)^2 + \frac1C\]</span></p>
+<p>Un'<strong>iperbole</strong> nel piano <span class="math math-inline">\((\sigma, \mu)\)</span>, cioè <span class="math math-inline">\(\mu_p = \frac BC \pm \sqrt{\frac{\Delta}{C}\big(\sigma_p^2 - \frac1C\big)}\)</span>. Il suo vertice è il GMV:</p>
+<p><span class="math math-display">\[\mu_{gmv} = \frac BC, \qquad \sigma_{gmv}^2 = \frac1C, \qquad \mathbf w_{gmv} = \frac{\boldsymbol\Sigma^{-1}\mathbf 1}{\mathbf 1&#39;\boldsymbol\Sigma^{-1}\mathbf 1}\]</span></p>
+<p>(nel GMV, <span class="math math-inline">\(\lambda = 0\)</span> e <span class="math math-inline">\(\psi = 1/C\)</span>).</p>
+<ul>
+<li>La <strong>frontiera efficiente</strong> è il ramo superiore: i portafogli con <span class="math math-inline">\(\mu_p \ge B/C\)</span>. Il ramo inferiore è inefficiente.</li>
+<li>La frontiera è <strong>convessa</strong>: <span class="math math-inline">\(\alpha\mathbf w_k + (1-\alpha)\mathbf w_q = \mathbf g + \mathbf h[\alpha\mu_k + (1-\alpha)\mu_q]\)</span> è di nuovo un portafoglio di frontiera.</li>
+<li>Se ogni investitore detiene un portafoglio efficiente, anche il <strong>portafoglio di mercato</strong> (la loro somma ponderata) è efficiente.</li>
+</ul>
+<h3 id="separazione-in-due-fondi">Separazione in due fondi</h3>
+<p>Due portafogli efficienti distinti qualsiasi generano l'intera frontiera: per ogni <span class="math math-inline">\(p\)</span> efficiente esiste <span class="math math-inline">\(\alpha \in \mathbb R\)</span> con</p>
+<p><span class="math math-display">\[\mathbf w_p = \alpha\mathbf w_1 + (1-\alpha)\mathbf w_2, \qquad \mu_p = \alpha\mu_1 + (1-\alpha)\mu_2\]</span></p>
+<p>perché <span class="math math-inline">\(\mathbf g + \mathbf h[\alpha\mu_1 + (1-\alpha)\mu_2] = \alpha(\mathbf g + \mathbf h\mu_1) + (1-\alpha)(\mathbf g + \mathbf h\mu_2)\)</span>. Bastano due fondi comuni.</p>
+<h2 id="aggiungere-unattivit-priva-di-rischio">Aggiungere un'attività priva di rischio</h2>
+<p>Un'attività priva di rischio rende <span class="math math-inline">\(r_f\)</span> con varianza nulla, e <span class="math math-inline">\(r_f &lt; B/C\)</span>. I pesi rischiosi <span class="math math-inline">\(\mathbf w\)</span> non sommano più a 1; <span class="math math-inline">\(w_f = 1 - \mathbf w&#39;\mathbf 1\)</span> (<span class="math math-inline">\(w_f &lt; 0\)</span> = indebitamento, <span class="math math-inline">\(w_f &gt; 0\)</span> = prestito a <span class="math math-inline">\(r_f\)</span>).</p>
+<p><span class="math math-display">\[\mu_p = \mathbf w&#39;\boldsymbol\mu + (1 - \mathbf w&#39;\mathbf 1)r_f = r_f + \mathbf w&#39;(\boldsymbol\mu - \mathbf 1 r_f)\]</span></p>
+<p><strong>Problema</strong>: <span class="math math-inline">\(\min \tfrac12\mathbf w&#39;\boldsymbol\Sigma\mathbf w\)</span> s.v. <span class="math math-inline">\(r_f + \mathbf w&#39;(\boldsymbol\mu - \mathbf 1 r_f) = \mu_p\)</span>.</p>
+<ol>
+<li>Condizione del primo ordine: <span class="math math-inline">\(\mathbf w = \lambda\boldsymbol\Sigma^{-1}(\boldsymbol\mu - \mathbf 1 r_f)\)</span>.</li>
+<li>Vincolo: <span class="math math-inline">\(\lambda = (\mu_p - r_f)/H\)</span> con <span class="math math-inline">\(H = (\boldsymbol\mu - \mathbf 1 r_f)&#39;\boldsymbol\Sigma^{-1}(\boldsymbol\mu - \mathbf 1 r_f)\)</span>.</li>
+</ol>
+<p><span class="math math-display">\[\mathbf w = \boldsymbol\Sigma^{-1}(\boldsymbol\mu - \mathbf 1 r_f)\,\frac{\mu_p - r_f}{H}\]</span></p>
+<p>La direzione <span class="math math-inline">\(\boldsymbol\Sigma^{-1}(\boldsymbol\mu - \mathbf 1 r_f)\)</span> è fissa; <span class="math math-inline">\(\mu_p\)</span> la scala soltanto. La varianza è <span class="math math-inline">\(\sigma_p^2 = (\mu_p - r_f)^2/H\)</span>, quindi la frontiera diventa una <strong>retta</strong>, la <strong>Capital Market Line</strong>:</p>
+<p><span class="math math-display">\[\mu_p = r_f + \sqrt H\,\sigma_p\]</span></p>
+<p>Solo la metà superiore è efficiente. La pendenza <span class="math math-inline">\(\sqrt H\)</span> è il più alto <strong>indice di Sharpe</strong> raggiungibile.</p>
+<h3 id="portafoglio-di-tangenza">Portafoglio di tangenza</h3>
+<p>La CML tocca la frontiera rischiosa nel <strong>portafoglio di tangenza</strong> <span class="math math-inline">\(T\)</span>, che contiene solo attività rischiose (si impone <span class="math math-inline">\(\mathbf w&#39;\mathbf 1 = 1\)</span>):</p>
+<p><span class="math math-display">\[\mathbf w_T = \frac{\boldsymbol\Sigma^{-1}(\boldsymbol\mu - \mathbf 1 r_f)}{\mathbf 1&#39;\boldsymbol\Sigma^{-1}(\boldsymbol\mu - \mathbf 1 r_f)}, \qquad \sigma_T = \frac{\sqrt H}{\Upsilon}, \qquad \mu_T = r_f + \frac{H}{\Upsilon}, \qquad \Upsilon = \mathbf 1&#39;\boldsymbol\Sigma^{-1}(\boldsymbol\mu - \mathbf 1 r_f)\]</span></p>
+<p>Stessa forma di <span class="math math-inline">\(\mathbf w_{gmv}\)</span>, con gli extra-rendimenti al posto di <span class="math math-inline">\(\mathbf 1\)</span>. Se <span class="math math-inline">\(r_f &gt; \mu_{gmv}\)</span> l'indice di Sharpe diventa negativo: in una crisi <span class="math math-inline">\(T\)</span> può essere venduto allo scoperto e il ricavato investito in titoli di Stato a breve.</p>
+<p>Investendo <span class="math math-inline">\(\alpha\)</span> nell'attività priva di rischio e <span class="math math-inline">\(1 - \alpha\)</span> in <span class="math math-inline">\(T\)</span>:</p>
+<p><span class="math math-display">\[\mu_p = \alpha r_f + (1-\alpha)\mu_T, \quad \sigma_p = (1-\alpha)\sigma_T \;\Rightarrow\; \mu_p = r_f + \frac{\mu_T - r_f}{\sigma_T}\sigma_p\]</span></p>
+<ul>
+<li><span class="math math-inline">\(0 \le \alpha \le 1\)</span>: si presta, tra <span class="math math-inline">\(r_f\)</span> e <span class="math math-inline">\(T\)</span>.</li>
+<li><span class="math math-inline">\(\alpha &lt; 0\)</span>: ci si indebita a <span class="math math-inline">\(r_f\)</span>, con leva oltre <span class="math math-inline">\(T\)</span>.</li>
+<li>Qualunque altro portafoglio rischioso <span class="math math-inline">\(k\)</span> dà una retta meno inclinata, <span class="math math-inline">\(\frac{\mu_k - r_f}{\sigma_k} &lt; \frac{\mu_T - r_f}{\sigma_T}\)</span>: inefficiente.</li>
+</ul>
+<p>Muovi <span class="math math-inline">\(r_f\)</span>: la CML ruota e <span class="math math-inline">\(T\)</span> scorre lungo la frontiera.</p>
+<pre class="wimark-src"><code class="nohighlight" data-wimark="frontier2" data-opts="{&#34;mua&#34;: 0.06, &#34;sa&#34;: 0.12, &#34;mub&#34;: 0.12, &#34;sb&#34;: 0.25, &#34;rho&#34;: 0.2, &#34;rf&#34;: 0.02}"></code></pre>
+<h3 id="teorema-del-fondo-unico">Teorema del fondo unico</h3>
+<p>Tutti i portafogli efficienti combinano <strong>un'attività priva di rischio</strong> e <strong>un fondo rischioso</strong>, <span class="math math-inline">\(T\)</span>. Con preferenze media–varianza e aspettative omogenee, tutti detengono lo stesso <span class="math math-inline">\(T\)</span>, che deve quindi essere il <strong>portafoglio di mercato</strong> — il punto di partenza del CAPM (Capitolo 3).</p>
+<h2 id="la-teoria-alla-prova-dei-fatti-cinque-titoli-del-djia">La teoria alla prova dei fatti: cinque titoli del DJIA</h2>
+<p>Dati: i cinque titoli più antichi del DJIA, mensili, feb 2000 – dic 2022 (276 oss.). Codice (MATLAB, Python, Julia, R): <a href="https://github.com/DoCoGu/EoFE_DCG_Springer">github.com/DoCoGu/EoFE_DCG_Springer</a>.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>PG</th>
+<th>MMM</th>
+<th>IBM</th>
+<th>MRK</th>
+<th>AXP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Media (%)</td>
+<td>0.76</td>
+<td>0.74</td>
+<td>0.91</td>
+<td>0.69</td>
+<td>0.56</td>
+</tr>
+<tr>
+<td>Dev. std. (%)</td>
+<td>5.12</td>
+<td>5.95</td>
+<td>9.15</td>
+<td>6.90</td>
+<td>7.26</td>
+</tr>
+<tr>
+<td>Sharpe</td>
+<td>0.125</td>
+<td>0.104</td>
+<td>0.086</td>
+<td>0.082</td>
+<td>0.060</td>
+</tr>
+<tr>
+<td>Asimmetria</td>
+<td>−1.42</td>
+<td>−0.03</td>
+<td>2.51</td>
+<td>−0.23</td>
+<td>0.43</td>
+</tr>
+<tr>
+<td>Curtosi</td>
+<td>11.39</td>
+<td>3.56</td>
+<td>28.43</td>
+<td>4.23</td>
+<td>6.29</td>
+</tr>
+</tbody>
+</table>
+<pre class="wimark-src"><code class="nohighlight" data-wimark="chart" data-opts="{&#34;type&#34;: &#34;bar&#34;, &#34;unit&#34;: &#34;%&#34;, &#34;title&#34;: &#34;Cinque titoli del DJIA: rendimento medio e volatilità (mensili)&#34;}">{
+  &#34;labels&#34;: [&#34;PG&#34;, &#34;MMM&#34;, &#34;IBM&#34;, &#34;MRK&#34;, &#34;AXP&#34;],
+  &#34;series&#34;: [{&#34;name&#34;: &#34;rendimento medio&#34;, &#34;values&#34;: [0.76, 0.74, 0.91, 0.69, 0.56]}, {&#34;name&#34;: &#34;volatilità&#34;, &#34;values&#34;: [5.12, 5.95, 9.15, 6.90, 7.26]}]
+}
+</code></pre>
+<ul>
+<li>Ogni singolo titolo sta <strong>dentro</strong> la frontiera: esiste un portafoglio che dà più rendimento a parità di rischio.</li>
+<li><strong>GMV</strong>: rendimento atteso di circa 0,70%, volatilità <strong>3,94%</strong> — rendimento simile ai titoli, rischio molto minore.</li>
+</ul>
+<p><strong>Pesi senza vincoli</strong> <span class="math math-inline">\(\mathbf w = \mathbf g + \mathbf h\mu_p\)</span> (N attività rischiose):</p>
+<table>
+<thead>
+<tr>
+<th>Attività</th>
+<th>GMV (0.70%)</th>
+<th>0.1%</th>
+<th>0.64%</th>
+<th>1.19%</th>
+<th>1.73%</th>
+<th>2.82%</th>
+<th>5%</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PG</td>
+<td>0.449</td>
+<td>−0.162</td>
+<td>0.393</td>
+<td>0.948</td>
+<td>1.503</td>
+<td>2.613</td>
+<td>4.833</td>
+</tr>
+<tr>
+<td>MMM</td>
+<td>0.212</td>
+<td>0.184</td>
+<td>0.210</td>
+<td>0.236</td>
+<td>0.262</td>
+<td>0.314</td>
+<td>0.418</td>
+</tr>
+<tr>
+<td>IBM</td>
+<td>0.203</td>
+<td>1.962</td>
+<td>0.363</td>
+<td>−1.235</td>
+<td>−2.834</td>
+<td>−6.032</td>
+<td>−12.427</td>
+</tr>
+<tr>
+<td>MRK</td>
+<td>0.168</td>
+<td>0.546</td>
+<td>0.203</td>
+<td>−0.141</td>
+<td>−0.484</td>
+<td>−1.170</td>
+<td>−2.543</td>
+</tr>
+<tr>
+<td>AXP</td>
+<td>−0.032</td>
+<td>−1.530</td>
+<td>−0.169</td>
+<td>1.192</td>
+<td>2.554</td>
+<td>5.276</td>
+<td>10.720</td>
+</tr>
+</tbody>
+</table>
+<p>Anche con un obiettivo dello 0,1%: 196% lunghi su IBM, 153% corti su AXP. L'ottimizzazione senza vincoli produce <strong>pesi estremi</strong>; in pratica richiede limiti alle posizioni, vincoli sulle vendite allo scoperto e costi di transazione, ed è molto sensibile alle stime di <span class="math math-inline">\(\boldsymbol\mu\)</span> e <span class="math math-inline">\(\boldsymbol\Sigma\)</span>.</p>
+<p><strong>Con l'attività priva di rischio</strong> (i pesi scalano lungo la CML):</p>
+<table>
+<thead>
+<tr>
+<th>Attività</th>
+<th><span class="math math-inline">\(T\)</span></th>
+<th>0.1%</th>
+<th>0.64%</th>
+<th>1.73%</th>
+<th>2.82%</th>
+<th>5%</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PG</td>
+<td>0.48</td>
+<td>0.06</td>
+<td>0.424</td>
+<td>1.151</td>
+<td>1.879</td>
+<td>3.33</td>
+</tr>
+<tr>
+<td>MMM</td>
+<td>0.21</td>
+<td>0.03</td>
+<td>0.188</td>
+<td>0.511</td>
+<td>0.833</td>
+<td>1.48</td>
+</tr>
+<tr>
+<td>IBM</td>
+<td>0.11</td>
+<td>0.01</td>
+<td>0.095</td>
+<td>0.257</td>
+<td>0.419</td>
+<td>0.74</td>
+</tr>
+<tr>
+<td>MRK</td>
+<td>0.15</td>
+<td>0.02</td>
+<td>0.130</td>
+<td>0.353</td>
+<td>0.576</td>
+<td>1.02</td>
+</tr>
+<tr>
+<td>AXP</td>
+<td>0.05</td>
+<td>0.01</td>
+<td>0.043</td>
+<td>0.117</td>
+<td>0.192</td>
+<td>0.34</td>
+</tr>
+<tr>
+<td><span class="math math-inline">\(r_f\)</span></td>
+<td>0.00</td>
+<td>0.88</td>
+<td>0.12</td>
+<td>−1.39</td>
+<td>−2.90</td>
+<td>−5.92</td>
+</tr>
+</tbody>
+</table>
+<p>All'1,73% l'investitore prende a prestito il 139% a <span class="math math-inline">\(r_f\)</span>; al 5%, il 592% (leva elevata). Le proporzioni <strong>relative</strong> dei titoli non cambiano mai — cambia solo la ripartizione tra <span class="math math-inline">\(T\)</span> e <span class="math math-inline">\(r_f\)</span>.</p>
+<p><strong>Limiti e rimedi.</strong> I rendimenti storici possono non riflettere il futuro (errore di stima, non stazionarietà) → allocazioni subottimali. Rimedi: ottimizzazione robusta e bayesiana, il modello di <strong>Black–Litterman</strong> (Capitolo 8), monitoraggio continuo.</p>
+<h2 id="punti-chiave">Punti chiave</h2>
+<ul>
+<li>Rendimenti: <span class="math math-inline">\(R_t = P_t/P_{t-1} - 1\)</span>; il TRI include i dividendi; rischio = volatilità <span class="math math-inline">\(\sigma\)</span>.</li>
+<li>Criteri: stato per stato (robusto, raro) → media–varianza (può trarre in inganno) → Sharpe (trade-off lineare) → utilità attesa (il riferimento).</li>
+<li>Due attività: <span class="math math-inline">\(w_{1,gmv} = (\sigma_2^2 - \sigma_{12})/(\sigma_1^2 + \sigma_2^2 - 2\sigma_{12})\)</span>; più basso è <span class="math math-inline">\(\rho\)</span>, maggiore è il guadagno da diversificazione; <span class="math math-inline">\(\rho = -1\)</span> → copertura perfetta.</li>
+<li>La diversificazione elimina il rischio idiosincratico, non quello sistematico.</li>
+<li>N attività: <span class="math math-inline">\(\mathbf w = \mathbf g + \mathbf h\mu_p\)</span>; frontiera <span class="math math-inline">\(\sigma_p^2 = \frac C\Delta(\mu_p - \frac BC)^2 + \frac1C\)</span>; GMV in <span class="math math-inline">\((1/\sqrt C, B/C)\)</span>.</li>
+<li>Separazione in due fondi: due portafogli efficienti generano la frontiera.</li>
+<li>Con <span class="math math-inline">\(r_f\)</span>: CML <span class="math math-inline">\(\mu_p = r_f + \sqrt H\sigma_p\)</span>, tangenza <span class="math math-inline">\(\mathbf w_T \propto \boldsymbol\Sigma^{-1}(\boldsymbol\mu - \mathbf 1 r_f)\)</span>; teorema del fondo unico.</li>
+<li>In pratica: pesi estremi, errore di stima → vincoli, Black–Litterman.</li>
+</ul>
+<pre class="wimark-src"><code class="nohighlight" data-wimark="quiz" data-opts="{&#34;title&#34;: &#34;Verifica&#34;}">[
+  {&#34;q&#34;: &#34;L&#39;Azione 3 paga almeno quanto l&#39;Azione 1 in ogni stato ma ha una $\\sigma$ più alta. Quale criterio mette l&#39;Azione 3 sopra l&#39;Azione 1?&#34;, &#34;options&#34;: [&#34;Dominanza media–varianza&#34;, &#34;Dominanza stato per stato&#34;, &#34;Nessuno dei due&#34;], &#34;answer&#34;: 1, &#34;why&#34;: &#34;Il criterio media–varianza non le ordina (media più alta *e* varianza più alta); la dominanza stato per stato sì. È un limite del criterio media–varianza.&#34;},
+  {&#34;q&#34;: &#34;Due attività con $\\rho = +1$ e $\\sigma_a \\ne \\sigma_b$. Si può costruire un portafoglio a varianza nulla?&#34;, &#34;options&#34;: [&#34;No, mai&#34;, &#34;Sì, solo con posizioni lunghe&#34;, &#34;Sì, con una posizione corta&#34;], &#34;answer&#34;: 2, &#34;why&#34;: &#34;$w_a = -\\sigma_b/(\\sigma_a - \\sigma_b)$: uno dei due pesi è negativo.&#34;},
+  {&#34;q&#34;: &#34;Pesi uguali, varianze uguali, correlazione media $\\rho = 0.25$, $\\sigma = 40\\%$. Per $N \\to \\infty$, $\\sigma_p \\to$&#34;, &#34;options&#34;: [&#34;0%&#34;, &#34;10%&#34;, &#34;20%&#34;], &#34;answer&#34;: 2, &#34;why&#34;: &#34;$\\sigma_p^2 \\to \\rho\\sigma^2 = 0.25 \\cdot 0.16 = 0.04$, quindi $\\sigma_p = 20\\%$: il rischio sistematico non si elimina con la diversificazione.&#34;},
+  {&#34;q&#34;: &#34;Le coordinate $(\\sigma, \\mu)$ del GMV sulla frontiera di Markowitz sono&#34;, &#34;options&#34;: [&#34;$(1/\\sqrt C,\\; B/C)$&#34;, &#34;$(\\sqrt H,\\; r_f)$&#34;, &#34;$(1/C,\\; A/B)$&#34;], &#34;answer&#34;: 0, &#34;why&#34;: &#34;$\\sigma_{gmv}^2 = 1/C$ e $\\mu_{gmv} = B/C$.&#34;},
+  {&#34;q&#34;: &#34;Con un&#39;attività priva di rischio, un investitore punta a un rendimento sopra $\\mu_T$. Il peso su $r_f$ è&#34;, &#34;options&#34;: [&#34;positivo (presta)&#34;, &#34;nullo&#34;, &#34;negativo (si indebita)&#34;], &#34;answer&#34;: 2, &#34;why&#34;: &#34;Sopra $T$ sulla CML l&#39;investitore si indebita a $r_f$ per fare leva sul portafoglio di tangenza ($\\alpha &lt; 0$).&#34;},
+  {&#34;q&#34;: &#34;La pendenza della Capital Market Line è uguale&#34;, &#34;options&#34;: [&#34;all&#39;indice di Sharpe del portafoglio di tangenza&#34;, &#34;al beta del mercato&#34;, &#34;all&#39;indice di Sharpe del GMV&#34;], &#34;answer&#34;: 0, &#34;why&#34;: &#34;Pendenza $= (\\mu_T - r_f)/\\sigma_T = \\sqrt H$, il massimo indice di Sharpe.&#34;}
+]
+</code></pre>
+</article>
+
+          
+          </div>
+        </div>
+      </section>
+
+      <aside class="col-toc" aria-label="In questa pagina">
+        <div class="col-head">In questa pagina</div>
+        <div class="col-scroll">
+          
+            
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l1">
+    <a href="#teoria-moderna-del-portafoglio">Teoria moderna del portafoglio</a>
+    
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l2">
+    <a href="#perch-la-finanza-e-i-modelli">Perché la finanza e i modelli</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#prezzi-rendimenti-e-rischio">Prezzi, rendimenti e rischio</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#criteri-di-decisione-in-condizioni-di-rischio">Criteri di decisione in condizioni di rischio</a>
+    
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l3">
+    <a href="#scenari-mediavarianza">Scenari media–varianza</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l3">
+    <a href="#un-esempio-numerico">Un esempio numerico</a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#il-portafoglio-gmv-due-attivit-rischiose">Il portafoglio GMV: due attività rischiose</a>
+    
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l3">
+    <a href="#il-ruolo-della-correlazione">Il ruolo della correlazione</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l3">
+    <a href="#pi-attivit-il-principio-assicurativo">Più attività: il principio assicurativo</a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#tre-attivit-rischiose-e-notazione-matriciale">Tre attività rischiose e notazione matriciale</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#mediavarianza-di-markowitz-con-n-attivit-rischiose">Media–varianza di Markowitz con N attività rischiose</a>
+    
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l3">
+    <a href="#la-frontiera-dei-portafogli">La frontiera dei portafogli</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l3">
+    <a href="#separazione-in-due-fondi">Separazione in due fondi</a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#aggiungere-unattivit-priva-di-rischio">Aggiungere un&#39;attività priva di rischio</a>
+    
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l3">
+    <a href="#portafoglio-di-tangenza">Portafoglio di tangenza</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l3">
+    <a href="#teorema-del-fondo-unico">Teorema del fondo unico</a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#la-teoria-alla-prova-dei-fatti-cinque-titoli-del-djia">La teoria alla prova dei fatti: cinque titoli del DJIA</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#punti-chiave">Punti chiave</a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+</ul>
+
+          
+          
+        </div>
+      </aside>
+
+    
+  </main>
+
+  
+  <footer class="statusbar" aria-hidden="true">
+    <span class="sb-mode">READ</span>
+    <span class="sb-path">it/notes/financial-economics/02-modern-portfolio-theory.md</span>
+    <span class="sb-spacer"></span>
+    <span class="sb-item">it</span>
+    <span class="sb-item">utf-8</span>
+    <span class="sb-item">markdown</span>
+    <span class="sb-pos" data-scroll-pos>top</span>
+  </footer>
+  
+
+  <div class="search" data-search hidden role="dialog" aria-modal="true" aria-label="Cerca">
+    <div class="search-panel">
+      <div class="search-bar"><span class="search-prompt" aria-hidden="true">❯</span>
+      <input class="search-input" type="search" placeholder="Cerca" autocomplete="off" spellcheck="false" aria-controls="search-results"></div>
+      <ul class="search-results" id="search-results" role="listbox"></ul>
+      <div class="search-hint" aria-hidden="true"><span><kbd>↑↓</kbd> scorri</span><span><kbd>↵</kbd> apri</span><span><kbd>esc</kbd> chiudi</span></div>
+    </div>
+  </div>
+
+  <script>
+    window.GOMARK = {
+      lang: "it",
+      root: "..\/..\/..\/",
+      theme: "light",
+      section: "notes",
+      i18n: { noResults: "Nessun risultato", copy: "copia", copied: "copiato", words: "parole", minRead: "min di lettura",
+        data: "dati", search: "cerca", noData: "nessun dato", other: "altro",
+        total: "totale", show: "mostra", hide: "nascondi", reset: "ripristina", all: "tutti" }
+    };
+  </script>
+  <script src="../../../static/widgets.js"></script>
+  <script src="../../../static/widgets/finance/frontier2.js"></script>
+  <script src="../../../static/widgets/finance/diversification.js"></script>
+  <script src="../../../static/widgets/chart.js"></script>
+  <script src="../../../static/widgets/quiz.js"></script>
+  <script src="../../../static/engine.js"></script>
+  <script src="../../../static/ui.js"></script>
+  <script src="../../../static/search.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

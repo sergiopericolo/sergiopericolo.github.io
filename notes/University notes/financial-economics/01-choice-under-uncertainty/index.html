@@ -211,7 +211,8 @@
 </div>
 
 <article class="page-body"><h1 id="choice-under-uncertainty">Choice Under Uncertainty</h1>
-<p>Chapter 1 of <em>Essentials of Financial Economics</em> (Donadelli, Costola, Gufler). How rational agents assess and price risk.</p>
+<p>Chapter 1 of <em>Essentials of Financial Economics</em> (Donadelli, Costola, Gufler).</p>
+<p>How rational agents assess and price risk.</p>
 <p>Three tools:</p>
 <ol>
 <li><strong>Expected utility and the risk premium</strong> — people rank gambles by expected <em>utility</em>, not expected money. The risk premium is what they pay to avoid risk (e.g. insurance).</li>
@@ -274,9 +275,9 @@
 <p>Risk management tools: probability and statistics, diversification, insurance, hedging.</p>
 <h2 id="expected-value-and-its-limits">Expected value and its limits</h2>
 <h3 id="the-ev-criterion">The EV criterion</h3>
-<p>Mike pays <span class="math math-inline">\(x\)</span> to flip a coin: heads he gets 10, tails 0.</p>
+<p>Sergio pays <span class="math math-inline">\(x\)</span> to flip a coin: heads he gets 10, tails 0.</p>
 <p><span class="math math-display">\[E[\text{game}] = 0.5(-x) + 0.5(10 - x) = 5 - x\]</span></p>
-<p>EV is positive only if <span class="math math-inline">\(x \le 5\)</span>, so by EV Mike pays at most 5.</p>
+<p>EV is positive only if <span class="math math-inline">\(x \le 5\)</span>, so by EV Sergio pays at most 5.</p>
 <p><strong>Expected value</strong> = long-run average of outcomes: <span class="math math-inline">\(E[\tilde X] = \sum_n p_n X_n\)</span>. For a fair die:</p>
 <p><span class="math math-display">\[E[\tilde X] = \frac{1+2+3+4+5+6}{6} = 3.5\]</span></p>
 <h3 id="law-of-large-numbers">Law of Large Numbers</h3>
@@ -365,10 +366,10 @@
 <p>By EV one should pay any finite price to play; in reality people pay little.</p>
 <p><strong>Bernoulli's resolution:</strong> money is not valued linearly. Utility grows at a <strong>diminishing rate</strong> — the first dollar is worth more than the hundredth.</p>
 <h3 id="diminishing-marginal-utility">Diminishing marginal utility</h3>
-<p>Example: homeless Mike finds a ticket paying 1,000 or 0 with equal odds (EV = 500). Mr. Y offers 499 for sure.</p>
+<p>Example: homeless Sergio finds a ticket paying 1,000 or 0 with equal odds (EV = 500). Mr. Y offers 499 for sure.</p>
 <ul>
 <li><strong>EV criterion</strong>: reject, since 499 &lt; 500.</li>
-<li><strong>Utility criterion</strong>: the first 499 means food and shelter; the next 501 add less; ending with 0 is catastrophic. Mike should accept.</li>
+<li><strong>Utility criterion</strong>: the first 499 means food and shelter; the next 501 add less; ending with 0 is catastrophic. Sergio should accept.</li>
 </ul>
 <p>Each extra unit consumed adds less satisfaction (illustrative values):</p>
 <pre class="wimark-src"><code class="nohighlight" data-wimark="chart" data-opts="{&#34;type&#34;: &#34;line&#34;, &#34;x&#34;: &#34;units consumed&#34;, &#34;title&#34;: &#34;Total and marginal utility&#34;}">{
@@ -388,7 +389,7 @@
 <h3 id="expected-utility">Expected utility</h3>
 <p>Weight each outcome by its utility:</p>
 <p><span class="math math-display">\[E[U(\tilde x)] = \sum_i p_i \, U(x_i)\]</span></p>
-<p>Mike accepts Mr. Y's offer if <span class="math math-inline">\(\tfrac12 U(1000) + \tfrac12 U(0) &lt; U(499)\)</span>. With a concave <span class="math math-inline">\(U\)</span> such that <span class="math math-inline">\(U(0)=0\)</span>, <span class="math math-inline">\(U(499)=10\)</span>, <span class="math math-inline">\(U(1000)=16\)</span>:</p>
+<p>Sergio accepts Mr. Y's offer if <span class="math math-inline">\(\tfrac12 U(1000) + \tfrac12 U(0) &lt; U(499)\)</span>. With a concave <span class="math math-inline">\(U\)</span> such that <span class="math math-inline">\(U(0)=0\)</span>, <span class="math math-inline">\(U(499)=10\)</span>, <span class="math math-inline">\(U(1000)=16\)</span>:</p>
 <p><span class="math math-display">\[\text{LHS} = \tfrac12 (16) + \tfrac12 (0) = 8 \; &lt; \; \text{RHS} = 10 \;\Rightarrow\; \text{accept}\]</span></p>
 <p>Expected-utility maximisers with diminishing marginal utility prefer sure outcomes and avoid gambles unless the payoff justifies the risk.</p>
 <h3 id="fair-lotteries-and-risk-attitudes">Fair lotteries and risk attitudes</h3>
@@ -425,19 +426,19 @@
 </tr>
 </tbody>
 </table>
-<h3 id="risk-aversion-mike-with-uw--w12">Risk aversion: Mike with <span class="math math-inline">\(U(W) = W^{1/2}\)</span></h3>
+<h3 id="risk-aversion-sergio-with-uw--w12">Risk aversion: Sergio with <span class="math math-inline">\(U(W) = W^{1/2}\)</span></h3>
 <p>Power (CRRA) utility <span class="math math-inline">\(U(W) = W^{1/2}\)</span>:</p>
 <p><span class="math math-display">\[U&#39;(W) = \tfrac12 W^{-1/2} &gt; 0, \qquad U&#39;&#39;(W) = -\tfrac14 W^{-3/2} &lt; 0 \;\Rightarrow\; \text{risk-averse}\]</span></p>
 <p>Lottery: 20 or 0 with equal odds.</p>
 <ul>
-<li>Expected wealth: <span class="math math-inline">\(E[\tilde W] = 10\)</span>.</li>
-<li>Expected utility: <span class="math math-inline">\(E[U(\tilde W)] = \tfrac12 \sqrt{20} + \tfrac12 \sqrt{0} \approx 2.2\)</span>.</li>
-<li>Utility of the sure 10: <span class="math math-inline">\(U(10) = \sqrt{10} \approx 3.2\)</span>.</li>
+<li>Expected wealth: <span class="math math-inline">\(E[\tilde W] =  \tfrac12 20 + \tfrac12 0 = 10\)</span></li>
+<li>Expected utility: <span class="math math-inline">\(E[U(\tilde W)] = \tfrac12 \sqrt{20} + \tfrac12 \sqrt{0} \approx 2.2\)</span></li>
+<li>Utility of the sure 10: <span class="math math-inline">\(U(10) = \sqrt{10} \approx 3.2\)</span></li>
 </ul>
-<p>Since <span class="math math-inline">\(E[U(\tilde W)] &lt; U(E[\tilde W])\)</span>, Mike prefers the sure 10 and will pay to avoid the risk.</p>
+<p>Since <span class="math math-inline">\(E[U(\tilde W)] &lt; U(E[\tilde W])\)</span>, Sergio prefers the sure 10 and will pay to avoid the risk.</p>
 <p><strong>Certainty equivalent</strong> <span class="math math-inline">\(W_{CE}\)</span>: the sure wealth with the same utility as the lottery.</p>
 <p><span class="math math-display">\[\sqrt{W_{CE}} = 2.2 \;\Rightarrow\; W_{CE} = 2.2^2 \approx 4.8\]</span></p>
-<p><strong>Risk premium</strong> <span class="math math-inline">\(\pi\)</span>: what Mike pays to avoid the lottery.</p>
+<p><strong>Risk premium</strong> <span class="math math-inline">\(\pi\)</span>: what Sergio pays to avoid the lottery.</p>
 <p><span class="math math-display">\[\pi = E[\tilde W] - W_{CE} = 10 - 4.8 = 5.2\]</span></p>
 <p><span class="math math-inline">\(\pi = 5.2\)</span> is the <strong>maximum</strong> acceptable premium:</p>
 <ul>
@@ -458,11 +459,11 @@
 <p><span class="math math-inline">\(\lambda_W\)</span> is the <strong>Arrow–Pratt coefficient of absolute risk aversion</strong>.</p>
 <p><strong>Derivation.</strong> Let <span class="math math-inline">\(\bar W = E[\tilde W]\)</span> and <span class="math math-inline">\(\sigma_W^2 = \mathrm{Var}(\tilde W)\)</span>.</p>
 <ol>
-<li>Second-order Taylor expansion of <span class="math math-inline">\(U(\tilde W)\)</span> around <span class="math math-inline">\(\bar W\)</span>: <span class="math math-inline">\(U(\tilde W) \approx U(\bar W) + U&#39;(\bar W)(\tilde W - \bar W) + \tfrac12 U&#39;&#39;(\bar W)(\tilde W - \bar W)^2\)</span>.</li>
-<li>Take expectations (<span class="math math-inline">\(E[\tilde W - \bar W] = 0\)</span>): <span class="math math-inline">\(E[U(\tilde W)] \approx U(\bar W) + \tfrac12 U&#39;&#39;(\bar W)\sigma_W^2\)</span>.</li>
-<li>First-order expansion of the CE: <span class="math math-inline">\(U(W_{CE}) \approx U(\bar W) + U&#39;(\bar W)(W_{CE} - \bar W)\)</span>.</li>
-<li>Set <span class="math math-inline">\(E[U(\tilde W)] = U(W_{CE})\)</span>: <span class="math math-inline">\(U&#39;(\bar W)(W_{CE} - \bar W) = \tfrac12 U&#39;&#39;(\bar W)\sigma_W^2\)</span>.</li>
-<li>Solve for <span class="math math-inline">\(\pi = \bar W - W_{CE}\)</span>: <span class="math math-inline">\(\pi = \tfrac12 \lambda_W \sigma_W^2\)</span>.</li>
+<li>Second-order Taylor expansion of <span class="math math-inline">\(U(\tilde W)\)</span> around <span class="math math-inline">\(\bar W\)</span>: <!-- raw HTML omitted --><span class="math math-display">\[U(\tilde W) \approx U(\bar W) + U&#39;(\bar W)(\tilde W - \bar W) + \tfrac12 U&#39;&#39;(\bar W)(\tilde W - \bar W)^2\]</span></li>
+<li>Take expectations (<span class="math math-inline">\(E[\tilde W - \bar W] = 0\)</span>): <!-- raw HTML omitted --><span class="math math-display">\[E[U(\tilde W)] \approx U(\bar W) + \tfrac12 U&#39;&#39;(\bar W)\sigma_W^2\]</span></li>
+<li>First-order expansion of the CE: <!-- raw HTML omitted --><span class="math math-display">\[U(W_{CE}) \approx U(\bar W) + U&#39;(\bar W)(W_{CE} - \bar W)\]</span></li>
+<li>Set <span class="math math-inline">\(E[U(\tilde W)] = U(W_{CE})\)</span>: <!-- raw HTML omitted --><span class="math math-display">\[U&#39;(\bar W)(W_{CE} - \bar W) = \tfrac12 U&#39;&#39;(\bar W)\sigma_W^2\]</span></li>
+<li>Solve for <span class="math math-inline">\(\pi = \bar W - W_{CE}\)</span>: <!-- raw HTML omitted --><span class="math math-display">\[\pi = \tfrac12 \lambda_W \sigma_W^2\]</span></li>
 </ol>
 <p>With <span class="math math-inline">\(\sigma_W^2 &gt; 0\)</span>, <span class="math math-inline">\(U&#39; &gt; 0\)</span>, <span class="math math-inline">\(U&#39;&#39; &lt; 0\)</span>, the premium is positive.</p>
 <h2 id="risk-aversion-and-asset-demand">Risk aversion and asset demand</h2>
@@ -495,7 +496,7 @@
 <h2 id="key-takeaways">Key takeaways</h2>
 <ul>
 <li><strong>Risk</strong> has known probabilities; <strong>uncertainty</strong> does not.</li>
-<li><strong>Expected value</strong> fails (St. Petersburg, Powerball, Mike's ticket) because it ignores risk.</li>
+<li><strong>Expected value</strong> fails (St. Petersburg, Powerball, Sergio's ticket) because it ignores risk.</li>
 <li><strong>Diminishing marginal utility</strong> → concave <span class="math math-inline">\(U\)</span> → people maximise <strong>expected utility</strong>.</li>
 <li><strong>Certainty equivalent</strong>: <span class="math math-inline">\(U(W_{CE}) = E[U(\tilde W)]\)</span>. <strong>Risk premium</strong>: <span class="math math-inline">\(\pi = E[\tilde W] - W_{CE}\)</span>.</li>
 <li><span class="math math-inline">\(\pi &gt; 0\)</span> if risk-averse, <span class="math math-inline">\(= 0\)</span> if risk-neutral, <span class="math math-inline">\(&lt; 0\)</span> if risk-loving.</li>
@@ -605,7 +606,7 @@ func parse(c command, args []string) (*ctx, error) {
   </li>
   
   <li class="toc-item toc-l3">
-    <a href="#risk-aversion-mike-with-uw--w12">Risk aversion: Mike with</a>
+    <a href="#risk-aversion-sergio-with-uw--w12">Risk aversion: Sergio with</a>
     
   </li>
   

@@ -1,0 +1,949 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Digital identity and computational knowledge base: résumé, projects and notes.">
+  <meta name="author" content="Sergio Di Lapi">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains&#43;Mono:wght@400;500;600;700;800&amp;family=IBM&#43;Plex&#43;Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <title>Modern Portfolio Theory · Notes</title>
+  <link rel="stylesheet" href="../../../../static/layout.css">
+  <link rel="stylesheet" href="../../../../static/theme.css">
+  <link rel="stylesheet" href="../../../../static/wimark.css">
+  <link rel="stylesheet" href="../../../../static/themes/light.css">
+  <style>:root { --mono:"JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;--sans:"IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;--font-body:var(--sans);--font-heading:var(--mono);--font-size:14px;--content-width:780px;--sidebar-width:256px;--folders-width:224px;--toc-width:232px;--radius:4px;--radius-sm:3px;--radius-lg:10px; }</style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+</head>
+<body data-depth="multi" data-index="right" data-theme="light" data-theme-class="monochrome" data-heading="mono" data-statusbar="on">
+
+  <header class="topbar">
+    <a class="brand" href="../../../../index.html">sergiopericolo</a>
+    <nav class="sections" aria-label="Sections">
+      
+      <a class="section-link" href="../../../../about/index.html">
+        <span class="section-idx">01</span>
+        <span class="section-title">About</span>
+      </a>
+      
+      <a class="section-link" href="../../../../projects/index.html">
+        <span class="section-idx">02</span>
+        <span class="section-title">Projects</span>
+      </a>
+      
+      <a class="section-link active" href="../../../../notes/index.html">
+        <span class="section-idx">03</span>
+        <span class="section-title">Notes</span>
+      </a>
+      
+      <a class="section-link" href="../../../../visual/index.html">
+        <span class="section-idx">04</span>
+        <span class="section-title">Visual</span>
+      </a>
+      
+      <a class="section-link" href="../../../../art/index.html">
+        <span class="section-idx">05</span>
+        <span class="section-title">Art</span>
+      </a>
+      
+    </nav>
+    <div class="topbar-end">
+      <button class="search-open" type="button" data-search-open aria-haspopup="dialog"><span>Search</span><kbd>⌘K</kbd></button>
+      
+      <span class="build-info"><a class="build-name" href="https://github.com/sergiopericolo/GoMark">GoMark</a> v1.2.0</span>
+    </div>
+  </header>
+
+  <main class="grid" style="--grid: minmax(0, 15fr) minmax(0, 15fr) minmax(0, 55fr) minmax(0, 15fr); --grid-medium: minmax(0, 15fr) minmax(0, 15fr) minmax(0, 70fr)">
+
+    
+
+      
+      <aside class="col-folders" aria-label="Folders">
+        <div class="col-head">Folders</div>
+        <div class="col-scroll">
+          <a class="tree-root" href="../../../index.html">~/notes/</a>
+          
+
+<ul class="tree">
+  
+  
+  <li class="tree-node has-children open" data-path="University notes">
+    <div class="tree-row">
+      
+      <button class="tree-toggle" type="button" aria-expanded="true" aria-label="University notes"><span class="chev" aria-hidden="true"></span></button>
+      
+      <a class="tree-folder" href="../../../University%20notes/index.html">
+        <span class="tree-name">University notes/</span>
+        
+      </a>
+    </div>
+    
+      
+
+<ul class="tree">
+  
+  
+  <li class="tree-node" data-path="University notes/computational-method">
+    <div class="tree-row">
+      
+      <span class="tree-leaf" aria-hidden="true"></span>
+      
+      <a class="tree-folder" href="../../../University%20notes/computational-method/index.html">
+        <span class="tree-name">computational-method/</span>
+        <span class="tree-count">5</span>
+      </a>
+    </div>
+    
+  </li>
+  
+  
+  <li class="tree-node open" data-path="University notes/financial-economics">
+    <div class="tree-row">
+      
+      <span class="tree-leaf" aria-hidden="true"></span>
+      
+      <a class="tree-folder active" href="../../../University%20notes/financial-economics/index.html">
+        <span class="tree-name">financial-economics/</span>
+        <span class="tree-count">9</span>
+      </a>
+    </div>
+    
+  </li>
+  
+</ul>
+
+    
+  </li>
+  
+</ul>
+
+        </div>
+      </aside>
+      
+
+      <aside class="col-files" aria-label="Files">
+        <div class="col-head">
+          <span>Files <span class="badge">9</span></span>
+          <span class="col-head-path">notes/University notes/financial-economics/</span>
+        </div>
+        <div class="col-scroll">
+          <ul class="file-list">
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-economics/01-choice-under-uncertainty/index.html">
+                <span class="file-name">Choice Under Uncertainty</span>
+                <span class="file-path">01-choice-under-uncertainty.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link active" href="../../../University%20notes/financial-economics/02-modern-portfolio-theory/index.html">
+                <span class="file-name">Modern Portfolio Theory</span>
+                <span class="file-path">02-modern-portfolio-theory.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-economics/03-capm/index.html">
+                <span class="file-name">The Capital Asset Pricing Model</span>
+                <span class="file-path">03-capm.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-economics/04-empirical-capm/index.html">
+                <span class="file-name">Empirical Analysis of the CAPM</span>
+                <span class="file-path">04-empirical-capm.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-economics/05-consumption-capm/index.html">
+                <span class="file-name">The Consumption CAPM</span>
+                <span class="file-path">05-consumption-capm.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-economics/06-apt-multifactor/index.html">
+                <span class="file-name">Arbitrage Pricing Theory and Multi-factor Models</span>
+                <span class="file-path">06-apt-multifactor.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-economics/07-cross-sectional-asset-pricing/index.html">
+                <span class="file-name">Empirical Cross-Sectional Asset Pricing</span>
+                <span class="file-path">07-cross-sectional-asset-pricing.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-economics/08-black-litterman/index.html">
+                <span class="file-name">The Black–Litterman Model</span>
+                <span class="file-path">08-black-litterman.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-economics/09-event-studies/index.html">
+                <span class="file-name">Event Study Analysis</span>
+                <span class="file-path">09-event-studies.md</span>
+              </a>
+            </li>
+            
+          </ul>
+        </div>
+      </aside>
+
+      <section class="col-content" aria-label="sergiopericolo">
+        <div class="content-scroll" id="content">
+          <div class="content-inner">
+          
+            
+<div class="page-head">
+  <div class="page-crumb"><span class="crumb-home">~</span>/notes/University notes/financial-economics/02-modern-portfolio-theory.md</div>
+  <h1 class="page-title">Modern Portfolio Theory</h1>
+  <div class="page-meta" data-page-meta><span class="meta-tag">en</span></div>
+</div>
+
+<article class="page-body"><h1 id="modern-portfolio-theory">Modern Portfolio Theory</h1>
+<p>Chapter 2 of <em>Essentials of Financial Economics</em> (Donadelli, Costola, Gufler). How to combine risky assets so that, for a given risk, the expected return is as high as possible (Markowitz, 1952).</p>
+<p>Roadmap:</p>
+<ol>
+<li><strong>Returns and risk</strong> — prices, returns, PRI vs. TRI, volatility.</li>
+<li><strong>Decision criteria</strong> — state-by-state dominance, mean–variance dominance, Sharpe ratio.</li>
+<li><strong>The GMV portfolio</strong> — two and three risky assets, correlation and diversification.</li>
+<li><strong>Markowitz with N risky assets</strong> — the portfolio frontier, two-fund separation.</li>
+<li><strong>Adding a riskless asset</strong> — CML, tangency portfolio, one-fund theorem.</li>
+<li><strong>Theory meets practice</strong> — five DJIA stocks, 2000–2022.</li>
+</ol>
+<h2 id="why-finance-and-models">Why finance and models</h2>
+<p>Finance is the economy's circulatory system: it channels savings to investment, fosters growth and is a tool for 21st-century problems (climate, inequality). Models rationalise complex choices and guide decisions under uncertainty. Their history: theory-driven in the 1950s–60s, then tested on data, today evidence-based.</p>
+<p><strong>Main players</strong></p>
+<table>
+<thead>
+<tr>
+<th>Group</th>
+<th>Who</th>
+<th>What they do</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Banks</td>
+<td>Commercial, investment</td>
+<td>Deposits → loans (spread); M&amp;A, capital raising (fees)</td>
+</tr>
+<tr>
+<td>Insurance</td>
+<td>General, life, re-insurance</td>
+<td>Risk transfer, long-term protection</td>
+</tr>
+<tr>
+<td>Investment vehicles</td>
+<td>Hedge funds, PE, VC, mutual funds, ETFs</td>
+<td>Pool and manage capital</td>
+</tr>
+<tr>
+<td>Intermediaries</td>
+<td>Brokers, advisors, postal banking</td>
+<td>Execution, advice, retail access</td>
+</tr>
+<tr>
+<td>Regulators</td>
+<td>Central banks</td>
+<td>Monetary policy, stability, supervision</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th>Fund type</th>
+<th>Investors</th>
+<th>Strategy</th>
+<th>Horizon</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hedge funds</td>
+<td>Institutional, HNWI</td>
+<td>Long/short, global macro, event-driven</td>
+<td>Flexible</td>
+</tr>
+<tr>
+<td>Private equity</td>
+<td>Institutional, HNWI</td>
+<td>Buyouts, restructuring</td>
+<td>5–10 years</td>
+</tr>
+<tr>
+<td>Venture capital</td>
+<td>Institutional, HNWI</td>
+<td>Early-stage funding</td>
+<td>5–7 years</td>
+</tr>
+<tr>
+<td>Mutual funds</td>
+<td>Retail</td>
+<td>Diversified, indexing</td>
+<td>Open-ended</td>
+</tr>
+<tr>
+<td>ETFs</td>
+<td>All</td>
+<td>Passive indexing, sectors</td>
+<td>Open-ended</td>
+</tr>
+</tbody>
+</table>
+<p>Instruments: equity (residual claim, dividends, votes), debt (bonds, subordinated debt), derivatives (options, futures, swaps), securitised products (ABS, MBS). <strong>The course focuses on stocks and stock portfolios.</strong></p>
+<h2 id="prices-returns-and-risk">Prices, returns and risk</h2>
+<p>With no dividends, the price evolves as <span class="math math-inline">\(P_t = P_{t-1}(1 + R_t)\)</span>:</p>
+<p><span class="math math-display">\[1 + R_t = \frac{P_t}{P_{t-1}} \quad\text{(gross)}, \qquad R_t = \frac{P_t - P_{t-1}}{P_{t-1}} \quad\text{(net)}\]</span></p>
+<p><strong>PRI vs. TRI.</strong> A <em>price return index</em> captures only capital gains; a <em>total return index</em> adds dividends <span class="math math-inline">\(D_t\)</span>:</p>
+<p><span class="math math-display">\[R_t^{PRI} = \frac{P_t - P_{t-1}}{P_{t-1}}, \qquad R_t^{TRI} = \frac{P_t - P_{t-1} + D_t}{P_{t-1}}\]</span></p>
+<p>For the same security <span class="math math-inline">\(R^{TRI} \ge R^{PRI}\)</span>; TRI is today's industry standard.</p>
+<p><strong>Volatility</strong> = standard deviation of returns, the most common risk measure:</p>
+<p><span class="math math-display">\[\sigma = \sqrt{\frac{1}{N}\sum_{t=1}^{N} (R_t - \bar R)^2}\]</span></p>
+<p>Chain to remember: <strong>prices → returns → risk</strong>.</p>
+<h2 id="decision-criteria-under-risk">Decision criteria under risk</h2>
+<h3 id="meanvariance-scenarios">Mean–variance scenarios</h3>
+<p>Compare portfolio 1 and portfolio 2:</p>
+<table>
+<thead>
+<tr>
+<th>Scenario</th>
+<th>Condition</th>
+<th>Conclusion</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A</td>
+<td><span class="math math-inline">\(E(\tilde r_1) &gt; E(\tilde r_2)\)</span> and <span class="math math-inline">\(\sigma_1 \le \sigma_2\)</span></td>
+<td>1 <strong>mean–variance dominates</strong> 2</td>
+</tr>
+<tr>
+<td>B</td>
+<td><span class="math math-inline">\(E(\tilde r_1) \ge E(\tilde r_2)\)</span> and <span class="math math-inline">\(\sigma_1 &gt; \sigma_2\)</span></td>
+<td>No clear preference</td>
+</tr>
+<tr>
+<td>C</td>
+<td><span class="math math-inline">\(E(\tilde r_1) \le E(\tilde r_2)\)</span> and <span class="math math-inline">\(\sigma_1 &gt; \sigma_2\)</span></td>
+<td>1 is <strong>inefficient</strong></td>
+</tr>
+</tbody>
+</table>
+<p>An <strong>efficient</strong> portfolio gives the highest return for its risk, or the lowest risk for its return.</p>
+<h3 id="a-numerical-example">A numerical example</h3>
+<p>Three stocks cost 100 today; next year Good or Bad state, each with probability 50%.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Good</th>
+<th>Bad</th>
+<th><span class="math math-inline">\(E(R)\)</span></th>
+<th><span class="math math-inline">\(\sigma(R)\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Stock 1</td>
+<td>120 (+20%)</td>
+<td>105 (+5%)</td>
+<td>12.5%</td>
+<td>7.5%</td>
+</tr>
+<tr>
+<td>Stock 2</td>
+<td>160 (+60%)</td>
+<td>50 (−50%)</td>
+<td>5.0%</td>
+<td>55.0%</td>
+</tr>
+<tr>
+<td>Stock 3</td>
+<td>160 (+60%)</td>
+<td>105 (+5%)</td>
+<td>32.5%</td>
+<td>27.5%</td>
+</tr>
+</tbody>
+</table>
+<p><span class="math math-display">\[E(R_1) = 0.5(20\%) + 0.5(5\%) = 12.5\%, \qquad \sigma(R_1) = \sqrt{0.5(20 - 12.5)^2 + 0.5(5 - 12.5)^2} = 7.5\%\]</span></p>
+<ul>
+<li><strong>State-by-state dominance</strong>: Stock 3 pays at least as much as the others in every state → always preferred.</li>
+<li><strong>Mean–variance dominance</strong>: Stock 1 dominates Stock 2. But Stock 3 does <em>not</em> dominate Stock 1 (more risk), even though it dominates state by state — a limit of mean–variance.</li>
+</ul>
+<p>When neither criterion ranks two assets, use the <strong>Sharpe ratio</strong> (here <span class="math math-inline">\(r_f = 0\)</span>):</p>
+<p><span class="math math-display">\[SR = \frac{E(R) - r_f}{\sigma(R)}\]</span></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Good</th>
+<th>Bad</th>
+<th><span class="math math-inline">\(E(R)\)</span></th>
+<th><span class="math math-inline">\(\sigma(R)\)</span></th>
+<th>Sharpe</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Stock 4</td>
+<td>5%</td>
+<td>3%</td>
+<td>4.0%</td>
+<td>1.0%</td>
+<td>4.00</td>
+</tr>
+<tr>
+<td>Stock 5</td>
+<td>8%</td>
+<td>2%</td>
+<td>5.0%</td>
+<td>3.0%</td>
+<td>1.67</td>
+</tr>
+</tbody>
+</table>
+<p>Sharpe prefers Stock 4, but it assumes a <strong>linear</strong> trade-off: doubling risk is fine if return doubles. Not every risk-averse investor agrees.</p>
+<table>
+<thead>
+<tr>
+<th>Criterion</th>
+<th>Strength</th>
+<th>Limit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>State-by-state</td>
+<td>Most robust</td>
+<td>Rarely applicable</td>
+</tr>
+<tr>
+<td>Mean–variance</td>
+<td>Widely applicable</td>
+<td>Can mislead, does not rank everything</td>
+</tr>
+<tr>
+<td>Sharpe ratio</td>
+<td>Always ranks</td>
+<td>Embeds a specific risk tolerance</td>
+</tr>
+</tbody>
+</table>
+<p>The gold standard remains <strong>expected utility</strong> (Chapter 1): it uses the investor's own preferences.</p>
+<h2 id="the-gmv-portfolio-two-risky-assets">The GMV portfolio: two risky assets</h2>
+<p>With weights <span class="math math-inline">\(w_1\)</span> and <span class="math math-inline">\(w_2 = 1 - w_1\)</span>:</p>
+<p><span class="math math-display">\[\mu_p = w_1\mu_1 + w_2\mu_2, \qquad \sigma_p^2 = w_1^2\sigma_1^2 + w_2^2\sigma_2^2 + 2w_1w_2\sigma_{1,2}, \qquad \sigma_{1,2} = \rho_{1,2}\sigma_1\sigma_2\]</span></p>
+<p>Minimising <span class="math math-inline">\(\sigma_p^2\)</span> subject to <span class="math math-inline">\(w_1 + w_2 = 1\)</span> gives the <strong>global minimum variance</strong> portfolio:</p>
+<p><span class="math math-display">\[w_{1,gmv} = \frac{\sigma_2^2 - \sigma_{1,2}}{\sigma_1^2 + \sigma_2^2 - 2\sigma_{1,2}}, \qquad \sigma_{p,gmv}^2 = \frac{\sigma_1^2\sigma_2^2(1 - \rho_{1,2}^2)}{\sigma_1^2 + \sigma_2^2 - 2\rho_{1,2}\sigma_1\sigma_2}\]</span></p>
+<h3 id="the-role-of-correlation">The role of correlation</h3>
+<ul>
+<li><span class="math math-inline">\(\rho = -1\)</span>: <strong>perfect hedge</strong>. <span class="math math-inline">\(\sigma_p^2 = (w_a(\sigma_a + \sigma_b) - \sigma_b)^2 = 0\)</span> for
+<span class="math math-display">\[w_a = \frac{\sigma_b}{\sigma_a + \sigma_b}, \quad w_b = \frac{\sigma_a}{\sigma_a + \sigma_b}, \quad E(r_{ph}) = \frac{\sigma_b E(\tilde r_a) + \sigma_a E(\tilde r_b)}{\sigma_a + \sigma_b}\]</span>
+The frontier has maximum concavity (two straight lines meeting on the <span class="math math-inline">\(\mu\)</span> axis).</li>
+<li><span class="math math-inline">\(\rho = +1\)</span>: the frontier is a <strong>straight line</strong>, no diversification benefit between the two assets. A zero-risk portfolio still exists <strong>with a short position</strong>:
+<span class="math math-display">\[w_a = -\frac{\sigma_b}{\sigma_a - \sigma_b}, \quad w_b = \frac{\sigma_a}{\sigma_a - \sigma_b}\]</span></li>
+<li><span class="math math-inline">\(\rho = 0\)</span>: <span class="math math-inline">\(\sigma_{p,gmv}^2 = \dfrac{\sigma_a^2\sigma_b^2}{\sigma_a^2 + \sigma_b^2}\)</span>, below both variances.</li>
+<li><span class="math math-inline">\(\rho \in (-1, 1)\)</span>: the frontier is concave; the higher <span class="math math-inline">\(\rho\)</span>, the closer it gets to the straight line, the smaller the benefit.</li>
+</ul>
+<p>Move <span class="math math-inline">\(\rho\)</span> and watch the frontier bend between the two dotted extremes (<span class="math math-inline">\(\rho = -1\)</span> and <span class="math math-inline">\(\rho = +1\)</span>). At <span class="math math-inline">\(\rho = -1\)</span> the GMV reaches <span class="math math-inline">\(\sigma = 0\)</span>.</p>
+<pre class="wimark-src"><code class="nohighlight" data-wimark="frontier2" data-opts="{&#34;mua&#34;: 0.06, &#34;sa&#34;: 0.12, &#34;mub&#34;: 0.12, &#34;sb&#34;: 0.25, &#34;rho&#34;: 0.2}"></code></pre>
+<h3 id="more-assets-the-insurance-principle">More assets: the insurance principle</h3>
+<p><span class="math math-display">\[\sigma_p^2 = \sum_{i=1}^{N} w_i^2\sigma_i^2 + \sum_{i=1}^{N}\sum_{j \ne i} w_iw_j\sigma_{ij}\]</span></p>
+<p>With uncorrelated assets, equal variances <span class="math math-inline">\(\sigma^2\)</span> and equal weights <span class="math math-inline">\(1/N\)</span>: <span class="math math-inline">\(\sigma_p^2 = \sigma^2 / N \to 0\)</span> as <span class="math math-inline">\(N \to \infty\)</span>. Insurers rely on this: bad news for some firms is offset by good news for others. With an average correlation <span class="math math-inline">\(\rho &gt; 0\)</span>:</p>
+<p><span class="math math-display">\[\sigma_p^2 = \frac{\sigma^2}{N} + \Big(1 - \frac1N\Big)\rho\,\sigma^2 \;\longrightarrow\; \rho\,\sigma^2\]</span></p>
+<p><strong>Idiosyncratic</strong> risk disappears; <strong>systematic</strong> risk (market crashes) does not.</p>
+<pre class="wimark-src"><code class="nohighlight" data-wimark="diversification" data-opts="{&#34;sigma&#34;: 0.3, &#34;rho&#34;: 0.2, &#34;max&#34;: 50}"></code></pre>
+<h2 id="three-risky-assets-and-matrix-notation">Three risky assets and matrix notation</h2>
+<p><span class="math math-display">\[\sigma_p^2 = w_1^2\sigma_1^2 + w_2^2\sigma_2^2 + w_3^2\sigma_3^2 + 2w_1w_2\sigma_{1,2} + 2w_1w_3\sigma_{1,3} + 2w_2w_3\sigma_{2,3}\]</span></p>
+<p>Three variances and six covariances: use vectors. With <span class="math math-inline">\(\mathbf w = (w_1, w_2, w_3)&#39;\)</span>, <span class="math math-inline">\(\boldsymbol\mu = E[\tilde{\mathbf r}]\)</span> and the covariance matrix <span class="math math-inline">\(\boldsymbol\Sigma\)</span>:</p>
+<p><span class="math math-display">\[\mu_p = \mathbf w&#39;\boldsymbol\mu, \qquad \sigma_p^2 = \mathbf w&#39;\boldsymbol\Sigma\mathbf w\]</span></p>
+<p><strong>GMV in matrix form.</strong> <span class="math math-inline">\(\min_{\mathbf w} \mathbf w&#39;\boldsymbol\Sigma\mathbf w\)</span> s.t. <span class="math math-inline">\(\mathbf w&#39;\mathbf 1 = 1\)</span>. Lagrangian <span class="math math-inline">\(\Lambda = \mathbf w&#39;\boldsymbol\Sigma\mathbf w + \lambda(1 - \mathbf w&#39;\mathbf 1)\)</span>:</p>
+<ol>
+<li>FOC: <span class="math math-inline">\(2\boldsymbol\Sigma\mathbf w - \lambda\mathbf 1 = \mathbf 0 \Rightarrow \mathbf w = \tfrac12\lambda\boldsymbol\Sigma^{-1}\mathbf 1\)</span>.</li>
+<li>Constraint: <span class="math math-inline">\(\lambda = 2 / (\mathbf 1&#39;\boldsymbol\Sigma^{-1}\mathbf 1)\)</span>.</li>
+<li>Substitute:</li>
+</ol>
+<p><span class="math math-display">\[\mathbf w_{gmv} = \frac{\boldsymbol\Sigma^{-1}\mathbf 1}{\mathbf 1&#39;\boldsymbol\Sigma^{-1}\mathbf 1}\]</span></p>
+<p>Equivalently the four FOCs form the linear system <span class="math math-inline">\(\begin{pmatrix} 2\boldsymbol\Sigma &amp; \mathbf 1 \\ \mathbf 1&#39; &amp; 0 \end{pmatrix}\begin{pmatrix}\mathbf w \\ \lambda\end{pmatrix} = \begin{pmatrix}\mathbf 0 \\ 1\end{pmatrix}\)</span>.</p>
+<h2 id="markowitz-meanvariance-with-n-risky-assets">Markowitz mean–variance with N risky assets</h2>
+<p><strong>Assumptions</strong>: frictionless markets (no costs, taxes, spreads), unlimited trading and short sales, infinitely divisible assets, equal access to information. Useful simplifications, not reality.</p>
+<p><strong>Problem.</strong> For a target return <span class="math math-inline">\(\mu_p\)</span>:</p>
+<p><span class="math math-display">\[\min_{\mathbf w} \tfrac12\mathbf w&#39;\boldsymbol\Sigma\mathbf w \quad\text{s.t.}\quad \mathbf w&#39;\boldsymbol\mu = \mu_p, \;\; \mathbf w&#39;\mathbf 1 = 1\]</span></p>
+<p><span class="math math-display">\[\Lambda = \tfrac12\mathbf w&#39;\boldsymbol\Sigma\mathbf w + \lambda(\mu_p - \mathbf w&#39;\boldsymbol\mu) + \psi(1 - \mathbf w&#39;\mathbf 1)\]</span></p>
+<p><strong>Solution.</strong></p>
+<ol>
+<li>FOC in <span class="math math-inline">\(\mathbf w\)</span>: <span class="math math-inline">\(\boldsymbol\Sigma\mathbf w - \lambda\boldsymbol\mu - \psi\mathbf 1 = 0 \Rightarrow \mathbf w = \lambda\boldsymbol\Sigma^{-1}\boldsymbol\mu + \psi\boldsymbol\Sigma^{-1}\mathbf 1\)</span>.</li>
+<li>Define the scalars <span class="math math-inline">\(A = \boldsymbol\mu&#39;\boldsymbol\Sigma^{-1}\boldsymbol\mu\)</span>, <span class="math math-inline">\(B = \boldsymbol\mu&#39;\boldsymbol\Sigma^{-1}\mathbf 1\)</span>, <span class="math math-inline">\(C = \mathbf 1&#39;\boldsymbol\Sigma^{-1}\mathbf 1\)</span>, <span class="math math-inline">\(\Delta = AC - B^2\)</span>.</li>
+<li>The constraints give <span class="math math-inline">\(\mu_p = A\lambda + B\psi\)</span> and <span class="math math-inline">\(1 = B\lambda + C\psi\)</span>, so
+<span class="math math-display">\[\lambda = \frac{C\mu_p - B}{\Delta}, \qquad \psi = \frac{A - B\mu_p}{\Delta}\]</span></li>
+<li>Substituting:</li>
+</ol>
+<p><span class="math math-display">\[\mathbf w = \mathbf g + \mathbf h\,\mu_p, \qquad \mathbf g = \frac{1}{\Delta}\big[A\,\boldsymbol\Sigma^{-1}\mathbf 1 - B\,\boldsymbol\Sigma^{-1}\boldsymbol\mu\big], \qquad \mathbf h = \frac1\Delta\big[C\,\boldsymbol\Sigma^{-1}\boldsymbol\mu - B\,\boldsymbol\Sigma^{-1}\mathbf 1\big]\]</span></p>
+<p><span class="math math-inline">\(\mathbf g\)</span> and <span class="math math-inline">\(\mathbf g + \mathbf h\)</span> are the frontier portfolios for <span class="math math-inline">\(\mu_p = 0\)</span> and <span class="math math-inline">\(\mu_p = 1\)</span>.</p>
+<h3 id="the-portfolio-frontier">The portfolio frontier</h3>
+<p><span class="math math-display">\[\sigma_p^2 = \frac1\Delta\big(C\mu_p^2 - 2B\mu_p + A\big) = \frac{C}{\Delta}\Big(\mu_p - \frac BC\Big)^2 + \frac1C\]</span></p>
+<p>A <strong>hyperbola</strong> in <span class="math math-inline">\((\sigma, \mu)\)</span>, i.e. <span class="math math-inline">\(\mu_p = \frac BC \pm \sqrt{\frac{\Delta}{C}\big(\sigma_p^2 - \frac1C\big)}\)</span>. Its vertex is the GMV:</p>
+<p><span class="math math-display">\[\mu_{gmv} = \frac BC, \qquad \sigma_{gmv}^2 = \frac1C, \qquad \mathbf w_{gmv} = \frac{\boldsymbol\Sigma^{-1}\mathbf 1}{\mathbf 1&#39;\boldsymbol\Sigma^{-1}\mathbf 1}\]</span></p>
+<p>(at the GMV, <span class="math math-inline">\(\lambda = 0\)</span> and <span class="math math-inline">\(\psi = 1/C\)</span>).</p>
+<ul>
+<li>The <strong>efficient frontier</strong> is the upper branch: portfolios with <span class="math math-inline">\(\mu_p \ge B/C\)</span>. The lower branch is inefficient.</li>
+<li>The frontier is <strong>convex</strong>: <span class="math math-inline">\(\alpha\mathbf w_k + (1-\alpha)\mathbf w_q = \mathbf g + \mathbf h[\alpha\mu_k + (1-\alpha)\mu_q]\)</span> is again a frontier portfolio.</li>
+<li>If every investor holds an efficient portfolio, the <strong>market portfolio</strong> (their weighted sum) is efficient too.</li>
+</ul>
+<h3 id="two-fund-separation">Two-fund separation</h3>
+<p>Any two distinct efficient portfolios span the whole frontier: for any efficient <span class="math math-inline">\(p\)</span> there is <span class="math math-inline">\(\alpha \in \mathbb R\)</span> with</p>
+<p><span class="math math-display">\[\mathbf w_p = \alpha\mathbf w_1 + (1-\alpha)\mathbf w_2, \qquad \mu_p = \alpha\mu_1 + (1-\alpha)\mu_2\]</span></p>
+<p>because <span class="math math-inline">\(\mathbf g + \mathbf h[\alpha\mu_1 + (1-\alpha)\mu_2] = \alpha(\mathbf g + \mathbf h\mu_1) + (1-\alpha)(\mathbf g + \mathbf h\mu_2)\)</span>. Two mutual funds are enough.</p>
+<h2 id="adding-a-riskless-asset">Adding a riskless asset</h2>
+<p>A riskless asset returns <span class="math math-inline">\(r_f\)</span> with zero variance, and <span class="math math-inline">\(r_f &lt; B/C\)</span>. The risky weights <span class="math math-inline">\(\mathbf w\)</span> no longer sum to 1; <span class="math math-inline">\(w_f = 1 - \mathbf w&#39;\mathbf 1\)</span> (<span class="math math-inline">\(w_f &lt; 0\)</span> = borrowing, <span class="math math-inline">\(w_f &gt; 0\)</span> = lending at <span class="math math-inline">\(r_f\)</span>).</p>
+<p><span class="math math-display">\[\mu_p = \mathbf w&#39;\boldsymbol\mu + (1 - \mathbf w&#39;\mathbf 1)r_f = r_f + \mathbf w&#39;(\boldsymbol\mu - \mathbf 1 r_f)\]</span></p>
+<p><strong>Problem</strong>: <span class="math math-inline">\(\min \tfrac12\mathbf w&#39;\boldsymbol\Sigma\mathbf w\)</span> s.t. <span class="math math-inline">\(r_f + \mathbf w&#39;(\boldsymbol\mu - \mathbf 1 r_f) = \mu_p\)</span>.</p>
+<ol>
+<li>FOC: <span class="math math-inline">\(\mathbf w = \lambda\boldsymbol\Sigma^{-1}(\boldsymbol\mu - \mathbf 1 r_f)\)</span>.</li>
+<li>Constraint: <span class="math math-inline">\(\lambda = (\mu_p - r_f)/H\)</span> with <span class="math math-inline">\(H = (\boldsymbol\mu - \mathbf 1 r_f)&#39;\boldsymbol\Sigma^{-1}(\boldsymbol\mu - \mathbf 1 r_f)\)</span>.</li>
+</ol>
+<p><span class="math math-display">\[\mathbf w = \boldsymbol\Sigma^{-1}(\boldsymbol\mu - \mathbf 1 r_f)\,\frac{\mu_p - r_f}{H}\]</span></p>
+<p>The direction <span class="math math-inline">\(\boldsymbol\Sigma^{-1}(\boldsymbol\mu - \mathbf 1 r_f)\)</span> is fixed; <span class="math math-inline">\(\mu_p\)</span> only scales it. The variance is <span class="math math-inline">\(\sigma_p^2 = (\mu_p - r_f)^2/H\)</span>, so the frontier becomes a <strong>straight line</strong>, the <strong>Capital Market Line</strong>:</p>
+<p><span class="math math-display">\[\mu_p = r_f + \sqrt H\,\sigma_p\]</span></p>
+<p>Only the upper half is efficient. The slope <span class="math math-inline">\(\sqrt H\)</span> is the highest attainable <strong>Sharpe ratio</strong>.</p>
+<h3 id="tangency-portfolio">Tangency portfolio</h3>
+<p>The CML touches the risky frontier at the <strong>tangency portfolio</strong> <span class="math math-inline">\(T\)</span>, which holds only risky assets (impose <span class="math math-inline">\(\mathbf w&#39;\mathbf 1 = 1\)</span>):</p>
+<p><span class="math math-display">\[\mathbf w_T = \frac{\boldsymbol\Sigma^{-1}(\boldsymbol\mu - \mathbf 1 r_f)}{\mathbf 1&#39;\boldsymbol\Sigma^{-1}(\boldsymbol\mu - \mathbf 1 r_f)}, \qquad \sigma_T = \frac{\sqrt H}{\Upsilon}, \qquad \mu_T = r_f + \frac{H}{\Upsilon}, \qquad \Upsilon = \mathbf 1&#39;\boldsymbol\Sigma^{-1}(\boldsymbol\mu - \mathbf 1 r_f)\]</span></p>
+<p>Same shape as <span class="math math-inline">\(\mathbf w_{gmv}\)</span>, with excess returns in place of <span class="math math-inline">\(\mathbf 1\)</span>. If <span class="math math-inline">\(r_f &gt; \mu_{gmv}\)</span> the Sharpe ratio turns negative: in a crisis <span class="math math-inline">\(T\)</span> may be shorted and the proceeds put in T-bills.</p>
+<p>Mixing <span class="math math-inline">\(\alpha\)</span> in the riskless asset and <span class="math math-inline">\(1 - \alpha\)</span> in <span class="math math-inline">\(T\)</span>:</p>
+<p><span class="math math-display">\[\mu_p = \alpha r_f + (1-\alpha)\mu_T, \quad \sigma_p = (1-\alpha)\sigma_T \;\Rightarrow\; \mu_p = r_f + \frac{\mu_T - r_f}{\sigma_T}\sigma_p\]</span></p>
+<ul>
+<li><span class="math math-inline">\(0 \le \alpha \le 1\)</span>: lend, between <span class="math math-inline">\(r_f\)</span> and <span class="math math-inline">\(T\)</span>.</li>
+<li><span class="math math-inline">\(\alpha &lt; 0\)</span>: borrow at <span class="math math-inline">\(r_f\)</span>, leveraged beyond <span class="math math-inline">\(T\)</span>.</li>
+<li>Any other risky portfolio <span class="math math-inline">\(k\)</span> gives a flatter line, <span class="math math-inline">\(\frac{\mu_k - r_f}{\sigma_k} &lt; \frac{\mu_T - r_f}{\sigma_T}\)</span>: inefficient.</li>
+</ul>
+<p>Move <span class="math math-inline">\(r_f\)</span>: the CML pivots and <span class="math math-inline">\(T\)</span> slides along the frontier.</p>
+<pre class="wimark-src"><code class="nohighlight" data-wimark="frontier2" data-opts="{&#34;mua&#34;: 0.06, &#34;sa&#34;: 0.12, &#34;mub&#34;: 0.12, &#34;sb&#34;: 0.25, &#34;rho&#34;: 0.2, &#34;rf&#34;: 0.02}"></code></pre>
+<h3 id="one-fund-theorem">One-fund theorem</h3>
+<p>All efficient portfolios combine <strong>one riskless asset</strong> and <strong>one risky fund</strong>, <span class="math math-inline">\(T\)</span>. With mean–variance preferences and homogeneous expectations, everyone holds the same <span class="math math-inline">\(T\)</span>, which must then be the <strong>market portfolio</strong> — the starting point of the CAPM (Chapter 3).</p>
+<h2 id="theory-meets-practice-five-djia-stocks">Theory meets practice: five DJIA stocks</h2>
+<p>Data: the five oldest DJIA stocks, monthly, Feb 2000 – Dec 2022 (276 obs.). Code (MATLAB, Python, Julia, R): <a href="https://github.com/DoCoGu/EoFE_DCG_Springer">github.com/DoCoGu/EoFE_DCG_Springer</a>.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>PG</th>
+<th>MMM</th>
+<th>IBM</th>
+<th>MRK</th>
+<th>AXP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mean (%)</td>
+<td>0.76</td>
+<td>0.74</td>
+<td>0.91</td>
+<td>0.69</td>
+<td>0.56</td>
+</tr>
+<tr>
+<td>SD (%)</td>
+<td>5.12</td>
+<td>5.95</td>
+<td>9.15</td>
+<td>6.90</td>
+<td>7.26</td>
+</tr>
+<tr>
+<td>Sharpe</td>
+<td>0.125</td>
+<td>0.104</td>
+<td>0.086</td>
+<td>0.082</td>
+<td>0.060</td>
+</tr>
+<tr>
+<td>Skew</td>
+<td>−1.42</td>
+<td>−0.03</td>
+<td>2.51</td>
+<td>−0.23</td>
+<td>0.43</td>
+</tr>
+<tr>
+<td>Kurtosis</td>
+<td>11.39</td>
+<td>3.56</td>
+<td>28.43</td>
+<td>4.23</td>
+<td>6.29</td>
+</tr>
+</tbody>
+</table>
+<pre class="wimark-src"><code class="nohighlight" data-wimark="chart" data-opts="{&#34;type&#34;: &#34;bar&#34;, &#34;unit&#34;: &#34;%&#34;, &#34;title&#34;: &#34;Five DJIA stocks: mean return and volatility (monthly)&#34;}">{
+  &#34;labels&#34;: [&#34;PG&#34;, &#34;MMM&#34;, &#34;IBM&#34;, &#34;MRK&#34;, &#34;AXP&#34;],
+  &#34;series&#34;: [{&#34;name&#34;: &#34;mean return&#34;, &#34;values&#34;: [0.76, 0.74, 0.91, 0.69, 0.56]}, {&#34;name&#34;: &#34;volatility&#34;, &#34;values&#34;: [5.12, 5.95, 9.15, 6.90, 7.26]}]
+}
+</code></pre>
+<ul>
+<li>Every single stock lies <strong>inside</strong> the frontier: some portfolio gives more return for the same risk.</li>
+<li><strong>GMV</strong>: expected return about 0.70%, volatility <strong>3.94%</strong> — similar return to the stocks, much less risk.</li>
+</ul>
+<p><strong>Unconstrained weights</strong> <span class="math math-inline">\(\mathbf w = \mathbf g + \mathbf h\mu_p\)</span> (N risky assets):</p>
+<table>
+<thead>
+<tr>
+<th>Asset</th>
+<th>GMV (0.70%)</th>
+<th>0.1%</th>
+<th>0.64%</th>
+<th>1.19%</th>
+<th>1.73%</th>
+<th>2.82%</th>
+<th>5%</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PG</td>
+<td>0.449</td>
+<td>−0.162</td>
+<td>0.393</td>
+<td>0.948</td>
+<td>1.503</td>
+<td>2.613</td>
+<td>4.833</td>
+</tr>
+<tr>
+<td>MMM</td>
+<td>0.212</td>
+<td>0.184</td>
+<td>0.210</td>
+<td>0.236</td>
+<td>0.262</td>
+<td>0.314</td>
+<td>0.418</td>
+</tr>
+<tr>
+<td>IBM</td>
+<td>0.203</td>
+<td>1.962</td>
+<td>0.363</td>
+<td>−1.235</td>
+<td>−2.834</td>
+<td>−6.032</td>
+<td>−12.427</td>
+</tr>
+<tr>
+<td>MRK</td>
+<td>0.168</td>
+<td>0.546</td>
+<td>0.203</td>
+<td>−0.141</td>
+<td>−0.484</td>
+<td>−1.170</td>
+<td>−2.543</td>
+</tr>
+<tr>
+<td>AXP</td>
+<td>−0.032</td>
+<td>−1.530</td>
+<td>−0.169</td>
+<td>1.192</td>
+<td>2.554</td>
+<td>5.276</td>
+<td>10.720</td>
+</tr>
+</tbody>
+</table>
+<p>Even at a 0.1% target: 196% long IBM, 153% short AXP. Unconstrained optimisation produces <strong>extreme weights</strong>; in practice it needs position limits, short-sale constraints and transaction costs, and it is very sensitive to the estimates of <span class="math math-inline">\(\boldsymbol\mu\)</span> and <span class="math math-inline">\(\boldsymbol\Sigma\)</span>.</p>
+<p><strong>With the riskless asset</strong> (weights scale along the CML):</p>
+<table>
+<thead>
+<tr>
+<th>Asset</th>
+<th><span class="math math-inline">\(T\)</span></th>
+<th>0.1%</th>
+<th>0.64%</th>
+<th>1.73%</th>
+<th>2.82%</th>
+<th>5%</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PG</td>
+<td>0.48</td>
+<td>0.06</td>
+<td>0.424</td>
+<td>1.151</td>
+<td>1.879</td>
+<td>3.33</td>
+</tr>
+<tr>
+<td>MMM</td>
+<td>0.21</td>
+<td>0.03</td>
+<td>0.188</td>
+<td>0.511</td>
+<td>0.833</td>
+<td>1.48</td>
+</tr>
+<tr>
+<td>IBM</td>
+<td>0.11</td>
+<td>0.01</td>
+<td>0.095</td>
+<td>0.257</td>
+<td>0.419</td>
+<td>0.74</td>
+</tr>
+<tr>
+<td>MRK</td>
+<td>0.15</td>
+<td>0.02</td>
+<td>0.130</td>
+<td>0.353</td>
+<td>0.576</td>
+<td>1.02</td>
+</tr>
+<tr>
+<td>AXP</td>
+<td>0.05</td>
+<td>0.01</td>
+<td>0.043</td>
+<td>0.117</td>
+<td>0.192</td>
+<td>0.34</td>
+</tr>
+<tr>
+<td><span class="math math-inline">\(r_f\)</span></td>
+<td>0.00</td>
+<td>0.88</td>
+<td>0.12</td>
+<td>−1.39</td>
+<td>−2.90</td>
+<td>−5.92</td>
+</tr>
+</tbody>
+</table>
+<p>At 1.73% the investor borrows 139% at <span class="math math-inline">\(r_f\)</span>; at 5%, 592% (heavy leverage). The <strong>relative</strong> proportions of the stocks never change — only the split between <span class="math math-inline">\(T\)</span> and <span class="math math-inline">\(r_f\)</span>.</p>
+<p><strong>Limits and fixes.</strong> Historical returns may not reflect the future (estimation error, non-stationarity) → suboptimal allocations. Remedies: robust and Bayesian optimisation, the <strong>Black–Litterman</strong> model (Chapter 8), continuous monitoring.</p>
+<h2 id="key-takeaways">Key takeaways</h2>
+<ul>
+<li>Returns: <span class="math math-inline">\(R_t = P_t/P_{t-1} - 1\)</span>; TRI includes dividends; risk = volatility <span class="math math-inline">\(\sigma\)</span>.</li>
+<li>Criteria: state-by-state (robust, rare) → mean–variance (can mislead) → Sharpe (linear trade-off) → expected utility (gold standard).</li>
+<li>Two assets: <span class="math math-inline">\(w_{1,gmv} = (\sigma_2^2 - \sigma_{12})/(\sigma_1^2 + \sigma_2^2 - 2\sigma_{12})\)</span>; the lower <span class="math math-inline">\(\rho\)</span>, the bigger the diversification gain; <span class="math math-inline">\(\rho = -1\)</span> → perfect hedge.</li>
+<li>Diversification kills idiosyncratic risk, not systematic risk.</li>
+<li>N assets: <span class="math math-inline">\(\mathbf w = \mathbf g + \mathbf h\mu_p\)</span>; frontier <span class="math math-inline">\(\sigma_p^2 = \frac C\Delta(\mu_p - \frac BC)^2 + \frac1C\)</span>; GMV at <span class="math math-inline">\((1/\sqrt C, B/C)\)</span>.</li>
+<li>Two-fund separation: two efficient portfolios span the frontier.</li>
+<li>With <span class="math math-inline">\(r_f\)</span>: CML <span class="math math-inline">\(\mu_p = r_f + \sqrt H\sigma_p\)</span>, tangency <span class="math math-inline">\(\mathbf w_T \propto \boldsymbol\Sigma^{-1}(\boldsymbol\mu - \mathbf 1 r_f)\)</span>; one-fund theorem.</li>
+<li>In practice: extreme weights, estimation error → constraints, Black–Litterman.</li>
+</ul>
+<pre class="wimark-src"><code class="nohighlight" data-wimark="quiz" data-opts="{&#34;title&#34;: &#34;Check yourself&#34;}">[
+  {&#34;q&#34;: &#34;Stock 3 pays at least as much as Stock 1 in every state but has higher $\\sigma$. Which criterion ranks Stock 3 above Stock 1?&#34;, &#34;options&#34;: [&#34;Mean–variance dominance&#34;, &#34;State-by-state dominance&#34;, &#34;Neither&#34;], &#34;answer&#34;: 1, &#34;why&#34;: &#34;Mean–variance cannot rank them (higher mean *and* higher variance); state-by-state dominance does. This is a limit of mean–variance.&#34;},
+  {&#34;q&#34;: &#34;Two assets with $\\rho = +1$ and $\\sigma_a \\ne \\sigma_b$. Can you build a zero-variance portfolio?&#34;, &#34;options&#34;: [&#34;No, never&#34;, &#34;Yes, only with long positions&#34;, &#34;Yes, with a short position&#34;], &#34;answer&#34;: 2, &#34;why&#34;: &#34;$w_a = -\\sigma_b/(\\sigma_a - \\sigma_b)$: one of the two weights is negative.&#34;},
+  {&#34;q&#34;: &#34;Equal weights, equal variances, average correlation $\\rho = 0.25$, $\\sigma = 40\\%$. As $N \\to \\infty$, $\\sigma_p \\to$&#34;, &#34;options&#34;: [&#34;0%&#34;, &#34;10%&#34;, &#34;20%&#34;], &#34;answer&#34;: 2, &#34;why&#34;: &#34;$\\sigma_p^2 \\to \\rho\\sigma^2 = 0.25 \\cdot 0.16 = 0.04$, so $\\sigma_p = 20\\%$: systematic risk cannot be diversified away.&#34;},
+  {&#34;q&#34;: &#34;The coordinates $(\\sigma, \\mu)$ of the GMV on the Markowitz frontier are&#34;, &#34;options&#34;: [&#34;$(1/\\sqrt C,\\; B/C)$&#34;, &#34;$(\\sqrt H,\\; r_f)$&#34;, &#34;$(1/C,\\; A/B)$&#34;], &#34;answer&#34;: 0, &#34;why&#34;: &#34;$\\sigma_{gmv}^2 = 1/C$ and $\\mu_{gmv} = B/C$.&#34;},
+  {&#34;q&#34;: &#34;With a riskless asset, an investor targets a return above $\\mu_T$. The weight on $r_f$ is&#34;, &#34;options&#34;: [&#34;positive (lending)&#34;, &#34;zero&#34;, &#34;negative (borrowing)&#34;], &#34;answer&#34;: 2, &#34;why&#34;: &#34;Above $T$ on the CML the investor borrows at $r_f$ to lever up the tangency portfolio ($\\alpha &lt; 0$).&#34;},
+  {&#34;q&#34;: &#34;The slope of the Capital Market Line equals&#34;, &#34;options&#34;: [&#34;the Sharpe ratio of the tangency portfolio&#34;, &#34;the beta of the market&#34;, &#34;the Sharpe ratio of the GMV&#34;], &#34;answer&#34;: 0, &#34;why&#34;: &#34;Slope $= (\\mu_T - r_f)/\\sigma_T = \\sqrt H$, the maximum Sharpe ratio.&#34;}
+]
+</code></pre>
+</article>
+
+          
+          </div>
+        </div>
+      </section>
+
+      <aside class="col-toc" aria-label="On this page">
+        <div class="col-head">On this page</div>
+        <div class="col-scroll">
+          
+            
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l1">
+    <a href="#modern-portfolio-theory">Modern Portfolio Theory</a>
+    
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l2">
+    <a href="#why-finance-and-models">Why finance and models</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#prices-returns-and-risk">Prices, returns and risk</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#decision-criteria-under-risk">Decision criteria under risk</a>
+    
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l3">
+    <a href="#meanvariance-scenarios">Mean–variance scenarios</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l3">
+    <a href="#a-numerical-example">A numerical example</a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#the-gmv-portfolio-two-risky-assets">The GMV portfolio: two risky assets</a>
+    
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l3">
+    <a href="#the-role-of-correlation">The role of correlation</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l3">
+    <a href="#more-assets-the-insurance-principle">More assets: the insurance principle</a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#three-risky-assets-and-matrix-notation">Three risky assets and matrix notation</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#markowitz-meanvariance-with-n-risky-assets">Markowitz mean–variance with N risky assets</a>
+    
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l3">
+    <a href="#the-portfolio-frontier">The portfolio frontier</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l3">
+    <a href="#two-fund-separation">Two-fund separation</a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#adding-a-riskless-asset">Adding a riskless asset</a>
+    
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l3">
+    <a href="#tangency-portfolio">Tangency portfolio</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l3">
+    <a href="#one-fund-theorem">One-fund theorem</a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#theory-meets-practice-five-djia-stocks">Theory meets practice: five DJIA stocks</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#key-takeaways">Key takeaways</a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+</ul>
+
+          
+          
+        </div>
+      </aside>
+
+    
+  </main>
+
+  
+  <footer class="statusbar" aria-hidden="true">
+    <span class="sb-mode">READ</span>
+    <span class="sb-path">en/notes/University notes/financial-economics/02-modern-portfolio-theory.md</span>
+    <span class="sb-spacer"></span>
+    <span class="sb-item">en</span>
+    <span class="sb-item">utf-8</span>
+    <span class="sb-item">markdown</span>
+    <span class="sb-pos" data-scroll-pos>top</span>
+  </footer>
+  
+
+  <div class="search" data-search hidden role="dialog" aria-modal="true" aria-label="Search">
+    <div class="search-panel">
+      <div class="search-bar"><span class="search-prompt" aria-hidden="true">❯</span>
+      <input class="search-input" type="search" placeholder="Search" autocomplete="off" spellcheck="false" aria-controls="search-results"></div>
+      <ul class="search-results" id="search-results" role="listbox"></ul>
+      <div class="search-hint" aria-hidden="true"><span><kbd>↑↓</kbd> move</span><span><kbd>↵</kbd> open</span><span><kbd>tab</kbd> complete</span><span><kbd>esc</kbd> close</span></div>
+    </div>
+  </div>
+
+  <script>
+    window.GOMARK = {
+      lang: "en",
+      root: "..\/..\/..\/..\/",
+      theme: "light",
+      section: "notes",
+      i18n: { noResults: "No results", searchFilters: "Filters", searchTab: "complete",
+        qSection: "in one section of the site", qHeading: "under the headings that match", qTitle: "in the title", qCode: "in the code blocks, of one language",
+        qIn: "where the words look", qHas: "pages with code, math, table, image, link, quote, task, widget", qPath: "in the file path", qPhrase: "these words, in this order",
+        qNot: "without it", qOr: "either one", qRegex: "a regular expression", copy: "copy", copied: "copied", words: "words", minRead: "min read",
+        data: "data", search: "search", noData: "no data", other: "other",
+        total: "total", show: "show", hide: "hide", reset: "reset", all: "all" }
+    };
+  </script>
+  <script src="../../../../static/widgets.js"></script>
+  <script src="../../../../static/widgets/notes/University%20notes/financial-economics/frontier2.js"></script>
+  <script src="../../../../static/widgets/notes/University%20notes/financial-economics/diversification.js"></script>
+  <script src="../../../../static/widgets/chart.js"></script>
+  <script src="../../../../static/widgets/quiz.js"></script>
+  <script src="../../../../static/engine.js"></script>
+  <script src="../../../../static/ui.js"></script>
+  <script src="../../../../static/search.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

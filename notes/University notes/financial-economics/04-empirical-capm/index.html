@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Digital identity and computational knowledge base: résumé, projects and notes.">
+  <meta name="author" content="Sergio Di Lapi">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains&#43;Mono:wght@400;500;600;700;800&amp;family=IBM&#43;Plex&#43;Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <title>Empirical Analysis of the CAPM · Notes</title>
+  <link rel="stylesheet" href="../../../../static/layout.css">
+  <link rel="stylesheet" href="../../../../static/theme.css">
+  <link rel="stylesheet" href="../../../../static/wimark.css">
+  <link rel="stylesheet" href="../../../../static/themes/light.css">
+  <style>:root { --mono:"JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;--sans:"IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;--font-body:var(--sans);--font-heading:var(--mono);--font-size:14px;--content-width:780px;--sidebar-width:256px;--folders-width:224px;--toc-width:232px;--radius:4px;--radius-sm:3px;--radius-lg:10px; }</style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+</head>
+<body data-depth="multi" data-index="right" data-theme="light" data-theme-class="monochrome" data-heading="mono" data-statusbar="on">
+
+  <header class="topbar">
+    <a class="brand" href="../../../../index.html">sergiopericolo</a>
+    <nav class="sections" aria-label="Sections">
+      
+      <a class="section-link" href="../../../../about/index.html">
+        <span class="section-idx">01</span>
+        <span class="section-title">About</span>
+      </a>
+      
+      <a class="section-link" href="../../../../projects/index.html">
+        <span class="section-idx">02</span>
+        <span class="section-title">Projects</span>
+      </a>
+      
+      <a class="section-link active" href="../../../../notes/index.html">
+        <span class="section-idx">03</span>
+        <span class="section-title">Notes</span>
+      </a>
+      
+      <a class="section-link" href="../../../../visual/index.html">
+        <span class="section-idx">04</span>
+        <span class="section-title">Visual</span>
+      </a>
+      
+      <a class="section-link" href="../../../../art/index.html">
+        <span class="section-idx">05</span>
+        <span class="section-title">Art</span>
+      </a>
+      
+    </nav>
+    <div class="topbar-end">
+      <button class="search-open" type="button" data-search-open aria-haspopup="dialog"><span>Search</span><kbd>⌘K</kbd></button>
+      
+      <span class="build-info"><a class="build-name" href="https://github.com/sergiopericolo/GoMark">GoMark</a> v1.2.0</span>
+    </div>
+  </header>
+
+  <main class="grid" style="--grid: minmax(0, 15fr) minmax(0, 15fr) minmax(0, 55fr) minmax(0, 15fr); --grid-medium: minmax(0, 15fr) minmax(0, 15fr) minmax(0, 70fr)">
+
+    
+
+      
+      <aside class="col-folders" aria-label="Folders">
+        <div class="col-head">Folders</div>
+        <div class="col-scroll">
+          <a class="tree-root" href="../../../index.html">~/notes/</a>
+          
+
+<ul class="tree">
+  
+  
+  <li class="tree-node has-children open" data-path="University notes">
+    <div class="tree-row">
+      
+      <button class="tree-toggle" type="button" aria-expanded="true" aria-label="University notes"><span class="chev" aria-hidden="true"></span></button>
+      
+      <a class="tree-folder" href="../../../University%20notes/index.html">
+        <span class="tree-name">University notes/</span>
+        
+      </a>
+    </div>
+    
+      
+
+<ul class="tree">
+  
+  
+  <li class="tree-node" data-path="University notes/computational-method">
+    <div class="tree-row">
+      
+      <span class="tree-leaf" aria-hidden="true"></span>
+      
+      <a class="tree-folder" href="../../../University%20notes/computational-method/index.html">
+        <span class="tree-name">computational-method/</span>
+        <span class="tree-count">5</span>
+      </a>
+    </div>
+    
+  </li>
+  
+  
+  <li class="tree-node open" data-path="University notes/financial-economics">
+    <div class="tree-row">
+      
+      <span class="tree-leaf" aria-hidden="true"></span>
+      
+      <a class="tree-folder active" href="../../../University%20notes/financial-economics/index.html">
+        <span class="tree-name">financial-economics/</span>
+        <span class="tree-count">9</span>
+      </a>
+    </div>
+    
+  </li>
+  
+</ul>
+
+    
+  </li>
+  
+</ul>
+
+        </div>
+      </aside>
+      
+
+      <aside class="col-files" aria-label="Files">
+        <div class="col-head">
+          <span>Files <span class="badge">9</span></span>
+          <span class="col-head-path">notes/University notes/financial-economics/</span>
+        </div>
+        <div class="col-scroll">
+          <ul class="file-list">
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-economics/01-choice-under-uncertainty/index.html">
+                <span class="file-name">Choice Under Uncertainty</span>
+                <span class="file-path">01-choice-under-uncertainty.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-economics/02-modern-portfolio-theory/index.html">
+                <span class="file-name">Modern Portfolio Theory</span>
+                <span class="file-path">02-modern-portfolio-theory.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-economics/03-capm/index.html">
+                <span class="file-name">The Capital Asset Pricing Model</span>
+                <span class="file-path">03-capm.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link active" href="../../../University%20notes/financial-economics/04-empirical-capm/index.html">
+                <span class="file-name">Empirical Analysis of the CAPM</span>
+                <span class="file-path">04-empirical-capm.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-economics/05-consumption-capm/index.html">
+                <span class="file-name">The Consumption CAPM</span>
+                <span class="file-path">05-consumption-capm.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-economics/06-apt-multifactor/index.html">
+                <span class="file-name">Arbitrage Pricing Theory and Multi-factor Models</span>
+                <span class="file-path">06-apt-multifactor.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-economics/07-cross-sectional-asset-pricing/index.html">
+                <span class="file-name">Empirical Cross-Sectional Asset Pricing</span>
+                <span class="file-path">07-cross-sectional-asset-pricing.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-economics/08-black-litterman/index.html">
+                <span class="file-name">The Black–Litterman Model</span>
+                <span class="file-path">08-black-litterman.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-economics/09-event-studies/index.html">
+                <span class="file-name">Event Study Analysis</span>
+                <span class="file-path">09-event-studies.md</span>
+              </a>
+            </li>
+            
+          </ul>
+        </div>
+      </aside>
+
+      <section class="col-content" aria-label="sergiopericolo">
+        <div class="content-scroll" id="content">
+          <div class="content-inner">
+          
+            
+<div class="page-head">
+  <div class="page-crumb"><span class="crumb-home">~</span>/notes/University notes/financial-economics/04-empirical-capm.md</div>
+  <h1 class="page-title">Empirical Analysis of the CAPM</h1>
+  <div class="page-meta" data-page-meta><span class="meta-tag">en</span></div>
+</div>
+
+<article class="page-body"><h1 id="empirical-analysis-of-the-capm">Empirical Analysis of the CAPM</h1>
+<p>Chapter 4 of <em>Essentials of Financial Economics</em> (Donadelli, Costola, Gufler). Bringing the CAPM to the data: estimate alpha and beta with a time-series regression, test whether alpha is zero, then let alpha and beta move over time.</p>
+<p>Roadmap:</p>
+<ol>
+<li><strong>Univariate regression analysis</strong> — the market model, OLS, Jensen's alpha and its t-test.</li>
+<li><strong>Static test</strong> — five DJIA stocks, 2000–2022.</li>
+<li><strong>Dynamic analysis</strong> — rolling-window alphas and betas.</li>
+</ol>
+<h2 id="foundations">Foundations</h2>
+<ul>
+<li><strong>Rational expectations</strong>: long-run realised returns ≈ expected returns, so averages of past returns proxy for <span class="math math-inline">\(E[\cdot]\)</span>.</li>
+<li><strong>Risk–return trade-off</strong>: only systematic risk is priced in ideal markets; frictions (costs, constraints) distort premia.</li>
+<li>No universal model: effectiveness depends on the asset and context.</li>
+<li>Standard assumptions: risk aversion, single-period utility maximisation, homogeneous beliefs, frictionless markets, unlimited borrowing and lending at <span class="math math-inline">\(r_f\)</span>.</li>
+</ul>
+<p>In excess returns <span class="math math-inline">\(\tilde z = \tilde r - r_f\)</span> the CAPM reads <span class="math math-inline">\(E(\tilde z_i) = \beta_{i,M}E(\tilde z_M)\)</span>: <strong>no intercept</strong>.</p>
+<p><strong>Early evidence</strong></p>
+<ul>
+<li>Non-zero alphas (Merton and Scholes, 1972): low-beta stocks earn <strong>positive</strong> alpha.</li>
+<li>Cross-sectional regressions show intercept too high, slope too flat (Black, Jensen and Scholes, 1972).</li>
+<li>Black's <strong>two-factor</strong> (zero-beta) version: <span class="math math-inline">\(E(\tilde z_i) = (1 - \beta_i)E(\tilde z_l) + \beta_{i,M}E(\tilde z_M)\)</span>, where <span class="math math-inline">\(\tilde z_l\)</span> is a zero-beta portfolio.</li>
+</ul>
+<p><strong>History.</strong> Before the CAPM the cost of capital came from dividend yield plus growth (Gordon–Shapiro, <span class="math math-inline">\(r = D/P + g\)</span>), with no explicit risk adjustment. Markowitz (1952) laid the groundwork; the CAPM brought risk into pricing and made it testable. It is still the dominant cost-of-capital model (Welch, 2008: 75% of academics endorse it).</p>
+<h2 id="the-market-model">The market model</h2>
+<p>Excess return <span class="math math-inline">\(z_{i,t} = r_{i,t} - r_{f,t}\)</span> with <span class="math math-inline">\(r_{i,t} = \dfrac{p_{i,t} + d_{i,t} - p_{i,t-1}}{p_{i,t-1}}\)</span>:</p>
+<p><span class="math math-display">\[z_{i,t} = \alpha_i + \beta_{i,M}z_{M,t} + \varepsilon_{i,t}, \qquad t = 1, \dots, T\]</span></p>
+<ul>
+<li><span class="math math-inline">\(\alpha_i\)</span>: <strong>pricing error</strong>; zero if the CAPM holds.</li>
+<li><span class="math math-inline">\(\beta_{i,M}\)</span>: sensitivity to the market excess return.</li>
+<li><span class="math math-inline">\(\varepsilon_{i,t}\)</span>: idiosyncratic shock.</li>
+<li>Market proxy: broad indices (S&amp;P 500, FTSE All-Share), since the true <span class="math math-inline">\(M\)</span> is unobservable.</li>
+</ul>
+<p><strong>Assumptions on the errors</strong>: <span class="math math-inline">\(E[\varepsilon_{i,t} \mid z_{M,t}] = 0\)</span>; <span class="math math-inline">\(\mathrm{Cov}[\varepsilon_{i,t}, z_{M,t}] = 0\)</span>; homoskedasticity <span class="math math-inline">\(\mathrm{Var}[\varepsilon_{i,t} \mid z_{M,t}] = \sigma_{\varepsilon_i}^2\)</span>; no autocorrelation. They make OLS consistent and efficient and validate inference on <span class="math math-inline">\(\alpha_i\)</span> and <span class="math math-inline">\(\beta_{i,M}\)</span>.</p>
+<p><strong>Population parameters</strong></p>
+<p><span class="math math-display">\[\beta_{i,M} = \frac{\sigma_{i,M}}{\sigma_M^2}, \qquad \alpha_i = \mu_i - \beta_{i,M}\mu_M\]</span></p>
+<p><strong>Multivariate version</strong> <span class="math math-inline">\(\mathbf z_t = \boldsymbol\alpha + \boldsymbol\beta z_{M,t} + \boldsymbol\varepsilon_t\)</span>: joint estimation (SUR, GLS) gains power and uses cross-asset dependence, at the cost of complexity. The book uses univariate regressions.</p>
+<h3 id="ols">OLS</h3>
+<p>Minimise the sum of squared residuals <span class="math math-inline">\(SSR = \sum_{t=1}^{T}(z_{i,t} - \alpha - \beta z_{m,t})^2\)</span>.</p>
+<ol>
+<li><span class="math math-inline">\(\partial SSR / \partial\alpha = 0 \Rightarrow \hat\alpha = \bar z_i - \hat\beta\bar z_m\)</span>.</li>
+<li><span class="math math-inline">\(\partial SSR / \partial\beta = 0 \Rightarrow\)</span></li>
+</ol>
+<p><span class="math math-display">\[\hat\beta = \frac{\sum_t (z_{i,t} - \bar z_i)(z_{m,t} - \bar z_m)}{\sum_t (z_{m,t} - \bar z_m)^2} = \frac{\sum_t z_{i,t}z_{m,t} - T\bar z_i\bar z_m}{\sum_t z_{m,t}^2 - T\bar z_m^2}, \qquad \hat\alpha = \bar z_i - \hat\beta\bar z_m\]</span></p>
+<h3 id="jensens-alpha">Jensen's alpha</h3>
+<p><span class="math math-inline">\(\hat\alpha_i\)</span> is the part of the average return <strong>not explained by the market</strong> (Jensen, 1968), the classic measure of a manager's skill:</p>
+<ul>
+<li><span class="math math-inline">\(\hat\alpha_i &gt; 0\)</span>: outperforms the CAPM benchmark on average.</li>
+<li><span class="math math-inline">\(\hat\alpha_i &lt; 0\)</span>: underperforms.</li>
+</ul>
+<p><strong>Testing it.</strong> <span class="math math-inline">\(H_0: \alpha_i = 0\)</span> (the CAPM explains the returns) vs. <span class="math math-inline">\(H_1: \alpha_i \ne 0\)</span>. The <strong>appraisal ratio</strong> is the t-statistic</p>
+<p><span class="math math-display">\[t_{\hat\alpha_i} = \frac{\hat\alpha_i}{\hat\sigma_{\hat\alpha_i}}, \qquad \hat\sigma_{\hat\alpha_i}^2 = \frac1T\left(1 + \frac{\bar z_M^2}{\hat\sigma_M^2}\right)\hat s_{\varepsilon_i}^2, \qquad \hat s_{\varepsilon_i}^2 = \frac{1}{T-2}\sum_{t=1}^{T}\hat\varepsilon_{i,t}^2\]</span></p>
+<p>Under joint normality and <span class="math math-inline">\(H_0\)</span>, <span class="math math-inline">\(t_{\hat\alpha_i} \sim t_{T-2}\)</span>. The term <span class="math math-inline">\(\bar z_M^2/\hat\sigma_M^2\)</span> is the squared Sharpe ratio of the market: alpha is estimated less precisely when the market's mean is large relative to its volatility.</p>
+<p>Play with the true parameters. With much idiosyncratic noise or a short sample, even a true alpha of 0.3% per month is often <strong>not</strong> significant; a new sample changes the estimates.</p>
+<pre class="wimark-src"><code class="nohighlight" data-wimark="capmreg" data-opts="{&#34;alpha&#34;: 0.002, &#34;beta&#34;: 0.8, &#34;noise&#34;: 0.05, &#34;T&#34;: 276}"></code></pre>
+<h2 id="static-test-five-djia-stocks">Static test: five DJIA stocks</h2>
+<p>Excess returns from adjusted closes (Yahoo Finance), market excess return from the Fama–French library, monthly, Jan 2000 – Dec 2022 (276 obs.). Data and code: <a href="https://github.com/DoCoGu/EoFE_DCG_Springer">github.com/DoCoGu/EoFE_DCG_Springer</a>.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>P&amp;G</th>
+<th>3M</th>
+<th>IBM</th>
+<th>Merck</th>
+<th>AmEx</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="math math-inline">\(\hat\alpha_i\)</span></td>
+<td>0.00499*</td>
+<td>0.00203</td>
+<td>−0.00053</td>
+<td>0.00333</td>
+<td>0.00111</td>
+</tr>
+<tr>
+<td>t-stat</td>
+<td>(1.65)</td>
+<td>(0.71)</td>
+<td>(−0.15)</td>
+<td>(0.83)</td>
+<td>(0.26)</td>
+</tr>
+<tr>
+<td><span class="math math-inline">\(\hat\beta_{i,M}\)</span></td>
+<td>0.268***</td>
+<td>0.793***</td>
+<td>0.938***</td>
+<td>0.449***</td>
+<td>1.290***</td>
+</tr>
+<tr>
+<td>t-stat</td>
+<td>(4.13)</td>
+<td>(12.9)</td>
+<td>(12.3)</td>
+<td>(5.22)</td>
+<td>(14.2)</td>
+</tr>
+<tr>
+<td><span class="math math-inline">\(\bar R^2\)</span></td>
+<td>0.055</td>
+<td>0.376</td>
+<td>0.356</td>
+<td>0.087</td>
+<td>0.422</td>
+</tr>
+</tbody>
+</table>
+<p>*, **, ***: significant at 10%, 5%, 1%.</p>
+<pre class="wimark-src"><code class="nohighlight" data-wimark="chart" data-opts="{&#34;type&#34;: &#34;bar&#34;, &#34;title&#34;: &#34;CAPM regressions: beta and adjusted R² of five DJIA stocks&#34;}">{
+  &#34;labels&#34;: [&#34;P&amp;G&#34;, &#34;3M&#34;, &#34;IBM&#34;, &#34;Merck&#34;, &#34;AmEx&#34;],
+  &#34;series&#34;: [{&#34;name&#34;: &#34;beta&#34;, &#34;values&#34;: [0.268, 0.793, 0.938, 0.449, 1.290]}, {&#34;name&#34;: &#34;adjusted R²&#34;, &#34;values&#34;: [0.055, 0.376, 0.356, 0.087, 0.422]}]
+}
+</code></pre>
+<p><strong>Alphas.</strong> Only P&amp;G has a significant alpha (10% level, about 0.5% per month): abnormal returns beyond market risk. For the other four we <strong>cannot reject</strong> <span class="math math-inline">\(\alpha_i = 0\)</span> — consistent with the CAPM, as is typical for large caps.</p>
+<p><strong>Betas.</strong> All positive and significant at 1%. AmEx has <span class="math math-inline">\(\beta &gt; 1\)</span> (<strong>aggressive</strong>); the others <span class="math math-inline">\(\beta &lt; 1\)</span> (<strong>defensive</strong>). If the market rises 1%, the stock's expected excess return changes by <span class="math math-inline">\(\beta \times 1\%\)</span>.</p>
+<p><strong>Fit.</strong> The market explains 42% of AmEx's variation, about 36–38% for 3M and IBM, only 5.5% for P&amp;G and 8.7% for Merck.</p>
+<p><strong>Limits.</strong> Five large, liquid, U.S. stocks from one index. A serious test needs many stocks of different size and liquidity, international markets and different market conditions.</p>
+<h2 id="dynamic-analysis-time-varying-alpha-and-beta">Dynamic analysis: time-varying alpha and beta</h2>
+<p>The static CAPM assumes constant <span class="math math-inline">\(\alpha_i\)</span> and <span class="math math-inline">\(\beta_i\)</span>. In reality they move with business models and leverage, the business cycle and volatility, managerial skill, regulation.</p>
+<p><strong>Rolling-window regressions</strong> (windows of 25, 40 or 60 months): estimate on <span class="math math-inline">\(t = 1, \dots, 40\)</span>, then <span class="math math-inline">\(t = 2, \dots, 41\)</span>, …, up to <span class="math math-inline">\(t = T-39, \dots, T\)</span>. Each window gives one <span class="math math-inline">\((\hat\alpha_{i,t}, \hat\beta_{i,t})\)</span>.</p>
+<p>Uses: dynamic risk assessment and allocation, risk evaluation in volatile markets, performance evaluation (skill vs. timing). Evidence: <strong>betas rise in market stress</strong>; alphas vary, especially for active managers.</p>
+<p>Below, the true beta jumps from 1.1 to 2.2 during a crisis, then falls. A short window tracks the jump quickly but is noisy; a long window is smooth but lags and blurs the crisis.</p>
+<pre class="wimark-src"><code class="nohighlight" data-wimark="rolling" data-opts="{&#34;window&#34;: 40, &#34;T&#34;: 276}"></code></pre>
+<p><strong>What the DJIA stocks show (40-month windows)</strong></p>
+<table>
+<thead>
+<tr>
+<th>Stock</th>
+<th>Rolling alpha</th>
+<th>Rolling beta</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>P&amp;G</td>
+<td>Positive 2003–05 and 2017–22, ≈ 0 in between</td>
+<td>From negative (counter-cyclical) pre-2007 to 0.6–0.7, then ≈ 0.5</td>
+</tr>
+<tr>
+<td>3M</td>
+<td>Positive 2003–05, ≈ 0 2006–18, negative after 2018</td>
+<td>0.5–1 early, ≈ 1 after 2008</td>
+</tr>
+<tr>
+<td>IBM</td>
+<td>Negative 2004–06, positive 2007–13, negative after 2014</td>
+<td>&gt; 1 in 2003–08, 0.5–1 in 2009–17, &gt; 1 after 2017</td>
+</tr>
+<tr>
+<td>Merck</td>
+<td>Negative 2003–06, ≈ 0 until 2018, positive after</td>
+<td>Always between 0 and 1</td>
+</tr>
+<tr>
+<td>AmEx</td>
+<td>Very volatile throughout</td>
+<td>1–1.5, below 1 in 2006–07, <strong>above 2 in 2008–09</strong>, above 1 after 2012</td>
+</tr>
+</tbody>
+</table>
+<p>Each firm has its own pattern of out- and underperformance: factors beyond systematic risk matter. Betas vary too, but less than alphas.</p>
+<p><strong>Limits of rolling estimates</strong></p>
+<ul>
+<li><strong>Ex post</strong>: they describe the past, with no ex-ante predictive power.</li>
+<li><strong>Window size</strong>: no universal rule; enough data for precision vs. responsiveness; should match the investor's horizon.</li>
+<li><strong>Frequency</strong>: daily, weekly, monthly or annual data change the right window.</li>
+<li>Hence a subjective trade-off between <strong>stability</strong> and <strong>adaptability</strong>.</li>
+</ul>
+<h2 id="key-takeaways">Key takeaways</h2>
+<ul>
+<li>Market model: <span class="math math-inline">\(z_{i,t} = \alpha_i + \beta_{i,M}z_{M,t} + \varepsilon_{i,t}\)</span>; the CAPM implies <span class="math math-inline">\(\alpha_i = 0\)</span>.</li>
+<li>OLS: <span class="math math-inline">\(\hat\beta = \widehat{\mathrm{cov}}(z_i, z_m)/\widehat{\mathrm{var}}(z_m)\)</span>, <span class="math math-inline">\(\hat\alpha = \bar z_i - \hat\beta\bar z_m\)</span>.</li>
+<li>Jensen's alpha measures performance; test it with <span class="math math-inline">\(t_{\hat\alpha} = \hat\alpha/\hat\sigma_{\hat\alpha} \sim t_{T-2}\)</span>.</li>
+<li>DJIA 2000–22: only P&amp;G has a (weakly) significant alpha; AmEx aggressive (<span class="math math-inline">\(\beta = 1.29\)</span>), others defensive.</li>
+<li>Rolling windows reveal time-varying alphas and betas (betas spike in crises) but are ex post and window-dependent.</li>
+</ul>
+<pre class="wimark-src"><code class="nohighlight" data-wimark="quiz" data-opts="{&#34;title&#34;: &#34;Check yourself&#34;}">[
+  {&#34;q&#34;: &#34;In the regression $z_{i,t} = \\alpha_i + \\beta_{i,M}z_{M,t} + \\varepsilon_{i,t}$, the CAPM implies&#34;, &#34;options&#34;: [&#34;$\\beta_{i,M} = 1$&#34;, &#34;$\\alpha_i = 0$&#34;, &#34;$R^2 = 1$&#34;], &#34;answer&#34;: 1, &#34;why&#34;: &#34;In excess returns the CAPM has no intercept: any non-zero alpha is a pricing error.&#34;},
+  {&#34;q&#34;: &#34;P&amp;G: $\\hat\\alpha = 0.00499$, $t = 1.65$. At the 5% level you&#34;, &#34;options&#34;: [&#34;reject $H_0: \\alpha = 0$&#34;, &#34;do not reject $H_0$&#34;, &#34;cannot say without $R^2$&#34;], &#34;answer&#34;: 1, &#34;why&#34;: &#34;$|1.65| &lt; 1.97$: significant only at 10%.&#34;},
+  {&#34;q&#34;: &#34;AmEx has $\\hat\\beta = 1.29$. If the market excess return is +2% this month, the expected excess return of AmEx is about&#34;, &#34;options&#34;: [&#34;+1.29%&#34;, &#34;+2.58%&#34;, &#34;+3.29%&#34;], &#34;answer&#34;: 1, &#34;why&#34;: &#34;$\\beta \\times 2\\% = 2.58\\%$ (plus an alpha that is not significant).&#34;},
+  {&#34;q&#34;: &#34;P&amp;G has $\\bar R^2 = 0.055$. That means&#34;, &#34;options&#34;: [&#34;P&amp;G&#39;s beta is wrong&#34;, &#34;the market explains only about 5.5% of P&amp;G&#39;s return variation&#34;, &#34;P&amp;G has no systematic risk&#34;], &#34;answer&#34;: 1, &#34;why&#34;: &#34;Most of P&amp;G&#39;s variance is idiosyncratic; its beta is still significant.&#34;},
+  {&#34;q&#34;: &#34;Shortening the rolling window from 60 to 20 months makes the beta estimate&#34;, &#34;options&#34;: [&#34;smoother but slower&#34;, &#34;faster to react but noisier&#34;, &#34;unbiased in all periods&#34;], &#34;answer&#34;: 1, &#34;why&#34;: &#34;Fewer observations per window → more estimation noise, but recent changes weigh more.&#34;}
+]
+</code></pre>
+</article>
+
+          
+          </div>
+        </div>
+      </section>
+
+      <aside class="col-toc" aria-label="On this page">
+        <div class="col-head">On this page</div>
+        <div class="col-scroll">
+          
+            
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l1">
+    <a href="#empirical-analysis-of-the-capm">Empirical Analysis of the CAPM</a>
+    
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l2">
+    <a href="#foundations">Foundations</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#the-market-model">The market model</a>
+    
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l3">
+    <a href="#ols">OLS</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l3">
+    <a href="#jensens-alpha">Jensen&#39;s alpha</a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#static-test-five-djia-stocks">Static test: five DJIA stocks</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#dynamic-analysis-time-varying-alpha-and-beta">Dynamic analysis: time-varying alpha and beta</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#key-takeaways">Key takeaways</a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+</ul>
+
+          
+          
+        </div>
+      </aside>
+
+    
+  </main>
+
+  
+  <footer class="statusbar" aria-hidden="true">
+    <span class="sb-mode">READ</span>
+    <span class="sb-path">en/notes/University notes/financial-economics/04-empirical-capm.md</span>
+    <span class="sb-spacer"></span>
+    <span class="sb-item">en</span>
+    <span class="sb-item">utf-8</span>
+    <span class="sb-item">markdown</span>
+    <span class="sb-pos" data-scroll-pos>top</span>
+  </footer>
+  
+
+  <div class="search" data-search hidden role="dialog" aria-modal="true" aria-label="Search">
+    <div class="search-panel">
+      <div class="search-bar"><span class="search-prompt" aria-hidden="true">❯</span>
+      <input class="search-input" type="search" placeholder="Search" autocomplete="off" spellcheck="false" aria-controls="search-results"></div>
+      <ul class="search-results" id="search-results" role="listbox"></ul>
+      <div class="search-hint" aria-hidden="true"><span><kbd>↑↓</kbd> move</span><span><kbd>↵</kbd> open</span><span><kbd>tab</kbd> complete</span><span><kbd>esc</kbd> close</span></div>
+    </div>
+  </div>
+
+  <script>
+    window.GOMARK = {
+      lang: "en",
+      root: "..\/..\/..\/..\/",
+      theme: "light",
+      section: "notes",
+      i18n: { noResults: "No results", searchFilters: "Filters", searchTab: "complete",
+        qSection: "in one section of the site", qHeading: "under the headings that match", qTitle: "in the title", qCode: "in the code blocks, of one language",
+        qIn: "where the words look", qHas: "pages with code, math, table, image, link, quote, task, widget", qPath: "in the file path", qPhrase: "these words, in this order",
+        qNot: "without it", qOr: "either one", qRegex: "a regular expression", copy: "copy", copied: "copied", words: "words", minRead: "min read",
+        data: "data", search: "search", noData: "no data", other: "other",
+        total: "total", show: "show", hide: "hide", reset: "reset", all: "all" }
+    };
+  </script>
+  <script src="../../../../static/widgets.js"></script>
+  <script src="../../../../static/widgets/notes/University%20notes/financial-economics/capmreg.js"></script>
+  <script src="../../../../static/widgets/chart.js"></script>
+  <script src="../../../../static/widgets/notes/University%20notes/financial-economics/rolling.js"></script>
+  <script src="../../../../static/widgets/quiz.js"></script>
+  <script src="../../../../static/engine.js"></script>
+  <script src="../../../../static/ui.js"></script>
+  <script src="../../../../static/search.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

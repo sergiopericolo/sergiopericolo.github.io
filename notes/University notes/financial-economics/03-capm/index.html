@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Digital identity and computational knowledge base: résumé, projects and notes.">
+  <meta name="author" content="Sergio Di Lapi">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains&#43;Mono:wght@400;500;600;700;800&amp;family=IBM&#43;Plex&#43;Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <title>The Capital Asset Pricing Model · Notes</title>
+  <link rel="stylesheet" href="../../../../static/layout.css">
+  <link rel="stylesheet" href="../../../../static/theme.css">
+  <link rel="stylesheet" href="../../../../static/wimark.css">
+  <link rel="stylesheet" href="../../../../static/themes/light.css">
+  <style>:root { --mono:"JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;--sans:"IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;--font-body:var(--sans);--font-heading:var(--mono);--font-size:14px;--content-width:780px;--sidebar-width:256px;--folders-width:224px;--toc-width:232px;--radius:4px;--radius-sm:3px;--radius-lg:10px; }</style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+</head>
+<body data-depth="multi" data-index="right" data-theme="light" data-theme-class="monochrome" data-heading="mono" data-statusbar="on">
+
+  <header class="topbar">
+    <a class="brand" href="../../../../index.html">sergiopericolo</a>
+    <nav class="sections" aria-label="Sections">
+      
+      <a class="section-link" href="../../../../about/index.html">
+        <span class="section-idx">01</span>
+        <span class="section-title">About</span>
+      </a>
+      
+      <a class="section-link" href="../../../../projects/index.html">
+        <span class="section-idx">02</span>
+        <span class="section-title">Projects</span>
+      </a>
+      
+      <a class="section-link active" href="../../../../notes/index.html">
+        <span class="section-idx">03</span>
+        <span class="section-title">Notes</span>
+      </a>
+      
+      <a class="section-link" href="../../../../visual/index.html">
+        <span class="section-idx">04</span>
+        <span class="section-title">Visual</span>
+      </a>
+      
+      <a class="section-link" href="../../../../art/index.html">
+        <span class="section-idx">05</span>
+        <span class="section-title">Art</span>
+      </a>
+      
+    </nav>
+    <div class="topbar-end">
+      <button class="search-open" type="button" data-search-open aria-haspopup="dialog"><span>Search</span><kbd>⌘K</kbd></button>
+      
+      <span class="build-info"><a class="build-name" href="https://github.com/sergiopericolo/GoMark">GoMark</a> v1.2.0</span>
+    </div>
+  </header>
+
+  <main class="grid" style="--grid: minmax(0, 15fr) minmax(0, 15fr) minmax(0, 55fr) minmax(0, 15fr); --grid-medium: minmax(0, 15fr) minmax(0, 15fr) minmax(0, 70fr)">
+
+    
+
+      
+      <aside class="col-folders" aria-label="Folders">
+        <div class="col-head">Folders</div>
+        <div class="col-scroll">
+          <a class="tree-root" href="../../../index.html">~/notes/</a>
+          
+
+<ul class="tree">
+  
+  
+  <li class="tree-node has-children open" data-path="University notes">
+    <div class="tree-row">
+      
+      <button class="tree-toggle" type="button" aria-expanded="true" aria-label="University notes"><span class="chev" aria-hidden="true"></span></button>
+      
+      <a class="tree-folder" href="../../../University%20notes/index.html">
+        <span class="tree-name">University notes/</span>
+        
+      </a>
+    </div>
+    
+      
+
+<ul class="tree">
+  
+  
+  <li class="tree-node" data-path="University notes/computational-method">
+    <div class="tree-row">
+      
+      <span class="tree-leaf" aria-hidden="true"></span>
+      
+      <a class="tree-folder" href="../../../University%20notes/computational-method/index.html">
+        <span class="tree-name">computational-method/</span>
+        <span class="tree-count">5</span>
+      </a>
+    </div>
+    
+  </li>
+  
+  
+  <li class="tree-node open" data-path="University notes/financial-economics">
+    <div class="tree-row">
+      
+      <span class="tree-leaf" aria-hidden="true"></span>
+      
+      <a class="tree-folder active" href="../../../University%20notes/financial-economics/index.html">
+        <span class="tree-name">financial-economics/</span>
+        <span class="tree-count">9</span>
+      </a>
+    </div>
+    
+  </li>
+  
+</ul>
+
+    
+  </li>
+  
+</ul>
+
+        </div>
+      </aside>
+      
+
+      <aside class="col-files" aria-label="Files">
+        <div class="col-head">
+          <span>Files <span class="badge">9</span></span>
+          <span class="col-head-path">notes/University notes/financial-economics/</span>
+        </div>
+        <div class="col-scroll">
+          <ul class="file-list">
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-economics/01-choice-under-uncertainty/index.html">
+                <span class="file-name">Choice Under Uncertainty</span>
+                <span class="file-path">01-choice-under-uncertainty.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-economics/02-modern-portfolio-theory/index.html">
+                <span class="file-name">Modern Portfolio Theory</span>
+                <span class="file-path">02-modern-portfolio-theory.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link active" href="../../../University%20notes/financial-economics/03-capm/index.html">
+                <span class="file-name">The Capital Asset Pricing Model</span>
+                <span class="file-path">03-capm.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-economics/04-empirical-capm/index.html">
+                <span class="file-name">Empirical Analysis of the CAPM</span>
+                <span class="file-path">04-empirical-capm.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-economics/05-consumption-capm/index.html">
+                <span class="file-name">The Consumption CAPM</span>
+                <span class="file-path">05-consumption-capm.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-economics/06-apt-multifactor/index.html">
+                <span class="file-name">Arbitrage Pricing Theory and Multi-factor Models</span>
+                <span class="file-path">06-apt-multifactor.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-economics/07-cross-sectional-asset-pricing/index.html">
+                <span class="file-name">Empirical Cross-Sectional Asset Pricing</span>
+                <span class="file-path">07-cross-sectional-asset-pricing.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-economics/08-black-litterman/index.html">
+                <span class="file-name">The Black–Litterman Model</span>
+                <span class="file-path">08-black-litterman.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-economics/09-event-studies/index.html">
+                <span class="file-name">Event Study Analysis</span>
+                <span class="file-path">09-event-studies.md</span>
+              </a>
+            </li>
+            
+          </ul>
+        </div>
+      </aside>
+
+      <section class="col-content" aria-label="sergiopericolo">
+        <div class="content-scroll" id="content">
+          <div class="content-inner">
+          
+            
+<div class="page-head">
+  <div class="page-crumb"><span class="crumb-home">~</span>/notes/University notes/financial-economics/03-capm.md</div>
+  <h1 class="page-title">The Capital Asset Pricing Model</h1>
+  <div class="page-meta" data-page-meta><span class="meta-tag">en</span></div>
+</div>
+
+<article class="page-body"><h1 id="the-capital-asset-pricing-model">The Capital Asset Pricing Model</h1>
+<p>Chapter 3 of <em>Essentials of Financial Economics</em> (Donadelli, Costola, Gufler). From one investor's optimal portfolio (Chapter 2) to market equilibrium: if everyone holds the tangency portfolio, it must be the market portfolio, and only <strong>systematic risk (beta)</strong> is priced.</p>
+<p>Roadmap:</p>
+<ol>
+<li><strong>The market portfolio</strong> — market clearing, why it is efficient and equal to <span class="math math-inline">\(T\)</span>.</li>
+<li><strong>Deriving the CAPM</strong> — from the optimality condition to beta.</li>
+<li><strong>The Security Market Line</strong> — SML vs. CML, the CAPM as a factor model.</li>
+</ol>
+<h2 id="the-setting">The setting</h2>
+<table>
+<thead>
+<tr>
+<th>MPT assumptions</th>
+<th>Equilibrium conditions</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>N risky assets with <span class="math math-inline">\((\boldsymbol\mu, \boldsymbol\Sigma)\)</span></td>
+<td>Many price-taking investors, no market power</td>
+</tr>
+<tr>
+<td>A risk-free asset <span class="math math-inline">\(r_f\)</span></td>
+<td>Fixed asset supply</td>
+</tr>
+<tr>
+<td>Frictionless markets, infinite divisibility</td>
+<td>Markets clear: supply = demand</td>
+</tr>
+<tr>
+<td>Symmetric information, mean–variance preferences</td>
+<td>Prices adjust to expected returns</td>
+</tr>
+</tbody>
+</table>
+<p>All investors use the same information set, so they hold risky assets <strong>in the same proportions</strong>; their collective choices pin down prices.</p>
+<h2 id="the-market-portfolio">The market portfolio</h2>
+<p>The <strong>market value</strong> of asset <span class="math math-inline">\(i\)</span> is the value of all its traded shares. In equilibrium aggregate demand equals supply. With <span class="math math-inline">\(L\)</span> investors of initial wealth <span class="math math-inline">\(W_0^l\)</span> who put a fraction <span class="math math-inline">\(w_i^l\)</span> in asset <span class="math math-inline">\(i\)</span>:</p>
+<p><span class="math math-display">\[W^i = \sum_{l=1}^{L} w_i^l\,W_0^l\]</span></p>
+<p>Summing over assets, <strong>total asset value = total wealth</strong>:</p>
+<p><span class="math math-display">\[W^M = \sum_{i=1}^{N+1} W^i = \sum_{l=1}^{L} W_0^l\]</span></p>
+<p>The market weights are wealth-weighted averages of individual weights:</p>
+<p><span class="math math-display">\[w_i^M = \frac{W^i}{W^M} = \sum_{l=1}^{L}\left(\frac{W_0^l}{\sum_{l} W_0^l}\right) w_i^l, \qquad \mathbf w^M = \sum_{l=1}^{L}\left(\frac{W_0^l}{\sum_{l} W_0^l}\right)\mathbf w^l\]</span></p>
+<p>So the market portfolio is a <strong>convex combination</strong> of investors' portfolios. Each of them lies on the CML, the CML is convex, hence the market portfolio is <strong>efficient</strong>.</p>
+<p><strong>The risk-free asset is in zero net supply</strong>: every lender faces a borrower.</p>
+<p><span class="math math-display">\[W^{N+1} = \sum_{l} w_{N+1}^l W_0^l = 0 \;\Rightarrow\; w_{N+1}^M = 0\]</span></p>
+<p>The market portfolio contains only risky assets and lies on the CML. The only such portfolio is the tangency one:</p>
+<blockquote>
+<p><strong>Proposition.</strong> The market portfolio coincides with the tangency portfolio, <span class="math math-inline">\(M = T\)</span>. It is efficient, and expected returns depend on covariance with <span class="math math-inline">\(M\)</span> — on <strong>beta</strong>.</p>
+</blockquote>
+<h2 id="deriving-the-capm">Deriving the CAPM</h2>
+<p>From Chapter 2, an efficient portfolio <span class="math math-inline">\(p\)</span> with return <span class="math math-inline">\(\mu_p\)</span> has weights</p>
+<p><span class="math math-display">\[\mathbf w_p = \lambda\,\boldsymbol\Sigma^{-1}(\boldsymbol\mu - \mathbf 1 r_f), \qquad \lambda = \frac{\mu_p - r_f}{(\boldsymbol\mu - \mathbf 1 r_f)&#39;\boldsymbol\Sigma^{-1}(\boldsymbol\mu - \mathbf 1 r_f)}\]</span></p>
+<p>and the tangency portfolio is <span class="math math-inline">\(\mathbf w_T = \dfrac{\boldsymbol\Sigma^{-1}(\boldsymbol\mu - \mathbf 1 r_f)}{\mathbf 1&#39;\boldsymbol\Sigma^{-1}(\boldsymbol\mu - \mathbf 1 r_f)}\)</span>.</p>
+<p><strong>Step by step.</strong></p>
+<ol>
+<li>Rewrite the FOC: <span class="math math-inline">\(\boldsymbol\Sigma\mathbf w_p = \lambda(\boldsymbol\mu - \mathbf 1 r_f)\)</span>. The left side is the vector of covariances of each asset with <span class="math math-inline">\(p\)</span>: <span class="math math-inline">\(\boldsymbol\Sigma\mathbf w_p = \mathrm{cov}(\tilde{\mathbf r}, \tilde r_p)\)</span>.</li>
+<li>Premultiply by <span class="math math-inline">\(\mathbf w_p&#39;\)</span>: <span class="math math-inline">\(\sigma_p^2 = \lambda(\mu_p - r_f)\)</span>, so <span class="math math-inline">\(1/\lambda = (\mu_p - r_f)/\sigma_p^2 \equiv \zeta\)</span>. Every efficient portfolio satisfies
+<span class="math math-display">\[\boldsymbol\mu - \mathbf 1 r_f = \zeta\,\boldsymbol\Sigma\mathbf w_p, \qquad \zeta = \frac{\mu_p - r_f}{\sigma_p^2}\]</span>
+<strong>Risk premia are proportional to covariances</strong> with <span class="math math-inline">\(p\)</span>.</li>
+<li>Define <span class="math math-inline">\(\boldsymbol\beta_p \equiv \boldsymbol\Sigma\mathbf w_p / \sigma_p^2\)</span>, i.e. <span class="math math-inline">\(\beta_{i,p} = \mathrm{cov}(\tilde r_i, \tilde r_p)/\sigma_p^2\)</span>:
+<span class="math math-display">\[\boldsymbol\mu - \mathbf 1 r_f = \boldsymbol\beta_p(\mu_p - r_f)\]</span></li>
+<li>Take <span class="math math-inline">\(p = T\)</span> and use the equilibrium result <span class="math math-inline">\(T = M\)</span>:</li>
+</ol>
+<p><span class="math math-display">\[\boxed{E[\tilde r_i] - r_f = \beta_{i,M}\big(E[\tilde r_M] - r_f\big), \qquad \beta_{i,M} = \frac{\mathrm{cov}(\tilde r_i, \tilde r_M)}{\sigma_M^2}}\]</span></p>
+<p><span class="math math-inline">\(\beta_{i,M}\)</span> measures asset <span class="math math-inline">\(i\)</span>'s contribution to the risk of <span class="math math-inline">\(M\)</span>. <strong>Only systematic risk is priced</strong>: idiosyncratic risk can be diversified away for free, so it earns no premium.</p>
+<h3 id="rolls-critique">Roll's critique</h3>
+<p>The relation in step 3 holds for <strong>any</strong> efficient portfolio <span class="math math-inline">\(p\)</span>, not only for <span class="math math-inline">\(M\)</span>. Hence:</p>
+<ul>
+<li>The CAPM is the statement that it holds for <span class="math math-inline">\(p = M\)</span>, the <strong>true</strong> market portfolio.</li>
+<li>But <span class="math math-inline">\(M\)</span> (all assets: stocks, bonds, real estate, human capital…) is <strong>unobservable</strong>; tests use proxies such as the S&amp;P 500.</li>
+<li>Every test is therefore a <strong>joint test</strong> of the CAPM and of the proxy's efficiency. If the proxy is efficient the relation holds mechanically; if not, a rejection may only mean the proxy is wrong.</li>
+</ul>
+<h2 id="the-security-market-line">The Security Market Line</h2>
+<p><span class="math math-display">\[E[\tilde r_i] = r_f + \beta_{i,M}\big(E[\tilde r_M] - r_f\big)\]</span></p>
+<p>This straight line in <span class="math math-inline">\((\beta, E[r])\)</span> space is the <strong>SML</strong>.</p>
+<ul>
+<li>Intercept <span class="math math-inline">\(r_f\)</span> (at <span class="math math-inline">\(\beta = 0\)</span>), slope = market risk premium; the market sits at <span class="math math-inline">\(\beta = 1\)</span>.</li>
+<li>High-<span class="math math-inline">\(\beta\)</span> assets must offer higher expected returns; low-<span class="math math-inline">\(\beta\)</span> assets lower.</li>
+<li>A <strong>negative-<span class="math math-inline">\(\beta\)</span></strong> asset is a hedge: its expected return can be <strong>below <span class="math math-inline">\(r_f\)</span></strong>.</li>
+<li>An asset above the line has a positive <strong>alpha</strong> (it is cheap: too much return for its beta); below the line, negative alpha.</li>
+</ul>
+<p>Move <span class="math math-inline">\(r_f\)</span> and the market premium; the table shows each asset's CAPM return and its alpha.</p>
+<pre class="wimark-src"><code class="nohighlight" data-wimark="sml" data-opts="{&#34;rf&#34;: 0.02, &#34;mrp&#34;: 0.06}">[[&#34;defensive&#34;, 0.5, 0.06], [&#34;market-like&#34;, 1.0, 0.08], [&#34;aggressive&#34;, 1.5, 0.095], [&#34;hedge&#34;, -0.3, 0.005]]
+</code></pre>
+<h3 id="cml-vs-sml">CML vs. SML</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Capital Market Line</th>
+<th>Security Market Line</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Axes</td>
+<td><span class="math math-inline">\((\sigma_p, E[r_p])\)</span></td>
+<td><span class="math math-inline">\((\beta_p, E[r_p])\)</span></td>
+</tr>
+<tr>
+<td>Risk measure</td>
+<td><strong>Total</strong> risk <span class="math math-inline">\(\sigma\)</span></td>
+<td><strong>Systematic</strong> risk <span class="math math-inline">\(\beta\)</span></td>
+</tr>
+<tr>
+<td>Applies to</td>
+<td>Efficient portfolios only</td>
+<td>Any asset or portfolio</td>
+</tr>
+<tr>
+<td>Slope</td>
+<td>Sharpe ratio of <span class="math math-inline">\(M\)</span>: <span class="math math-inline">\((E[r_M] - r_f)/\sigma_M\)</span></td>
+<td>Market premium <span class="math math-inline">\(E[r_M] - r_f\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>An inefficient asset lies <strong>below</strong> the CML (it carries unpriced idiosyncratic risk) but, if the CAPM holds, <strong>on</strong> the SML.</p>
+<h3 id="the-capm-as-a-linear-factor-model">The CAPM as a linear factor model</h3>
+<p>General form: <span class="math math-inline">\(E[\tilde r_i] = \alpha + \boldsymbol\beta&#39;\mathbf f\)</span>. The CAPM restricts it to one factor, <span class="math math-inline">\(\mathbf f = \tilde r_M\)</span>, with <span class="math math-inline">\(\alpha = r_f\)</span>.</p>
+<ul>
+<li><strong>Multi-factor</strong> extensions, e.g. Fama–French: <span class="math math-inline">\(\mathbf f = [\tilde r_M, SMB, HML]&#39;\)</span> (Chapter 6).</li>
+<li><strong>Conditional CAPM</strong>: <span class="math math-inline">\(\beta\)</span> changes with the state of the economy.</li>
+<li><strong>Empirical challenges</strong>: the market proxy, time-varying betas, anomalies such as momentum (Chapter 4).</li>
+</ul>
+<h3 id="what-equilibrium-requires">What equilibrium requires</h3>
+<p>For <span class="math math-inline">\(T = M\)</span> we need <strong>homogeneous expectations</strong> (everyone agrees on <span class="math math-inline">\(\boldsymbol\mu\)</span> and <span class="math math-inline">\(\boldsymbol\Sigma\)</span>), <strong>perfect markets</strong> (no taxes, costs or short-sale limits) and <strong>mean–variance</strong> investors. Then</p>
+<p><span class="math math-display">\[\mathbf w^M = \frac{\text{market capitalisation of each asset}}{\text{total market wealth}}\]</span></p>
+<p>and markets clear asset by asset.</p>
+<h2 id="key-takeaways">Key takeaways</h2>
+<ul>
+<li>Market clearing: total asset value = total wealth; <span class="math math-inline">\(\mathbf w^M\)</span> is a wealth-weighted average of investors' portfolios.</li>
+<li>The risk-free asset is in zero net supply → <span class="math math-inline">\(M\)</span> holds only risky assets → <span class="math math-inline">\(M = T\)</span>, efficient.</li>
+<li>Efficient portfolios satisfy <span class="math math-inline">\(\boldsymbol\mu - \mathbf 1 r_f = \zeta\boldsymbol\Sigma\mathbf w_p\)</span>: premia ∝ covariances.</li>
+<li><strong>CAPM</strong>: <span class="math math-inline">\(E[\tilde r_i] - r_f = \beta_{i,M}(E[\tilde r_M] - r_f)\)</span>, <span class="math math-inline">\(\beta_{i,M} = \mathrm{cov}(\tilde r_i, \tilde r_M)/\sigma_M^2\)</span>.</li>
+<li>Only systematic risk is priced; negative <span class="math math-inline">\(\beta\)</span> → expected return below <span class="math math-inline">\(r_f\)</span>.</li>
+<li><strong>SML</strong> (β, any asset) vs. <strong>CML</strong> (σ, efficient portfolios only).</li>
+<li><strong>Roll</strong>: <span class="math math-inline">\(M\)</span> is unobservable, every test is joint with the proxy.</li>
+</ul>
+<pre class="wimark-src"><code class="nohighlight" data-wimark="quiz" data-opts="{&#34;title&#34;: &#34;Check yourself&#34;}">[
+  {&#34;q&#34;: &#34;Why does the market portfolio contain no risk-free asset?&#34;, &#34;options&#34;: [&#34;Because investors are risk-averse&#34;, &#34;Because the risk-free asset is in zero net supply: lending equals borrowing&#34;, &#34;Because $r_f &lt; B/C$&#34;], &#34;answer&#34;: 1, &#34;why&#34;: &#34;$\\sum_l w_{N+1}^l W_0^l = 0$, so $w_{N+1}^M = 0$.&#34;},
+  {&#34;q&#34;: &#34;$r_f = 2\\%$, $E[r_M] = 8\\%$, $\\beta_i = 1.5$. The CAPM expected return of asset $i$ is&#34;, &#34;options&#34;: [&#34;9%&#34;, &#34;11%&#34;, &#34;12%&#34;], &#34;answer&#34;: 1, &#34;why&#34;: &#34;$2\\% + 1.5 \\times (8\\% - 2\\%) = 11\\%$.&#34;},
+  {&#34;q&#34;: &#34;An asset has $\\beta = -0.4$. If the CAPM holds, its expected return is&#34;, &#34;options&#34;: [&#34;above $r_f$&#34;, &#34;equal to $r_f$&#34;, &#34;below $r_f$&#34;], &#34;answer&#34;: 2, &#34;why&#34;: &#34;It pays off when the market falls: a hedge. Investors accept a return below $r_f$ for it.&#34;},
+  {&#34;q&#34;: &#34;An individual stock lies below the CML. Does that contradict the CAPM?&#34;, &#34;options&#34;: [&#34;Yes&#34;, &#34;No — the CML is only for efficient portfolios; the stock should lie on the SML&#34;], &#34;answer&#34;: 1, &#34;why&#34;: &#34;A single stock carries idiosyncratic risk, so it is inefficient in $(\\sigma, \\mu)$; the CAPM only requires it to be on the SML.&#34;},
+  {&#34;q&#34;: &#34;Roll&#39;s critique says that&#34;, &#34;options&#34;: [&#34;betas change over time&#34;, &#34;the true market portfolio is unobservable, so tests are joint tests of the CAPM and the proxy&#34;, &#34;the CAPM ignores consumption&#34;], &#34;answer&#34;: 1}
+]
+</code></pre>
+</article>
+
+          
+          </div>
+        </div>
+      </section>
+
+      <aside class="col-toc" aria-label="On this page">
+        <div class="col-head">On this page</div>
+        <div class="col-scroll">
+          
+            
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l1">
+    <a href="#the-capital-asset-pricing-model">The Capital Asset Pricing Model</a>
+    
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l2">
+    <a href="#the-setting">The setting</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#the-market-portfolio">The market portfolio</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#deriving-the-capm">Deriving the CAPM</a>
+    
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l3">
+    <a href="#rolls-critique">Roll&#39;s critique</a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#the-security-market-line">The Security Market Line</a>
+    
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l3">
+    <a href="#cml-vs-sml">CML vs. SML</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l3">
+    <a href="#the-capm-as-a-linear-factor-model">The CAPM as a linear factor model</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l3">
+    <a href="#what-equilibrium-requires">What equilibrium requires</a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#key-takeaways">Key takeaways</a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+</ul>
+
+          
+          
+        </div>
+      </aside>
+
+    
+  </main>
+
+  
+  <footer class="statusbar" aria-hidden="true">
+    <span class="sb-mode">READ</span>
+    <span class="sb-path">en/notes/University notes/financial-economics/03-capm.md</span>
+    <span class="sb-spacer"></span>
+    <span class="sb-item">en</span>
+    <span class="sb-item">utf-8</span>
+    <span class="sb-item">markdown</span>
+    <span class="sb-pos" data-scroll-pos>top</span>
+  </footer>
+  
+
+  <div class="search" data-search hidden role="dialog" aria-modal="true" aria-label="Search">
+    <div class="search-panel">
+      <div class="search-bar"><span class="search-prompt" aria-hidden="true">❯</span>
+      <input class="search-input" type="search" placeholder="Search" autocomplete="off" spellcheck="false" aria-controls="search-results"></div>
+      <ul class="search-results" id="search-results" role="listbox"></ul>
+      <div class="search-hint" aria-hidden="true"><span><kbd>↑↓</kbd> move</span><span><kbd>↵</kbd> open</span><span><kbd>tab</kbd> complete</span><span><kbd>esc</kbd> close</span></div>
+    </div>
+  </div>
+
+  <script>
+    window.GOMARK = {
+      lang: "en",
+      root: "..\/..\/..\/..\/",
+      theme: "light",
+      section: "notes",
+      i18n: { noResults: "No results", searchFilters: "Filters", searchTab: "complete",
+        qSection: "in one section of the site", qHeading: "under the headings that match", qTitle: "in the title", qCode: "in the code blocks, of one language",
+        qIn: "where the words look", qHas: "pages with code, math, table, image, link, quote, task, widget", qPath: "in the file path", qPhrase: "these words, in this order",
+        qNot: "without it", qOr: "either one", qRegex: "a regular expression", copy: "copy", copied: "copied", words: "words", minRead: "min read",
+        data: "data", search: "search", noData: "no data", other: "other",
+        total: "total", show: "show", hide: "hide", reset: "reset", all: "all" }
+    };
+  </script>
+  <script src="../../../../static/widgets.js"></script>
+  <script src="../../../../static/widgets/notes/University%20notes/financial-economics/sml.js"></script>
+  <script src="../../../../static/widgets/quiz.js"></script>
+  <script src="../../../../static/engine.js"></script>
+  <script src="../../../../static/ui.js"></script>
+  <script src="../../../../static/search.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

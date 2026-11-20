@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Digital identity and computational knowledge base: résumé, projects and notes.">
+  <meta name="author" content="Sergio Di Lapi">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains&#43;Mono:wght@400;500;600;700;800&amp;family=IBM&#43;Plex&#43;Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <title>Event Study Analysis · Notes</title>
+  <link rel="stylesheet" href="../../../../static/layout.css">
+  <link rel="stylesheet" href="../../../../static/theme.css">
+  <link rel="stylesheet" href="../../../../static/wimark.css">
+  <link rel="stylesheet" href="../../../../static/themes/light.css">
+  <style>:root { --mono:"JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;--sans:"IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;--font-body:var(--sans);--font-heading:var(--mono);--font-size:14px;--content-width:780px;--sidebar-width:256px;--folders-width:224px;--toc-width:232px;--radius:4px;--radius-sm:3px;--radius-lg:10px; }</style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+</head>
+<body data-depth="multi" data-index="right" data-theme="light" data-theme-class="monochrome" data-heading="mono" data-statusbar="on">
+
+  <header class="topbar">
+    <a class="brand" href="../../../../index.html">sergiopericolo</a>
+    <nav class="sections" aria-label="Sections">
+      
+      <a class="section-link" href="../../../../about/index.html">
+        <span class="section-idx">01</span>
+        <span class="section-title">About</span>
+      </a>
+      
+      <a class="section-link" href="../../../../projects/index.html">
+        <span class="section-idx">02</span>
+        <span class="section-title">Projects</span>
+      </a>
+      
+      <a class="section-link active" href="../../../../notes/index.html">
+        <span class="section-idx">03</span>
+        <span class="section-title">Notes</span>
+      </a>
+      
+      <a class="section-link" href="../../../../visual/index.html">
+        <span class="section-idx">04</span>
+        <span class="section-title">Visual</span>
+      </a>
+      
+      <a class="section-link" href="../../../../art/index.html">
+        <span class="section-idx">05</span>
+        <span class="section-title">Art</span>
+      </a>
+      
+    </nav>
+    <div class="topbar-end">
+      <button class="search-open" type="button" data-search-open aria-haspopup="dialog"><span>Search</span><kbd>⌘K</kbd></button>
+      
+      <span class="build-info"><a class="build-name" href="https://github.com/sergiopericolo/GoMark">GoMark</a> v1.2.0</span>
+    </div>
+  </header>
+
+  <main class="grid" style="--grid: minmax(0, 15fr) minmax(0, 15fr) minmax(0, 55fr) minmax(0, 15fr); --grid-medium: minmax(0, 15fr) minmax(0, 15fr) minmax(0, 70fr)">
+
+    
+
+      
+      <aside class="col-folders" aria-label="Folders">
+        <div class="col-head">Folders</div>
+        <div class="col-scroll">
+          <a class="tree-root" href="../../../index.html">~/notes/</a>
+          
+
+<ul class="tree">
+  
+  
+  <li class="tree-node has-children open" data-path="University notes">
+    <div class="tree-row">
+      
+      <button class="tree-toggle" type="button" aria-expanded="true" aria-label="University notes"><span class="chev" aria-hidden="true"></span></button>
+      
+      <a class="tree-folder" href="../../../University%20notes/index.html">
+        <span class="tree-name">University notes/</span>
+        
+      </a>
+    </div>
+    
+      
+
+<ul class="tree">
+  
+  
+  <li class="tree-node" data-path="University notes/computational-method">
+    <div class="tree-row">
+      
+      <span class="tree-leaf" aria-hidden="true"></span>
+      
+      <a class="tree-folder" href="../../../University%20notes/computational-method/index.html">
+        <span class="tree-name">computational-method/</span>
+        <span class="tree-count">5</span>
+      </a>
+    </div>
+    
+  </li>
+  
+  
+  <li class="tree-node open" data-path="University notes/financial-economics">
+    <div class="tree-row">
+      
+      <span class="tree-leaf" aria-hidden="true"></span>
+      
+      <a class="tree-folder active" href="../../../University%20notes/financial-economics/index.html">
+        <span class="tree-name">financial-economics/</span>
+        <span class="tree-count">9</span>
+      </a>
+    </div>
+    
+  </li>
+  
+</ul>
+
+    
+  </li>
+  
+</ul>
+
+        </div>
+      </aside>
+      
+
+      <aside class="col-files" aria-label="Files">
+        <div class="col-head">
+          <span>Files <span class="badge">9</span></span>
+          <span class="col-head-path">notes/University notes/financial-economics/</span>
+        </div>
+        <div class="col-scroll">
+          <ul class="file-list">
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-economics/01-choice-under-uncertainty/index.html">
+                <span class="file-name">Choice Under Uncertainty</span>
+                <span class="file-path">01-choice-under-uncertainty.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-economics/02-modern-portfolio-theory/index.html">
+                <span class="file-name">Modern Portfolio Theory</span>
+                <span class="file-path">02-modern-portfolio-theory.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-economics/03-capm/index.html">
+                <span class="file-name">The Capital Asset Pricing Model</span>
+                <span class="file-path">03-capm.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-economics/04-empirical-capm/index.html">
+                <span class="file-name">Empirical Analysis of the CAPM</span>
+                <span class="file-path">04-empirical-capm.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-economics/05-consumption-capm/index.html">
+                <span class="file-name">The Consumption CAPM</span>
+                <span class="file-path">05-consumption-capm.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-economics/06-apt-multifactor/index.html">
+                <span class="file-name">Arbitrage Pricing Theory and Multi-factor Models</span>
+                <span class="file-path">06-apt-multifactor.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-economics/07-cross-sectional-asset-pricing/index.html">
+                <span class="file-name">Empirical Cross-Sectional Asset Pricing</span>
+                <span class="file-path">07-cross-sectional-asset-pricing.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-economics/08-black-litterman/index.html">
+                <span class="file-name">The Black–Litterman Model</span>
+                <span class="file-path">08-black-litterman.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link active" href="../../../University%20notes/financial-economics/09-event-studies/index.html">
+                <span class="file-name">Event Study Analysis</span>
+                <span class="file-path">09-event-studies.md</span>
+              </a>
+            </li>
+            
+          </ul>
+        </div>
+      </aside>
+
+      <section class="col-content" aria-label="sergiopericolo">
+        <div class="content-scroll" id="content">
+          <div class="content-inner">
+          
+            
+<div class="page-head">
+  <div class="page-crumb"><span class="crumb-home">~</span>/notes/University notes/financial-economics/09-event-studies.md</div>
+  <h1 class="page-title">Event Study Analysis</h1>
+  <div class="page-meta" data-page-meta><span class="meta-tag">en</span></div>
+</div>
+
+<article class="page-body"><h1 id="event-study-analysis">Event Study Analysis</h1>
+<p>Chapter 9 of <em>Essentials of Financial Economics</em> (Donadelli, Costola, Gufler). How do prices react to news? Event studies isolate the effect of an event by comparing actual returns with what a pricing model (the CAPM) would have predicted, in a short window around the event.</p>
+<p>Roadmap:</p>
+<ol>
+<li><strong>Human behaviour vs. events</strong> — why reactions, not events, move prices.</li>
+<li><strong>Methodologies</strong> — abnormal returns and CARs; the regression-based approach.</li>
+<li><strong>Application</strong> — aviation disasters and U.S. transportation stocks: CARs, regressions, a trading strategy.</li>
+</ol>
+<h2 id="human-behaviour-vs-events">Human behaviour vs. events</h2>
+<blockquote>
+<p>&quot;What is important in market fluctuations are not the events themselves but the human reactions to those events.&quot;</p>
+</blockquote>
+<ul>
+<li>Prices aggregate <strong>interpretations</strong> of news, not the news itself.</li>
+<li>Reactions can be biased: <strong>underreaction</strong> (beliefs updated too slowly) or <strong>overreaction</strong> (extrapolating too much from similar outcomes).</li>
+<li>Emotions and herding amplify small shocks; prices are more volatile than fundamentals (Shiller, 1981); <strong>limits to arbitrage</strong> let mispricing persist.</li>
+<li>Perception often matters more than reality; sensationalist media can heighten fear or excitement.</li>
+</ul>
+<h3 id="the-event-study-method">The event study method</h3>
+<p><strong>Premise</strong>: in efficient markets new information is incorporated into prices quickly, so the price path in a <strong>short window</strong> around an event reveals its economic effect. Works for equities, bonds, options and derivatives, and tests informational efficiency.</p>
+<p><strong>History</strong>: Dolley (1933) studied stock splits 1921–1931 (prices rose in 57 of 95 cases). Today: firm events (earnings, M&amp;A), economy-wide events (policy changes), non-economic events (wars, pandemics, disasters).</p>
+<table>
+<thead>
+<tr>
+<th>Date</th>
+<th>Event</th>
+<th>Where</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>11.09.2001</td>
+<td>9/11 terrorist attacks</td>
+<td>U.S.</td>
+</tr>
+<tr>
+<td>15.09.2008</td>
+<td>Lehman Brothers bankruptcy</td>
+<td>U.S.</td>
+</tr>
+<tr>
+<td>23.06.2016</td>
+<td>Brexit referendum</td>
+<td>UK</td>
+</tr>
+<tr>
+<td>08.11.2016</td>
+<td>Trump elected</td>
+<td>U.S.</td>
+</tr>
+<tr>
+<td>15.03.2019</td>
+<td>Global Climate Strike</td>
+<td>World</td>
+</tr>
+<tr>
+<td>07.03.2020</td>
+<td>WHO: COVID-19 cases &gt; 100K</td>
+<td>World</td>
+</tr>
+<tr>
+<td>24.02.2022</td>
+<td>Russian invasion of Ukraine</td>
+<td>Ukraine</td>
+</tr>
+<tr>
+<td>07.10.2023</td>
+<td>Israel–Hamas war</td>
+<td>Israel</td>
+</tr>
+</tbody>
+</table>
+<h3 id="the-sentiment-channel">The sentiment channel</h3>
+<p><strong>Investor sentiment</strong> (Baker and Wurgler, 2006): &quot;a belief regarding future cash flows and investment risks that is not substantiated by available facts&quot;.</p>
+<ul>
+<li><strong>Sports</strong>: losses in soccer, cricket, rugby are followed by market declines (Edmans et al., 2007; Kaplansky and Levy, 2010a).</li>
+<li><strong>Aviation disasters</strong>: public anxiety → sell-offs of risky assets (Kaplansky and Levy, 2010b).</li>
+<li><strong>War</strong>: the 1973 Yom Kippur war's negative effect outweighed holiday effects (Kaplansky and Levy, 2012).</li>
+<li><strong>Pharma and epidemics</strong> (Donadelli et al., 2017): WHO alerts and media coverage of SARS, H1N1, Ebola <strong>raise</strong> pharmaceutical returns, more for small firms (agility, growth potential).</li>
+<li><strong>Climate transition risk</strong> (Barnett, 2024): a higher probability of climate policy significantly lowers returns of high-emission firms (coal, oil, mining, steel).</li>
+</ul>
+<h2 id="methodology-1-abnormal-returns-and-cars">Methodology 1: abnormal returns and CARs</h2>
+<p><strong>Expected returns</strong> come from the CAPM estimated on pre-event data:</p>
+<p><span class="math math-display">\[z_{i,t} = \alpha_i + \beta_{i,M}z_{M,t} + \varepsilon_{i,t} \quad\Rightarrow\quad \hat z_{i,t,e} = \hat\alpha_{i,e} + \hat\beta_{i,M,e}\,z_{M,t,e}\]</span></p>
+<p><strong>Abnormal return</strong>: actual minus expected,</p>
+<p><span class="math math-display">\[AR_{i,t,e} = z_{i,t} - \hat z_{i,t,e}\]</span></p>
+<p><strong>Cumulative abnormal return</strong> over the event window:</p>
+<p><span class="math math-display">\[CAR_{i,e} = \sum_{\tau = t-j}^{t+j} AR_{i,\tau,e}\]</span></p>
+<p>Positive CAR = favourable reaction; negative = unfavourable; zero = no impact. CARs are then <strong>averaged</strong> across stocks and events (or across events for a portfolio), which raises statistical power.</p>
+<h3 id="three-windows">Three windows</h3>
+<table>
+<thead>
+<tr>
+<th>Window</th>
+<th>Days (example)</th>
+<th>Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Estimation</strong></td>
+<td><span class="math math-inline">\(t-K\)</span> … <span class="math math-inline">\(t-k\)</span> (e.g. −250 … −30)</td>
+<td>Estimate <span class="math math-inline">\(\hat\alpha\)</span>, <span class="math math-inline">\(\hat\beta\)</span> on clean, pre-event data</td>
+</tr>
+<tr>
+<td><strong>Event</strong></td>
+<td><span class="math math-inline">\(t-j\)</span> … <span class="math math-inline">\(t+j\)</span> (e.g. −1 … +5)</td>
+<td>Compute ARs and CARs</td>
+</tr>
+<tr>
+<td><strong>Post-event</strong></td>
+<td>after <span class="math math-inline">\(t+j\)</span></td>
+<td>Check efficiency: no ARs should remain</td>
+</tr>
+</tbody>
+</table>
+<p>The gap between estimation and event windows keeps the event's own impact out of the benchmark.</p>
+<p><strong>Steps</strong>: (1) define the event window; (2) choose the estimation period; (3) compute expected returns (CAPM or factor model); (4) ARs; (5) CARs; (6) test significance. Watch the estimation window length, the benchmark model, overlapping events.</p>
+<p><strong>What CARs tell you</strong>: the <strong>magnitude</strong> of the reaction, its <strong>speed</strong>, its <strong>persistence</strong> (temporary or permanent), and <strong>cross-sectional</strong> differences across firms or industries.</p>
+<p>Simulate it. A shock on day +1 that fully reverses on day +2 leaves CAR ≈ 0 at the end — an overreaction. With one event the noise swamps everything; averaging over many events shrinks the band by <span class="math math-inline">\(1/\sqrt N\)</span>.</p>
+<pre class="wimark-src"><code class="nohighlight" data-wimark="eventstudy" data-opts="{&#34;shock&#34;: -0.007, &#34;rebound&#34;: 1, &#34;noise&#34;: 0.015, &#34;events&#34;: 16}"></code></pre>
+<h2 id="methodology-2-regression-based-event-study">Methodology 2: regression-based event study</h2>
+<p>Kaplansky and Levy (2010b) estimate the event effect in a regression on the index return <span class="math math-inline">\(r_t\)</span> that controls for confounding factors:</p>
+<p><span class="math math-display">\[r_t = \delta_0 + \sum_{i=1}^{3}\delta_{1,i}r_{t-i} + \sum_{i=1}^{4}\delta_{2,i}D_{i,t} + \delta_3T_t + \delta_4E_t + \varepsilon_t\]</span></p>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th>What it controls</th>
+<th>Why</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="math math-inline">\(\sum\delta_{1,i}r_{t-i}\)</span></td>
+<td>Three lagged returns</td>
+<td>Index returns are autocorrelated</td>
+</tr>
+<tr>
+<td><span class="math math-inline">\(\sum\delta_{2,i}D_{i,t}\)</span></td>
+<td>Day-of-week dummies (Mon–Thu)</td>
+<td><strong>Monday / weekend effect</strong> (Cho et al., 2007)</td>
+</tr>
+<tr>
+<td><span class="math math-inline">\(T_t\)</span></td>
+<td>First five days of the tax year</td>
+<td>Turn-of-year effect (Dyl and Maberly, 1992)</td>
+</tr>
+<tr>
+<td><span class="math math-inline">\(E_t\)</span></td>
+<td><strong>Event dummy</strong> (1 on the event day)</td>
+<td><span class="math math-inline">\(\delta_4\)</span> is the parameter of interest</td>
+</tr>
+</tbody>
+</table>
+<p>Same design: World Cup games (Kaplansky and Levy, 2010a), Yom Kippur (2012), pandemic news (Donadelli et al., 2017).</p>
+<p><strong>Extended attention.</strong> Disasters keep attention for days and can trigger herding. To capture delayed reactions and <strong>reversals</strong>, use three event dummies:</p>
+<p><span class="math math-display">\[r_t = \delta_0 + \sum_{i=1}^{3}\delta_{1,i}r_{t-i} + \sum_{i=1}^{4}\delta_{2,i}D_{i,t} + \delta_3T_t + \sum_{i=1}^{3}\delta_{4,i}E_{i,t} + \varepsilon_t\]</span></p>
+<table>
+<thead>
+<tr>
+<th>Coefficient</th>
+<th>Timing</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="math math-inline">\(\delta_{4,1}\)</span></td>
+<td>Event day</td>
+<td>Immediate reaction</td>
+</tr>
+<tr>
+<td><span class="math math-inline">\(\delta_{4,2}\)</span></td>
+<td>Day +1</td>
+<td>Persistence or first reversal</td>
+</tr>
+<tr>
+<td><span class="math math-inline">\(\delta_{4,3}\)</span></td>
+<td>Day +2</td>
+<td>Delayed effects, adjustment</td>
+</tr>
+</tbody>
+</table>
+<p>Significance patterns speak to efficiency, signs to the direction of sentiment, magnitudes to the economic impact.</p>
+<h2 id="application-aviation-disasters">Application: aviation disasters</h2>
+<p><strong>Question</strong>: do major aviation disasters hit U.S. transportation stocks?</p>
+<ul>
+<li>Disasters with ≥ 150 deaths, 1969–2007, from EM-DAT (53–54 events; 16 in the Americas).</li>
+<li>Transportation industry from the Fama–French 17 industry portfolios, Dec 1965 – Dec 2007.</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>Country</th>
+<th>Date</th>
+<th>Deaths</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Canary Islands</td>
+<td>28-3-1977</td>
+<td>562</td>
+</tr>
+<tr>
+<td>Japan</td>
+<td>13-8-1985</td>
+<td>520</td>
+</tr>
+<tr>
+<td>Congo DR</td>
+<td>8-1-1996</td>
+<td>422</td>
+</tr>
+<tr>
+<td>India</td>
+<td>12-11-1996</td>
+<td>351</td>
+</tr>
+<tr>
+<td>France</td>
+<td>3-3-1974</td>
+<td>346</td>
+</tr>
+<tr>
+<td>Ireland</td>
+<td>23-6-1985</td>
+<td>329</td>
+</tr>
+<tr>
+<td>Saudi Arabia</td>
+<td>19-5-1980</td>
+<td>301</td>
+</tr>
+<tr>
+<td>Iran</td>
+<td>3-7-1988</td>
+<td>290</td>
+</tr>
+<tr>
+<td>USA</td>
+<td>12-11-2001</td>
+<td>265</td>
+</tr>
+<tr>
+<td>Japan</td>
+<td>26-4-1994</td>
+<td>264</td>
+</tr>
+</tbody>
+</table>
+<h3 id="cars">CARs</h3>
+<p>One-factor CAPM with the Fama–French market factor, estimation window <span class="math math-inline">\(t-250\)</span> … <span class="math math-inline">\(t-30\)</span>, event window <span class="math math-inline">\(t-1\)</span> … <span class="math math-inline">\(t+5\)</span>:</p>
+<p><span class="math math-display">\[CAR_{it} = \sum_{\tau = t-1}^{t+5}\big(R_{i\tau} - \hat R_{i\tau}\big)\]</span></p>
+<ul>
+<li><strong>World</strong>: slight increase on days +1, +2, then a marked decline by day +3, negative through day +5; final CAR <strong>−0.24%</strong>. A <strong>lagged</strong> reaction: news of non-U.S. disasters diffuses more slowly (later media coverage).</li>
+<li><strong>Americas</strong>: <strong>immediate</strong> response — a significant drop on day +1, partial recovery by day +4.</li>
+<li>Consistent with Kaplansky and Levy (2010b): sharp initial decline, reversal from day +3 (170 events, 1950–2007, U.S./European airlines).</li>
+</ul>
+<h3 id="regressions-10570-trading-days-19662007">Regressions (10,570 trading days, 1966–2007)</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>World (54 events)</th>
+<th>Americas (16 events)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="math math-inline">\(\delta_0\)</span></td>
+<td>0.084***</td>
+<td>0.084***</td>
+</tr>
+<tr>
+<td><span class="math math-inline">\(r_{t-1}\)</span></td>
+<td>0.174***</td>
+<td>0.175***</td>
+</tr>
+<tr>
+<td><span class="math math-inline">\(r_{t-2}\)</span></td>
+<td>−0.019*</td>
+<td>−0.019*</td>
+</tr>
+<tr>
+<td><span class="math math-inline">\(r_{t-3}\)</span></td>
+<td>0.030***</td>
+<td>0.030***</td>
+</tr>
+<tr>
+<td>Monday</td>
+<td>−0.201***</td>
+<td>−0.200***</td>
+</tr>
+<tr>
+<td>Thursday</td>
+<td>−0.055*</td>
+<td>−0.060*</td>
+</tr>
+<tr>
+<td>Tax (first 5 days)</td>
+<td>0.258***</td>
+<td>0.257**</td>
+</tr>
+<tr>
+<td><strong>Event day</strong> <span class="math math-inline">\(\delta_{4,1}\)</span></td>
+<td>−0.183 (t = −1.07)</td>
+<td><strong>−0.685</strong>** (t = −2.35)</td>
+</tr>
+<tr>
+<td><strong>Day +1</strong> <span class="math math-inline">\(\delta_{4,2}\)</span></td>
+<td>0.060 (0.35)</td>
+<td><strong>0.669</strong>** (2.30)</td>
+</tr>
+<tr>
+<td><strong>Day +2</strong> <span class="math math-inline">\(\delta_{4,3}\)</span></td>
+<td>0.074 (0.44)</td>
+<td>0.008 (0.03)</td>
+</tr>
+</tbody>
+</table>
+<p>(Tuesday and Wednesday not significant.)</p>
+<pre class="wimark-src"><code class="nohighlight" data-wimark="chart" data-opts="{&#34;type&#34;: &#34;bar&#34;, &#34;unit&#34;: &#34;% daily return&#34;, &#34;title&#34;: &#34;Event-dummy coefficients: World vs. Americas&#34;}">{
+  &#34;labels&#34;: [&#34;Event day&#34;, &#34;Day +1&#34;, &#34;Day +2&#34;],
+  &#34;series&#34;: [{&#34;name&#34;: &#34;World&#34;, &#34;values&#34;: [-0.1833, 0.06025, 0.07443]}, {&#34;name&#34;: &#34;Americas&#34;, &#34;values&#34;: [-0.6847, 0.66851, 0.00828]}]
+}
+</code></pre>
+<ul>
+<li>Strong autocorrelation, a negative <strong>Monday effect</strong>, a positive turn-of-year effect.</li>
+<li><strong>World</strong>: negative event-day effect, rebound on days +1/+2 — none significant.</li>
+<li><strong>Americas</strong>: a significant <strong>drop of 0.68%</strong> on the event day and an almost exact <strong>rebound of 0.67%</strong> the next day: panic selling followed by rapid correction. Proximity intensifies the reaction.</li>
+</ul>
+<p><strong>Interpretation.</strong> Fear-driven sentiment moves prices: an initial <strong>overreaction</strong>, amplified by regional proximity (limited attention, availability bias). The mispricing is short-lived (corrected within two trading days) — exploitable by contrarian, sophisticated or international investors.</p>
+<h3 id="the-aviation-disaster-effect-ade-strategy">The aviation disaster effect (ADE) strategy</h3>
+<p>A zero-cost, event-driven strategy (short one asset to fund the other) that trades on the predictable post-disaster dip:</p>
+<ul>
+<li><strong>World</strong> (54 events, 10,570 days): ADE <strong>231.90%</strong> cumulative vs. <strong>222.24%</strong> buy-and-hold: <strong>+9.66%</strong>, consistently ahead after 1995.</li>
+<li><strong>Americas</strong> (16 events): stronger and significant coefficients → better signal quality and larger gains, especially in recent decades.</li>
+</ul>
+<p>Predictable patterns exist; sentiment drives short-term moves; geographic proximity raises profitability.</p>
+<h2 id="key-takeaways">Key takeaways</h2>
+<ul>
+<li>Events matter through <strong>reactions</strong>: under/overreaction, sentiment, herding, limits to arbitrage.</li>
+<li><span class="math math-inline">\(AR = z - (\hat\alpha + \hat\beta z_M)\)</span> with parameters from a pre-event <strong>estimation window</strong>; <span class="math math-inline">\(CAR\)</span> = sum of ARs over the <strong>event window</strong>; averaging across events adds power.</li>
+<li>Regression approach: event dummies plus controls for autocorrelation, day-of-week and turn-of-year effects; several dummies capture reversals.</li>
+<li>Aviation disasters: World CAR −0.24% with a lag; Americas a significant −0.68% day-one drop and +0.67% rebound → short-lived overreaction, a profitable ADE strategy (+9.66% over buy-and-hold globally).</li>
+</ul>
+<pre class="wimark-src"><code class="nohighlight" data-wimark="quiz" data-opts="{&#34;title&#34;: &#34;Check yourself&#34;}">[
+  {&#34;q&#34;: &#34;Why is there a gap between the estimation window (… t−30) and the event window (t−1 …)?&#34;, &#34;options&#34;: [&#34;To have more data&#34;, &#34;To keep the event&#39;s own effect (and leakage before it) out of the estimated α and β&#34;, &#34;Because markets are closed&#34;], &#34;answer&#34;: 1},
+  {&#34;q&#34;: &#34;The abnormal return is&#34;, &#34;options&#34;: [&#34;$z_{i,t} - z_{M,t}$&#34;, &#34;$z_{i,t} - (\\hat\\alpha_i + \\hat\\beta_i z_{M,t})$&#34;, &#34;$\\hat\\alpha_i$&#34;], &#34;answer&#34;: 1},
+  {&#34;q&#34;: &#34;A stock falls 2% abnormally on day +1 and recovers 2% on day +2. The CAR over the window is about&#34;, &#34;options&#34;: [&#34;−2%&#34;, &#34;0%&#34;, &#34;+2%&#34;], &#34;answer&#34;: 1, &#34;why&#34;: &#34;A full reversal: evidence of overreaction, not of a lasting value effect.&#34;},
+  {&#34;q&#34;: &#34;In the Kaplansky–Levy regression, the parameter of interest is&#34;, &#34;options&#34;: [&#34;$\\delta_0$&#34;, &#34;the coefficient on the Monday dummy&#34;, &#34;the coefficient on the event dummy $E_t$&#34;], &#34;answer&#34;: 2},
+  {&#34;q&#34;: &#34;Americas disasters: $\\hat\\delta_{4,1} = -0.68^{**}$, $\\hat\\delta_{4,2} = +0.67^{**}$. This suggests&#34;, &#34;options&#34;: [&#34;a permanent loss of value&#34;, &#34;panic selling followed by a rapid correction&#34;, &#34;no reaction&#34;], &#34;answer&#34;: 1},
+  {&#34;q&#34;: &#34;Why do worldwide disasters show a lagged reaction in U.S. transportation stocks?&#34;, &#34;options&#34;: [&#34;Slower diffusion of news and delayed media coverage&#34;, &#34;Different trading hours only&#34;, &#34;Their CARs are computed with a different model&#34;], &#34;answer&#34;: 0}
+]
+</code></pre>
+</article>
+
+          
+          </div>
+        </div>
+      </section>
+
+      <aside class="col-toc" aria-label="On this page">
+        <div class="col-head">On this page</div>
+        <div class="col-scroll">
+          
+            
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l1">
+    <a href="#event-study-analysis">Event Study Analysis</a>
+    
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l2">
+    <a href="#human-behaviour-vs-events">Human behaviour vs. events</a>
+    
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l3">
+    <a href="#the-event-study-method">The event study method</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l3">
+    <a href="#the-sentiment-channel">The sentiment channel</a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#methodology-1-abnormal-returns-and-cars">Methodology 1: abnormal returns and CARs</a>
+    
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l3">
+    <a href="#three-windows">Three windows</a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#methodology-2-regression-based-event-study">Methodology 2: regression-based event study</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#application-aviation-disasters">Application: aviation disasters</a>
+    
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l3">
+    <a href="#cars">CARs</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l3">
+    <a href="#regressions-10570-trading-days-19662007">Regressions (10,570 trading days, 1966–2007)</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l3">
+    <a href="#the-aviation-disaster-effect-ade-strategy">The aviation disaster effect (ADE) strategy</a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#key-takeaways">Key takeaways</a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+</ul>
+
+          
+          
+        </div>
+      </aside>
+
+    
+  </main>
+
+  
+  <footer class="statusbar" aria-hidden="true">
+    <span class="sb-mode">READ</span>
+    <span class="sb-path">en/notes/University notes/financial-economics/09-event-studies.md</span>
+    <span class="sb-spacer"></span>
+    <span class="sb-item">en</span>
+    <span class="sb-item">utf-8</span>
+    <span class="sb-item">markdown</span>
+    <span class="sb-pos" data-scroll-pos>top</span>
+  </footer>
+  
+
+  <div class="search" data-search hidden role="dialog" aria-modal="true" aria-label="Search">
+    <div class="search-panel">
+      <div class="search-bar"><span class="search-prompt" aria-hidden="true">❯</span>
+      <input class="search-input" type="search" placeholder="Search" autocomplete="off" spellcheck="false" aria-controls="search-results"></div>
+      <ul class="search-results" id="search-results" role="listbox"></ul>
+      <div class="search-hint" aria-hidden="true"><span><kbd>↑↓</kbd> move</span><span><kbd>↵</kbd> open</span><span><kbd>tab</kbd> complete</span><span><kbd>esc</kbd> close</span></div>
+    </div>
+  </div>
+
+  <script>
+    window.GOMARK = {
+      lang: "en",
+      root: "..\/..\/..\/..\/",
+      theme: "light",
+      section: "notes",
+      i18n: { noResults: "No results", searchFilters: "Filters", searchTab: "complete",
+        qSection: "in one section of the site", qHeading: "under the headings that match", qTitle: "in the title", qCode: "in the code blocks, of one language",
+        qIn: "where the words look", qHas: "pages with code, math, table, image, link, quote, task, widget", qPath: "in the file path", qPhrase: "these words, in this order",
+        qNot: "without it", qOr: "either one", qRegex: "a regular expression", copy: "copy", copied: "copied", words: "words", minRead: "min read",
+        data: "data", search: "search", noData: "no data", other: "other",
+        total: "total", show: "show", hide: "hide", reset: "reset", all: "all" }
+    };
+  </script>
+  <script src="../../../../static/widgets.js"></script>
+  <script src="../../../../static/widgets/notes/University%20notes/financial-economics/eventstudy.js"></script>
+  <script src="../../../../static/widgets/chart.js"></script>
+  <script src="../../../../static/widgets/quiz.js"></script>
+  <script src="../../../../static/engine.js"></script>
+  <script src="../../../../static/ui.js"></script>
+  <script src="../../../../static/search.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

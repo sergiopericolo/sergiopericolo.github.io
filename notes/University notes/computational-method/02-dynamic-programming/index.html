@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Digital identity and computational knowledge base: résumé, projects and notes.">
+  <meta name="author" content="Sergio Di Lapi">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains&#43;Mono:wght@400;500;600;700;800&amp;family=IBM&#43;Plex&#43;Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <title>Dynamic programming: rod cutting and the knapsack · Notes</title>
+  <link rel="stylesheet" href="../../../../static/layout.css">
+  <link rel="stylesheet" href="../../../../static/theme.css">
+  <link rel="stylesheet" href="../../../../static/wimark.css">
+  <link rel="stylesheet" href="../../../../static/themes/light.css">
+  <style>:root { --mono:"JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;--sans:"IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;--font-body:var(--sans);--font-heading:var(--mono);--font-size:14px;--content-width:780px;--sidebar-width:256px;--folders-width:224px;--toc-width:232px;--radius:4px;--radius-sm:3px;--radius-lg:10px; }</style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+</head>
+<body data-depth="multi" data-index="right" data-theme="light" data-theme-class="monochrome" data-heading="mono" data-statusbar="on">
+
+  <header class="topbar">
+    <a class="brand" href="../../../../index.html">sergiopericolo</a>
+    <nav class="sections" aria-label="Sections">
+      
+      <a class="section-link" href="../../../../about/index.html">
+        <span class="section-idx">01</span>
+        <span class="section-title">About</span>
+      </a>
+      
+      <a class="section-link" href="../../../../projects/index.html">
+        <span class="section-idx">02</span>
+        <span class="section-title">Projects</span>
+      </a>
+      
+      <a class="section-link active" href="../../../../notes/index.html">
+        <span class="section-idx">03</span>
+        <span class="section-title">Notes</span>
+      </a>
+      
+      <a class="section-link" href="../../../../visual/index.html">
+        <span class="section-idx">04</span>
+        <span class="section-title">Visual</span>
+      </a>
+      
+      <a class="section-link" href="../../../../art/index.html">
+        <span class="section-idx">05</span>
+        <span class="section-title">Art</span>
+      </a>
+      
+    </nav>
+    <div class="topbar-end">
+      <button class="search-open" type="button" data-search-open aria-haspopup="dialog"><span>Search</span><kbd>⌘K</kbd></button>
+      
+      <span class="build-info"><a class="build-name" href="https://github.com/sergiopericolo/GoMark">GoMark</a> v1.2.0</span>
+    </div>
+  </header>
+
+  <main class="grid" style="--grid: minmax(0, 15fr) minmax(0, 15fr) minmax(0, 55fr) minmax(0, 15fr); --grid-medium: minmax(0, 15fr) minmax(0, 15fr) minmax(0, 70fr)">
+
+    
+
+      
+      <aside class="col-folders" aria-label="Folders">
+        <div class="col-head">Folders</div>
+        <div class="col-scroll">
+          <a class="tree-root" href="../../../index.html">~/notes/</a>
+          
+
+<ul class="tree">
+  
+  
+  <li class="tree-node has-children open" data-path="University notes">
+    <div class="tree-row">
+      
+      <button class="tree-toggle" type="button" aria-expanded="true" aria-label="University notes"><span class="chev" aria-hidden="true"></span></button>
+      
+      <a class="tree-folder" href="../../../University%20notes/index.html">
+        <span class="tree-name">University notes/</span>
+        
+      </a>
+    </div>
+    
+      
+
+<ul class="tree">
+  
+  
+  <li class="tree-node open" data-path="University notes/computational-method">
+    <div class="tree-row">
+      
+      <span class="tree-leaf" aria-hidden="true"></span>
+      
+      <a class="tree-folder active" href="../../../University%20notes/computational-method/index.html">
+        <span class="tree-name">computational-method/</span>
+        <span class="tree-count">5</span>
+      </a>
+    </div>
+    
+  </li>
+  
+  
+  <li class="tree-node" data-path="University notes/financial-economics">
+    <div class="tree-row">
+      
+      <span class="tree-leaf" aria-hidden="true"></span>
+      
+      <a class="tree-folder" href="../../../University%20notes/financial-economics/index.html">
+        <span class="tree-name">financial-economics/</span>
+        <span class="tree-count">9</span>
+      </a>
+    </div>
+    
+  </li>
+  
+</ul>
+
+    
+  </li>
+  
+</ul>
+
+        </div>
+      </aside>
+      
+
+      <aside class="col-files" aria-label="Files">
+        <div class="col-head">
+          <span>Files <span class="badge">5</span></span>
+          <span class="col-head-path">notes/University notes/computational-method/</span>
+        </div>
+        <div class="col-scroll">
+          <ul class="file-list">
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/computational-method/01-knapsack-heuristics/index.html">
+                <span class="file-name">The Knapsack Problem: greedy heuristics and local search</span>
+                <span class="file-path">01-knapsack-heuristics.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link active" href="../../../University%20notes/computational-method/02-dynamic-programming/index.html">
+                <span class="file-name">Dynamic programming: rod cutting and the knapsack</span>
+                <span class="file-path">02-dynamic-programming.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/computational-method/03-tsp-heuristics/index.html">
+                <span class="file-name">The Traveling Salesperson Problem: constructive heuristics and 2-opt</span>
+                <span class="file-path">03-tsp-heuristics.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/computational-method/04-scheduling/index.html">
+                <span class="file-name">Scheduling: priority rules on one and many machines</span>
+                <span class="file-path">04-scheduling.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/computational-method/05-location-models/index.html">
+                <span class="file-name">Location models: p-median and p-center</span>
+                <span class="file-path">05-location-models.md</span>
+              </a>
+            </li>
+            
+          </ul>
+        </div>
+      </aside>
+
+      <section class="col-content" aria-label="sergiopericolo">
+        <div class="content-scroll" id="content">
+          <div class="content-inner">
+          
+            
+<div class="page-head">
+  <div class="page-crumb"><span class="crumb-home">~</span>/notes/University notes/computational-method/02-dynamic-programming.md</div>
+  <h1 class="page-title">Dynamic programming: rod cutting and the knapsack</h1>
+  <div class="page-meta" data-page-meta><span class="meta-tag">en</span></div>
+</div>
+
+<article class="page-body"><h1 id="dynamic-programming-rod-cutting-and-the-knapsack">Dynamic programming: rod cutting and the knapsack</h1>
+<p>Lecture 2 of <em>Computational Methods</em> (Carlo Filippi, University of Brescia). The heuristics of lecture 1 are fast but give no guarantee of optimality. <strong>Dynamic programming</strong> (DP) is an <strong>exact</strong> method: it breaks the problem into smaller subproblems, solves each of them only once and combines their solutions.</p>
+<p>Roadmap:</p>
+<ol>
+<li><strong>Rod cutting</strong> — the Serling Enterprises case, brute force, the recursive formula, the DP algorithm and the reconstruction of the solution.</li>
+<li><strong>The knapsack problem</strong> — Paul Atreides' case, the subproblems <span class="math math-inline">\(f(g, j)\)</span>, the DP table, the reconstruction and pseudopolynomial time.</li>
+</ol>
+<h2 id="the-rod-cutting-problem-rcp">The Rod Cutting Problem (RCP)</h2>
+<h3 id="the-serling-enterprises-case">The Serling Enterprises case</h3>
+<p>Serling Enterprises buys long steel rods of length <span class="math math-inline">\(n\)</span> and cuts them into shorter rods, which it then sells.</p>
+<ul>
+<li>Shorter rods may take any integer length <span class="math math-inline">\(j = 1, 2, \dots, n\)</span>.</li>
+<li>A rod of length <span class="math math-inline">\(j\)</span> sells at price <span class="math math-inline">\(p_j\)</span>.</li>
+<li>Each cut is free.</li>
+</ul>
+<p>What is the best way to cut a rod? This is the <strong>Rod Cutting Problem</strong> (RCP). For example, with <span class="math math-inline">\(n = 4\)</span>:</p>
+<table>
+<thead>
+<tr>
+<th><span class="math math-inline">\(j\)</span></th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="math math-inline">\(p_j\)</span></td>
+<td>1</td>
+<td>5</td>
+<td>8</td>
+<td>9</td>
+</tr>
+</tbody>
+</table>
+<p>There are 8 cutting patterns:</p>
+<table>
+<thead>
+<tr>
+<th>Pattern</th>
+<th>Revenue</th>
+<th>Pattern</th>
+<th>Revenue</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>(4)</td>
+<td>9</td>
+<td>(1)(3)</td>
+<td>1 + 8 = 9</td>
+</tr>
+<tr>
+<td>(2)(2)</td>
+<td>5 + 5 = <strong>10</strong></td>
+<td>(3)(1)</td>
+<td>8 + 1 = 9</td>
+</tr>
+<tr>
+<td>(1)(1)(2)</td>
+<td>1 + 1 + 5 = 7</td>
+<td>(1)(2)(1)</td>
+<td>1 + 5 + 1 = 7</td>
+</tr>
+<tr>
+<td>(2)(1)(1)</td>
+<td>5 + 1 + 1 = 7</td>
+<td>(1)(1)(1)(1)</td>
+<td>4</td>
+</tr>
+</tbody>
+</table>
+<p>The best is two pieces of length 2: revenue <strong>10</strong>.</p>
+<h3 id="brute-force">Brute force</h3>
+<p>Let <span class="math math-inline">\(r_n\)</span> be the optimal revenue for a rod of length <span class="math math-inline">\(n\)</span>. If the optimum cuts the rod into <span class="math math-inline">\(k\)</span> pieces, <span class="math math-inline">\(n = i_1 + i_2 + \dots + i_k\)</span> and <span class="math math-inline">\(r_n = p_{i_1} + p_{i_2} + \dots + p_{i_k}\)</span>. We could enumerate all ways of writing <span class="math math-inline">\(n\)</span> as a sum of positive integers and price each one. But:</p>
+<ul>
+<li>many partitions are equivalent (1 + 3 and 3 + 1 give the same revenue);</li>
+<li>there are too many evaluations: at each of the <span class="math math-inline">\(n - 1\)</span> positions we cut or not, hence <span class="math math-inline">\(2^{n-1}\)</span>.</li>
+</ul>
+<h3 id="a-recursive-formula">A recursive formula</h3>
+<p>The search can be set as a recursion:</p>
+<p><span class="math math-display">\[r_n = \max \{ p_n,\ r_1 + r_{n-1},\ r_2 + r_{n-2},\ \dots,\ r_{n-1} + r_1 \}\]</span></p>
+<p>Once we decide where the first cut goes, the problem splits into <strong>two subproblems</strong> of the same kind, solved with the same logic down to the trivial case <span class="math math-inline">\(r_1\)</span>.</p>
+<blockquote>
+<p><strong>Optimal substructure.</strong> Optimal solutions to a problem incorporate optimal solutions to related subproblems, which can be solved independently.</p>
+</blockquote>
+<p>An equivalent and simpler recursion only decides the length <span class="math math-inline">\(j\)</span> of the <strong>first piece on the left</strong> (which is not cut further) and recurses on the rest, of length <span class="math math-inline">\(n - j\)</span>:</p>
+<p><span class="math math-display">\[r_n = \max_{1 \le j \le n} \{ p_j + r_{n-j} \} = \max \{ p_1 + r_{n-1},\ p_2 + r_{n-2},\ \dots,\ p_n + r_0 \}, \qquad r_0 = 0\]</span></p>
+<p>For <span class="math math-inline">\(n = 4\)</span>:</p>
+<p><span class="math math-display">\[r_4 = \max \{ p_1 + r_3,\ p_2 + r_2,\ p_3 + r_1,\ p_4 + r_0 \}\]</span></p>
+<p><span class="math math-display">\[r_3 = \max \{ p_1 + r_2,\ p_2 + r_1,\ p_3 + r_0 \}\]</span></p>
+<p><span class="math math-display">\[r_2 = \max \{ p_1 + r_1,\ p_2 + r_0 \}, \qquad r_1 = p_1 + r_0, \qquad r_0 = 0\]</span></p>
+<p>The DP trick: compute <strong>all</strong> the <span class="math math-inline">\(r_j\)</span> for <span class="math math-inline">\(j = 0, 1, \dots, n\)</span> <strong>in increasing order</strong>. Each subproblem is then solved only once, and when <span class="math math-inline">\(r_{n-j}\)</span> is needed it is already in the table.</p>
+<h3 id="the-algorithm-and-the-reconstruction">The algorithm and the reconstruction</h3>
+<p>The basic algorithm finds the optimal revenue but not <strong>how</strong> to cut. We need a second array <span class="math math-inline">\(s = [s_0, s_1, \dots, s_n]\)</span>: <span class="math math-inline">\(s_j\)</span> is the length of the <strong>first piece</strong> to cut from a rod of length <span class="math math-inline">\(j\)</span> to get the optimal revenue.</p>
+<ol>
+<li>Initialize <span class="math math-inline">\(r = [r_0, \dots, r_n]\)</span> and <span class="math math-inline">\(s = [s_0, \dots, s_n]\)</span>; <span class="math math-inline">\(r_0 = 0\)</span>, <span class="math math-inline">\(j = 1\)</span>.</li>
+<li>Compute <span class="math math-inline">\(r_j = \max \{ p_1 + r_{j-1},\ p_2 + r_{j-2},\ \dots,\ p_j + r_0 \}\)</span>; let <span class="math math-inline">\(i\)</span> be the index achieving the max, <span class="math math-inline">\(r_j = p_i + r_{j-i}\)</span>: set <span class="math math-inline">\(s_j = i\)</span> and <span class="math math-inline">\(j = j + 1\)</span>.</li>
+<li>If <span class="math math-inline">\(j &gt; n\)</span> return <span class="math math-inline">\(r_n\)</span> and <span class="math math-inline">\(s\)</span>; otherwise go back to step 2.</li>
+</ol>
+<p><strong>Reconstruction.</strong> With <span class="math math-inline">\(n = 5\)</span> and <span class="math math-inline">\(s = [0, 1, 2, 3, 2, 2]\)</span>: <span class="math math-inline">\(s_5 = 2\)</span>, cut a piece of length 2 and a rod of length 3 remains; <span class="math math-inline">\(s_3 = 3\)</span>, cut a piece of length 3 and 0 remains. Done: <span class="math math-inline">\(5 = 2 + 3\)</span>.</p>
+<p>The widget uses the example prices extended up to 8: (1, 5, 8, 9, 10, 17, 17, 20). Press &quot;next&quot; to watch each <span class="math math-inline">\(r_j\)</span> grow out of the values already known; the winning candidate is highlighted. Then move <span class="math math-inline">\(n\)</span> (with <span class="math math-inline">\(n = 5\)</span> you find <span class="math math-inline">\(s = [0, 1, 2, 3, 2, 2]\)</span>).</p>
+<pre class="wimark-src"><code class="nohighlight" data-wimark="dp" data-opts="{&#34;problem&#34;: &#34;rod&#34;, &#34;prices&#34;: [1, 5, 8, 9, 10, 17, 17, 20], &#34;n&#34;: 4}"></code></pre>
+<h3 id="running-time">Running time</h3>
+<p>Almost all the work is in step 2, which for value <span class="math math-inline">\(j\)</span> adds <span class="math math-inline">\(j\)</span> pairs of numbers and performs a fixed number of other operations. The operations are therefore proportional to</p>
+<p><span class="math math-display">\[1 + 2 + 3 + \dots + n = \frac{n(n+1)}{2} = O(n^2)\]</span></p>
+<p>against the <span class="math math-inline">\(2^{n-1}\)</span> evaluations of brute force. With <span class="math math-inline">\(n = 30\)</span>: 465 against more than 500 million.</p>
+<h2 id="the-knapsack-problem-kp">The Knapsack Problem (KP)</h2>
+<h3 id="paul-atreides-problem">Paul Atreides' problem</h3>
+<p>Paul Atreides must choose a few items to survive in the deadly desert of Arrakis (tent, water flask, food…). He has only a small <strong>5-litre</strong> bag and a few minutes before the Sardaukar arrive. Each item has a volume and a survival value. How should he fill the bag?</p>
+<p>It is a KP: items <span class="math math-inline">\(j = 1, \dots, n\)</span> with value <span class="math math-inline">\(p_j\)</span> and volume <span class="math math-inline">\(v_j\)</span>, capacity <span class="math math-inline">\(C\)</span>, <span class="math math-inline">\(x_j \in \{0, 1\}\)</span>.</p>
+<table>
+<thead>
+<tr>
+<th><span class="math math-inline">\(j\)</span></th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+<th>4</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="math math-inline">\(p_j\)</span></td>
+<td>3</td>
+<td>4</td>
+<td>5</td>
+<td>6</td>
+</tr>
+<tr>
+<td><span class="math math-inline">\(v_j\)</span></td>
+<td>2</td>
+<td>3</td>
+<td>4</td>
+<td>5</td>
+</tr>
+</tbody>
+</table>
+<p><span class="math math-display">\[\max\ 3x_1 + 4x_2 + 5x_3 + 6x_4 \quad \text{s.t.} \quad 2x_1 + 3x_2 + 4x_3 + 5x_4 \le 5, \qquad x_j \in \{0, 1\}\]</span></p>
+<p>Like the RCP, the KP has an <strong>optimal substructure</strong>. The differences:</p>
+<table>
+<thead>
+<tr>
+<th>RCP</th>
+<th>KP</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>The &quot;volumes&quot; are <span class="math math-inline">\(v_j = j = 1, 2, \dots, n\)</span></td>
+<td>The <span class="math math-inline">\(v_j\)</span> are arbitrary integers</td>
+</tr>
+<tr>
+<td>Any number of pieces of length <span class="math math-inline">\(j\)</span> can be cut</td>
+<td>Each item can be loaded <strong>at most once</strong></td>
+</tr>
+</tbody>
+</table>
+<p>The first difference simplifies things, the second makes them harder: remembering the residual capacity is not enough, we also need to know <strong>which items are still available</strong>.</p>
+<h3 id="subproblems-and-recursion">Subproblems and recursion</h3>
+<p>Subproblems come from considering <strong>fewer items</strong> and/or a <strong>smaller capacity</strong>. For <span class="math math-inline">\(0 \le j \le n\)</span> and <span class="math math-inline">\(0 \le g \le C\)</span>:</p>
+<p><span class="math math-display">\[f(g, j) = \max \sum_{i=1}^{j} p_i x_i \quad \text{s.t.} \quad \sum_{i=1}^{j} v_i x_i \le g, \qquad x_i \in \{0, 1\}\]</span></p>
+<p>that is, the best value using only the first <span class="math math-inline">\(j\)</span> items and capacity <span class="math math-inline">\(g\)</span>. The original problem is <span class="math math-inline">\(f(C, n)\)</span>. For item <span class="math math-inline">\(j\)</span> there are two options:</p>
+<p><span class="math math-display">\[f(g, j) = \begin{cases} \max \{ p_j + f(g - v_j,\ j - 1),\ \ f(g,\ j - 1) \} &amp; \text{if } g - v_j \ge 0 \\ f(g,\ j - 1) &amp; \text{otherwise} \end{cases}\]</span></p>
+<ul>
+<li><span class="math math-inline">\(p_j + f(g - v_j, j - 1)\)</span>: item <span class="math math-inline">\(j\)</span> <strong>is selected</strong>, leaving capacity <span class="math math-inline">\(g - v_j\)</span> for the first <span class="math math-inline">\(j - 1\)</span> items.</li>
+<li><span class="math math-inline">\(f(g, j - 1)\)</span>: item <span class="math math-inline">\(j\)</span> <strong>is not selected</strong>.</li>
+</ul>
+<p>Initial conditions: <span class="math math-inline">\(f(g, 0) = 0\)</span> for every <span class="math math-inline">\(g\)</span> (no items) and <span class="math math-inline">\(f(0, j) = 0\)</span> for every <span class="math math-inline">\(j\)</span> (no capacity).</p>
+<h3 id="the-dp-table">The DP table</h3>
+<p>The computations fill a table with <span class="math math-inline">\((C + 1)\)</span> rows (<span class="math math-inline">\(g = 0, \dots, C\)</span>) and <span class="math math-inline">\((n + 1)\)</span> columns (<span class="math math-inline">\(j = 0, \dots, n\)</span>), <strong>column by column</strong>. Each cell <span class="math math-inline">\(f(g, j)\)</span> reads two cells of the previous column: the one on the same row, <span class="math math-inline">\(f(g, j-1)\)</span>, and the one <span class="math math-inline">\(v_j\)</span> rows higher, <span class="math math-inline">\(f(g - v_j, j - 1)\)</span>.</p>
+<ol>
+<li><strong>Initialization</strong>: row 0 and column 0 set to zero; <span class="math math-inline">\(j = 1\)</span>, <span class="math math-inline">\(g = 1\)</span>.</li>
+<li><strong>Iteration</strong>: if <span class="math math-inline">\(g - v_j \ge 0\)</span>, <span class="math math-inline">\(f(g, j) = \max \{ p_j + f(g - v_j, j - 1),\ f(g, j - 1) \}\)</span>, and if the first term wins <strong>mark</strong> the cell; otherwise <span class="math math-inline">\(f(g, j) = f(g, j - 1)\)</span>. Then <span class="math math-inline">\(g = g + 1\)</span>.</li>
+<li><strong>End of column</strong>: if <span class="math math-inline">\(g \le C\)</span> go back to step 2; otherwise <span class="math math-inline">\(j = j + 1\)</span>.</li>
+<li><strong>End of table</strong>: if <span class="math math-inline">\(j \le n\)</span> set <span class="math math-inline">\(g = 1\)</span> and go back to step 2; otherwise return <span class="math math-inline">\(f(C, n)\)</span>.</li>
+</ol>
+<p>A marked cell says: &quot;in this subproblem item <span class="math math-inline">\(j\)</span> is in the solution&quot;.</p>
+<p><strong>Reconstruction.</strong> The bottom-right corner holds the optimal value. To know <strong>which</strong> items to load, start there and follow the marks:</p>
+<ol start="5">
+<li><span class="math math-inline">\(g = C\)</span>, <span class="math math-inline">\(j = n\)</span>, <span class="math math-inline">\(S = \emptyset\)</span>.</li>
+<li>If <span class="math math-inline">\(g = 0\)</span> or <span class="math math-inline">\(j = 0\)</span>, return <span class="math math-inline">\(S\)</span>.</li>
+<li>If <span class="math math-inline">\(f(g, j)\)</span> is marked: <span class="math math-inline">\(S = S \cup \{j\}\)</span> and <span class="math math-inline">\(g = g - v_j\)</span>.</li>
+<li><span class="math math-inline">\(j = j - 1\)</span> and go back to step 6.</li>
+</ol>
+<p>Fill Paul's table one cell at a time. The message shows the &quot;take it&quot; against &quot;leave it&quot; comparison; the two cells read are in bold; at the end, the backtracking path.</p>
+<pre class="wimark-src"><code class="nohighlight" data-wimark="dp" data-opts="{&#34;problem&#34;: &#34;kp&#34;, &#34;cap&#34;: 5}">[[&#34;1&#34;, 2, 3], [&#34;2&#34;, 3, 4], [&#34;3&#34;, 4, 5], [&#34;4&#34;, 5, 6]]
+</code></pre>
+<p>Paul loads items 1 and 2 (volume 5, value <strong>7</strong>).</p>
+<h3 id="running-time-pseudopolynomial">Running time: pseudopolynomial</h3>
+<ul>
+<li><strong>Step 1</strong>: creates a table with <span class="math math-inline">\((C + 1)(n + 1)\)</span> cells.</li>
+<li><strong>Steps 2–4</strong>: a fixed number of operations for each of the <span class="math math-inline">\(n \cdot C\)</span> cells.</li>
+<li><strong>Steps 5–8</strong>: a fixed number of operations at most <span class="math math-inline">\(n + C\)</span> times.</li>
+</ul>
+<p>In total <span class="math math-inline">\(O(nC)\)</span>. It looks polynomial, but it <strong>is not polynomial in the input size</strong>: writing the number <span class="math math-inline">\(C\)</span> takes about <span class="math math-inline">\(\log_2 C\)</span> binary digits, and <span class="math math-inline">\(C = 2^{\log_2 C}\)</span> grows exponentially in them. Doubling the digits of <span class="math math-inline">\(C\)</span> squares the work. This is <strong>pseudopolynomial</strong> time: great when <span class="math math-inline">\(C\)</span> is small, hopeless when <span class="math math-inline">\(C\)</span> is huge.</p>
+<p><strong>A useful side effect.</strong> By construction, solving a KP with <span class="math math-inline">\(n\)</span> items and capacity <span class="math math-inline">\(C\)</span> solves <strong>all</strong> instances with the first <span class="math math-inline">\(j\)</span> items and capacity <span class="math math-inline">\(g\)</span>, for every <span class="math math-inline">\(0 \le j \le n\)</span> and <span class="math math-inline">\(0 \le g \le C\)</span>: the last column tells at once, for instance, what to do with a 4-litre bag.</p>
+<h2 id="conclusions">Conclusions</h2>
+<ul>
+<li>Solving a KP with <span class="math math-inline">\(n\)</span> items and capacity <span class="math math-inline">\(C\)</span> by DP requires a matrix with <span class="math math-inline">\(C + 1\)</span> rows and <span class="math math-inline">\(n + 1\)</span> columns and a constant number of operations per cell: <span class="math math-inline">\(O(nC)\)</span>, pseudopolynomial.</li>
+<li>The KP remains computationally hard in general, which explains the importance of heuristic approaches.</li>
+<li>Dynamic programming is a general algorithmic idea that applies to many problems, including stochastic ones.</li>
+</ul>
+<h2 id="key-takeaways">Key takeaways</h2>
+<ul>
+<li><strong>Optimal substructure</strong>: the optimum of a problem contains optima of subproblems.</li>
+<li>DP computes each subproblem <strong>only once</strong>, in an order where the subproblems it needs are already solved.</li>
+<li>RCP: <span class="math math-inline">\(r_n = \max_{1 \le j \le n} \{ p_j + r_{n-j} \}\)</span>, <span class="math math-inline">\(r_0 = 0\)</span>; <span class="math math-inline">\(O(n^2)\)</span> against <span class="math math-inline">\(2^{n-1}\)</span>; the array <span class="math math-inline">\(s\)</span> rebuilds the cuts.</li>
+<li>KP: <span class="math math-inline">\(f(g, j) = \max \{ p_j + f(g - v_j, j - 1),\ f(g, j - 1) \}\)</span>; a <span class="math math-inline">\((C+1) \times (n+1)\)</span> table; the marks rebuild the solution.</li>
+<li><span class="math math-inline">\(O(nC)\)</span> is <strong>pseudopolynomial</strong>: polynomial in the value of <span class="math math-inline">\(C\)</span>, exponential in its length in bits.</li>
+</ul>
+<pre class="wimark-src"><code class="nohighlight" data-wimark="quiz" data-opts="{&#34;title&#34;: &#34;Check yourself&#34;}">[
+  {&#34;q&#34;: &#34;With prices $p = (1, 5, 8, 9)$, what is $r_3$?&#34;, &#34;options&#34;: [&#34;8&#34;, &#34;6&#34;, &#34;9&#34;], &#34;answer&#34;: 0, &#34;why&#34;: &#34;$r_3 = \\max\\{p_1 + r_2, p_2 + r_1, p_3 + r_0\\} = \\max\\{1 + 5, 5 + 1, 8 + 0\\} = 8$.&#34;},
+  {&#34;q&#34;: &#34;Why does DP for the RCP need $O(n^2)$ operations instead of $2^{n-1}$?&#34;, &#34;options&#34;: [&#34;Because it ignores some cutting patterns&#34;, &#34;Because each subproblem $r_j$ is computed once and then reused&#34;, &#34;Because it uses a greedy heuristic&#34;], &#34;answer&#34;: 1},
+  {&#34;q&#34;: &#34;$s = [0, 1, 2, 3, 2, 2, 6]$. How is a rod of length 6 cut?&#34;, &#34;options&#34;: [&#34;2 + 2 + 2&#34;, &#34;6, no cuts&#34;, &#34;3 + 3&#34;], &#34;answer&#34;: 1, &#34;why&#34;: &#34;$s_6 = 6$: the first piece has length 6, the whole rod; nothing remains.&#34;},
+  {&#34;q&#34;: &#34;In the KP table, cell $f(g, j)$ is marked. What does it mean?&#34;, &#34;options&#34;: [&#34;That $f(g, j) = f(g, j-1)$&#34;, &#34;That in the subproblem with the first $j$ items and capacity $g$, item $j$ is taken&#34;, &#34;That capacity $g$ is full&#34;], &#34;answer&#34;: 1, &#34;why&#34;: &#34;The mark records that $p_j + f(g - v_j, j - 1)$ won. In the reconstruction we add $j$ to $S$ and move to $g - v_j$.&#34;},
+  {&#34;q&#34;: &#34;Why is $O(nC)$ not polynomial time?&#34;, &#34;options&#34;: [&#34;Because $n$ can be large&#34;, &#34;Because $C$ is written with about $\\log_2 C$ bits, and $C$ is exponential in that length&#34;, &#34;Because the table must be filled twice&#34;], &#34;answer&#34;: 1}
+]
+</code></pre>
+</article>
+
+          
+          </div>
+        </div>
+      </section>
+
+      <aside class="col-toc" aria-label="On this page">
+        <div class="col-head">On this page</div>
+        <div class="col-scroll">
+          
+            
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l1">
+    <a href="#dynamic-programming-rod-cutting-and-the-knapsack">Dynamic programming: rod cutting and the knapsack</a>
+    
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l2">
+    <a href="#the-rod-cutting-problem-rcp">The Rod Cutting Problem (RCP)</a>
+    
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l3">
+    <a href="#the-serling-enterprises-case">The Serling Enterprises case</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l3">
+    <a href="#brute-force">Brute force</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l3">
+    <a href="#a-recursive-formula">A recursive formula</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l3">
+    <a href="#the-algorithm-and-the-reconstruction">The algorithm and the reconstruction</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l3">
+    <a href="#running-time">Running time</a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#the-knapsack-problem-kp">The Knapsack Problem (KP)</a>
+    
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l3">
+    <a href="#paul-atreides-problem">Paul Atreides&#39; problem</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l3">
+    <a href="#subproblems-and-recursion">Subproblems and recursion</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l3">
+    <a href="#the-dp-table">The DP table</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l3">
+    <a href="#running-time-pseudopolynomial">Running time: pseudopolynomial</a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#conclusions">Conclusions</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#key-takeaways">Key takeaways</a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+</ul>
+
+          
+          
+        </div>
+      </aside>
+
+    
+  </main>
+
+  
+  <footer class="statusbar" aria-hidden="true">
+    <span class="sb-mode">READ</span>
+    <span class="sb-path">en/notes/University notes/computational-method/02-dynamic-programming.md</span>
+    <span class="sb-spacer"></span>
+    <span class="sb-item">en</span>
+    <span class="sb-item">utf-8</span>
+    <span class="sb-item">markdown</span>
+    <span class="sb-pos" data-scroll-pos>top</span>
+  </footer>
+  
+
+  <div class="search" data-search hidden role="dialog" aria-modal="true" aria-label="Search">
+    <div class="search-panel">
+      <div class="search-bar"><span class="search-prompt" aria-hidden="true">❯</span>
+      <input class="search-input" type="search" placeholder="Search" autocomplete="off" spellcheck="false" aria-controls="search-results"></div>
+      <ul class="search-results" id="search-results" role="listbox"></ul>
+      <div class="search-hint" aria-hidden="true"><span><kbd>↑↓</kbd> move</span><span><kbd>↵</kbd> open</span><span><kbd>tab</kbd> complete</span><span><kbd>esc</kbd> close</span></div>
+    </div>
+  </div>
+
+  <script>
+    window.GOMARK = {
+      lang: "en",
+      root: "..\/..\/..\/..\/",
+      theme: "light",
+      section: "notes",
+      i18n: { noResults: "No results", searchFilters: "Filters", searchTab: "complete",
+        qSection: "in one section of the site", qHeading: "under the headings that match", qTitle: "in the title", qCode: "in the code blocks, of one language",
+        qIn: "where the words look", qHas: "pages with code, math, table, image, link, quote, task, widget", qPath: "in the file path", qPhrase: "these words, in this order",
+        qNot: "without it", qOr: "either one", qRegex: "a regular expression", copy: "copy", copied: "copied", words: "words", minRead: "min read",
+        data: "data", search: "search", noData: "no data", other: "other",
+        total: "total", show: "show", hide: "hide", reset: "reset", all: "all" }
+    };
+  </script>
+  <script src="../../../../static/widgets.js"></script>
+  <script src="../../../../static/widgets/notes/University%20notes/computational-method/dp.js"></script>
+  <script src="../../../../static/widgets/quiz.js"></script>
+  <script src="../../../../static/engine.js"></script>
+  <script src="../../../../static/ui.js"></script>
+  <script src="../../../../static/search.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Digital identity and computational knowledge base: résumé, projects and notes.">
+  <meta name="author" content="Sergio Di Lapi">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains&#43;Mono:wght@400;500;600;700;800&amp;family=IBM&#43;Plex&#43;Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <title>Time Indices and Duration · Notes</title>
+  <link rel="stylesheet" href="../../../../static/layout.css">
+  <link rel="stylesheet" href="../../../../static/theme.css">
+  <link rel="stylesheet" href="../../../../static/wimark.css">
+  <link rel="stylesheet" href="../../../../static/themes/light.css">
+  <style>:root { --mono:"JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;--sans:"IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;--font-body:var(--sans);--font-heading:var(--mono);--font-size:14px;--content-width:780px;--sidebar-width:256px;--folders-width:224px;--toc-width:232px;--radius:4px;--radius-sm:3px;--radius-lg:10px; }</style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+</head>
+<body data-depth="multi" data-index="right" data-theme="light" data-theme-class="monochrome" data-heading="mono" data-statusbar="on">
+
+  <header class="topbar">
+    <a class="brand" href="../../../../index.html">sergiopericolo</a>
+    <nav class="sections" aria-label="Sections">
+      
+      <a class="section-link" href="../../../../about/index.html">
+        <span class="section-idx">01</span>
+        <span class="section-title">About</span>
+      </a>
+      
+      <a class="section-link" href="../../../../projects/index.html">
+        <span class="section-idx">02</span>
+        <span class="section-title">Projects</span>
+      </a>
+      
+      <a class="section-link active" href="../../../../notes/index.html">
+        <span class="section-idx">03</span>
+        <span class="section-title">Notes</span>
+      </a>
+      
+      <a class="section-link" href="../../../../visual/index.html">
+        <span class="section-idx">04</span>
+        <span class="section-title">Visual</span>
+      </a>
+      
+      <a class="section-link" href="../../../../art/index.html">
+        <span class="section-idx">05</span>
+        <span class="section-title">Art</span>
+      </a>
+      
+    </nav>
+    <div class="topbar-end">
+      <button class="search-open" type="button" data-search-open aria-haspopup="dialog"><span>Search</span><kbd>⌘K</kbd></button>
+      
+      <span class="build-info"><a class="build-name" href="https://github.com/sergiopericolo/GoMark">GoMark</a> v1.2.0</span>
+    </div>
+  </header>
+
+  <main class="grid" style="--grid: minmax(0, 15fr) minmax(0, 15fr) minmax(0, 55fr) minmax(0, 15fr); --grid-medium: minmax(0, 15fr) minmax(0, 15fr) minmax(0, 70fr)">
+
+    
+
+      
+      <aside class="col-folders" aria-label="Folders">
+        <div class="col-head">Folders</div>
+        <div class="col-scroll">
+          <a class="tree-root" href="../../../index.html">~/notes/</a>
+          
+
+<ul class="tree">
+  
+  
+  <li class="tree-node has-children open" data-path="University notes">
+    <div class="tree-row">
+      
+      <button class="tree-toggle" type="button" aria-expanded="true" aria-label="University notes"><span class="chev" aria-hidden="true"></span></button>
+      
+      <a class="tree-folder" href="../../../University%20notes/index.html">
+        <span class="tree-name">University notes/</span>
+        
+      </a>
+    </div>
+    
+      
+
+<ul class="tree">
+  
+  
+  <li class="tree-node" data-path="University notes/computational-method">
+    <div class="tree-row">
+      
+      <span class="tree-leaf" aria-hidden="true"></span>
+      
+      <a class="tree-folder" href="../../../University%20notes/computational-method/index.html">
+        <span class="tree-name">computational-method/</span>
+        <span class="tree-count">5</span>
+      </a>
+    </div>
+    
+  </li>
+  
+  
+  <li class="tree-node" data-path="University notes/financial-economics">
+    <div class="tree-row">
+      
+      <span class="tree-leaf" aria-hidden="true"></span>
+      
+      <a class="tree-folder" href="../../../University%20notes/financial-economics/index.html">
+        <span class="tree-name">financial-economics/</span>
+        <span class="tree-count">9</span>
+      </a>
+    </div>
+    
+  </li>
+  
+  
+  <li class="tree-node open" data-path="University notes/financial-mathematics">
+    <div class="tree-row">
+      
+      <span class="tree-leaf" aria-hidden="true"></span>
+      
+      <a class="tree-folder active" href="../../../University%20notes/financial-mathematics/index.html">
+        <span class="tree-name">financial-mathematics/</span>
+        <span class="tree-count">11</span>
+      </a>
+    </div>
+    
+  </li>
+  
+</ul>
+
+    
+  </li>
+  
+</ul>
+
+        </div>
+      </aside>
+      
+
+      <aside class="col-files" aria-label="Files">
+        <div class="col-head">
+          <span>Files <span class="badge">11</span></span>
+          <span class="col-head-path">notes/University notes/financial-mathematics/</span>
+        </div>
+        <div class="col-scroll">
+          <ul class="file-list">
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-mathematics/01-interest-and-discount/index.html">
+                <span class="file-name">Interest, Discount and Financial Laws</span>
+                <span class="file-path">01-interest-and-discount.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-mathematics/02-simple-and-compound-interest/index.html">
+                <span class="file-name">Simple and Compound Interest</span>
+                <span class="file-path">02-simple-and-compound-interest.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-mathematics/03-commercial-discount/index.html">
+                <span class="file-name">Commercial Discount and Average Rates</span>
+                <span class="file-path">03-commercial-discount.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-mathematics/04-annuities/index.html">
+                <span class="file-name">Complex Operations and Annuities</span>
+                <span class="file-path">04-annuities.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-mathematics/05-accumulation-and-amortization/index.html">
+                <span class="file-name">Capital Accumulation and Loan Amortization</span>
+                <span class="file-path">05-accumulation-and-amortization.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-mathematics/06-choosing-investments/index.html">
+                <span class="file-name">Choosing Between Financial Operations</span>
+                <span class="file-path">06-choosing-investments.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-mathematics/07-bonds/index.html">
+                <span class="file-name">Bonds</span>
+                <span class="file-path">07-bonds.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-mathematics/08-term-structure/index.html">
+                <span class="file-name">The Term Structure of Interest Rates</span>
+                <span class="file-path">08-term-structure.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link active" href="../../../University%20notes/financial-mathematics/09-duration/index.html">
+                <span class="file-name">Time Indices and Duration</span>
+                <span class="file-path">09-duration.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-mathematics/10-survival-models/index.html">
+                <span class="file-name">Risk, Life Tables and Survival Models</span>
+                <span class="file-path">10-survival-models.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-mathematics/11-life-insurance/index.html">
+                <span class="file-name">Life Insurance Premiums and Reserves</span>
+                <span class="file-path">11-life-insurance.md</span>
+              </a>
+            </li>
+            
+          </ul>
+        </div>
+      </aside>
+
+      <section class="col-content" aria-label="sergiopericolo">
+        <div class="content-scroll" id="content">
+          <div class="content-inner">
+          
+            
+<div class="page-head">
+  <div class="page-crumb"><span class="crumb-home">~</span>/notes/University notes/financial-mathematics/09-duration.md</div>
+  <h1 class="page-title">Time Indices and Duration</h1>
+  <div class="page-meta" data-page-meta><span class="meta-tag">en</span></div>
+</div>
+
+<article class="page-body"><h1 id="time-indices-and-duration">Time Indices and Duration</h1>
+<p>Lecture 13 of <em>Financial Mathematics</em> (University of Brescia). One number to describe <em>when</em> a stream of payments arrives on average — and how much its price moves when rates move. The key tool is the <strong>duration</strong>.</p>
+<p>Roadmap:</p>
+<ol>
+<li><strong>Maturity and time to maturity</strong>.</li>
+<li><strong>Arithmetic mean maturity</strong> — weights are the amounts.</li>
+<li><strong>Financial mean maturity</strong> — one payment worth the same.</li>
+<li><strong>Duration</strong> — weights are the present values.</li>
+<li><strong>Duration and price risk</strong> — modified duration.</li>
+</ol>
+<h2 id="maturity-and-time-to-maturity">Maturity and time to maturity</h2>
+<p>A stream pays <span class="math math-inline">\(R_1, \dots, R_m \ge 0\)</span> at <span class="math math-inline">\(t_1, \dots, t_m\)</span>, valued at <span class="math math-inline">\(t\)</span>.</p>
+<ul>
+<li><strong>Maturity</strong>: the date of the last payment, <span class="math math-inline">\(t_m\)</span>.</li>
+<li><strong>Time to maturity</strong> (residual life): <span class="math math-inline">\(t_m - t\)</span>.</li>
+</ul>
+<p>At <span class="math math-inline">\(t = 0\)</span> the two coincide.</p>
+<h2 id="arithmetic-mean-maturity">Arithmetic mean maturity</h2>
+<p>The amount-weighted average of the times to payment, valued at <span class="math math-inline">\(t\)</span> with <span class="math math-inline">\(0 \le t \le t_1\)</span>:</p>
+<p><span class="math math-display">\[\bar{t} = \frac{\sum_{k=1}^{m} R_k (t_k - t)}{\sum_{k=1}^{m} R_k}\]</span></p>
+<p>It is purely <strong>accounting</strong>: it does not depend on any rate or regime.</p>
+<h2 id="financial-mean-maturity">Financial mean maturity</h2>
+<p>The <strong>financial mean maturity</strong> <span class="math math-inline">\(z\)</span> is the single date at which <strong>one payment equal to the total</strong> <span class="math math-inline">\(\sum R_i\)</span> has the same present value as the whole stream:</p>
+<p><span class="math math-display">\[\sum_{i=1}^{m} R_i v(t_i) = \left( \sum_{i=1}^{m} R_i \right) v(z)\]</span></p>
+<p><span class="math math-inline">\(z\)</span> depends on the regime. Under <strong>commercial discount</strong>, <span class="math math-inline">\(v(t) = 1 - dt\)</span> is linear, so</p>
+<p><span class="math math-display">\[z = \bar{t}\]</span></p>
+<h2 id="duration">Duration</h2>
+<p>The <strong>duration</strong> (<em>durata media finanziaria</em>) <span class="math math-inline">\(D\)</span> is set under compound interest at rate <span class="math math-inline">\(i &gt; 0\)</span>, with a flat curve. The dirty price is <span class="math math-inline">\(P(i) = \sum_{h=1}^{m} R_h (1+i)^{-t_h}\)</span>. The duration is the average of the payment dates, <strong>weighted by present values</strong>:</p>
+<p><span class="math math-display">\[D = \frac{\sum_{h=1}^{m} t_h R_h (1+i)^{-t_h}}{P(i)}\]</span></p>
+<p>With a non-flat curve, use the spot prices <span class="math math-inline">\(v(0, t_h)\)</span>:</p>
+<p><span class="math math-display">\[D = \frac{\sum_{h=1}^{m} t_h R_h v(0, t_h)}{\sum_{h=1}^{m} R_h v(0, t_h)}\]</span></p>
+<p>Facts that follow from the definition:</p>
+<ul>
+<li>A ZCB has <span class="math math-inline">\(D\)</span> equal to its maturity.</li>
+<li>A coupon bond has <span class="math math-inline">\(D\)</span> below its maturity: early coupons pull the average forward.</li>
+<li>Higher coupons or higher rates give <strong>shorter</strong> duration (more weight on early flows).</li>
+</ul>
+<h2 id="duration-and-price-risk">Duration and price risk</h2>
+<p>The price changes with the rate. To first order:</p>
+<p><span class="math math-display">\[\Delta P \approx P&#39;(i) \Delta i, \qquad \frac{\Delta P}{P} \approx \frac{P&#39;(i)}{P(i)} \Delta i\]</span></p>
+<p>Differentiate <span class="math math-inline">\(P(i)\)</span>:</p>
+<p><span class="math math-display">\[P&#39;(i) = -\sum_{h=1}^{m} t_h R_h (1+i)^{-t_h-1} = -\frac{1}{1+i} \sum_{h=1}^{m} t_h R_h (1+i)^{-t_h}\]</span></p>
+<p>so</p>
+<p><span class="math math-display">\[\frac{\Delta P}{P} \approx -\frac{1}{1+i} \cdot \frac{\sum_{h=1}^{m} t_h R_h (1+i)^{-t_h}}{P(i)} \Delta i = -\frac{D}{1+i} \Delta i\]</span></p>
+<p><span class="math math-inline">\(D^* = \frac{D}{1+i}\)</span> is the <strong>modified duration</strong>: the approximate percentage price change for a unit change in the rate. Longer duration means more price risk.</p>
+<p>The tangent line is the duration approximation; the gap to the curve (convexity) grows with <span class="math math-inline">\(|\Delta i|\)</span>.</p>
+<pre class="wimark-src"><code class="nohighlight" data-wimark="duration" data-opts="{&#34;coupon&#34;: 0.05, &#34;m&#34;: 10, &#34;i&#34;: 0.04, &#34;di&#34;: 0.02}"></code></pre>
+<h2 id="key-takeaways">Key takeaways</h2>
+<ul>
+<li>Arithmetic mean maturity <span class="math math-inline">\(\bar t\)</span>: weights are amounts, no rate involved.</li>
+<li>Financial mean maturity <span class="math math-inline">\(z\)</span>: one total payment with equal PV; <span class="math math-inline">\(z = \bar t\)</span> under commercial discount.</li>
+<li>Duration <span class="math math-inline">\(D = \sum t_h R_h v^{t_h} / P\)</span>: weights are present values.</li>
+<li><span class="math math-inline">\(\Delta P / P \approx -D^* \Delta i\)</span>, with <span class="math math-inline">\(D^* = D/(1+i)\)</span>.</li>
+<li>ZCB: <span class="math math-inline">\(D\)</span> = maturity. Coupons and higher rates shorten <span class="math math-inline">\(D\)</span>.</li>
+</ul>
+<pre class="wimark-src"><code class="nohighlight" data-wimark="quiz" data-opts="{&#34;title&#34;: &#34;Check yourself&#34;}">[
+  {&#34;q&#34;: &#34;Payments 100 at $t = 1$ and 300 at $t = 3$. The arithmetic mean maturity is&#34;, &#34;options&#34;: [&#34;2&#34;, &#34;2.5&#34;, &#34;3&#34;], &#34;answer&#34;: 1, &#34;why&#34;: &#34;$(100 \\cdot 1 + 300 \\cdot 3)/400 = 2.5$.&#34;},
+  {&#34;q&#34;: &#34;The duration of a 5-year zero-coupon bond is&#34;, &#34;options&#34;: [&#34;less than 5&#34;, &#34;5&#34;, &#34;more than 5&#34;], &#34;answer&#34;: 1},
+  {&#34;q&#34;: &#34;$D = 6$, $i = 5\\%$. Rates rise by 1 point. The price changes by about&#34;, &#34;options&#34;: [&#34;−6%&#34;, &#34;−5.71%&#34;, &#34;+5.71%&#34;], &#34;answer&#34;: 1, &#34;why&#34;: &#34;$D^* = 6/1.05 = 5.71$, so $\\Delta P/P \\approx -5.71\\%$.&#34;},
+  {&#34;q&#34;: &#34;Under which regime does the financial mean maturity equal the arithmetic one?&#34;, &#34;options&#34;: [&#34;Simple interest&#34;, &#34;Compound interest&#34;, &#34;Commercial discount&#34;], &#34;answer&#34;: 2},
+  {&#34;q&#34;: &#34;Raising the coupon of a bond, everything else fixed, makes its duration&#34;, &#34;options&#34;: [&#34;longer&#34;, &#34;shorter&#34;, &#34;unchanged&#34;], &#34;answer&#34;: 1}
+]
+</code></pre>
+</article>
+
+          
+          </div>
+        </div>
+      </section>
+
+      <aside class="col-toc" aria-label="On this page">
+        <div class="col-head">On this page</div>
+        <div class="col-scroll">
+          
+            
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l1">
+    <a href="#time-indices-and-duration">Time Indices and Duration</a>
+    
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l2">
+    <a href="#maturity-and-time-to-maturity">Maturity and time to maturity</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#arithmetic-mean-maturity">Arithmetic mean maturity</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#financial-mean-maturity">Financial mean maturity</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#duration">Duration</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#duration-and-price-risk">Duration and price risk</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#key-takeaways">Key takeaways</a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+</ul>
+
+          
+          
+        </div>
+      </aside>
+
+    
+  </main>
+
+  
+  <footer class="statusbar" aria-hidden="true">
+    <span class="sb-mode">READ</span>
+    <span class="sb-path">en/notes/University notes/financial-mathematics/09-duration.md</span>
+    <span class="sb-spacer"></span>
+    <span class="sb-item">en</span>
+    <span class="sb-item">utf-8</span>
+    <span class="sb-item">markdown</span>
+    <span class="sb-pos" data-scroll-pos>top</span>
+  </footer>
+  
+
+  <div class="search" data-search hidden role="dialog" aria-modal="true" aria-label="Search">
+    <div class="search-panel">
+      <div class="search-bar"><span class="search-prompt" aria-hidden="true">❯</span>
+      <input class="search-input" type="search" placeholder="Search" autocomplete="off" spellcheck="false" aria-controls="search-results"></div>
+      <ul class="search-results" id="search-results" role="listbox"></ul>
+      <div class="search-hint" aria-hidden="true"><span><kbd>↑↓</kbd> move</span><span><kbd>↵</kbd> open</span><span><kbd>tab</kbd> complete</span><span><kbd>esc</kbd> close</span></div>
+    </div>
+  </div>
+
+  <script>
+    window.GOMARK = {
+      lang: "en",
+      root: "..\/..\/..\/..\/",
+      theme: "light",
+      section: "notes",
+      i18n: { noResults: "No results", searchFilters: "Filters", searchTab: "complete",
+        qSection: "in one section of the site", qHeading: "under the headings that match", qTitle: "in the title", qCode: "in the code blocks, of one language",
+        qIn: "where the words look", qHas: "pages with code, math, table, image, link, quote, task, widget", qPath: "in the file path", qPhrase: "these words, in this order",
+        qNot: "without it", qOr: "either one", qRegex: "a regular expression", copy: "copy", copied: "copied", words: "words", minRead: "min read",
+        data: "data", search: "search", noData: "no data", other: "other",
+        total: "total", show: "show", hide: "hide", reset: "reset", all: "all" }
+    };
+  </script>
+  <script src="../../../../static/widgets.js"></script>
+  <script src="../../../../static/widgets/notes/University%20notes/financial-mathematics/duration.js"></script>
+  <script src="../../../../static/widgets/quiz.js"></script>
+  <script src="../../../../static/engine.js"></script>
+  <script src="../../../../static/ui.js"></script>
+  <script src="../../../../static/search.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

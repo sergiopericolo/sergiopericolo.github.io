@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Digital identity and computational knowledge base: résumé, projects and notes.">
+  <meta name="author" content="Sergio Di Lapi">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains&#43;Mono:wght@400;500;600;700;800&amp;family=IBM&#43;Plex&#43;Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <title>Bonds · Notes</title>
+  <link rel="stylesheet" href="../../../../static/layout.css">
+  <link rel="stylesheet" href="../../../../static/theme.css">
+  <link rel="stylesheet" href="../../../../static/wimark.css">
+  <link rel="stylesheet" href="../../../../static/themes/light.css">
+  <style>:root { --mono:"JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;--sans:"IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;--font-body:var(--sans);--font-heading:var(--mono);--font-size:14px;--content-width:780px;--sidebar-width:256px;--folders-width:224px;--toc-width:232px;--radius:4px;--radius-sm:3px;--radius-lg:10px; }</style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+</head>
+<body data-depth="multi" data-index="right" data-theme="light" data-theme-class="monochrome" data-heading="mono" data-statusbar="on">
+
+  <header class="topbar">
+    <a class="brand" href="../../../../index.html">sergiopericolo</a>
+    <nav class="sections" aria-label="Sections">
+      
+      <a class="section-link" href="../../../../about/index.html">
+        <span class="section-idx">01</span>
+        <span class="section-title">About</span>
+      </a>
+      
+      <a class="section-link" href="../../../../projects/index.html">
+        <span class="section-idx">02</span>
+        <span class="section-title">Projects</span>
+      </a>
+      
+      <a class="section-link active" href="../../../../notes/index.html">
+        <span class="section-idx">03</span>
+        <span class="section-title">Notes</span>
+      </a>
+      
+      <a class="section-link" href="../../../../visual/index.html">
+        <span class="section-idx">04</span>
+        <span class="section-title">Visual</span>
+      </a>
+      
+      <a class="section-link" href="../../../../art/index.html">
+        <span class="section-idx">05</span>
+        <span class="section-title">Art</span>
+      </a>
+      
+    </nav>
+    <div class="topbar-end">
+      <button class="search-open" type="button" data-search-open aria-haspopup="dialog"><span>Search</span><kbd>⌘K</kbd></button>
+      
+      <span class="build-info"><a class="build-name" href="https://github.com/sergiopericolo/GoMark">GoMark</a> v1.2.0</span>
+    </div>
+  </header>
+
+  <main class="grid" style="--grid: minmax(0, 15fr) minmax(0, 15fr) minmax(0, 55fr) minmax(0, 15fr); --grid-medium: minmax(0, 15fr) minmax(0, 15fr) minmax(0, 70fr)">
+
+    
+
+      
+      <aside class="col-folders" aria-label="Folders">
+        <div class="col-head">Folders</div>
+        <div class="col-scroll">
+          <a class="tree-root" href="../../../index.html">~/notes/</a>
+          
+
+<ul class="tree">
+  
+  
+  <li class="tree-node has-children open" data-path="University notes">
+    <div class="tree-row">
+      
+      <button class="tree-toggle" type="button" aria-expanded="true" aria-label="University notes"><span class="chev" aria-hidden="true"></span></button>
+      
+      <a class="tree-folder" href="../../../University%20notes/index.html">
+        <span class="tree-name">University notes/</span>
+        
+      </a>
+    </div>
+    
+      
+
+<ul class="tree">
+  
+  
+  <li class="tree-node" data-path="University notes/computational-method">
+    <div class="tree-row">
+      
+      <span class="tree-leaf" aria-hidden="true"></span>
+      
+      <a class="tree-folder" href="../../../University%20notes/computational-method/index.html">
+        <span class="tree-name">computational-method/</span>
+        <span class="tree-count">5</span>
+      </a>
+    </div>
+    
+  </li>
+  
+  
+  <li class="tree-node" data-path="University notes/financial-economics">
+    <div class="tree-row">
+      
+      <span class="tree-leaf" aria-hidden="true"></span>
+      
+      <a class="tree-folder" href="../../../University%20notes/financial-economics/index.html">
+        <span class="tree-name">financial-economics/</span>
+        <span class="tree-count">9</span>
+      </a>
+    </div>
+    
+  </li>
+  
+  
+  <li class="tree-node open" data-path="University notes/financial-mathematics">
+    <div class="tree-row">
+      
+      <span class="tree-leaf" aria-hidden="true"></span>
+      
+      <a class="tree-folder active" href="../../../University%20notes/financial-mathematics/index.html">
+        <span class="tree-name">financial-mathematics/</span>
+        <span class="tree-count">11</span>
+      </a>
+    </div>
+    
+  </li>
+  
+</ul>
+
+    
+  </li>
+  
+</ul>
+
+        </div>
+      </aside>
+      
+
+      <aside class="col-files" aria-label="Files">
+        <div class="col-head">
+          <span>Files <span class="badge">11</span></span>
+          <span class="col-head-path">notes/University notes/financial-mathematics/</span>
+        </div>
+        <div class="col-scroll">
+          <ul class="file-list">
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-mathematics/01-interest-and-discount/index.html">
+                <span class="file-name">Interest, Discount and Financial Laws</span>
+                <span class="file-path">01-interest-and-discount.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-mathematics/02-simple-and-compound-interest/index.html">
+                <span class="file-name">Simple and Compound Interest</span>
+                <span class="file-path">02-simple-and-compound-interest.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-mathematics/03-commercial-discount/index.html">
+                <span class="file-name">Commercial Discount and Average Rates</span>
+                <span class="file-path">03-commercial-discount.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-mathematics/04-annuities/index.html">
+                <span class="file-name">Complex Operations and Annuities</span>
+                <span class="file-path">04-annuities.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-mathematics/05-accumulation-and-amortization/index.html">
+                <span class="file-name">Capital Accumulation and Loan Amortization</span>
+                <span class="file-path">05-accumulation-and-amortization.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-mathematics/06-choosing-investments/index.html">
+                <span class="file-name">Choosing Between Financial Operations</span>
+                <span class="file-path">06-choosing-investments.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link active" href="../../../University%20notes/financial-mathematics/07-bonds/index.html">
+                <span class="file-name">Bonds</span>
+                <span class="file-path">07-bonds.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-mathematics/08-term-structure/index.html">
+                <span class="file-name">The Term Structure of Interest Rates</span>
+                <span class="file-path">08-term-structure.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-mathematics/09-duration/index.html">
+                <span class="file-name">Time Indices and Duration</span>
+                <span class="file-path">09-duration.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-mathematics/10-survival-models/index.html">
+                <span class="file-name">Risk, Life Tables and Survival Models</span>
+                <span class="file-path">10-survival-models.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-mathematics/11-life-insurance/index.html">
+                <span class="file-name">Life Insurance Premiums and Reserves</span>
+                <span class="file-path">11-life-insurance.md</span>
+              </a>
+            </li>
+            
+          </ul>
+        </div>
+      </aside>
+
+      <section class="col-content" aria-label="sergiopericolo">
+        <div class="content-scroll" id="content">
+          <div class="content-inner">
+          
+            
+<div class="page-head">
+  <div class="page-crumb"><span class="crumb-home">~</span>/notes/University notes/financial-mathematics/07-bonds.md</div>
+  <h1 class="page-title">Bonds</h1>
+  <div class="page-meta" data-page-meta><span class="meta-tag">en</span></div>
+</div>
+
+<article class="page-body"><h1 id="bonds">Bonds</h1>
+<p>Lectures 10–11 of <em>Financial Mathematics</em> (University of Brescia). A bond is a slice of debt that an issuer sells to the market. This note covers its features, its price between coupon dates, and how to measure its return before and after the fact.</p>
+<p>Roadmap:</p>
+<ol>
+<li><strong>Features of a bond</strong> — face value, issue price, redemption, maturity.</li>
+<li><strong>Coupon rate and current yield (TRI)</strong> — with taxes.</li>
+<li><strong>Secondary market</strong> — accrued interest, clean and dirty price.</li>
+<li><strong>Types of bond</strong>.</li>
+<li><strong>Ex-post return</strong> — what the investor actually earned.</li>
+<li><strong>Ex-ante return</strong> — current yield and yield to maturity (TIR).</li>
+</ol>
+<h2 id="features-of-a-bond">Features of a bond</h2>
+<p>Companies and public bodies issue <strong>bonds</strong> to borrow from the market.</p>
+<ul>
+<li><strong>Face (nominal) value <span class="math math-inline">\(C\)</span></strong>: the amount on which coupons are computed, usually repaid at maturity.</li>
+<li><strong>Issue price <span class="math math-inline">\(C&#39;\)</span></strong>: paid by the buyer at issue <span class="math math-inline">\(t_0\)</span>.
+<ul>
+<li><strong>At par</strong>: <span class="math math-inline">\(C&#39; = C\)</span>.</li>
+<li><strong>Above par</strong>: <span class="math math-inline">\(C&#39; &gt; C\)</span>. The gap is a premium paid by the buyer (<em>aggio</em> for the issuer).</li>
+<li><strong>Below par</strong>: <span class="math math-inline">\(C&#39; &lt; C\)</span>. The gap is a discount earned by the buyer (<em>disaggio</em> for the issuer).</li>
+</ul>
+</li>
+<li><strong>Redemption value <span class="math math-inline">\(C&#39;&#39;\)</span></strong>: paid to the holder at maturity <span class="math math-inline">\(\hat t\)</span>; often <span class="math math-inline">\(C&#39;&#39; = C\)</span>.</li>
+<li><strong>Maturity <span class="math math-inline">\(\hat t\)</span></strong>: repayment date. The life of the bond is <span class="math math-inline">\(\hat t - t_0\)</span>.</li>
+</ul>
+<p>Two main families:</p>
+<ol>
+<li><strong>Zero-coupon bonds (ZCB)</strong>: no coupons; the return is only redemption minus price.</li>
+<li><strong>Coupon bonds</strong>: periodic interest payments, the <strong>coupons</strong>.</li>
+</ol>
+<h2 id="coupon-rate-and-current-yield">Coupon rate and current yield</h2>
+<p>The coupon is computed on face value with the <strong>coupon rate</strong>: <span class="math math-inline">\(i_h\)</span> per period (or <span class="math math-inline">\(j_h\)</span> as a nominal annual rate):</p>
+<p><span class="math math-display">\[\text{coupon} = C \cdot i_h\]</span></p>
+<p>Returns are taxed at rate <span class="math math-inline">\(\alpha\)</span>. The investor receives the <strong>net coupon</strong>:</p>
+<p><span class="math math-display">\[\text{net coupon} = C i_h (1 - \alpha)\]</span></p>
+<p>The <strong>current yield</strong> (<em>Tasso di Rendimento Immediato</em>, TRI) is a short-run measure: net coupon over price. It refers to one coupon period; compound it for the annual figure:</p>
+<p><span class="math math-display">\[TRI_{\text{period}} = \frac{C i_h (1 - \alpha)}{C&#39;}, \qquad TRI_{\text{annual}} = (1 + TRI_{\text{period}})^h - 1\]</span></p>
+<h2 id="secondary-market-accrued-interest">Secondary market: accrued interest</h2>
+<p>On the secondary market bonds already issued are traded. The price must account for the time since the last coupon.</p>
+<p>The <strong>accrued interest</strong> (<em>rateo</em>) is the part of the next coupon already earned since the last coupon date <span class="math math-inline">\(t_{k-1}\)</span>, up to the trade date <span class="math math-inline">\(t\)</span> (with <span class="math math-inline">\(t_{k-1} &lt; t &lt; t_k\)</span>). It grows linearly with time:</p>
+<p><span class="math math-display">\[\text{accrued} = \text{coupon} \cdot \frac{t - t_{k-1}}{t_k - t_{k-1}}\]</span></p>
+<ul>
+<li><strong>Dirty price</strong> (<em>corso tel quel</em>): the price actually paid, accrued interest included.</li>
+<li><strong>Clean price</strong> (<em>corso secco</em>): the quoted price, without accrued interest.</li>
+</ul>
+<p><span class="math math-display">\[\text{dirty price} = \text{clean price} + \text{accrued interest}\]</span></p>
+<p>A bond traded just before a coupon date without the right to that coupon is <strong>ex-coupon</strong>.</p>
+<h2 id="types-of-bond">Types of bond</h2>
+<table>
+<thead>
+<tr>
+<th>Type</th>
+<th>Cash flows</th>
+<th>Italian example</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Zero-coupon</td>
+<td>redemption only</td>
+<td>BOT (<em>Buoni Ordinari del Tesoro</em>)</td>
+</tr>
+<tr>
+<td>Fixed coupon</td>
+<td>constant coupons + redemption</td>
+<td>BTP (<em>Buoni del Tesoro Poliennali</em>)</td>
+</tr>
+<tr>
+<td>Variable coupon</td>
+<td>coupons change by a rule</td>
+<td></td>
+</tr>
+<tr>
+<td>Floating rate</td>
+<td>coupons follow a market rate</td>
+<td>CCT</td>
+</tr>
+<tr>
+<td>Random coupon and face value</td>
+<td>both uncertain</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="measuring-return-ex-ante-and-ex-post">Measuring return: ex-ante and ex-post</h2>
+<ol>
+<li><strong>Ex-ante</strong>: measured at the start <span class="math math-inline">\(t\)</span> of the investment. It needs an assumed end date, which may turn out different.</li>
+<li><strong>Ex-post</strong>: measured after the end. It is the return actually earned between two past dates.</li>
+</ol>
+<h3 id="ex-post-return">Ex-post return</h3>
+<p>An investment starts at <span class="math math-inline">\(t\)</span> and ends at <span class="math math-inline">\(h\)</span>, with <span class="math math-inline">\(t_0 \le t &lt; h \le \hat t\)</span>. Let <span class="math math-inline">\(P(X, t)\)</span> be the price paid and <span class="math math-inline">\(P(X, h)\)</span> the price at <span class="math math-inline">\(h\)</span>.</p>
+<p>The <strong>holding period yield</strong> over the whole period is</p>
+<p><span class="math math-display">\[r = \frac{P(X,h) - P(X,t)}{P(X,t)}\]</span></p>
+<p>To compare investments of different length, annualize. Let <span class="math math-inline">\(V(X, h)\)</span> be the <strong>final value</strong> at <span class="math math-inline">\(h\)</span>: for a ZCB, <span class="math math-inline">\(V(X,h) = P(X,h)\)</span>; for a coupon bond, also add the coupons received and reinvested up to <span class="math math-inline">\(h\)</span>.</p>
+<p><span class="math math-display">\[r_c = \left( \frac{V(X,h)}{P(X,t)} \right)^{1/(h-t)} - 1 \quad \text{(compound)}\]</span></p>
+<p><span class="math math-display">\[r_s = \frac{V(X,h) - P(X,t)}{(h-t) P(X,t)} \quad \text{(simple)}\]</span></p>
+<h3 id="ex-ante-return-tri-and-tir">Ex-ante return: TRI and TIR</h3>
+<p>The current yield on the secondary market uses the clean price:</p>
+<p><span class="math math-display">\[TRI = \frac{\text{coupon}}{\text{clean price}}\]</span></p>
+<p>The <strong>yield to maturity</strong> (<em>TIR</em>) is the rate <span class="math math-inline">\(y\)</span> that equates the dirty price at <span class="math math-inline">\(t\)</span> to the present value of all future flows <span class="math math-inline">\(x_h\)</span>:</p>
+<p><span class="math math-display">\[P(X,t) = \sum_{h=1}^{m} \frac{x_h}{(1+y)^{t_h - t}}\]</span></p>
+<p>For the <strong>net TIR</strong>, use net coupons and a net dirty price: clean price + net accrued interest (accrued <span class="math math-inline">\(\cdot (1 - \alpha)\)</span>).</p>
+<p>The yield to maturity has two built-in limits:</p>
+<ol>
+<li>It assumes the investor <strong>holds the bond until maturity</strong>.</li>
+<li>It assumes every coupon is <strong>reinvested at the same rate <span class="math math-inline">\(y\)</span></strong>.</li>
+</ol>
+<h2 id="key-takeaways">Key takeaways</h2>
+<ul>
+<li>Face value <span class="math math-inline">\(C\)</span>, issue price <span class="math math-inline">\(C&#39;\)</span> (par, above, below), redemption <span class="math math-inline">\(C&#39;&#39;\)</span>, maturity <span class="math math-inline">\(\hat t\)</span>.</li>
+<li>Coupon <span class="math math-inline">\(= C i_h\)</span>, net coupon <span class="math math-inline">\(= C i_h (1-\alpha)\)</span>; TRI = net coupon / price, annualized by compounding.</li>
+<li>Dirty price = clean price + accrued interest; accrued interest is linear between coupon dates.</li>
+<li>Ex-post: <span class="math math-inline">\(r = (P_h - P_t)/P_t\)</span>; annualize with final value <span class="math math-inline">\(V\)</span> (coupons reinvested).</li>
+<li>Yield to maturity: rate that discounts all flows to the dirty price; assumes hold-to-maturity and reinvestment at <span class="math math-inline">\(y\)</span>.</li>
+</ul>
+<pre class="wimark-src"><code class="nohighlight" data-wimark="quiz" data-opts="{&#34;title&#34;: &#34;Check yourself&#34;}">[
+  {&#34;q&#34;: &#34;A bond with face value 100 is issued at 98. It is issued&#34;, &#34;options&#34;: [&#34;above par&#34;, &#34;at par&#34;, &#34;below par&#34;], &#34;answer&#34;: 2},
+  {&#34;q&#34;: &#34;Semiannual coupon 2 (face 100), last coupon 3 months ago. The accrued interest is&#34;, &#34;options&#34;: [&#34;0.5&#34;, &#34;1&#34;, &#34;2&#34;], &#34;answer&#34;: 1, &#34;why&#34;: &#34;$2 \\cdot 3/6 = 1$.&#34;},
+  {&#34;q&#34;: &#34;Clean price 101.20, accrued interest 0.80. The buyer pays&#34;, &#34;options&#34;: [&#34;100.40&#34;, &#34;101.20&#34;, &#34;102.00&#34;], &#34;answer&#34;: 2},
+  {&#34;q&#34;: &#34;Net coupon 2 per half-year, price 100. The annual current yield is&#34;, &#34;options&#34;: [&#34;4%&#34;, &#34;4.04%&#34;, &#34;2%&#34;], &#34;answer&#34;: 1, &#34;why&#34;: &#34;$(1.02)^2 - 1 = 4.04\\%$.&#34;},
+  {&#34;q&#34;: &#34;Which assumption does the yield to maturity make?&#34;, &#34;options&#34;: [&#34;The bond is sold at the next coupon date&#34;, &#34;Coupons are reinvested at the yield itself&#34;, &#34;There are no coupons&#34;], &#34;answer&#34;: 1}
+]
+</code></pre>
+</article>
+
+          
+          </div>
+        </div>
+      </section>
+
+      <aside class="col-toc" aria-label="On this page">
+        <div class="col-head">On this page</div>
+        <div class="col-scroll">
+          
+            
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l1">
+    <a href="#bonds">Bonds</a>
+    
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l2">
+    <a href="#features-of-a-bond">Features of a bond</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#coupon-rate-and-current-yield">Coupon rate and current yield</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#secondary-market-accrued-interest">Secondary market: accrued interest</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#types-of-bond">Types of bond</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#measuring-return-ex-ante-and-ex-post">Measuring return: ex-ante and ex-post</a>
+    
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l3">
+    <a href="#ex-post-return">Ex-post return</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l3">
+    <a href="#ex-ante-return-tri-and-tir">Ex-ante return: TRI and TIR</a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#key-takeaways">Key takeaways</a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+</ul>
+
+          
+          
+        </div>
+      </aside>
+
+    
+  </main>
+
+  
+  <footer class="statusbar" aria-hidden="true">
+    <span class="sb-mode">READ</span>
+    <span class="sb-path">en/notes/University notes/financial-mathematics/07-bonds.md</span>
+    <span class="sb-spacer"></span>
+    <span class="sb-item">en</span>
+    <span class="sb-item">utf-8</span>
+    <span class="sb-item">markdown</span>
+    <span class="sb-pos" data-scroll-pos>top</span>
+  </footer>
+  
+
+  <div class="search" data-search hidden role="dialog" aria-modal="true" aria-label="Search">
+    <div class="search-panel">
+      <div class="search-bar"><span class="search-prompt" aria-hidden="true">❯</span>
+      <input class="search-input" type="search" placeholder="Search" autocomplete="off" spellcheck="false" aria-controls="search-results"></div>
+      <ul class="search-results" id="search-results" role="listbox"></ul>
+      <div class="search-hint" aria-hidden="true"><span><kbd>↑↓</kbd> move</span><span><kbd>↵</kbd> open</span><span><kbd>tab</kbd> complete</span><span><kbd>esc</kbd> close</span></div>
+    </div>
+  </div>
+
+  <script>
+    window.GOMARK = {
+      lang: "en",
+      root: "..\/..\/..\/..\/",
+      theme: "light",
+      section: "notes",
+      i18n: { noResults: "No results", searchFilters: "Filters", searchTab: "complete",
+        qSection: "in one section of the site", qHeading: "under the headings that match", qTitle: "in the title", qCode: "in the code blocks, of one language",
+        qIn: "where the words look", qHas: "pages with code, math, table, image, link, quote, task, widget", qPath: "in the file path", qPhrase: "these words, in this order",
+        qNot: "without it", qOr: "either one", qRegex: "a regular expression", copy: "copy", copied: "copied", words: "words", minRead: "min read",
+        data: "data", search: "search", noData: "no data", other: "other",
+        total: "total", show: "show", hide: "hide", reset: "reset", all: "all" }
+    };
+  </script>
+  <script src="../../../../static/widgets.js"></script>
+  <script src="../../../../static/widgets/quiz.js"></script>
+  <script src="../../../../static/engine.js"></script>
+  <script src="../../../../static/ui.js"></script>
+  <script src="../../../../static/search.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Digital identity and computational knowledge base: résumé, projects and notes.">
+  <meta name="author" content="Sergio Di Lapi">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains&#43;Mono:wght@400;500;600;700;800&amp;family=IBM&#43;Plex&#43;Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <title>The Term Structure of Interest Rates · Notes</title>
+  <link rel="stylesheet" href="../../../../static/layout.css">
+  <link rel="stylesheet" href="../../../../static/theme.css">
+  <link rel="stylesheet" href="../../../../static/wimark.css">
+  <link rel="stylesheet" href="../../../../static/themes/light.css">
+  <style>:root { --mono:"JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;--sans:"IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;--font-body:var(--sans);--font-heading:var(--mono);--font-size:14px;--content-width:780px;--sidebar-width:256px;--folders-width:224px;--toc-width:232px;--radius:4px;--radius-sm:3px;--radius-lg:10px; }</style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+</head>
+<body data-depth="multi" data-index="right" data-theme="light" data-theme-class="monochrome" data-heading="mono" data-statusbar="on">
+
+  <header class="topbar">
+    <a class="brand" href="../../../../index.html">sergiopericolo</a>
+    <nav class="sections" aria-label="Sections">
+      
+      <a class="section-link" href="../../../../about/index.html">
+        <span class="section-idx">01</span>
+        <span class="section-title">About</span>
+      </a>
+      
+      <a class="section-link" href="../../../../projects/index.html">
+        <span class="section-idx">02</span>
+        <span class="section-title">Projects</span>
+      </a>
+      
+      <a class="section-link active" href="../../../../notes/index.html">
+        <span class="section-idx">03</span>
+        <span class="section-title">Notes</span>
+      </a>
+      
+      <a class="section-link" href="../../../../visual/index.html">
+        <span class="section-idx">04</span>
+        <span class="section-title">Visual</span>
+      </a>
+      
+      <a class="section-link" href="../../../../art/index.html">
+        <span class="section-idx">05</span>
+        <span class="section-title">Art</span>
+      </a>
+      
+    </nav>
+    <div class="topbar-end">
+      <button class="search-open" type="button" data-search-open aria-haspopup="dialog"><span>Search</span><kbd>⌘K</kbd></button>
+      
+      <span class="build-info"><a class="build-name" href="https://github.com/sergiopericolo/GoMark">GoMark</a> v1.2.0</span>
+    </div>
+  </header>
+
+  <main class="grid" style="--grid: minmax(0, 15fr) minmax(0, 15fr) minmax(0, 55fr) minmax(0, 15fr); --grid-medium: minmax(0, 15fr) minmax(0, 15fr) minmax(0, 70fr)">
+
+    
+
+      
+      <aside class="col-folders" aria-label="Folders">
+        <div class="col-head">Folders</div>
+        <div class="col-scroll">
+          <a class="tree-root" href="../../../index.html">~/notes/</a>
+          
+
+<ul class="tree">
+  
+  
+  <li class="tree-node has-children open" data-path="University notes">
+    <div class="tree-row">
+      
+      <button class="tree-toggle" type="button" aria-expanded="true" aria-label="University notes"><span class="chev" aria-hidden="true"></span></button>
+      
+      <a class="tree-folder" href="../../../University%20notes/index.html">
+        <span class="tree-name">University notes/</span>
+        
+      </a>
+    </div>
+    
+      
+
+<ul class="tree">
+  
+  
+  <li class="tree-node" data-path="University notes/computational-method">
+    <div class="tree-row">
+      
+      <span class="tree-leaf" aria-hidden="true"></span>
+      
+      <a class="tree-folder" href="../../../University%20notes/computational-method/index.html">
+        <span class="tree-name">computational-method/</span>
+        <span class="tree-count">5</span>
+      </a>
+    </div>
+    
+  </li>
+  
+  
+  <li class="tree-node" data-path="University notes/financial-economics">
+    <div class="tree-row">
+      
+      <span class="tree-leaf" aria-hidden="true"></span>
+      
+      <a class="tree-folder" href="../../../University%20notes/financial-economics/index.html">
+        <span class="tree-name">financial-economics/</span>
+        <span class="tree-count">9</span>
+      </a>
+    </div>
+    
+  </li>
+  
+  
+  <li class="tree-node open" data-path="University notes/financial-mathematics">
+    <div class="tree-row">
+      
+      <span class="tree-leaf" aria-hidden="true"></span>
+      
+      <a class="tree-folder active" href="../../../University%20notes/financial-mathematics/index.html">
+        <span class="tree-name">financial-mathematics/</span>
+        <span class="tree-count">11</span>
+      </a>
+    </div>
+    
+  </li>
+  
+</ul>
+
+    
+  </li>
+  
+</ul>
+
+        </div>
+      </aside>
+      
+
+      <aside class="col-files" aria-label="Files">
+        <div class="col-head">
+          <span>Files <span class="badge">11</span></span>
+          <span class="col-head-path">notes/University notes/financial-mathematics/</span>
+        </div>
+        <div class="col-scroll">
+          <ul class="file-list">
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-mathematics/01-interest-and-discount/index.html">
+                <span class="file-name">Interest, Discount and Financial Laws</span>
+                <span class="file-path">01-interest-and-discount.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-mathematics/02-simple-and-compound-interest/index.html">
+                <span class="file-name">Simple and Compound Interest</span>
+                <span class="file-path">02-simple-and-compound-interest.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-mathematics/03-commercial-discount/index.html">
+                <span class="file-name">Commercial Discount and Average Rates</span>
+                <span class="file-path">03-commercial-discount.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-mathematics/04-annuities/index.html">
+                <span class="file-name">Complex Operations and Annuities</span>
+                <span class="file-path">04-annuities.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-mathematics/05-accumulation-and-amortization/index.html">
+                <span class="file-name">Capital Accumulation and Loan Amortization</span>
+                <span class="file-path">05-accumulation-and-amortization.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-mathematics/06-choosing-investments/index.html">
+                <span class="file-name">Choosing Between Financial Operations</span>
+                <span class="file-path">06-choosing-investments.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-mathematics/07-bonds/index.html">
+                <span class="file-name">Bonds</span>
+                <span class="file-path">07-bonds.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link active" href="../../../University%20notes/financial-mathematics/08-term-structure/index.html">
+                <span class="file-name">The Term Structure of Interest Rates</span>
+                <span class="file-path">08-term-structure.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-mathematics/09-duration/index.html">
+                <span class="file-name">Time Indices and Duration</span>
+                <span class="file-path">09-duration.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-mathematics/10-survival-models/index.html">
+                <span class="file-name">Risk, Life Tables and Survival Models</span>
+                <span class="file-path">10-survival-models.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-mathematics/11-life-insurance/index.html">
+                <span class="file-name">Life Insurance Premiums and Reserves</span>
+                <span class="file-path">11-life-insurance.md</span>
+              </a>
+            </li>
+            
+          </ul>
+        </div>
+      </aside>
+
+      <section class="col-content" aria-label="sergiopericolo">
+        <div class="content-scroll" id="content">
+          <div class="content-inner">
+          
+            
+<div class="page-head">
+  <div class="page-crumb"><span class="crumb-home">~</span>/notes/University notes/financial-mathematics/08-term-structure.md</div>
+  <h1 class="page-title">The Term Structure of Interest Rates</h1>
+  <div class="page-meta" data-page-meta><span class="meta-tag">en</span></div>
+</div>
+
+<article class="page-body"><h1 id="the-term-structure-of-interest-rates">The Term Structure of Interest Rates</h1>
+<p>Lecture 12 of <em>Financial Mathematics</em> (University of Brescia). So far one rate discounted every date. In real markets each maturity has its own price. This note builds the <strong>term structure</strong> from zero-coupon prices, derives <strong>forward</strong> prices and rates by no-arbitrage, and links them to the yield of a bond.</p>
+<p>Roadmap:</p>
+<ol>
+<li><strong>Spot prices</strong> — the market assumptions and no-arbitrage.</li>
+<li><strong>Forward prices</strong> — locking in today a future investment.</li>
+<li><strong>Bond prices and the term structure</strong>.</li>
+<li><strong>Spot and forward rates</strong>.</li>
+<li><strong>Generalized NPV</strong>.</li>
+</ol>
+<h2 id="spot-prices">Spot prices</h2>
+<p>How does the market price fixed-income securities? Three assumptions:</p>
+<ol>
+<li>The market lists <strong>unit zero-coupon bonds</strong> (pay 1 euro) for maturities <span class="math math-inline">\(0 \le t_1 \le t_2 \le \dots \le t_m\)</span>.</li>
+<li>They are always available and <strong>infinitely divisible</strong>.</li>
+<li>The market is <strong>frictionless</strong>: no transaction costs, no taxes.</li>
+</ol>
+<p>Under these assumptions <strong>no-arbitrage</strong> holds: no riskless profit without an initial investment.</p>
+<p><span class="math math-inline">\(v(t, t_h)\)</span> is the price agreed at <span class="math math-inline">\(t\)</span> for a unit ZCB maturing at <span class="math math-inline">\(t_h \ge t\)</span>: the <strong>spot price</strong>. It is a discount factor:</p>
+<p><span class="math math-display">\[v(t_h, t_h) = 1, \qquad v(t, +\infty) = 0\]</span></p>
+<p>No-arbitrage forces spot prices to <strong>fall strictly</strong> with maturity:</p>
+<p><span class="math math-display">\[v(t, t_h) &gt; v(t, t_{h+1}), \qquad h = 1, \dots, m-1\]</span></p>
+<h2 id="forward-prices">Forward prices</h2>
+<p>An investor at <span class="math math-inline">\(t\)</span> wants to fix <strong>today</strong> the price of an investment from <span class="math math-inline">\(s\)</span> to <span class="math math-inline">\(\tau\)</span>, with <span class="math math-inline">\(t &lt; s &lt; \tau\)</span>. A synthetic strategy at <span class="math math-inline">\(t\)</span>:</p>
+<ol>
+<li><strong>Buy</strong> one ZCB maturing at <span class="math math-inline">\(\tau\)</span>: pay <span class="math math-inline">\(v(t, \tau)\)</span>, receive 1 at <span class="math math-inline">\(\tau\)</span>.</li>
+<li><strong>Short sell</strong> <span class="math math-inline">\(v(t,\tau)/v(t,s)\)</span> ZCBs maturing at <span class="math math-inline">\(s\)</span>: receive <span class="math math-inline">\(v(t, \tau)\)</span> now.</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Date</th>
+<th>Flow</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="math math-inline">\(t\)</span></td>
+<td><span class="math math-inline">\(-v(t,\tau) + v(t,\tau) = 0\)</span></td>
+</tr>
+<tr>
+<td><span class="math math-inline">\(s\)</span></td>
+<td><span class="math math-inline">\(-v(t,\tau)/v(t,s)\)</span></td>
+</tr>
+<tr>
+<td><span class="math math-inline">\(\tau\)</span></td>
+<td><span class="math math-inline">\(+1\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Net flow at <span class="math math-inline">\(t\)</span> is zero: the investor has fixed at <span class="math math-inline">\(t\)</span> an investment of <span class="math math-inline">\(v(t,\tau)/v(t,s)\)</span> at <span class="math math-inline">\(s\)</span> that returns 1 at <span class="math math-inline">\(\tau\)</span>. This ratio is the <strong>forward price</strong>:</p>
+<p><span class="math math-display">\[v(t, s, \tau) = \frac{v(t, \tau)}{v(t, s)}, \qquad 0 \le t \le s \le \tau\]</span></p>
+<p>It is the discount factor agreed at <span class="math math-inline">\(t\)</span> for money moved from <span class="math math-inline">\(\tau\)</span> back to <span class="math math-inline">\(s\)</span>. If <span class="math math-inline">\(s = t\)</span> it is the spot price: <span class="math math-inline">\(v(t, t, \tau) = v(t, \tau)\)</span>.</p>
+<h2 id="bond-prices-and-the-term-structure">Bond prices and the term structure</h2>
+<p>A bond <span class="math math-inline">\(X\)</span> pays <span class="math math-inline">\(X_h\)</span> at <span class="math math-inline">\(t_h\)</span>. Its dirty price can be written with its yield <span class="math math-inline">\(i^*\)</span>:</p>
+<p><span class="math math-display">\[P(X,t) = \sum_{h=1}^{m} X_h (1+i^*)^{-(t_h - t)}\]</span></p>
+<p>By no-arbitrage the bond equals a <strong>portfolio of <span class="math math-inline">\(X_h\)</span> unit ZCBs</strong> maturing at each <span class="math math-inline">\(t_h\)</span>. So its price must also be</p>
+<p><span class="math math-display">\[P(X,t) = \sum_{h=1}^{m} X_h \cdot v(t, t_h)\]</span></p>
+<p>This is the basic link between bond prices and the term structure. The yield <span class="math math-inline">\(i^*\)</span> is a single rate that <strong>summarizes</strong> all the spot rates the bond's flows face.</p>
+<h2 id="spot-and-forward-rates">Spot and forward rates</h2>
+<p>Turn prices into compound rates. The <strong>spot rate</strong> <span class="math math-inline">\(h(t, s)\)</span> for an investment from <span class="math math-inline">\(t\)</span> to <span class="math math-inline">\(s\)</span>:</p>
+<p><span class="math math-display">\[v(t, s)[1 + h(t, s)]^{s-t} = 1 \implies h(t, s) = v(t, s)^{-1/(s-t)} - 1\]</span></p>
+<p>The <strong>forward rate</strong> <span class="math math-inline">\(h(t, s, \tau)\)</span>, agreed at <span class="math math-inline">\(t\)</span> for an investment from <span class="math math-inline">\(s\)</span> to <span class="math math-inline">\(\tau\)</span>:</p>
+<p><span class="math math-display">\[v(t, s, \tau)[1 + h(t, s, \tau)]^{\tau-s} = 1 \implies h(t, s, \tau) = v(t, s, \tau)^{-1/(\tau-s)} - 1\]</span></p>
+<p>Substituting the forward price gives forward rates straight from spot prices:</p>
+<p><span class="math math-display">\[h(t, s, \tau) = \left[ \frac{v(t, s)}{v(t, \tau)} \right]^{1/(\tau-s)} - 1\]</span></p>
+<p>The function <span class="math math-inline">\(h(t, s, \tau)\)</span>, <span class="math math-inline">\(0 \le t &lt; s &lt; \tau\)</span>, is the <strong>term structure of interest rates</strong> at <span class="math math-inline">\(t\)</span>.</p>
+<p>The body below is a list of spot prices <span class="math math-inline">\(v(0, 1), v(0, 2), \dots\)</span>. The chart shows spot rates and one-year forward rates; the slider prices a coupon bond on this curve and finds its yield.</p>
+<pre class="wimark-src"><code class="nohighlight" data-wimark="termstructure" data-opts="{&#34;coupon&#34;: 0.04}">[0.9804, 0.9573, 0.9316, 0.9036, 0.8742, 0.8438]
+</code></pre>
+<p>When the curve rises, forward rates lie <strong>above</strong> spot rates; the bond yield lies between the shortest and the longest spot rate.</p>
+<h2 id="generalized-npv">Generalized NPV</h2>
+<p>When the curve is <strong>not flat</strong> (spot rates depend on maturity), NPV must discount each flow at its own spot rate. The <strong>generalized NPV</strong> (<em>VANG</em>) at <span class="math math-inline">\(t = 0\)</span>:</p>
+<p><span class="math math-display">\[VANG = \sum_{k=1}^{m} X_k [1 + h(0, t_k)]^{-t_k}\]</span></p>
+<p>The IRR is still the <strong>single constant rate</strong> <span class="math math-inline">\(i^*\)</span> that discounts the flows to the initial price.</p>
+<h2 id="key-takeaways">Key takeaways</h2>
+<ul>
+<li>Assumptions: unit ZCBs for every maturity, divisible, no frictions → no-arbitrage.</li>
+<li>Spot prices <span class="math math-inline">\(v(t, t_h)\)</span>: <span class="math math-inline">\(v(t_h,t_h) = 1\)</span>, strictly decreasing in maturity.</li>
+<li>Forward price <span class="math math-inline">\(v(t,s,\tau) = v(t,\tau)/v(t,s)\)</span>, built by buying the long ZCB and shorting the short one.</li>
+<li>A bond is a portfolio of ZCBs: <span class="math math-inline">\(P = \sum X_h v(t, t_h)\)</span>.</li>
+<li>Spot rate <span class="math math-inline">\(h(t,s) = v(t,s)^{-1/(s-t)} - 1\)</span>; forward rate <span class="math math-inline">\(h(t,s,\tau) = [v(t,s)/v(t,\tau)]^{1/(\tau-s)} - 1\)</span>.</li>
+<li>VANG discounts each flow at its own spot rate.</li>
+</ul>
+<pre class="wimark-src"><code class="nohighlight" data-wimark="quiz" data-opts="{&#34;title&#34;: &#34;Check yourself&#34;}">[
+  {&#34;q&#34;: &#34;$v(0,1) = 0.97$ and $v(0,2) = 0.93$. The forward price $v(0,1,2)$ is&#34;, &#34;options&#34;: [&#34;0.9021&#34;, &#34;about 0.9588&#34;, &#34;0.04&#34;], &#34;answer&#34;: 1, &#34;why&#34;: &#34;$0.93/0.97 \\approx 0.9588$.&#34;},
+  {&#34;q&#34;: &#34;In the same case, the forward rate $h(0,1,2)$ is about&#34;, &#34;options&#34;: [&#34;4.30%&#34;, &#34;3.09%&#34;, &#34;3.70%&#34;], &#34;answer&#34;: 0, &#34;why&#34;: &#34;$0.97/0.93 - 1 \\approx 4.30\\%$.&#34;},
+  {&#34;q&#34;: &#34;Why must spot prices fall with maturity?&#34;, &#34;options&#34;: [&#34;Because of taxes&#34;, &#34;Otherwise there is an arbitrage&#34;, &#34;Because coupons are positive&#34;], &#34;answer&#34;: 1},
+  {&#34;q&#34;: &#34;To lock in today an investment from $s$ to $\\tau$, the investor&#34;, &#34;options&#34;: [&#34;buys the ZCB maturing at $s$ and shorts the one at $\\tau$&#34;, &#34;buys the ZCB maturing at $\\tau$ and shorts the one at $s$&#34;, &#34;buys both&#34;], &#34;answer&#34;: 1},
+  {&#34;q&#34;: &#34;A coupon bond&#39;s price equals&#34;, &#34;options&#34;: [&#34;$\\sum X_h v(t, t_h)$&#34;, &#34;face value always&#34;, &#34;$\\sum X_h$&#34;], &#34;answer&#34;: 0}
+]
+</code></pre>
+</article>
+
+          
+          </div>
+        </div>
+      </section>
+
+      <aside class="col-toc" aria-label="On this page">
+        <div class="col-head">On this page</div>
+        <div class="col-scroll">
+          
+            
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l1">
+    <a href="#the-term-structure-of-interest-rates">The Term Structure of Interest Rates</a>
+    
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l2">
+    <a href="#spot-prices">Spot prices</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#forward-prices">Forward prices</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#bond-prices-and-the-term-structure">Bond prices and the term structure</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#spot-and-forward-rates">Spot and forward rates</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#generalized-npv">Generalized NPV</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#key-takeaways">Key takeaways</a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+</ul>
+
+          
+          
+        </div>
+      </aside>
+
+    
+  </main>
+
+  
+  <footer class="statusbar" aria-hidden="true">
+    <span class="sb-mode">READ</span>
+    <span class="sb-path">en/notes/University notes/financial-mathematics/08-term-structure.md</span>
+    <span class="sb-spacer"></span>
+    <span class="sb-item">en</span>
+    <span class="sb-item">utf-8</span>
+    <span class="sb-item">markdown</span>
+    <span class="sb-pos" data-scroll-pos>top</span>
+  </footer>
+  
+
+  <div class="search" data-search hidden role="dialog" aria-modal="true" aria-label="Search">
+    <div class="search-panel">
+      <div class="search-bar"><span class="search-prompt" aria-hidden="true">❯</span>
+      <input class="search-input" type="search" placeholder="Search" autocomplete="off" spellcheck="false" aria-controls="search-results"></div>
+      <ul class="search-results" id="search-results" role="listbox"></ul>
+      <div class="search-hint" aria-hidden="true"><span><kbd>↑↓</kbd> move</span><span><kbd>↵</kbd> open</span><span><kbd>tab</kbd> complete</span><span><kbd>esc</kbd> close</span></div>
+    </div>
+  </div>
+
+  <script>
+    window.GOMARK = {
+      lang: "en",
+      root: "..\/..\/..\/..\/",
+      theme: "light",
+      section: "notes",
+      i18n: { noResults: "No results", searchFilters: "Filters", searchTab: "complete",
+        qSection: "in one section of the site", qHeading: "under the headings that match", qTitle: "in the title", qCode: "in the code blocks, of one language",
+        qIn: "where the words look", qHas: "pages with code, math, table, image, link, quote, task, widget", qPath: "in the file path", qPhrase: "these words, in this order",
+        qNot: "without it", qOr: "either one", qRegex: "a regular expression", copy: "copy", copied: "copied", words: "words", minRead: "min read",
+        data: "data", search: "search", noData: "no data", other: "other",
+        total: "total", show: "show", hide: "hide", reset: "reset", all: "all" }
+    };
+  </script>
+  <script src="../../../../static/widgets.js"></script>
+  <script src="../../../../static/widgets/notes/University%20notes/financial-mathematics/termstructure.js"></script>
+  <script src="../../../../static/widgets/quiz.js"></script>
+  <script src="../../../../static/engine.js"></script>
+  <script src="../../../../static/ui.js"></script>
+  <script src="../../../../static/search.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

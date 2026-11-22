@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Digital identity and computational knowledge base: résumé, projects and notes.">
+  <meta name="author" content="Sergio Di Lapi">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains&#43;Mono:wght@400;500;600;700;800&amp;family=IBM&#43;Plex&#43;Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <title>Simple and Compound Interest · Notes</title>
+  <link rel="stylesheet" href="../../../../static/layout.css">
+  <link rel="stylesheet" href="../../../../static/theme.css">
+  <link rel="stylesheet" href="../../../../static/wimark.css">
+  <link rel="stylesheet" href="../../../../static/themes/light.css">
+  <style>:root { --mono:"JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;--sans:"IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;--font-body:var(--sans);--font-heading:var(--mono);--font-size:14px;--content-width:780px;--sidebar-width:256px;--folders-width:224px;--toc-width:232px;--radius:4px;--radius-sm:3px;--radius-lg:10px; }</style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+</head>
+<body data-depth="multi" data-index="right" data-theme="light" data-theme-class="monochrome" data-heading="mono" data-statusbar="on">
+
+  <header class="topbar">
+    <a class="brand" href="../../../../index.html">sergiopericolo</a>
+    <nav class="sections" aria-label="Sections">
+      
+      <a class="section-link" href="../../../../about/index.html">
+        <span class="section-idx">01</span>
+        <span class="section-title">About</span>
+      </a>
+      
+      <a class="section-link" href="../../../../projects/index.html">
+        <span class="section-idx">02</span>
+        <span class="section-title">Projects</span>
+      </a>
+      
+      <a class="section-link active" href="../../../../notes/index.html">
+        <span class="section-idx">03</span>
+        <span class="section-title">Notes</span>
+      </a>
+      
+      <a class="section-link" href="../../../../visual/index.html">
+        <span class="section-idx">04</span>
+        <span class="section-title">Visual</span>
+      </a>
+      
+      <a class="section-link" href="../../../../art/index.html">
+        <span class="section-idx">05</span>
+        <span class="section-title">Art</span>
+      </a>
+      
+    </nav>
+    <div class="topbar-end">
+      <button class="search-open" type="button" data-search-open aria-haspopup="dialog"><span>Search</span><kbd>⌘K</kbd></button>
+      
+      <span class="build-info"><a class="build-name" href="https://github.com/sergiopericolo/GoMark">GoMark</a> v1.2.0</span>
+    </div>
+  </header>
+
+  <main class="grid" style="--grid: minmax(0, 15fr) minmax(0, 15fr) minmax(0, 55fr) minmax(0, 15fr); --grid-medium: minmax(0, 15fr) minmax(0, 15fr) minmax(0, 70fr)">
+
+    
+
+      
+      <aside class="col-folders" aria-label="Folders">
+        <div class="col-head">Folders</div>
+        <div class="col-scroll">
+          <a class="tree-root" href="../../../index.html">~/notes/</a>
+          
+
+<ul class="tree">
+  
+  
+  <li class="tree-node has-children open" data-path="University notes">
+    <div class="tree-row">
+      
+      <button class="tree-toggle" type="button" aria-expanded="true" aria-label="University notes"><span class="chev" aria-hidden="true"></span></button>
+      
+      <a class="tree-folder" href="../../../University%20notes/index.html">
+        <span class="tree-name">University notes/</span>
+        
+      </a>
+    </div>
+    
+      
+
+<ul class="tree">
+  
+  
+  <li class="tree-node" data-path="University notes/computational-method">
+    <div class="tree-row">
+      
+      <span class="tree-leaf" aria-hidden="true"></span>
+      
+      <a class="tree-folder" href="../../../University%20notes/computational-method/index.html">
+        <span class="tree-name">computational-method/</span>
+        <span class="tree-count">5</span>
+      </a>
+    </div>
+    
+  </li>
+  
+  
+  <li class="tree-node" data-path="University notes/financial-economics">
+    <div class="tree-row">
+      
+      <span class="tree-leaf" aria-hidden="true"></span>
+      
+      <a class="tree-folder" href="../../../University%20notes/financial-economics/index.html">
+        <span class="tree-name">financial-economics/</span>
+        <span class="tree-count">9</span>
+      </a>
+    </div>
+    
+  </li>
+  
+  
+  <li class="tree-node open" data-path="University notes/financial-mathematics">
+    <div class="tree-row">
+      
+      <span class="tree-leaf" aria-hidden="true"></span>
+      
+      <a class="tree-folder active" href="../../../University%20notes/financial-mathematics/index.html">
+        <span class="tree-name">financial-mathematics/</span>
+        <span class="tree-count">11</span>
+      </a>
+    </div>
+    
+  </li>
+  
+</ul>
+
+    
+  </li>
+  
+</ul>
+
+        </div>
+      </aside>
+      
+
+      <aside class="col-files" aria-label="Files">
+        <div class="col-head">
+          <span>Files <span class="badge">11</span></span>
+          <span class="col-head-path">notes/University notes/financial-mathematics/</span>
+        </div>
+        <div class="col-scroll">
+          <ul class="file-list">
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-mathematics/01-interest-and-discount/index.html">
+                <span class="file-name">Interest, Discount and Financial Laws</span>
+                <span class="file-path">01-interest-and-discount.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link active" href="../../../University%20notes/financial-mathematics/02-simple-and-compound-interest/index.html">
+                <span class="file-name">Simple and Compound Interest</span>
+                <span class="file-path">02-simple-and-compound-interest.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-mathematics/03-commercial-discount/index.html">
+                <span class="file-name">Commercial Discount and Average Rates</span>
+                <span class="file-path">03-commercial-discount.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-mathematics/04-annuities/index.html">
+                <span class="file-name">Complex Operations and Annuities</span>
+                <span class="file-path">04-annuities.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-mathematics/05-accumulation-and-amortization/index.html">
+                <span class="file-name">Capital Accumulation and Loan Amortization</span>
+                <span class="file-path">05-accumulation-and-amortization.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-mathematics/06-choosing-investments/index.html">
+                <span class="file-name">Choosing Between Financial Operations</span>
+                <span class="file-path">06-choosing-investments.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-mathematics/07-bonds/index.html">
+                <span class="file-name">Bonds</span>
+                <span class="file-path">07-bonds.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-mathematics/08-term-structure/index.html">
+                <span class="file-name">The Term Structure of Interest Rates</span>
+                <span class="file-path">08-term-structure.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-mathematics/09-duration/index.html">
+                <span class="file-name">Time Indices and Duration</span>
+                <span class="file-path">09-duration.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-mathematics/10-survival-models/index.html">
+                <span class="file-name">Risk, Life Tables and Survival Models</span>
+                <span class="file-path">10-survival-models.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-mathematics/11-life-insurance/index.html">
+                <span class="file-name">Life Insurance Premiums and Reserves</span>
+                <span class="file-path">11-life-insurance.md</span>
+              </a>
+            </li>
+            
+          </ul>
+        </div>
+      </aside>
+
+      <section class="col-content" aria-label="sergiopericolo">
+        <div class="content-scroll" id="content">
+          <div class="content-inner">
+          
+            
+<div class="page-head">
+  <div class="page-crumb"><span class="crumb-home">~</span>/notes/University notes/financial-mathematics/02-simple-and-compound-interest.md</div>
+  <h1 class="page-title">Simple and Compound Interest</h1>
+  <div class="page-meta" data-page-meta><span class="meta-tag">en</span></div>
+</div>
+
+<article class="page-body"><h1 id="simple-and-compound-interest">Simple and Compound Interest</h1>
+<p>Lectures 2–3 of <em>Financial Mathematics</em> (University of Brescia). The two workhorse regimes: interest proportional to time (simple) and interest on interest (compound). Then the tools to change the period of a rate.</p>
+<p>Roadmap:</p>
+<ol>
+<li><strong>Simple interest</strong> — linear accumulation, rational discount.</li>
+<li><strong>Compound interest</strong> — exponential accumulation, separability.</li>
+<li><strong><span class="math math-inline">\(d &lt; \delta &lt; i\)</span></strong> — the order of the three rates.</li>
+<li><strong>Mixed law</strong> — compound on whole years, simple on the fraction.</li>
+<li><strong>Equivalent rates and nominal rates</strong> — from annual to monthly and back.</li>
+</ol>
+<h2 id="simple-interest">Simple interest</h2>
+<p>Interest earned in an interval is <strong>proportional to its length</strong>; the constant is the unit rate <span class="math math-inline">\(i\)</span>.</p>
+<p><span class="math math-display">\[f(t) = 1 + it\]</span></p>
+<p><span class="math math-display">\[M(t) = C(1 + it) = C + Cit, \qquad I(t) = Cit\]</span></p>
+<p>The force of interest <strong>decreases</strong> over time:</p>
+<p><span class="math math-display">\[\delta(t) = \frac{i}{1 + it}\]</span></p>
+<p><span class="math math-inline">\(\delta\)</span> is not constant, so simple interest is <strong>not separable</strong>. Interest is always computed on the initial capital only. If the investor stops and restarts the operation, the interest already earned starts earning interest too: the final amount is higher than with one single investment.</p>
+<h3 id="rational-discount">Rational discount</h3>
+<p>Inverting the accumulation factor gives the <strong>rational discount factor</strong>:</p>
+<p><span class="math math-display">\[v(t) = \frac{1}{1 + it}\]</span></p>
+<p><span class="math math-display">\[D(t) = M - C = \frac{Mit}{1 + it}, \qquad d(t) = 1 - v(t) = \frac{it}{1 + it}\]</span></p>
+<h2 id="compound-interest">Compound interest</h2>
+<p>Interest earned in an interval is proportional to its length <strong>and to the amount accumulated at its start</strong>. The constant is the force of interest, now constant:</p>
+<p><span class="math math-display">\[\frac{f&#39;(t)}{f(t)} = \delta\]</span></p>
+<p>So compound interest is <strong>separable</strong>. Its link with the unit rate is</p>
+<p><span class="math math-display">\[e^\delta = 1 + i \quad\iff\quad \delta = \ln(1+i)\]</span></p>
+<p>and the accumulation factor is</p>
+<p><span class="math math-display">\[f(t) = e^{\delta t} = (1 + i)^t\]</span></p>
+<p><span class="math math-display">\[M(t) = C(1 + i)^t, \qquad I(t) = C[(1 + i)^t - 1]\]</span></p>
+<h3 id="discounting-under-compound-interest">Discounting under compound interest</h3>
+<p><span class="math math-display">\[v(t) = e^{-\delta t} = (1+i)^{-t}, \qquad C(t) = M(1+i)^{-t}\]</span></p>
+<p><span class="math math-display">\[D(t) = M[1 - (1+i)^{-t}], \qquad d(t) = 1 - (1+i)^{-t}\]</span></p>
+<h3 id="separability-checked">Separability, checked</h3>
+<p><span class="math math-display">\[f(t+h) = e^{\delta(t+h)} = e^{\delta t} \cdot e^{\delta h} = f(t) \cdot f(h)\]</span></p>
+<h2 id="the-order-of-the-three-rates">The order of the three rates</h2>
+<p>From <span class="math math-inline">\(\delta = \ln(1+i)\)</span> and the concavity of the logarithm, for every <span class="math math-inline">\(i &gt; 0\)</span>:</p>
+<p><span class="math math-display">\[d &lt; \delta &lt; i\]</span></p>
+<ul>
+<li><span class="math math-inline">\(\delta &lt; i\)</span>: the log lies below its tangent at 1, so <span class="math math-inline">\(\ln(1+i) &lt; i\)</span>.</li>
+<li><span class="math math-inline">\(\delta &gt; d\)</span>: <span class="math math-inline">\(\ln(1+i) &gt; \frac{i}{1+i}\)</span>, again by concavity.</li>
+</ul>
+<p>The force of interest is always <strong>between</strong> the discount rate and the interest rate.</p>
+<h2 id="mixed-law-linear-convention">Mixed law (linear convention)</h2>
+<p>For non-integer durations we can use <strong>compound interest on the integer part <span class="math math-inline">\(n\)</span></strong> and <strong>simple interest on the remaining fraction <span class="math math-inline">\(t - n\)</span></strong>:</p>
+<p><span class="math math-display">\[M(t) = C(1+i)^n [1 + i(t-n)]\]</span></p>
+<p>Inside each year the simple factor is above the compound one (see note 3), so the mixed law pays slightly more than pure compounding. It is <strong>not separable</strong>.</p>
+<h2 id="equivalent-rates">Equivalent rates</h2>
+<p>Two rates are <strong>equivalent</strong> if, applied to the same non-zero capital for the same non-zero time, they give the same final amount. Let <span class="math math-inline">\(i\)</span> be the annual rate and <span class="math math-inline">\(i_h\)</span> the rate for a fraction <span class="math math-inline">\(1/h\)</span> of the year (<span class="math math-inline">\(h = 2\)</span> semiannual, <span class="math math-inline">\(h = 4\)</span> quarterly, <span class="math math-inline">\(h = 12\)</span> monthly).</p>
+<p><strong>Simple interest</strong> — proportional:</p>
+<p><span class="math math-display">\[i_h = \frac{i}{h}\]</span></p>
+<p><strong>Compound interest</strong> — from <span class="math math-inline">\((1+i)^t = (1+i_h)^{ht}\)</span> at <span class="math math-inline">\(t = 1\)</span>:</p>
+<p><span class="math math-display">\[1+i = (1+i_h)^h, \qquad i_h = (1+i)^{1/h} - 1\]</span></p>
+<h2 id="nominal-annual-rate">Nominal annual rate</h2>
+<p>The <strong>nominal annual rate convertible <span class="math math-inline">\(h\)</span> times a year</strong> is</p>
+<p><span class="math math-display">\[J_h = h \cdot i_h\]</span></p>
+<ul>
+<li>Simple interest: <span class="math math-inline">\(J_h = i\)</span> always.</li>
+<li>Compound interest: <span class="math math-inline">\(J_h &lt; i\)</span> for every <span class="math math-inline">\(h &gt; 1\)</span>.</li>
+</ul>
+<p><strong>Theorem.</strong> Under compound interest the sequence <span class="math math-inline">\(\{J_h\}\)</span> is <strong>decreasing</strong> in <span class="math math-inline">\(h\)</span> and bounded below. Its limit is the force of interest:</p>
+<p><span class="math math-display">\[\lim_{h \to +\infty} J_h = \delta = \ln(1+i)\]</span></p>
+<p>So <span class="math math-inline">\(\delta\)</span> is the nominal annual rate <strong>convertible infinitely often</strong>. With <span class="math math-inline">\(i = 10\%\)</span> the nominal rate falls from <span class="math math-inline">\(10\%\)</span> toward <span class="math math-inline">\(\ln 1.1 \approx 9.53\%\)</span>:</p>
+<pre class="wimark-src"><code class="nohighlight" data-wimark="chart" data-opts="{&#34;type&#34;: &#34;bar&#34;, &#34;title&#34;: &#34;Nominal rate J_h (%) for i = 10%&#34;, &#34;x&#34;: &#34;conversions per year h&#34;, &#34;unit&#34;: &#34;%&#34;, &#34;hl&#34;: [&#34;∞ (δ)&#34;]}">{&#34;labels&#34;: [&#34;1&#34;, &#34;2&#34;, &#34;4&#34;, &#34;12&#34;, &#34;52&#34;, &#34;365&#34;, &#34;∞ (δ)&#34;], &#34;series&#34;: [{&#34;name&#34;: &#34;J_h&#34;, &#34;values&#34;: [10, 9.762, 9.645, 9.569, 9.540, 9.532, 9.531]}]}
+</code></pre>
+<h2 id="key-takeaways">Key takeaways</h2>
+<ul>
+<li>Simple: <span class="math math-inline">\(f(t) = 1 + it\)</span>, <span class="math math-inline">\(\delta(t) = i/(1+it)\)</span> decreasing, not separable; rational discount <span class="math math-inline">\(v(t) = 1/(1+it)\)</span>.</li>
+<li>Compound: <span class="math math-inline">\(f(t) = (1+i)^t = e^{\delta t}\)</span>, constant <span class="math math-inline">\(\delta = \ln(1+i)\)</span>, separable.</li>
+<li><span class="math math-inline">\(d &lt; \delta &lt; i\)</span> for every <span class="math math-inline">\(i &gt; 0\)</span>.</li>
+<li>Mixed law: <span class="math math-inline">\(M = C(1+i)^n[1 + i(t-n)]\)</span>, not separable.</li>
+<li>Equivalent rates: <span class="math math-inline">\(i_h = i/h\)</span> (simple), <span class="math math-inline">\(i_h = (1+i)^{1/h} - 1\)</span> (compound).</li>
+<li><span class="math math-inline">\(J_h = h i_h\)</span>; under compounding <span class="math math-inline">\(J_h &lt; i\)</span> and <span class="math math-inline">\(J_h \downarrow \delta\)</span>.</li>
+</ul>
+<pre class="wimark-src"><code class="nohighlight" data-wimark="quiz" data-opts="{&#34;title&#34;: &#34;Check yourself&#34;}">[
+  {&#34;q&#34;: &#34;Why is simple interest not separable?&#34;, &#34;options&#34;: [&#34;Because $f(0) \\neq 1$&#34;, &#34;Because its force of interest $i/(1+it)$ is not constant&#34;, &#34;Because $f$ is decreasing&#34;], &#34;answer&#34;: 1},
+  {&#34;q&#34;: &#34;The annual rate is $i = 21\\%$ (compound). The equivalent semiannual rate is&#34;, &#34;options&#34;: [&#34;10.5%&#34;, &#34;10%&#34;, &#34;11%&#34;], &#34;answer&#34;: 1, &#34;why&#34;: &#34;$i_2 = \\sqrt{1.21} - 1 = 0.10$.&#34;},
+  {&#34;q&#34;: &#34;In the same case, $J_2$ equals&#34;, &#34;options&#34;: [&#34;20%&#34;, &#34;21%&#34;, &#34;10%&#34;], &#34;answer&#34;: 0, &#34;why&#34;: &#34;$J_2 = 2 \\cdot 0.10 = 0.20 &lt; i$.&#34;},
+  {&#34;q&#34;: &#34;As $h \\to \\infty$, $J_h$ tends to&#34;, &#34;options&#34;: [&#34;$i$&#34;, &#34;$d$&#34;, &#34;$\\ln(1+i)$&#34;], &#34;answer&#34;: 2},
+  {&#34;q&#34;: &#34;For $i &gt; 0$, which order is correct?&#34;, &#34;options&#34;: [&#34;$i &lt; \\delta &lt; d$&#34;, &#34;$d &lt; \\delta &lt; i$&#34;, &#34;$\\delta &lt; d &lt; i$&#34;], &#34;answer&#34;: 1}
+]
+</code></pre>
+</article>
+
+          
+          </div>
+        </div>
+      </section>
+
+      <aside class="col-toc" aria-label="On this page">
+        <div class="col-head">On this page</div>
+        <div class="col-scroll">
+          
+            
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l1">
+    <a href="#simple-and-compound-interest">Simple and Compound Interest</a>
+    
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l2">
+    <a href="#simple-interest">Simple interest</a>
+    
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l3">
+    <a href="#rational-discount">Rational discount</a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#compound-interest">Compound interest</a>
+    
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l3">
+    <a href="#discounting-under-compound-interest">Discounting under compound interest</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l3">
+    <a href="#separability-checked">Separability, checked</a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#the-order-of-the-three-rates">The order of the three rates</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#mixed-law-linear-convention">Mixed law (linear convention)</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#equivalent-rates">Equivalent rates</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#nominal-annual-rate">Nominal annual rate</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#key-takeaways">Key takeaways</a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+</ul>
+
+          
+          
+        </div>
+      </aside>
+
+    
+  </main>
+
+  
+  <footer class="statusbar" aria-hidden="true">
+    <span class="sb-mode">READ</span>
+    <span class="sb-path">en/notes/University notes/financial-mathematics/02-simple-and-compound-interest.md</span>
+    <span class="sb-spacer"></span>
+    <span class="sb-item">en</span>
+    <span class="sb-item">utf-8</span>
+    <span class="sb-item">markdown</span>
+    <span class="sb-pos" data-scroll-pos>top</span>
+  </footer>
+  
+
+  <div class="search" data-search hidden role="dialog" aria-modal="true" aria-label="Search">
+    <div class="search-panel">
+      <div class="search-bar"><span class="search-prompt" aria-hidden="true">❯</span>
+      <input class="search-input" type="search" placeholder="Search" autocomplete="off" spellcheck="false" aria-controls="search-results"></div>
+      <ul class="search-results" id="search-results" role="listbox"></ul>
+      <div class="search-hint" aria-hidden="true"><span><kbd>↑↓</kbd> move</span><span><kbd>↵</kbd> open</span><span><kbd>tab</kbd> complete</span><span><kbd>esc</kbd> close</span></div>
+    </div>
+  </div>
+
+  <script>
+    window.GOMARK = {
+      lang: "en",
+      root: "..\/..\/..\/..\/",
+      theme: "light",
+      section: "notes",
+      i18n: { noResults: "No results", searchFilters: "Filters", searchTab: "complete",
+        qSection: "in one section of the site", qHeading: "under the headings that match", qTitle: "in the title", qCode: "in the code blocks, of one language",
+        qIn: "where the words look", qHas: "pages with code, math, table, image, link, quote, task, widget", qPath: "in the file path", qPhrase: "these words, in this order",
+        qNot: "without it", qOr: "either one", qRegex: "a regular expression", copy: "copy", copied: "copied", words: "words", minRead: "min read",
+        data: "data", search: "search", noData: "no data", other: "other",
+        total: "total", show: "show", hide: "hide", reset: "reset", all: "all" }
+    };
+  </script>
+  <script src="../../../../static/widgets.js"></script>
+  <script src="../../../../static/widgets/chart.js"></script>
+  <script src="../../../../static/widgets/quiz.js"></script>
+  <script src="../../../../static/engine.js"></script>
+  <script src="../../../../static/ui.js"></script>
+  <script src="../../../../static/search.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

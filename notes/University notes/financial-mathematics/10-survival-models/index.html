@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Digital identity and computational knowledge base: résumé, projects and notes.">
+  <meta name="author" content="Sergio Di Lapi">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains&#43;Mono:wght@400;500;600;700;800&amp;family=IBM&#43;Plex&#43;Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <title>Risk, Life Tables and Survival Models · Notes</title>
+  <link rel="stylesheet" href="../../../../static/layout.css">
+  <link rel="stylesheet" href="../../../../static/theme.css">
+  <link rel="stylesheet" href="../../../../static/wimark.css">
+  <link rel="stylesheet" href="../../../../static/themes/light.css">
+  <style>:root { --mono:"JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;--sans:"IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;--font-body:var(--sans);--font-heading:var(--mono);--font-size:14px;--content-width:780px;--sidebar-width:256px;--folders-width:224px;--toc-width:232px;--radius:4px;--radius-sm:3px;--radius-lg:10px; }</style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+</head>
+<body data-depth="multi" data-index="right" data-theme="light" data-theme-class="monochrome" data-heading="mono" data-statusbar="on">
+
+  <header class="topbar">
+    <a class="brand" href="../../../../index.html">sergiopericolo</a>
+    <nav class="sections" aria-label="Sections">
+      
+      <a class="section-link" href="../../../../about/index.html">
+        <span class="section-idx">01</span>
+        <span class="section-title">About</span>
+      </a>
+      
+      <a class="section-link" href="../../../../projects/index.html">
+        <span class="section-idx">02</span>
+        <span class="section-title">Projects</span>
+      </a>
+      
+      <a class="section-link active" href="../../../../notes/index.html">
+        <span class="section-idx">03</span>
+        <span class="section-title">Notes</span>
+      </a>
+      
+      <a class="section-link" href="../../../../visual/index.html">
+        <span class="section-idx">04</span>
+        <span class="section-title">Visual</span>
+      </a>
+      
+      <a class="section-link" href="../../../../art/index.html">
+        <span class="section-idx">05</span>
+        <span class="section-title">Art</span>
+      </a>
+      
+    </nav>
+    <div class="topbar-end">
+      <button class="search-open" type="button" data-search-open aria-haspopup="dialog"><span>Search</span><kbd>⌘K</kbd></button>
+      
+      <span class="build-info"><a class="build-name" href="https://github.com/sergiopericolo/GoMark">GoMark</a> v1.2.0</span>
+    </div>
+  </header>
+
+  <main class="grid" style="--grid: minmax(0, 15fr) minmax(0, 15fr) minmax(0, 55fr) minmax(0, 15fr); --grid-medium: minmax(0, 15fr) minmax(0, 15fr) minmax(0, 70fr)">
+
+    
+
+      
+      <aside class="col-folders" aria-label="Folders">
+        <div class="col-head">Folders</div>
+        <div class="col-scroll">
+          <a class="tree-root" href="../../../index.html">~/notes/</a>
+          
+
+<ul class="tree">
+  
+  
+  <li class="tree-node has-children open" data-path="University notes">
+    <div class="tree-row">
+      
+      <button class="tree-toggle" type="button" aria-expanded="true" aria-label="University notes"><span class="chev" aria-hidden="true"></span></button>
+      
+      <a class="tree-folder" href="../../../University%20notes/index.html">
+        <span class="tree-name">University notes/</span>
+        
+      </a>
+    </div>
+    
+      
+
+<ul class="tree">
+  
+  
+  <li class="tree-node" data-path="University notes/computational-method">
+    <div class="tree-row">
+      
+      <span class="tree-leaf" aria-hidden="true"></span>
+      
+      <a class="tree-folder" href="../../../University%20notes/computational-method/index.html">
+        <span class="tree-name">computational-method/</span>
+        <span class="tree-count">5</span>
+      </a>
+    </div>
+    
+  </li>
+  
+  
+  <li class="tree-node" data-path="University notes/financial-economics">
+    <div class="tree-row">
+      
+      <span class="tree-leaf" aria-hidden="true"></span>
+      
+      <a class="tree-folder" href="../../../University%20notes/financial-economics/index.html">
+        <span class="tree-name">financial-economics/</span>
+        <span class="tree-count">9</span>
+      </a>
+    </div>
+    
+  </li>
+  
+  
+  <li class="tree-node open" data-path="University notes/financial-mathematics">
+    <div class="tree-row">
+      
+      <span class="tree-leaf" aria-hidden="true"></span>
+      
+      <a class="tree-folder active" href="../../../University%20notes/financial-mathematics/index.html">
+        <span class="tree-name">financial-mathematics/</span>
+        <span class="tree-count">11</span>
+      </a>
+    </div>
+    
+  </li>
+  
+</ul>
+
+    
+  </li>
+  
+</ul>
+
+        </div>
+      </aside>
+      
+
+      <aside class="col-files" aria-label="Files">
+        <div class="col-head">
+          <span>Files <span class="badge">11</span></span>
+          <span class="col-head-path">notes/University notes/financial-mathematics/</span>
+        </div>
+        <div class="col-scroll">
+          <ul class="file-list">
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-mathematics/01-interest-and-discount/index.html">
+                <span class="file-name">Interest, Discount and Financial Laws</span>
+                <span class="file-path">01-interest-and-discount.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-mathematics/02-simple-and-compound-interest/index.html">
+                <span class="file-name">Simple and Compound Interest</span>
+                <span class="file-path">02-simple-and-compound-interest.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-mathematics/03-commercial-discount/index.html">
+                <span class="file-name">Commercial Discount and Average Rates</span>
+                <span class="file-path">03-commercial-discount.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-mathematics/04-annuities/index.html">
+                <span class="file-name">Complex Operations and Annuities</span>
+                <span class="file-path">04-annuities.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-mathematics/05-accumulation-and-amortization/index.html">
+                <span class="file-name">Capital Accumulation and Loan Amortization</span>
+                <span class="file-path">05-accumulation-and-amortization.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-mathematics/06-choosing-investments/index.html">
+                <span class="file-name">Choosing Between Financial Operations</span>
+                <span class="file-path">06-choosing-investments.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-mathematics/07-bonds/index.html">
+                <span class="file-name">Bonds</span>
+                <span class="file-path">07-bonds.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-mathematics/08-term-structure/index.html">
+                <span class="file-name">The Term Structure of Interest Rates</span>
+                <span class="file-path">08-term-structure.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-mathematics/09-duration/index.html">
+                <span class="file-name">Time Indices and Duration</span>
+                <span class="file-path">09-duration.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link active" href="../../../University%20notes/financial-mathematics/10-survival-models/index.html">
+                <span class="file-name">Risk, Life Tables and Survival Models</span>
+                <span class="file-path">10-survival-models.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-mathematics/11-life-insurance/index.html">
+                <span class="file-name">Life Insurance Premiums and Reserves</span>
+                <span class="file-path">11-life-insurance.md</span>
+              </a>
+            </li>
+            
+          </ul>
+        </div>
+      </aside>
+
+      <section class="col-content" aria-label="sergiopericolo">
+        <div class="content-scroll" id="content">
+          <div class="content-inner">
+          
+            
+<div class="page-head">
+  <div class="page-crumb"><span class="crumb-home">~</span>/notes/University notes/financial-mathematics/10-survival-models.md</div>
+  <h1 class="page-title">Risk, Life Tables and Survival Models</h1>
+  <div class="page-meta" data-page-meta><span class="meta-tag">en</span></div>
+</div>
+
+<article class="page-body"><h1 id="risk-life-tables-and-survival-models">Risk, Life Tables and Survival Models</h1>
+<p>Lectures 13–14 of <em>Financial Mathematics</em> (University of Brescia). From certain amounts to <strong>random</strong> ones. Actuarial mathematics values operations whose amounts or dates depend on chance — above all, on how long a person lives. This note builds the demographic side: life tables, survival probabilities, life expectancy and the classic survival laws.</p>
+<p>Roadmap:</p>
+<ol>
+<li><strong>Risk and insurance</strong> — uncertainty vs. risk, pure vs. speculative risk.</li>
+<li><strong>Life tables</strong> — <span class="math math-inline">\(l_x\)</span>, <span class="math math-inline">\(d_x\)</span>, <span class="math math-inline">\(p_x\)</span>, <span class="math math-inline">\(q_x\)</span>.</li>
+<li><strong>Multi-year probabilities</strong> — survival, death, deferred death.</li>
+<li><strong>Life expectancy</strong> <span class="math math-inline">\(e_x\)</span>.</li>
+<li><strong>Force of mortality</strong> <span class="math math-inline">\(\mu_x\)</span>.</li>
+<li><strong>Survival laws</strong> — constant force, De Moivre, Gompertz–Makeham.</li>
+</ol>
+<h2 id="risk-and-insurance">Risk and insurance</h2>
+<p><strong>Actuarial mathematics</strong> studies random financial operations: exchanges over time where amounts and/or dates are random. Its main field is <strong>insurance</strong> (art. 1882 of the Italian Civil Code): non-life (damage) and life insurance.</p>
+<ul>
+<li><strong>Uncertainty</strong> (not measurable): we cannot assign probabilities to the future scenarios.</li>
+<li><strong>Risk</strong> (measurable uncertainty): we can assign a probability distribution.</li>
+</ul>
+<p>Risks split into:</p>
+<ul>
+<li><strong>Speculative (financial) risks</strong>: deviations from the expected value, either gains or losses.</li>
+<li><strong>Pure risks</strong>: only losses, when they occur.</li>
+</ul>
+<h3 id="life-insurance">Life insurance</h3>
+<p>In <strong>life insurance</strong> the insurer pays a capital or an annuity on an event tied to the insured's life (reaching an age, death), in exchange for a <strong>premium</strong>. Its roles: social security, saving, investment. Valuation rests on a <strong>technical basis</strong>:</p>
+<ol>
+<li><strong>Financial assumption</strong>: the interest rate.</li>
+<li><strong>Demographic assumption</strong>: probabilities of survival and death.</li>
+</ol>
+<h2 id="life-tables">Life tables</h2>
+<p>Follow a cohort of people born in the same year:</p>
+<ul>
+<li><span class="math math-inline">\(l_0\)</span>: number of newborns.</li>
+<li><span class="math math-inline">\(l_x\)</span>: survivors at age <span class="math math-inline">\(x\)</span>. The map <span class="math math-inline">\(x \mapsto l_x\)</span> is the <strong>survival function</strong>. The <strong>limiting age</strong> <span class="math math-inline">\(\omega\)</span> satisfies <span class="math math-inline">\(l_\omega = 0\)</span>, <span class="math math-inline">\(l_{\omega - 1} &gt; 0\)</span>.</li>
+<li><span class="math math-inline">\(d_x = l_x - l_{x+1}\)</span>: deaths between ages <span class="math math-inline">\(x\)</span> and <span class="math math-inline">\(x+1\)</span>.</li>
+</ul>
+<p>One-year rates:</p>
+<p><span class="math math-display">\[p_x = \frac{l_{x+1}}{l_x} \quad \text{(survival)}, \qquad q_x = \frac{d_x}{l_x} = 1 - p_x \quad \text{(mortality)}\]</span></p>
+<h2 id="multi-year-probabilities">Multi-year probabilities</h2>
+<table>
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Meaning</th>
+<th>Formula</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="math math-inline">\({}_n p_x\)</span></td>
+<td>a person aged <span class="math math-inline">\(x\)</span> survives <span class="math math-inline">\(n\)</span> more years</td>
+<td><span class="math math-inline">\(\frac{l_{x+n}}{l_x}\)</span></td>
+</tr>
+<tr>
+<td><span class="math math-inline">\({}_{/n} q_x\)</span></td>
+<td>dies within <span class="math math-inline">\(n\)</span> years</td>
+<td><span class="math math-inline">\(\frac{l_x - l_{x+n}}{l_x} = 1 - {}_n p_x\)</span></td>
+</tr>
+<tr>
+<td><span class="math math-inline">\({}_{m/n} q_x\)</span></td>
+<td>dies between ages <span class="math math-inline">\(x+m\)</span> and <span class="math math-inline">\(x+m+n\)</span></td>
+<td><span class="math math-inline">\(\frac{l_{x+m} - l_{x+m+n}}{l_x}\)</span></td>
+</tr>
+<tr>
+<td><span class="math math-inline">\({}_{m/1} q_x\)</span></td>
+<td>dies in the year after age <span class="math math-inline">\(x+m\)</span></td>
+<td><span class="math math-inline">\(\frac{d_{x+m}}{l_x}\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>Two probability rules hold:</p>
+<ol>
+<li><strong>Compound probability</strong> (survive each year in turn):</li>
+</ol>
+<p><span class="math math-display">\[{}_n p_x = p_x \cdot p_{x+1} \cdots p_{x+n-1}\]</span></p>
+<ol start="2">
+<li><strong>Total probability</strong> (die in the first year, or survive it and die in the second, …):</li>
+</ol>
+<p><span class="math math-display">\[{}_{/n} q_x = q_x + p_x q_{x+1} + {}_2 p_x q_{x+2} + \dots + {}_{n-1} p_x q_{x+n-1}\]</span></p>
+<h2 id="life-expectancy">Life expectancy</h2>
+<p>Let <span class="math math-inline">\(x\)</span> be the current age. The random variable is the number of <strong>whole</strong> future years lived, <span class="math math-inline">\(h = 0, 1, \dots, \omega - x - 1\)</span>. The probability of living exactly <span class="math math-inline">\(h\)</span> more whole years (dying between <span class="math math-inline">\(x+h\)</span> and <span class="math math-inline">\(x+h+1\)</span>) is</p>
+<p><span class="math math-display">\[P(h) = {}_{h/1} q_x = \frac{l_{x+h} - l_{x+h+1}}{l_x}\]</span></p>
+<p>The <strong>curtate life expectancy</strong> <span class="math math-inline">\(e_x\)</span> is the expected value:</p>
+<p><span class="math math-display">\[e_x = \sum_{h=0}^{\omega-x-1} h \cdot {}_{h/1} q_x\]</span></p>
+<p>Expanding the sum and cancelling terms gives the practical form</p>
+<p><span class="math math-display">\[e_x = \frac{\sum_{h=1}^{\omega-x-1} l_{x+h}}{l_x}\]</span></p>
+<p>and a <strong>recursion</strong> for computing backwards from old ages:</p>
+<p><span class="math math-display">\[e_x = p_x (1 + e_{x+1})\]</span></p>
+<p><span class="math math-inline">\(e_0 &lt; \omega\)</span>. Someone who has already reached age <span class="math math-inline">\(x\)</span> expects to die at age <span class="math math-inline">\(x + e_x\)</span>, which is usually above <span class="math math-inline">\(e_0\)</span>: they have already survived the early risks.</p>
+<h2 id="force-of-mortality">Force of mortality</h2>
+<p>For a continuous view, the probability that a person aged <span class="math math-inline">\(x\)</span> dies in a short interval <span class="math math-inline">\(\Delta x\)</span> is about proportional to <span class="math math-inline">\(\Delta x\)</span>:</p>
+<p><span class="math math-display">\[{}_{/\Delta x} q_x \approx \mu_x \Delta x\]</span></p>
+<p>Letting <span class="math math-inline">\(\Delta x \to 0\)</span> gives the <strong>force of mortality</strong>:</p>
+<p><span class="math math-display">\[\mu_x = -\frac{l&#39;_x}{l_x} = -\frac{d}{dx} \ln l_x\]</span></p>
+<p>It plays the role <span class="math math-inline">\(\delta\)</span> played for interest. Integrating:</p>
+<p><span class="math math-display">\[l_x = l_a e^{-\int_a^x \mu_s ds}, \qquad {}_n p_x = e^{-\int_x^{x+n} \mu_s ds}\]</span></p>
+<h2 id="survival-laws">Survival laws</h2>
+<p>Analytic forms for <span class="math math-inline">\(\mu_x\)</span> give analytic life tables.</p>
+<ol>
+<li>
+<p><strong>Constant force</strong>: <span class="math math-inline">\(\mu_x = k\)</span>. Then <span class="math math-inline">\(l_x = l_a e^{-k(x-a)}\)</span> and <span class="math math-inline">\({}_n p_x = e^{-kn}\)</span> depends only on <span class="math math-inline">\(n\)</span>, <strong>not on age</strong>. Unrealistic for people, but simple.</p>
+</li>
+<li>
+<p><strong>De Moivre (1725)</strong>: the same number of deaths at every age. <span class="math math-inline">\(l_x\)</span> falls <strong>linearly</strong>:</p>
+</li>
+</ol>
+<p><span class="math math-display">\[l_x = l_a \frac{\omega - x}{\omega - a}, \qquad \mu_x = \frac{1}{\omega - x}\]</span></p>
+<ol start="3">
+<li><strong>Gompertz–Makeham</strong>: the most realistic and widely used. The force of mortality has a constant part (accidents) and a part growing exponentially with age (ageing):</li>
+</ol>
+<p><span class="math math-display">\[\mu_x = \alpha + \beta c^x, \quad c &gt; 1, \qquad l_x = k s^x g^{c^x}\]</span></p>
+<p>With <span class="math math-inline">\(\alpha = 0\)</span> (so <span class="math math-inline">\(s = 1\)</span>) it is the pure <strong>Gompertz</strong> law.</p>
+<p>Compare the three laws. The dot marks the age <span class="math math-inline">\(x\)</span>; the readouts give each law's life expectancy at that age.</p>
+<pre class="wimark-src"><code class="nohighlight" data-wimark="survival" data-opts="{&#34;x&#34;: 40, &#34;omega&#34;: 105, &#34;k&#34;: 0.0125, &#34;alpha&#34;: 0.0005, &#34;beta&#34;: 0.00003, &#34;c&#34;: 1.1}"></code></pre>
+<h2 id="key-takeaways">Key takeaways</h2>
+<ul>
+<li>Risk is measurable uncertainty; pure risks only cause losses.</li>
+<li>Technical basis = financial assumption + demographic assumption.</li>
+<li><span class="math math-inline">\(d_x = l_x - l_{x+1}\)</span>, <span class="math math-inline">\(p_x = l_{x+1}/l_x\)</span>, <span class="math math-inline">\(q_x = 1 - p_x\)</span>, <span class="math math-inline">\({}_n p_x = l_{x+n}/l_x\)</span>.</li>
+<li>Compound and total probability rules link one-year and multi-year rates.</li>
+<li><span class="math math-inline">\(e_x = \sum_{h \ge 1} l_{x+h} / l_x\)</span>, and <span class="math math-inline">\(e_x = p_x(1 + e_{x+1})\)</span>.</li>
+<li><span class="math math-inline">\(\mu_x = -l&#39;_x / l_x\)</span>, <span class="math math-inline">\({}_n p_x = e^{-\int \mu}\)</span>.</li>
+<li>Laws: constant force (age-free), De Moivre (linear <span class="math math-inline">\(l_x\)</span>), Gompertz–Makeham (<span class="math math-inline">\(\alpha + \beta c^x\)</span>).</li>
+</ul>
+<pre class="wimark-src"><code class="nohighlight" data-wimark="quiz" data-opts="{&#34;title&#34;: &#34;Check yourself&#34;}">[
+  {&#34;q&#34;: &#34;$l_{60} = 80000$, $l_{61} = 79200$. Then $q_{60}$ is&#34;, &#34;options&#34;: [&#34;1%&#34;, &#34;0.99%&#34;, &#34;99%&#34;], &#34;answer&#34;: 0, &#34;why&#34;: &#34;$d_{60} = 800$, $q_{60} = 800/80000 = 1\\%$.&#34;},
+  {&#34;q&#34;: &#34;Under constant force of mortality, ${}_{10} p_{20}$ and ${}_{10} p_{70}$ are&#34;, &#34;options&#34;: [&#34;equal&#34;, &#34;${}_{10} p_{20}$ larger&#34;, &#34;${}_{10} p_{70}$ larger&#34;], &#34;answer&#34;: 0, &#34;why&#34;: &#34;${}_n p_x = e^{-kn}$ does not depend on $x$.&#34;},
+  {&#34;q&#34;: &#34;Under De Moivre with $\\omega = 100$, $\\mu_{60}$ is&#34;, &#34;options&#34;: [&#34;0.01&#34;, &#34;0.025&#34;, &#34;0.6&#34;], &#34;answer&#34;: 1, &#34;why&#34;: &#34;$1/(100 - 60) = 0.025$.&#34;},
+  {&#34;q&#34;: &#34;$p_{98} = 0.5$ and $e_{99} = 0.6$. Then $e_{98}$ is&#34;, &#34;options&#34;: [&#34;0.8&#34;, &#34;0.3&#34;, &#34;1.1&#34;], &#34;answer&#34;: 0, &#34;why&#34;: &#34;$e_{98} = 0.5 (1 + 0.6) = 0.8$.&#34;},
+  {&#34;q&#34;: &#34;In Gompertz–Makeham, the term $\\alpha$ models&#34;, &#34;options&#34;: [&#34;ageing&#34;, &#34;accidental deaths, equal at every age&#34;, &#34;infant mortality&#34;], &#34;answer&#34;: 1}
+]
+</code></pre>
+</article>
+
+          
+          </div>
+        </div>
+      </section>
+
+      <aside class="col-toc" aria-label="On this page">
+        <div class="col-head">On this page</div>
+        <div class="col-scroll">
+          
+            
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l1">
+    <a href="#risk-life-tables-and-survival-models">Risk, Life Tables and Survival Models</a>
+    
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l2">
+    <a href="#risk-and-insurance">Risk and insurance</a>
+    
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l3">
+    <a href="#life-insurance">Life insurance</a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#life-tables">Life tables</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#multi-year-probabilities">Multi-year probabilities</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#life-expectancy">Life expectancy</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#force-of-mortality">Force of mortality</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#survival-laws">Survival laws</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#key-takeaways">Key takeaways</a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+</ul>
+
+          
+          
+        </div>
+      </aside>
+
+    
+  </main>
+
+  
+  <footer class="statusbar" aria-hidden="true">
+    <span class="sb-mode">READ</span>
+    <span class="sb-path">en/notes/University notes/financial-mathematics/10-survival-models.md</span>
+    <span class="sb-spacer"></span>
+    <span class="sb-item">en</span>
+    <span class="sb-item">utf-8</span>
+    <span class="sb-item">markdown</span>
+    <span class="sb-pos" data-scroll-pos>top</span>
+  </footer>
+  
+
+  <div class="search" data-search hidden role="dialog" aria-modal="true" aria-label="Search">
+    <div class="search-panel">
+      <div class="search-bar"><span class="search-prompt" aria-hidden="true">❯</span>
+      <input class="search-input" type="search" placeholder="Search" autocomplete="off" spellcheck="false" aria-controls="search-results"></div>
+      <ul class="search-results" id="search-results" role="listbox"></ul>
+      <div class="search-hint" aria-hidden="true"><span><kbd>↑↓</kbd> move</span><span><kbd>↵</kbd> open</span><span><kbd>tab</kbd> complete</span><span><kbd>esc</kbd> close</span></div>
+    </div>
+  </div>
+
+  <script>
+    window.GOMARK = {
+      lang: "en",
+      root: "..\/..\/..\/..\/",
+      theme: "light",
+      section: "notes",
+      i18n: { noResults: "No results", searchFilters: "Filters", searchTab: "complete",
+        qSection: "in one section of the site", qHeading: "under the headings that match", qTitle: "in the title", qCode: "in the code blocks, of one language",
+        qIn: "where the words look", qHas: "pages with code, math, table, image, link, quote, task, widget", qPath: "in the file path", qPhrase: "these words, in this order",
+        qNot: "without it", qOr: "either one", qRegex: "a regular expression", copy: "copy", copied: "copied", words: "words", minRead: "min read",
+        data: "data", search: "search", noData: "no data", other: "other",
+        total: "total", show: "show", hide: "hide", reset: "reset", all: "all" }
+    };
+  </script>
+  <script src="../../../../static/widgets.js"></script>
+  <script src="../../../../static/widgets/notes/University%20notes/financial-mathematics/survival.js"></script>
+  <script src="../../../../static/widgets/quiz.js"></script>
+  <script src="../../../../static/engine.js"></script>
+  <script src="../../../../static/ui.js"></script>
+  <script src="../../../../static/search.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

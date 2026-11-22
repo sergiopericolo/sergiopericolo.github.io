@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Digital identity and computational knowledge base: résumé, projects and notes.">
+  <meta name="author" content="Sergio Di Lapi">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains&#43;Mono:wght@400;500;600;700;800&amp;family=IBM&#43;Plex&#43;Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <title>Choosing Between Financial Operations · Notes</title>
+  <link rel="stylesheet" href="../../../../static/layout.css">
+  <link rel="stylesheet" href="../../../../static/theme.css">
+  <link rel="stylesheet" href="../../../../static/wimark.css">
+  <link rel="stylesheet" href="../../../../static/themes/light.css">
+  <style>:root { --mono:"JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;--sans:"IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;--font-body:var(--sans);--font-heading:var(--mono);--font-size:14px;--content-width:780px;--sidebar-width:256px;--folders-width:224px;--toc-width:232px;--radius:4px;--radius-sm:3px;--radius-lg:10px; }</style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+</head>
+<body data-depth="multi" data-index="right" data-theme="light" data-theme-class="monochrome" data-heading="mono" data-statusbar="on">
+
+  <header class="topbar">
+    <a class="brand" href="../../../../index.html">sergiopericolo</a>
+    <nav class="sections" aria-label="Sections">
+      
+      <a class="section-link" href="../../../../about/index.html">
+        <span class="section-idx">01</span>
+        <span class="section-title">About</span>
+      </a>
+      
+      <a class="section-link" href="../../../../projects/index.html">
+        <span class="section-idx">02</span>
+        <span class="section-title">Projects</span>
+      </a>
+      
+      <a class="section-link active" href="../../../../notes/index.html">
+        <span class="section-idx">03</span>
+        <span class="section-title">Notes</span>
+      </a>
+      
+      <a class="section-link" href="../../../../visual/index.html">
+        <span class="section-idx">04</span>
+        <span class="section-title">Visual</span>
+      </a>
+      
+      <a class="section-link" href="../../../../art/index.html">
+        <span class="section-idx">05</span>
+        <span class="section-title">Art</span>
+      </a>
+      
+    </nav>
+    <div class="topbar-end">
+      <button class="search-open" type="button" data-search-open aria-haspopup="dialog"><span>Search</span><kbd>⌘K</kbd></button>
+      
+      <span class="build-info"><a class="build-name" href="https://github.com/sergiopericolo/GoMark">GoMark</a> v1.2.0</span>
+    </div>
+  </header>
+
+  <main class="grid" style="--grid: minmax(0, 15fr) minmax(0, 15fr) minmax(0, 55fr) minmax(0, 15fr); --grid-medium: minmax(0, 15fr) minmax(0, 15fr) minmax(0, 70fr)">
+
+    
+
+      
+      <aside class="col-folders" aria-label="Folders">
+        <div class="col-head">Folders</div>
+        <div class="col-scroll">
+          <a class="tree-root" href="../../../index.html">~/notes/</a>
+          
+
+<ul class="tree">
+  
+  
+  <li class="tree-node has-children open" data-path="University notes">
+    <div class="tree-row">
+      
+      <button class="tree-toggle" type="button" aria-expanded="true" aria-label="University notes"><span class="chev" aria-hidden="true"></span></button>
+      
+      <a class="tree-folder" href="../../../University%20notes/index.html">
+        <span class="tree-name">University notes/</span>
+        
+      </a>
+    </div>
+    
+      
+
+<ul class="tree">
+  
+  
+  <li class="tree-node" data-path="University notes/computational-method">
+    <div class="tree-row">
+      
+      <span class="tree-leaf" aria-hidden="true"></span>
+      
+      <a class="tree-folder" href="../../../University%20notes/computational-method/index.html">
+        <span class="tree-name">computational-method/</span>
+        <span class="tree-count">5</span>
+      </a>
+    </div>
+    
+  </li>
+  
+  
+  <li class="tree-node" data-path="University notes/financial-economics">
+    <div class="tree-row">
+      
+      <span class="tree-leaf" aria-hidden="true"></span>
+      
+      <a class="tree-folder" href="../../../University%20notes/financial-economics/index.html">
+        <span class="tree-name">financial-economics/</span>
+        <span class="tree-count">9</span>
+      </a>
+    </div>
+    
+  </li>
+  
+  
+  <li class="tree-node open" data-path="University notes/financial-mathematics">
+    <div class="tree-row">
+      
+      <span class="tree-leaf" aria-hidden="true"></span>
+      
+      <a class="tree-folder active" href="../../../University%20notes/financial-mathematics/index.html">
+        <span class="tree-name">financial-mathematics/</span>
+        <span class="tree-count">11</span>
+      </a>
+    </div>
+    
+  </li>
+  
+</ul>
+
+    
+  </li>
+  
+</ul>
+
+        </div>
+      </aside>
+      
+
+      <aside class="col-files" aria-label="Files">
+        <div class="col-head">
+          <span>Files <span class="badge">11</span></span>
+          <span class="col-head-path">notes/University notes/financial-mathematics/</span>
+        </div>
+        <div class="col-scroll">
+          <ul class="file-list">
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-mathematics/01-interest-and-discount/index.html">
+                <span class="file-name">Interest, Discount and Financial Laws</span>
+                <span class="file-path">01-interest-and-discount.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-mathematics/02-simple-and-compound-interest/index.html">
+                <span class="file-name">Simple and Compound Interest</span>
+                <span class="file-path">02-simple-and-compound-interest.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-mathematics/03-commercial-discount/index.html">
+                <span class="file-name">Commercial Discount and Average Rates</span>
+                <span class="file-path">03-commercial-discount.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-mathematics/04-annuities/index.html">
+                <span class="file-name">Complex Operations and Annuities</span>
+                <span class="file-path">04-annuities.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-mathematics/05-accumulation-and-amortization/index.html">
+                <span class="file-name">Capital Accumulation and Loan Amortization</span>
+                <span class="file-path">05-accumulation-and-amortization.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link active" href="../../../University%20notes/financial-mathematics/06-choosing-investments/index.html">
+                <span class="file-name">Choosing Between Financial Operations</span>
+                <span class="file-path">06-choosing-investments.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-mathematics/07-bonds/index.html">
+                <span class="file-name">Bonds</span>
+                <span class="file-path">07-bonds.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-mathematics/08-term-structure/index.html">
+                <span class="file-name">The Term Structure of Interest Rates</span>
+                <span class="file-path">08-term-structure.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-mathematics/09-duration/index.html">
+                <span class="file-name">Time Indices and Duration</span>
+                <span class="file-path">09-duration.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-mathematics/10-survival-models/index.html">
+                <span class="file-name">Risk, Life Tables and Survival Models</span>
+                <span class="file-path">10-survival-models.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-mathematics/11-life-insurance/index.html">
+                <span class="file-name">Life Insurance Premiums and Reserves</span>
+                <span class="file-path">11-life-insurance.md</span>
+              </a>
+            </li>
+            
+          </ul>
+        </div>
+      </aside>
+
+      <section class="col-content" aria-label="sergiopericolo">
+        <div class="content-scroll" id="content">
+          <div class="content-inner">
+          
+            
+<div class="page-head">
+  <div class="page-crumb"><span class="crumb-home">~</span>/notes/University notes/financial-mathematics/06-choosing-investments.md</div>
+  <h1 class="page-title">Choosing Between Financial Operations</h1>
+  <div class="page-meta" data-page-meta><span class="meta-tag">en</span></div>
+</div>
+
+<article class="page-body"><h1 id="choosing-between-financial-operations">Choosing Between Financial Operations</h1>
+<p>Lectures 9–10 of <em>Financial Mathematics</em> (University of Brescia). Two projects, two cash-flow streams: which is better? Two criteria — <strong>net present value</strong> and <strong>internal rate of return</strong> — and the cost indicators of a loan.</p>
+<p>Roadmap:</p>
+<ol>
+<li><strong>Investments and financings</strong> — the setting.</li>
+<li><strong>NPV (REA, VAN)</strong> — definition, rule, additivity.</li>
+<li><strong>IRR (TIR)</strong> — definition, rule, multiple roots.</li>
+<li><strong>The NPV function</strong> — why a pure investment has exactly one IRR.</li>
+<li><strong>Norström's theorem</strong> — a sufficient condition for a unique IRR.</li>
+<li><strong>TAN, TAE, TAEG</strong> — the cost of a loan.</li>
+</ol>
+<h2 id="investments-and-financings">Investments and financings</h2>
+<p>Projects are cash-flow vectors <span class="math math-inline">\(X = \{(X_k, t_k)\}\)</span> and <span class="math math-inline">\(Y = \{(Y_k, t_k)\}\)</span>.</p>
+<ul>
+<li><strong>Investment (strict sense)</strong>: all outflows come before all inflows.</li>
+<li><strong>Financing (strict sense)</strong>: all inflows come before all outflows.</li>
+</ul>
+<p>Only <strong>homogeneous</strong> operations can be compared: both investments or both financings.</p>
+<h2 id="net-present-value-npv">Net present value (NPV)</h2>
+<p>The <strong>net present value</strong> — in Italian <em>Rendimento Economico Attualizzato</em> (REA) or <em>Valore Attuale Netto</em> (VAN) — is the sum of all discounted flows at a rate <span class="math math-inline">\(i &gt; 0\)</span> chosen by the decision maker:</p>
+<p><span class="math math-display">\[NPV_X(i) = \sum_{k=0}^{m} X_k (1+i)^{-(t_k - t_0)}\]</span></p>
+<ul>
+<li>Accept <span class="math math-inline">\(X\)</span> if <span class="math math-inline">\(NPV_X(i) &gt; 0\)</span>.</li>
+<li>Prefer <span class="math math-inline">\(X\)</span> to <span class="math math-inline">\(Y\)</span> if <span class="math math-inline">\(NPV_X(i) &gt; NPV_Y(i)\)</span>.</li>
+</ul>
+<p>NPV is <strong>additive</strong>: <span class="math math-inline">\(NPV_{X+Y}(i) = NPV_X(i) + NPV_Y(i)\)</span>.</p>
+<h2 id="internal-rate-of-return-irr">Internal rate of return (IRR)</h2>
+<p>The <strong>internal rate of return</strong> (<em>Tasso Interno di Rendimento</em>, TIR) is the rate <span class="math math-inline">\(i^*\)</span> that makes the NPV zero:</p>
+<p><span class="math math-display">\[\sum_{k=0}^{m} X_k (1+i^*)^{-(t_k - t_0)} = 0\]</span></p>
+<ul>
+<li><strong>Investment</strong>: <span class="math math-inline">\(i^*\)</span> is the return on capital. Prefer the <strong>higher</strong> IRR.</li>
+<li><strong>Financing</strong>: <span class="math math-inline">\(i^*\)</span> is the cost of capital. Prefer the <strong>lower</strong> IRR.</li>
+</ul>
+<p><strong>The weak point.</strong> With <span class="math math-inline">\(m\)</span> periods the equation is a polynomial of degree <span class="math math-inline">\(m\)</span> in <span class="math math-inline">\((1+i)^{-1}\)</span>. By the fundamental theorem of algebra it has <span class="math math-inline">\(m\)</span> complex roots, and there may be <strong>more than one real positive root</strong>. Then the IRR is ambiguous.</p>
+<h2 id="the-npv-function-of-a-pure-investment">The NPV function of a pure investment</h2>
+<p>Write <span class="math math-inline">\(W(i) = \sum_{k=0}^{m} X_k (1+i)^{-t_k}\)</span> with <span class="math math-inline">\(X_0 &lt; 0\)</span> and <span class="math math-inline">\(X_k &gt; 0\)</span> for <span class="math math-inline">\(k \ge 1\)</span>. For <span class="math math-inline">\(i &gt; 0\)</span>:</p>
+<ol>
+<li><strong>Intercept</strong>: <span class="math math-inline">\(W(0) = \sum_k X_k\)</span>. For a sensible investment this is positive.</li>
+<li><strong>Asymptote</strong>: <span class="math math-inline">\(\lim_{i \to +\infty} W(i) = X_0 &lt; 0\)</span>.</li>
+<li><strong>Decreasing</strong>: every term of <span class="math math-inline">\(W&#39;(i) = \sum_{k \ge 1} -t_k X_k (1+i)^{-t_k-1}\)</span> is negative.</li>
+<li><strong>Convex</strong>: every term of <span class="math math-inline">\(W&#39;&#39;(i) = \sum_{k \ge 1} t_k (t_k+1) X_k (1+i)^{-t_k-2}\)</span> is positive.</li>
+</ol>
+<p>A continuous, strictly decreasing function going from a positive value to a negative one crosses zero <strong>exactly once</strong> (intermediate value theorem). That crossing is the IRR <span class="math math-inline">\(i^*\)</span>:</p>
+<ul>
+<li><span class="math math-inline">\(0 &lt; i &lt; i^*\)</span>: <span class="math math-inline">\(W(i) &gt; 0\)</span>, the investment is worth doing.</li>
+<li><span class="math math-inline">\(i &gt; i^*\)</span>: <span class="math math-inline">\(W(i) &lt; 0\)</span>, it is not.</li>
+</ul>
+<p>The default flows are a pure investment. Try <code>[-100, 230, -132]</code>: two sign changes, two IRRs (10% and 20%).</p>
+<pre class="wimark-src"><code class="nohighlight" data-wimark="npv" data-opts="{&#34;i&#34;: 0.05}">[-1000, 300, 400, 500, 200]
+</code></pre>
+<h2 id="norstrms-theorem">Norström's theorem</h2>
+<p>A <strong>sufficient</strong> condition for a unique IRR, also for operations that are not pure investments or financings. Take <span class="math math-inline">\(X_0 \neq 0\)</span> and the <strong>cumulative sums</strong></p>
+<p><span class="math math-display">\[S_k = \sum_{h=0}^{k} X_h, \qquad k = 0, 1, \dots, m\]</span></p>
+<p><strong>Theorem (Norström).</strong> If the sequence <span class="math math-inline">\(S_0, S_1, \dots, S_m\)</span> changes sign <strong>exactly once</strong> (negative to positive for an investment, positive to negative for a financing), the IRR exists and is unique.</p>
+<p>The condition is sufficient, not necessary.</p>
+<h2 id="loan-cost-indicators-tan-tae-taeg">Loan cost indicators: TAN, TAE, TAEG</h2>
+<ul>
+<li><strong>TAN</strong> (<em>Tasso Annuo Nominale</em>): the pure annual rate of the loan. It is the nominal rate <span class="math math-inline">\(J_h\)</span>: no compounding within the year, no fees.</li>
+<li><strong>TAE</strong> (<em>Tasso Annuo Effettivo</em>): the effective annual rate from compounding the TAN <span class="math math-inline">\(h\)</span> times a year:</li>
+</ul>
+<p><span class="math math-display">\[TAE = \left(1 + \frac{TAN}{h}\right)^h - 1\]</span></p>
+<ul>
+<li><strong>TAEG</strong> (<em>Tasso Annuo Effettivo Globale</em>), also <strong>ISC</strong> (<em>Indicatore Sintetico di Costo</em>): the total cost of credit for the consumer. It is the rate that equates the amount received, net of upfront fees, to the present value of all instalments plus periodic fees:</li>
+</ul>
+<p><span class="math math-display">\[V_0 - F_0 = \sum_{k=1}^{m} (R_k + F_k)(1 + TAEG)^{-t_k}\]</span></p>
+<p>where <span class="math math-inline">\(V_0\)</span> is the gross loan, <span class="math math-inline">\(F_0\)</span> the upfront fees (application, appraisal), <span class="math math-inline">\(R_k\)</span> the instalments and <span class="math math-inline">\(F_k\)</span> the periodic fees (collection, insurance).</p>
+<p>Because of compounding and fees:</p>
+<p><span class="math math-display">\[TAN &lt; TAE &lt; TAEG\]</span></p>
+<h2 id="key-takeaways">Key takeaways</h2>
+<ul>
+<li>Compare only homogeneous operations (both investments or both financings).</li>
+<li>NPV: accept if positive, prefer the larger; additive.</li>
+<li>IRR: NPV<span class="math math-inline">\((i^*) = 0\)</span>; higher is better for investments, lower for financings; may not be unique.</li>
+<li>Pure investment: NPV decreasing and convex, from <span class="math math-inline">\(\sum X_k &gt; 0\)</span> to <span class="math math-inline">\(X_0 &lt; 0\)</span> → one IRR.</li>
+<li>Norström: cumulative sums change sign once → unique IRR.</li>
+<li>TAN (nominal) &lt; TAE (compounded) &lt; TAEG (compounded + fees).</li>
+</ul>
+<pre class="wimark-src"><code class="nohighlight" data-wimark="quiz" data-opts="{&#34;title&#34;: &#34;Check yourself&#34;}">[
+  {&#34;q&#34;: &#34;Investment $X = (-100, 60, 60)$ at yearly dates. At $i = 10\\%$ the NPV is&#34;, &#34;options&#34;: [&#34;about 4.13&#34;, &#34;20&#34;, &#34;about −4.13&#34;], &#34;answer&#34;: 0, &#34;why&#34;: &#34;$-100 + 60/1.1 + 60/1.21 = -100 + 54.55 + 49.59 = 4.13$.&#34;},
+  {&#34;q&#34;: &#34;Between two financings, the IRR rule prefers&#34;, &#34;options&#34;: [&#34;the higher IRR&#34;, &#34;the lower IRR&#34;, &#34;the one with more payments&#34;], &#34;answer&#34;: 1},
+  {&#34;q&#34;: &#34;Flows $(-100, 230, -132)$. Cumulative sums: $-100, 130, -2$. Norström&#39;s condition&#34;, &#34;options&#34;: [&#34;holds: the IRR is unique&#34;, &#34;fails: two sign changes&#34;, &#34;does not apply because $X_0 &lt; 0$&#34;], &#34;answer&#34;: 1, &#34;why&#34;: &#34;The sums change sign twice. Indeed the IRR equation has two roots, 10% and 20%.&#34;},
+  {&#34;q&#34;: &#34;The NPV of a pure investment, as a function of $i$, is&#34;, &#34;options&#34;: [&#34;increasing and concave&#34;, &#34;decreasing and convex&#34;, &#34;constant&#34;], &#34;answer&#34;: 1},
+  {&#34;q&#34;: &#34;Which indicator includes the loan fees?&#34;, &#34;options&#34;: [&#34;TAN&#34;, &#34;TAE&#34;, &#34;TAEG&#34;], &#34;answer&#34;: 2}
+]
+</code></pre>
+</article>
+
+          
+          </div>
+        </div>
+      </section>
+
+      <aside class="col-toc" aria-label="On this page">
+        <div class="col-head">On this page</div>
+        <div class="col-scroll">
+          
+            
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l1">
+    <a href="#choosing-between-financial-operations">Choosing Between Financial Operations</a>
+    
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l2">
+    <a href="#investments-and-financings">Investments and financings</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#net-present-value-npv">Net present value (NPV)</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#internal-rate-of-return-irr">Internal rate of return (IRR)</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#the-npv-function-of-a-pure-investment">The NPV function of a pure investment</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#norstrms-theorem">Norström&#39;s theorem</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#loan-cost-indicators-tan-tae-taeg">Loan cost indicators: TAN, TAE, TAEG</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#key-takeaways">Key takeaways</a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+</ul>
+
+          
+          
+        </div>
+      </aside>
+
+    
+  </main>
+
+  
+  <footer class="statusbar" aria-hidden="true">
+    <span class="sb-mode">READ</span>
+    <span class="sb-path">en/notes/University notes/financial-mathematics/06-choosing-investments.md</span>
+    <span class="sb-spacer"></span>
+    <span class="sb-item">en</span>
+    <span class="sb-item">utf-8</span>
+    <span class="sb-item">markdown</span>
+    <span class="sb-pos" data-scroll-pos>top</span>
+  </footer>
+  
+
+  <div class="search" data-search hidden role="dialog" aria-modal="true" aria-label="Search">
+    <div class="search-panel">
+      <div class="search-bar"><span class="search-prompt" aria-hidden="true">❯</span>
+      <input class="search-input" type="search" placeholder="Search" autocomplete="off" spellcheck="false" aria-controls="search-results"></div>
+      <ul class="search-results" id="search-results" role="listbox"></ul>
+      <div class="search-hint" aria-hidden="true"><span><kbd>↑↓</kbd> move</span><span><kbd>↵</kbd> open</span><span><kbd>tab</kbd> complete</span><span><kbd>esc</kbd> close</span></div>
+    </div>
+  </div>
+
+  <script>
+    window.GOMARK = {
+      lang: "en",
+      root: "..\/..\/..\/..\/",
+      theme: "light",
+      section: "notes",
+      i18n: { noResults: "No results", searchFilters: "Filters", searchTab: "complete",
+        qSection: "in one section of the site", qHeading: "under the headings that match", qTitle: "in the title", qCode: "in the code blocks, of one language",
+        qIn: "where the words look", qHas: "pages with code, math, table, image, link, quote, task, widget", qPath: "in the file path", qPhrase: "these words, in this order",
+        qNot: "without it", qOr: "either one", qRegex: "a regular expression", copy: "copy", copied: "copied", words: "words", minRead: "min read",
+        data: "data", search: "search", noData: "no data", other: "other",
+        total: "total", show: "show", hide: "hide", reset: "reset", all: "all" }
+    };
+  </script>
+  <script src="../../../../static/widgets.js"></script>
+  <script src="../../../../static/widgets/notes/University%20notes/financial-mathematics/npv.js"></script>
+  <script src="../../../../static/widgets/quiz.js"></script>
+  <script src="../../../../static/engine.js"></script>
+  <script src="../../../../static/ui.js"></script>
+  <script src="../../../../static/search.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

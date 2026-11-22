@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Digital identity and computational knowledge base: résumé, projects and notes.">
+  <meta name="author" content="Sergio Di Lapi">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains&#43;Mono:wght@400;500;600;700;800&amp;family=IBM&#43;Plex&#43;Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <title>Complex Operations and Annuities · Notes</title>
+  <link rel="stylesheet" href="../../../../static/layout.css">
+  <link rel="stylesheet" href="../../../../static/theme.css">
+  <link rel="stylesheet" href="../../../../static/wimark.css">
+  <link rel="stylesheet" href="../../../../static/themes/light.css">
+  <style>:root { --mono:"JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;--sans:"IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;--font-body:var(--sans);--font-heading:var(--mono);--font-size:14px;--content-width:780px;--sidebar-width:256px;--folders-width:224px;--toc-width:232px;--radius:4px;--radius-sm:3px;--radius-lg:10px; }</style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+</head>
+<body data-depth="multi" data-index="right" data-theme="light" data-theme-class="monochrome" data-heading="mono" data-statusbar="on">
+
+  <header class="topbar">
+    <a class="brand" href="../../../../index.html">sergiopericolo</a>
+    <nav class="sections" aria-label="Sections">
+      
+      <a class="section-link" href="../../../../about/index.html">
+        <span class="section-idx">01</span>
+        <span class="section-title">About</span>
+      </a>
+      
+      <a class="section-link" href="../../../../projects/index.html">
+        <span class="section-idx">02</span>
+        <span class="section-title">Projects</span>
+      </a>
+      
+      <a class="section-link active" href="../../../../notes/index.html">
+        <span class="section-idx">03</span>
+        <span class="section-title">Notes</span>
+      </a>
+      
+      <a class="section-link" href="../../../../visual/index.html">
+        <span class="section-idx">04</span>
+        <span class="section-title">Visual</span>
+      </a>
+      
+      <a class="section-link" href="../../../../art/index.html">
+        <span class="section-idx">05</span>
+        <span class="section-title">Art</span>
+      </a>
+      
+    </nav>
+    <div class="topbar-end">
+      <button class="search-open" type="button" data-search-open aria-haspopup="dialog"><span>Search</span><kbd>⌘K</kbd></button>
+      
+      <span class="build-info"><a class="build-name" href="https://github.com/sergiopericolo/GoMark">GoMark</a> v1.2.0</span>
+    </div>
+  </header>
+
+  <main class="grid" style="--grid: minmax(0, 15fr) minmax(0, 15fr) minmax(0, 55fr) minmax(0, 15fr); --grid-medium: minmax(0, 15fr) minmax(0, 15fr) minmax(0, 70fr)">
+
+    
+
+      
+      <aside class="col-folders" aria-label="Folders">
+        <div class="col-head">Folders</div>
+        <div class="col-scroll">
+          <a class="tree-root" href="../../../index.html">~/notes/</a>
+          
+
+<ul class="tree">
+  
+  
+  <li class="tree-node has-children open" data-path="University notes">
+    <div class="tree-row">
+      
+      <button class="tree-toggle" type="button" aria-expanded="true" aria-label="University notes"><span class="chev" aria-hidden="true"></span></button>
+      
+      <a class="tree-folder" href="../../../University%20notes/index.html">
+        <span class="tree-name">University notes/</span>
+        
+      </a>
+    </div>
+    
+      
+
+<ul class="tree">
+  
+  
+  <li class="tree-node" data-path="University notes/computational-method">
+    <div class="tree-row">
+      
+      <span class="tree-leaf" aria-hidden="true"></span>
+      
+      <a class="tree-folder" href="../../../University%20notes/computational-method/index.html">
+        <span class="tree-name">computational-method/</span>
+        <span class="tree-count">5</span>
+      </a>
+    </div>
+    
+  </li>
+  
+  
+  <li class="tree-node" data-path="University notes/financial-economics">
+    <div class="tree-row">
+      
+      <span class="tree-leaf" aria-hidden="true"></span>
+      
+      <a class="tree-folder" href="../../../University%20notes/financial-economics/index.html">
+        <span class="tree-name">financial-economics/</span>
+        <span class="tree-count">9</span>
+      </a>
+    </div>
+    
+  </li>
+  
+  
+  <li class="tree-node open" data-path="University notes/financial-mathematics">
+    <div class="tree-row">
+      
+      <span class="tree-leaf" aria-hidden="true"></span>
+      
+      <a class="tree-folder active" href="../../../University%20notes/financial-mathematics/index.html">
+        <span class="tree-name">financial-mathematics/</span>
+        <span class="tree-count">11</span>
+      </a>
+    </div>
+    
+  </li>
+  
+</ul>
+
+    
+  </li>
+  
+</ul>
+
+        </div>
+      </aside>
+      
+
+      <aside class="col-files" aria-label="Files">
+        <div class="col-head">
+          <span>Files <span class="badge">11</span></span>
+          <span class="col-head-path">notes/University notes/financial-mathematics/</span>
+        </div>
+        <div class="col-scroll">
+          <ul class="file-list">
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-mathematics/01-interest-and-discount/index.html">
+                <span class="file-name">Interest, Discount and Financial Laws</span>
+                <span class="file-path">01-interest-and-discount.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-mathematics/02-simple-and-compound-interest/index.html">
+                <span class="file-name">Simple and Compound Interest</span>
+                <span class="file-path">02-simple-and-compound-interest.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-mathematics/03-commercial-discount/index.html">
+                <span class="file-name">Commercial Discount and Average Rates</span>
+                <span class="file-path">03-commercial-discount.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link active" href="../../../University%20notes/financial-mathematics/04-annuities/index.html">
+                <span class="file-name">Complex Operations and Annuities</span>
+                <span class="file-path">04-annuities.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-mathematics/05-accumulation-and-amortization/index.html">
+                <span class="file-name">Capital Accumulation and Loan Amortization</span>
+                <span class="file-path">05-accumulation-and-amortization.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-mathematics/06-choosing-investments/index.html">
+                <span class="file-name">Choosing Between Financial Operations</span>
+                <span class="file-path">06-choosing-investments.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-mathematics/07-bonds/index.html">
+                <span class="file-name">Bonds</span>
+                <span class="file-path">07-bonds.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-mathematics/08-term-structure/index.html">
+                <span class="file-name">The Term Structure of Interest Rates</span>
+                <span class="file-path">08-term-structure.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-mathematics/09-duration/index.html">
+                <span class="file-name">Time Indices and Duration</span>
+                <span class="file-path">09-duration.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-mathematics/10-survival-models/index.html">
+                <span class="file-name">Risk, Life Tables and Survival Models</span>
+                <span class="file-path">10-survival-models.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-mathematics/11-life-insurance/index.html">
+                <span class="file-name">Life Insurance Premiums and Reserves</span>
+                <span class="file-path">11-life-insurance.md</span>
+              </a>
+            </li>
+            
+          </ul>
+        </div>
+      </aside>
+
+      <section class="col-content" aria-label="sergiopericolo">
+        <div class="content-scroll" id="content">
+          <div class="content-inner">
+          
+            
+<div class="page-head">
+  <div class="page-crumb"><span class="crumb-home">~</span>/notes/University notes/financial-mathematics/04-annuities.md</div>
+  <h1 class="page-title">Complex Operations and Annuities</h1>
+  <div class="page-meta" data-page-meta><span class="meta-tag">en</span></div>
+</div>
+
+<article class="page-body"><h1 id="complex-operations-and-annuities">Complex Operations and Annuities</h1>
+<p>Lectures 5–7 of <em>Financial Mathematics</em> (University of Brescia). Many amounts at many dates: how to value them at one date, and the special case where all payments have the same sign — the <strong>annuity</strong>. Compound interest throughout.</p>
+<p>Roadmap:</p>
+<ol>
+<li><strong>Valuing a complex operation</strong> — the value <span class="math math-inline">\(W(\hat t)\)</span> at any date.</li>
+<li><strong>Annuities</strong> — the classification.</li>
+<li><strong>Ordinary annuity</strong> — <span class="math math-inline">\(a_{\overline{m}|i}\)</span> and <span class="math math-inline">\(s_{\overline{m}|i}\)</span>.</li>
+<li><strong>Annuity due, deferred and perpetual annuities</strong>.</li>
+<li><strong>Finding the number of payments</strong>.</li>
+</ol>
+<h2 id="complex-financial-operations">Complex financial operations</h2>
+<p>A <strong>complex</strong> operation is a set of pairs <span class="math math-inline">\((C_k, t_k)\)</span>, <span class="math math-inline">\(k = 0, 1, \dots, m\)</span>: amount <span class="math math-inline">\(C_k\)</span> (positive if received, negative if paid) at date <span class="math math-inline">\(t_k\)</span>.</p>
+<p>To value it at a date <span class="math math-inline">\(\hat t\)</span>, with <span class="math math-inline">\(t_h \le \hat t &lt; t_{h+1}\)</span>, move every amount to <span class="math math-inline">\(\hat t\)</span>: <strong>accumulate</strong> the earlier ones with <span class="math math-inline">\(f\)</span>, <strong>discount</strong> the later ones with <span class="math math-inline">\(v\)</span> (principle of financial equivalence):</p>
+<p><span class="math math-display">\[W(\hat{t}) = \sum_{k=0}^{h} C_k f(\hat{t} - t_k) + \sum_{k=h+1}^{m} C_k v(t_k - \hat{t})\]</span></p>
+<ul>
+<li><span class="math math-inline">\(W(0)\)</span> is the <strong>present value</strong> of the operation.</li>
+<li><span class="math math-inline">\(W(t_m)\)</span> is its <strong>accumulated value</strong>.</li>
+<li>The operation is <strong>fair</strong> if <span class="math math-inline">\(W(\hat t) = 0\)</span> at some date. Under a separable law this holds at one date if and only if it holds at every date.</li>
+</ul>
+<h2 id="annuities">Annuities</h2>
+<p>An <strong>annuity</strong> is a complex operation whose amounts, the <strong>payments</strong> (<em>rate</em>), all have the <strong>same sign</strong> and fall at set dates. Classification:</p>
+<table>
+<thead>
+<tr>
+<th>Criterion</th>
+<th>Options</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Periodicity</td>
+<td><strong>periodic</strong> if the gap between payments (the period) is constant</td>
+</tr>
+<tr>
+<td>Payment date</td>
+<td><strong>ordinary</strong> (<em>posticipata</em>): end of each period; <strong>due</strong> (<em>anticipata</em>): start of each period</td>
+</tr>
+<tr>
+<td>Start</td>
+<td><strong>immediate</strong>: first period starts at <span class="math math-inline">\(t = 0\)</span>; <strong>deferred</strong> by <span class="math math-inline">\(p\)</span> periods: starts at <span class="math math-inline">\(t = p\)</span></td>
+</tr>
+<tr>
+<td>Length</td>
+<td><strong>temporary</strong>: finite number of payments; <strong>perpetual</strong>: infinite</td>
+</tr>
+</tbody>
+</table>
+<h2 id="ordinary-immediate-annuity">Ordinary immediate annuity</h2>
+<p><span class="math math-inline">\(m\)</span> constant payments <span class="math math-inline">\(R\)</span> at the <strong>end</strong> of each period, from now on, at the periodic rate <span class="math math-inline">\(i\)</span>. Let <span class="math math-inline">\(v = (1+i)^{-1}\)</span>. The present value is a geometric series of ratio <span class="math math-inline">\(v\)</span>:</p>
+<p><span class="math math-display">\[W(0) = Rv + Rv^2 + \dots + Rv^m = R \sum_{k=1}^{m} v^k = R \frac{1 - (1+i)^{-m}}{i}\]</span></p>
+<p>The unit factor (<span class="math math-inline">\(R = 1\)</span>) is the <strong>present value of an annuity-immediate</strong>:</p>
+<p><span class="math math-display">\[a_{\overline{m}|i} = \frac{1 - (1+i)^{-m}}{i}\]</span></p>
+<p>So <span class="math math-inline">\(W(0) = R \cdot a_{\overline{m}|i}\)</span>, located <strong>one period before the first payment</strong>.</p>
+<p>By separability, the accumulated value at the last payment is <span class="math math-inline">\(W(0)(1+i)^m\)</span>:</p>
+<p><span class="math math-display">\[W(m) = R \frac{(1+i)^m - 1}{i} = R \cdot s_{\overline{m}|i}, \qquad s_{\overline{m}|i} = \frac{(1+i)^m - 1}{i}\]</span></p>
+<p>located <strong>at the last payment</strong>.</p>
+<p><span class="math math-inline">\(a_{\overline{m}|i}\)</span> <strong>decreases in <span class="math math-inline">\(i\)</span></strong> (for fixed <span class="math math-inline">\(m\)</span>) and <strong>increases in <span class="math math-inline">\(m\)</span></strong> (for fixed <span class="math math-inline">\(i\)</span>).</p>
+<h2 id="perpetuity">Perpetuity</h2>
+<p>Let <span class="math math-inline">\(m \to +\infty\)</span>:</p>
+<p><span class="math math-display">\[a_{\overline{\infty}|i} = \lim_{m \to +\infty} \frac{1 - (1+i)^{-m}}{i} = \frac{1}{i}, \qquad W(0) = \frac{R}{i}\]</span></p>
+<p>A perpetuity has a finite present value but no accumulated value.</p>
+<h2 id="annuity-due">Annuity due</h2>
+<p>Payments at the <strong>start</strong> of each period. Each payment comes one period earlier than in the ordinary annuity, so accumulate by one period:</p>
+<p><span class="math math-display">\[\ddot{a}_{\overline{m}|i} = (1+i) a_{\overline{m}|i}, \qquad \ddot{s}_{\overline{m}|i} = (1+i) s_{\overline{m}|i}\]</span></p>
+<p><span class="math math-inline">\(\ddot a\)</span> sits <strong>at the first payment</strong>; <span class="math math-inline">\(\ddot s\)</span> sits <strong>one period after the last payment</strong>. For a perpetuity due:</p>
+<p><span class="math math-display">\[\ddot{a}_{\overline{\infty}|i} = 1 + \frac{1}{i} = \frac{1+i}{i}\]</span></p>
+<h2 id="deferred-annuities">Deferred annuities</h2>
+<p>Deferred by <span class="math math-inline">\(p\)</span> periods: value the annuity at the start of its first period, then discount by <span class="math math-inline">\(p\)</span> periods.</p>
+<p><span class="math math-display">\[{}_{p|}a_{\overline{m}|i} = (1+i)^{-p} a_{\overline{m}|i}, \qquad {}_{p|}a_{\overline{\infty}|i} = \frac{(1+i)^{-p}}{i}\]</span></p>
+<p><span class="math math-display">\[{}_{p|}\ddot{a}_{\overline{m}|i} = (1+i)^{-p} \ddot{a}_{\overline{m}|i} = (1+i)^{1-p} a_{\overline{m}|i}\]</span></p>
+<p>The <strong>accumulated value</strong> of a deferred annuity equals that of the immediate one: deferral shifts the whole operation, not the distance between the payments and the final date.</p>
+<p>The bars below are the payments; the shaded bars are their present values at <span class="math math-inline">\(t = 0\)</span>, which add up to <span class="math math-inline">\(W(0)\)</span>.</p>
+<pre class="wimark-src"><code class="nohighlight" data-wimark="annuity" data-opts="{&#34;R&#34;: 100, &#34;m&#34;: 8, &#34;i&#34;: 0.06, &#34;p&#34;: 0, &#34;due&#34;: false}"></code></pre>
+<h2 id="finding-the-number-of-payments">Finding the number of payments</h2>
+<p>Given present value <span class="math math-inline">\(A\)</span>, payment <span class="math math-inline">\(R\)</span> and rate <span class="math math-inline">\(i\)</span>, solve <span class="math math-inline">\(A = R \cdot a_{\overline{n}|i}\)</span> for <span class="math math-inline">\(n\)</span>:</p>
+<p><span class="math math-display">\[n = -\frac{\ln(1 - Ai/R)}{\ln(1+i)}\]</span></p>
+<p>The log needs a positive argument, so a solution exists only if</p>
+<p><span class="math math-display">\[A &lt; \frac{R}{i}\]</span></p>
+<p>The temporary annuity must be worth <strong>less than the perpetuity</strong> with the same payment and rate.</p>
+<p>If <span class="math math-inline">\(n = n_0 + f\)</span> is not an integer, one option is: pay <span class="math math-inline">\(n_0\)</span> full payments <span class="math math-inline">\(R\)</span>, then a smaller final payment at <span class="math math-inline">\(n_0 + 1\)</span>. With <span class="math math-inline">\(A&#39;\)</span> the present value of the first <span class="math math-inline">\(n_0\)</span> payments,</p>
+<p><span class="math math-display">\[\tilde{R} = (A - A&#39;)(1+i)^{n_0+1}\]</span></p>
+<h2 id="key-takeaways">Key takeaways</h2>
+<ul>
+<li><span class="math math-inline">\(W(\hat t)\)</span>: accumulate the past amounts, discount the future ones. Fair <span class="math math-inline">\(\iff W = 0\)</span>.</li>
+<li><span class="math math-inline">\(a_{\overline{m}|i} = \frac{1 - (1+i)^{-m}}{i}\)</span> (one period before the first payment); <span class="math math-inline">\(s_{\overline{m}|i} = \frac{(1+i)^m - 1}{i}\)</span> (at the last payment).</li>
+<li>Perpetuity: <span class="math math-inline">\(R/i\)</span>. Due: multiply by <span class="math math-inline">\((1+i)\)</span>. Deferred by <span class="math math-inline">\(p\)</span>: multiply by <span class="math math-inline">\((1+i)^{-p}\)</span>.</li>
+<li>Number of payments: <span class="math math-inline">\(n = -\ln(1 - Ai/R)/\ln(1+i)\)</span>, requires <span class="math math-inline">\(A &lt; R/i\)</span>.</li>
+</ul>
+<pre class="wimark-src"><code class="nohighlight" data-wimark="quiz" data-opts="{&#34;title&#34;: &#34;Check yourself&#34;}">[
+  {&#34;q&#34;: &#34;Where in time is $R \\cdot a_{\\overline{m}|i}$ located?&#34;, &#34;options&#34;: [&#34;At the first payment&#34;, &#34;One period before the first payment&#34;, &#34;At the last payment&#34;], &#34;answer&#34;: 1},
+  {&#34;q&#34;: &#34;A perpetuity pays 50 per year at $i = 4\\%$. Its present value is&#34;, &#34;options&#34;: [&#34;1250&#34;, &#34;2000&#34;, &#34;1300&#34;], &#34;answer&#34;: 0, &#34;why&#34;: &#34;$50/0.04 = 1250$.&#34;},
+  {&#34;q&#34;: &#34;The same perpetuity paid at the start of each year is worth&#34;, &#34;options&#34;: [&#34;1250&#34;, &#34;1300&#34;, &#34;1200&#34;], &#34;answer&#34;: 1, &#34;why&#34;: &#34;$1250 \\cdot 1.04 = 1300$, or $50 + 1250$.&#34;},
+  {&#34;q&#34;: &#34;$A = 2000$, $R = 100$, $i = 5\\%$. How many payments?&#34;, &#34;options&#34;: [&#34;20&#34;, &#34;About 41&#34;, &#34;None: no finite $n$ works&#34;], &#34;answer&#34;: 2, &#34;why&#34;: &#34;$R/i = 2000 = A$: only the perpetuity is worth that much. We need $A &lt; R/i$.&#34;},
+  {&#34;q&#34;: &#34;Deferring an annuity by $p$ periods changes&#34;, &#34;options&#34;: [&#34;its present value, not its accumulated value&#34;, &#34;its accumulated value, not its present value&#34;, &#34;both&#34;], &#34;answer&#34;: 0}
+]
+</code></pre>
+</article>
+
+          
+          </div>
+        </div>
+      </section>
+
+      <aside class="col-toc" aria-label="On this page">
+        <div class="col-head">On this page</div>
+        <div class="col-scroll">
+          
+            
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l1">
+    <a href="#complex-operations-and-annuities">Complex Operations and Annuities</a>
+    
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l2">
+    <a href="#complex-financial-operations">Complex financial operations</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#annuities">Annuities</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#ordinary-immediate-annuity">Ordinary immediate annuity</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#perpetuity">Perpetuity</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#annuity-due">Annuity due</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#deferred-annuities">Deferred annuities</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#finding-the-number-of-payments">Finding the number of payments</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#key-takeaways">Key takeaways</a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+</ul>
+
+          
+          
+        </div>
+      </aside>
+
+    
+  </main>
+
+  
+  <footer class="statusbar" aria-hidden="true">
+    <span class="sb-mode">READ</span>
+    <span class="sb-path">en/notes/University notes/financial-mathematics/04-annuities.md</span>
+    <span class="sb-spacer"></span>
+    <span class="sb-item">en</span>
+    <span class="sb-item">utf-8</span>
+    <span class="sb-item">markdown</span>
+    <span class="sb-pos" data-scroll-pos>top</span>
+  </footer>
+  
+
+  <div class="search" data-search hidden role="dialog" aria-modal="true" aria-label="Search">
+    <div class="search-panel">
+      <div class="search-bar"><span class="search-prompt" aria-hidden="true">❯</span>
+      <input class="search-input" type="search" placeholder="Search" autocomplete="off" spellcheck="false" aria-controls="search-results"></div>
+      <ul class="search-results" id="search-results" role="listbox"></ul>
+      <div class="search-hint" aria-hidden="true"><span><kbd>↑↓</kbd> move</span><span><kbd>↵</kbd> open</span><span><kbd>tab</kbd> complete</span><span><kbd>esc</kbd> close</span></div>
+    </div>
+  </div>
+
+  <script>
+    window.GOMARK = {
+      lang: "en",
+      root: "..\/..\/..\/..\/",
+      theme: "light",
+      section: "notes",
+      i18n: { noResults: "No results", searchFilters: "Filters", searchTab: "complete",
+        qSection: "in one section of the site", qHeading: "under the headings that match", qTitle: "in the title", qCode: "in the code blocks, of one language",
+        qIn: "where the words look", qHas: "pages with code, math, table, image, link, quote, task, widget", qPath: "in the file path", qPhrase: "these words, in this order",
+        qNot: "without it", qOr: "either one", qRegex: "a regular expression", copy: "copy", copied: "copied", words: "words", minRead: "min read",
+        data: "data", search: "search", noData: "no data", other: "other",
+        total: "total", show: "show", hide: "hide", reset: "reset", all: "all" }
+    };
+  </script>
+  <script src="../../../../static/widgets.js"></script>
+  <script src="../../../../static/widgets/notes/University%20notes/financial-mathematics/annuity.js"></script>
+  <script src="../../../../static/widgets/quiz.js"></script>
+  <script src="../../../../static/engine.js"></script>
+  <script src="../../../../static/ui.js"></script>
+  <script src="../../../../static/search.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

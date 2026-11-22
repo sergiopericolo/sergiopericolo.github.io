@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Digital identity and computational knowledge base: résumé, projects and notes.">
+  <meta name="author" content="Sergio Di Lapi">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains&#43;Mono:wght@400;500;600;700;800&amp;family=IBM&#43;Plex&#43;Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <title>Capital Accumulation and Loan Amortization · Notes</title>
+  <link rel="stylesheet" href="../../../../static/layout.css">
+  <link rel="stylesheet" href="../../../../static/theme.css">
+  <link rel="stylesheet" href="../../../../static/wimark.css">
+  <link rel="stylesheet" href="../../../../static/themes/light.css">
+  <style>:root { --mono:"JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;--sans:"IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;--font-body:var(--sans);--font-heading:var(--mono);--font-size:14px;--content-width:780px;--sidebar-width:256px;--folders-width:224px;--toc-width:232px;--radius:4px;--radius-sm:3px;--radius-lg:10px; }</style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+</head>
+<body data-depth="multi" data-index="right" data-theme="light" data-theme-class="monochrome" data-heading="mono" data-statusbar="on">
+
+  <header class="topbar">
+    <a class="brand" href="../../../../index.html">sergiopericolo</a>
+    <nav class="sections" aria-label="Sections">
+      
+      <a class="section-link" href="../../../../about/index.html">
+        <span class="section-idx">01</span>
+        <span class="section-title">About</span>
+      </a>
+      
+      <a class="section-link" href="../../../../projects/index.html">
+        <span class="section-idx">02</span>
+        <span class="section-title">Projects</span>
+      </a>
+      
+      <a class="section-link active" href="../../../../notes/index.html">
+        <span class="section-idx">03</span>
+        <span class="section-title">Notes</span>
+      </a>
+      
+      <a class="section-link" href="../../../../visual/index.html">
+        <span class="section-idx">04</span>
+        <span class="section-title">Visual</span>
+      </a>
+      
+      <a class="section-link" href="../../../../art/index.html">
+        <span class="section-idx">05</span>
+        <span class="section-title">Art</span>
+      </a>
+      
+    </nav>
+    <div class="topbar-end">
+      <button class="search-open" type="button" data-search-open aria-haspopup="dialog"><span>Search</span><kbd>⌘K</kbd></button>
+      
+      <span class="build-info"><a class="build-name" href="https://github.com/sergiopericolo/GoMark">GoMark</a> v1.2.0</span>
+    </div>
+  </header>
+
+  <main class="grid" style="--grid: minmax(0, 15fr) minmax(0, 15fr) minmax(0, 55fr) minmax(0, 15fr); --grid-medium: minmax(0, 15fr) minmax(0, 15fr) minmax(0, 70fr)">
+
+    
+
+      
+      <aside class="col-folders" aria-label="Folders">
+        <div class="col-head">Folders</div>
+        <div class="col-scroll">
+          <a class="tree-root" href="../../../index.html">~/notes/</a>
+          
+
+<ul class="tree">
+  
+  
+  <li class="tree-node has-children open" data-path="University notes">
+    <div class="tree-row">
+      
+      <button class="tree-toggle" type="button" aria-expanded="true" aria-label="University notes"><span class="chev" aria-hidden="true"></span></button>
+      
+      <a class="tree-folder" href="../../../University%20notes/index.html">
+        <span class="tree-name">University notes/</span>
+        
+      </a>
+    </div>
+    
+      
+
+<ul class="tree">
+  
+  
+  <li class="tree-node" data-path="University notes/computational-method">
+    <div class="tree-row">
+      
+      <span class="tree-leaf" aria-hidden="true"></span>
+      
+      <a class="tree-folder" href="../../../University%20notes/computational-method/index.html">
+        <span class="tree-name">computational-method/</span>
+        <span class="tree-count">5</span>
+      </a>
+    </div>
+    
+  </li>
+  
+  
+  <li class="tree-node" data-path="University notes/financial-economics">
+    <div class="tree-row">
+      
+      <span class="tree-leaf" aria-hidden="true"></span>
+      
+      <a class="tree-folder" href="../../../University%20notes/financial-economics/index.html">
+        <span class="tree-name">financial-economics/</span>
+        <span class="tree-count">9</span>
+      </a>
+    </div>
+    
+  </li>
+  
+  
+  <li class="tree-node open" data-path="University notes/financial-mathematics">
+    <div class="tree-row">
+      
+      <span class="tree-leaf" aria-hidden="true"></span>
+      
+      <a class="tree-folder active" href="../../../University%20notes/financial-mathematics/index.html">
+        <span class="tree-name">financial-mathematics/</span>
+        <span class="tree-count">11</span>
+      </a>
+    </div>
+    
+  </li>
+  
+</ul>
+
+    
+  </li>
+  
+</ul>
+
+        </div>
+      </aside>
+      
+
+      <aside class="col-files" aria-label="Files">
+        <div class="col-head">
+          <span>Files <span class="badge">11</span></span>
+          <span class="col-head-path">notes/University notes/financial-mathematics/</span>
+        </div>
+        <div class="col-scroll">
+          <ul class="file-list">
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-mathematics/01-interest-and-discount/index.html">
+                <span class="file-name">Interest, Discount and Financial Laws</span>
+                <span class="file-path">01-interest-and-discount.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-mathematics/02-simple-and-compound-interest/index.html">
+                <span class="file-name">Simple and Compound Interest</span>
+                <span class="file-path">02-simple-and-compound-interest.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-mathematics/03-commercial-discount/index.html">
+                <span class="file-name">Commercial Discount and Average Rates</span>
+                <span class="file-path">03-commercial-discount.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-mathematics/04-annuities/index.html">
+                <span class="file-name">Complex Operations and Annuities</span>
+                <span class="file-path">04-annuities.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link active" href="../../../University%20notes/financial-mathematics/05-accumulation-and-amortization/index.html">
+                <span class="file-name">Capital Accumulation and Loan Amortization</span>
+                <span class="file-path">05-accumulation-and-amortization.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-mathematics/06-choosing-investments/index.html">
+                <span class="file-name">Choosing Between Financial Operations</span>
+                <span class="file-path">06-choosing-investments.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-mathematics/07-bonds/index.html">
+                <span class="file-name">Bonds</span>
+                <span class="file-path">07-bonds.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-mathematics/08-term-structure/index.html">
+                <span class="file-name">The Term Structure of Interest Rates</span>
+                <span class="file-path">08-term-structure.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-mathematics/09-duration/index.html">
+                <span class="file-name">Time Indices and Duration</span>
+                <span class="file-path">09-duration.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-mathematics/10-survival-models/index.html">
+                <span class="file-name">Risk, Life Tables and Survival Models</span>
+                <span class="file-path">10-survival-models.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-mathematics/11-life-insurance/index.html">
+                <span class="file-name">Life Insurance Premiums and Reserves</span>
+                <span class="file-path">11-life-insurance.md</span>
+              </a>
+            </li>
+            
+          </ul>
+        </div>
+      </aside>
+
+      <section class="col-content" aria-label="sergiopericolo">
+        <div class="content-scroll" id="content">
+          <div class="content-inner">
+          
+            
+<div class="page-head">
+  <div class="page-crumb"><span class="crumb-home">~</span>/notes/University notes/financial-mathematics/05-accumulation-and-amortization.md</div>
+  <h1 class="page-title">Capital Accumulation and Loan Amortization</h1>
+  <div class="page-meta" data-page-meta><span class="meta-tag">en</span></div>
+</div>
+
+<article class="page-body"><h1 id="capital-accumulation-and-loan-amortization">Capital Accumulation and Loan Amortization</h1>
+<p>Lectures 7–9 of <em>Financial Mathematics</em> (University of Brescia). Two mirror problems: <strong>building</strong> a sum by saving, and <strong>repaying</strong> a sum that was borrowed. Compound interest throughout.</p>
+<p>Roadmap:</p>
+<ol>
+<li><strong>Accumulation plans</strong> — the payment that builds a target sum, the accumulation fund.</li>
+<li><strong>Amortization</strong> — instalment = principal + interest; outstanding balance.</li>
+<li><strong>Closing conditions</strong> — three equivalent ways to check a plan.</li>
+<li><strong>French, Italian and American plans</strong>.</li>
+<li><strong>Early repayment</strong> — when it pays to close a loan.</li>
+</ol>
+<h2 id="accumulation-plans">Accumulation plans</h2>
+<p>Goal: hold a sum <span class="math math-inline">\(M\)</span> at a future date <span class="math math-inline">\(T\)</span>.</p>
+<ul>
+<li><strong>One deposit now</strong>: discount the target, <span class="math math-inline">\(C = M(1+i)^{-T}\)</span>.</li>
+<li><strong>Constant ordinary deposits</strong> for <span class="math math-inline">\(n = T\)</span> periods: from <span class="math math-inline">\(M = R \cdot s_{\overline{n}|i}\)</span>,</li>
+</ul>
+<p><span class="math math-display">\[R = \frac{M}{s_{\overline{n}|i}}\]</span></p>
+<h3 id="accumulation-fund">Accumulation fund</h3>
+<p>The <strong>fund</strong> <span class="math math-inline">\(F_t\)</span> is the capital built up to time <span class="math math-inline">\(t\)</span>. Two equivalent ways to compute it:</p>
+<ol>
+<li><strong>Retrospective</strong>: accumulate the deposits made up to <span class="math math-inline">\(t\)</span>. With one initial deposit, <span class="math math-inline">\(F_t = C f(t)\)</span>.</li>
+<li><strong>Prospective</strong>: discount the target <span class="math math-inline">\(M\)</span> from <span class="math math-inline">\(T\)</span> back to <span class="math math-inline">\(t\)</span>:</li>
+</ol>
+<p><span class="math math-display">\[F_t = M(1+i)^{-(T-t)}\]</span></p>
+<h2 id="loan-amortization">Loan amortization</h2>
+<p>A borrower receives <span class="math math-inline">\(S\)</span> at <span class="math math-inline">\(t_0 = 0\)</span> and repays it with payments <span class="math math-inline">\(R_1, \dots, R_n\)</span> at <span class="math math-inline">\(t_1, \dots, t_n\)</span>. Three repayment types:</p>
+<ol>
+<li><strong>Elementary loan</strong>: principal and interest in one payment at maturity.</li>
+<li><strong>Interest-only</strong>: periodic interest, full principal at maturity.</li>
+<li><strong>Gradual amortization</strong>: principal and interest spread over the dates.</li>
+</ol>
+<h3 id="the-quantities-of-a-gradual-plan">The quantities of a gradual plan</h3>
+<p>Each instalment splits into a principal part and an interest part:</p>
+<p><span class="math math-display">\[R_k = C_k + I_k\]</span></p>
+<ul>
+<li><span class="math math-inline">\(C_k\)</span>: <strong>principal repaid</strong> (<em>quota capitale</em>).</li>
+<li><span class="math math-inline">\(I_k\)</span>: <strong>interest paid</strong> (<em>quota interessi</em>).</li>
+<li><span class="math math-inline">\(E_k\)</span>: <strong>extinguished debt</strong>, the principal repaid so far.</li>
+<li><span class="math math-inline">\(D_k\)</span>: <strong>outstanding balance</strong> (<em>debito residuo</em>), the principal still owed.</li>
+</ul>
+<p>All measured just after the payment at <span class="math math-inline">\(t_k\)</span>:</p>
+<p><span class="math math-display">\[E_k = S - D_k, \qquad \sum_{k=1}^{n} C_k = S\]</span></p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th><span class="math math-inline">\(E_k\)</span></th>
+<th><span class="math math-inline">\(D_k\)</span></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Start</td>
+<td><span class="math math-inline">\(0\)</span></td>
+<td><span class="math math-inline">\(S\)</span></td>
+</tr>
+<tr>
+<td>Date <span class="math math-inline">\(t_k\)</span></td>
+<td><span class="math math-inline">\(\sum_{j \le k} C_j\)</span></td>
+<td><span class="math math-inline">\(\sum_{j &gt; k} C_j\)</span></td>
+</tr>
+<tr>
+<td>End</td>
+<td><span class="math math-inline">\(S\)</span></td>
+<td><span class="math math-inline">\(0\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>The balance falls by the principal repaid; interest accrues on the previous balance:</p>
+<p><span class="math math-display">\[D_k = D_{k-1} - C_k, \qquad I_k = D_{k-1} \left[ (1+i)^{t_k - t_{k-1}} - 1 \right]\]</span></p>
+<p>With unit periods, <span class="math math-inline">\(I_k = i D_{k-1}\)</span>. Substituting <span class="math math-inline">\(C_k = R_k - I_k\)</span>:</p>
+<p><span class="math math-display">\[D_k = D_{k-1}(1+i)^{t_k - t_{k-1}} - R_k\]</span></p>
+<p>The new balance is the old one <strong>accumulated for one period, minus the instalment</strong>.</p>
+<h2 id="closing-conditions">Closing conditions</h2>
+<p>Discount the recursion and sum over all periods. A plan is correct if any one of these equivalent conditions holds:</p>
+<ol>
+<li><strong>Initial</strong>: the present value of the instalments equals the loan.</li>
+</ol>
+<p><span class="math math-display">\[S = \sum_{k=1}^{m} R_k (1+i)^{-(t_k - t_0)}\]</span></p>
+<ol start="2">
+<li><strong>Final</strong>: the accumulated instalments equal the accumulated loan.</li>
+</ol>
+<p><span class="math math-display">\[S(1+i)^{t_m - t_0} = \sum_{k=1}^{m} R_k (1+i)^{t_m - t_k}\]</span></p>
+<ol start="3">
+<li><strong>Intermediate</strong>: the balance at <span class="math math-inline">\(t_k\)</span> equals the present value of the instalments still due.</li>
+</ol>
+<p><span class="math math-display">\[D_k = \sum_{j=k+1}^{m} R_j (1+i)^{-(t_j - t_k)}\]</span></p>
+<h2 id="french-amortization-constant-instalments">French amortization (constant instalments)</h2>
+<p><span class="math math-inline">\(R_k = R\)</span> for every <span class="math math-inline">\(k\)</span>. The initial closing condition gives</p>
+<p><span class="math math-display">\[R = \frac{S}{a_{\overline{m}|i}}, \qquad D_k = R \cdot a_{\overline{m-k}|i}\]</span></p>
+<p><span class="math math-display">\[I_k = i D_{k-1} = R[1 - (1+i)^{-(m-k+1)}], \qquad C_k = R(1+i)^{-(m-k+1)}\]</span></p>
+<p>Principal parts <strong>grow geometrically</strong>, interest parts shrink:</p>
+<p><span class="math math-display">\[C_k = C_{k-1}(1+i) = C_1(1+i)^{k-1}\]</span></p>
+<h2 id="italian-amortization-constant-principal">Italian amortization (constant principal)</h2>
+<p><span class="math math-inline">\(C_k = C\)</span> for every <span class="math math-inline">\(k\)</span>:</p>
+<p><span class="math math-display">\[C = \frac{S}{m}, \qquad D_k = S \frac{m-k}{m}, \qquad I_k = i S \frac{m-k+1}{m}\]</span></p>
+<p>The balance, the interest and so the instalment <span class="math math-inline">\(R_k = C + I_k\)</span> all <strong>fall linearly</strong>.</p>
+<h2 id="american-amortization-two-rates">American amortization (two rates)</h2>
+<p>Two different rates:</p>
+<ul>
+<li><span class="math math-inline">\(i\)</span>: <strong>loan rate</strong>, paid on the debt.</li>
+<li><span class="math math-inline">\(j\)</span>: <strong>accumulation rate</strong>, earned on a savings fund.</li>
+</ul>
+<p>Two parallel operations:</p>
+<ul>
+<li><strong>Interest</strong>: each period the borrower pays interest on the whole loan, <span class="math math-inline">\(I_k = S i\)</span>. The debt to the lender stays <span class="math math-inline">\(S\)</span> until maturity.</li>
+<li><strong>Fund</strong>: each period the borrower deposits <span class="math math-inline">\(A\)</span> in a fund at rate <span class="math math-inline">\(j\)</span>, so that the fund equals <span class="math math-inline">\(S\)</span> at <span class="math math-inline">\(m\)</span>:</li>
+</ul>
+<p><span class="math math-display">\[A = \frac{S}{s_{\overline{m}|j}}, \qquad F_k = A \cdot s_{\overline{k}|j}, \qquad D_k = S - F_k\]</span></p>
+<p>Here <span class="math math-inline">\(D_k\)</span> is the loan <strong>net of the fund</strong>. The total outlay per period is</p>
+<p><span class="math math-display">\[R = S i + \frac{S}{s_{\overline{m}|j}}\]</span></p>
+<p>If <span class="math math-inline">\(i = j\)</span>, this equals the French instalment <span class="math math-inline">\(S / a_{\overline{m}|i}\)</span>. If <span class="math math-inline">\(j &lt; i\)</span> the American plan costs more.</p>
+<p>Compare the three plans: bars split each instalment into principal and interest.</p>
+<pre class="wimark-src"><code class="nohighlight" data-wimark="amort" data-opts="{&#34;S&#34;: 10000, &#34;m&#34;: 8, &#34;i&#34;: 0.06, &#34;j&#34;: 0.04, &#34;plan&#34;: &#34;french&#34;}"></code></pre>
+<h2 id="early-repayment">Early repayment</h2>
+<p>The borrower may close the loan at a date <span class="math math-inline">\(t\)</span> between <span class="math math-inline">\(t_k\)</span> and <span class="math math-inline">\(t_{k+1}\)</span>. The <strong>payoff value</strong> <span class="math math-inline">\(V_j(t)\)</span> is the present value of the remaining instalments at a valuation rate <span class="math math-inline">\(j\)</span>, which may differ from the loan rate <span class="math math-inline">\(i\)</span>:</p>
+<p><span class="math math-display">\[V_j(t) = \sum_{s=k+1}^{m} R_s (1+j)^{-(t_s - t)}\]</span></p>
+<p>If <span class="math math-inline">\(j = i\)</span>, the payoff value equals the outstanding balance. Splitting each instalment:</p>
+<p><span class="math math-display">\[V_j(t) = \underbrace{\sum_{s=k+1}^{m} I_s (1+j)^{-(t_s - t)}}_{\text{usufruct}} + \underbrace{\sum_{s=k+1}^{m} C_s (1+j)^{-(t_s - t)}}_{\text{bare ownership}}\]</span></p>
+<p>The <strong>usufruct</strong> is the value of the future interest; the <strong>bare ownership</strong> is the value of the future principal.</p>
+<p>Compare <span class="math math-inline">\(V_j(t)\)</span> with the balance <span class="math math-inline">\(D_t\)</span> at rate <span class="math math-inline">\(i\)</span>:</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Payoff vs. balance</th>
+<th>Close early?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="math math-inline">\(j &lt; i\)</span></td>
+<td><span class="math math-inline">\(V_j(t) &gt; D_t\)</span></td>
+<td>no</td>
+</tr>
+<tr>
+<td><span class="math math-inline">\(j &gt; i\)</span></td>
+<td><span class="math math-inline">\(V_j(t) &lt; D_t\)</span></td>
+<td>yes</td>
+</tr>
+<tr>
+<td><span class="math math-inline">\(j = i\)</span></td>
+<td><span class="math math-inline">\(V_j(t) = D_t\)</span></td>
+<td>indifferent</td>
+</tr>
+</tbody>
+</table>
+<h2 id="key-takeaways">Key takeaways</h2>
+<ul>
+<li>Accumulation: <span class="math math-inline">\(R = M / s_{\overline{n}|i}\)</span>; fund retrospective or prospective <span class="math math-inline">\(F_t = M(1+i)^{-(T-t)}\)</span>.</li>
+<li><span class="math math-inline">\(R_k = C_k + I_k\)</span>, <span class="math math-inline">\(D_k = D_{k-1} - C_k\)</span>, <span class="math math-inline">\(I_k = i D_{k-1}\)</span>, <span class="math math-inline">\(\sum C_k = S\)</span>.</li>
+<li>Closing: PV of instalments <span class="math math-inline">\(= S\)</span>; equivalently final or intermediate conditions.</li>
+<li>French: <span class="math math-inline">\(R = S/a_{\overline{m}|i}\)</span>, <span class="math math-inline">\(C_k\)</span> grows by <span class="math math-inline">\((1+i)\)</span>. Italian: <span class="math math-inline">\(C = S/m\)</span>, all falls linearly.</li>
+<li>American: <span class="math math-inline">\(R = Si + S/s_{\overline{m}|j}\)</span>; equals French when <span class="math math-inline">\(i = j\)</span>.</li>
+<li>Early repayment pays off when the valuation rate <span class="math math-inline">\(j\)</span> exceeds the loan rate <span class="math math-inline">\(i\)</span>.</li>
+</ul>
+<pre class="wimark-src"><code class="nohighlight" data-wimark="quiz" data-opts="{&#34;title&#34;: &#34;Check yourself&#34;}">[
+  {&#34;q&#34;: &#34;In a French plan, the principal parts&#34;, &#34;options&#34;: [&#34;are constant&#34;, &#34;grow by a factor $(1+i)$ each period&#34;, &#34;fall linearly&#34;], &#34;answer&#34;: 1},
+  {&#34;q&#34;: &#34;Italian plan: $S = 12000$, $m = 4$, $i = 5\\%$. The first instalment is&#34;, &#34;options&#34;: [&#34;3000&#34;, &#34;3600&#34;, &#34;3150&#34;], &#34;answer&#34;: 1, &#34;why&#34;: &#34;$C = 3000$, $I_1 = 0.05 \\cdot 12000 = 600$.&#34;},
+  {&#34;q&#34;: &#34;The intermediate closing condition says that $D_k$ is&#34;, &#34;options&#34;: [&#34;the sum of the principal parts already paid&#34;, &#34;the present value of the instalments still due&#34;, &#34;$S$ minus the interest paid&#34;], &#34;answer&#34;: 1},
+  {&#34;q&#34;: &#34;American plan with $i = j$. The total periodic outlay equals&#34;, &#34;options&#34;: [&#34;the French instalment&#34;, &#34;$S i$&#34;, &#34;$S / m + S i$&#34;], &#34;answer&#34;: 0},
+  {&#34;q&#34;: &#34;The loan rate is 6%; today the market rate $j$ is 3%. Should the borrower repay early?&#34;, &#34;options&#34;: [&#34;Yes&#34;, &#34;No: $V_j &gt; D$&#34;, &#34;It is indifferent&#34;], &#34;answer&#34;: 1}
+]
+</code></pre>
+</article>
+
+          
+          </div>
+        </div>
+      </section>
+
+      <aside class="col-toc" aria-label="On this page">
+        <div class="col-head">On this page</div>
+        <div class="col-scroll">
+          
+            
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l1">
+    <a href="#capital-accumulation-and-loan-amortization">Capital Accumulation and Loan Amortization</a>
+    
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l2">
+    <a href="#accumulation-plans">Accumulation plans</a>
+    
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l3">
+    <a href="#accumulation-fund">Accumulation fund</a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#loan-amortization">Loan amortization</a>
+    
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l3">
+    <a href="#the-quantities-of-a-gradual-plan">The quantities of a gradual plan</a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#closing-conditions">Closing conditions</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#french-amortization-constant-instalments">French amortization (constant instalments)</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#italian-amortization-constant-principal">Italian amortization (constant principal)</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#american-amortization-two-rates">American amortization (two rates)</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#early-repayment">Early repayment</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#key-takeaways">Key takeaways</a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+</ul>
+
+          
+          
+        </div>
+      </aside>
+
+    
+  </main>
+
+  
+  <footer class="statusbar" aria-hidden="true">
+    <span class="sb-mode">READ</span>
+    <span class="sb-path">en/notes/University notes/financial-mathematics/05-accumulation-and-amortization.md</span>
+    <span class="sb-spacer"></span>
+    <span class="sb-item">en</span>
+    <span class="sb-item">utf-8</span>
+    <span class="sb-item">markdown</span>
+    <span class="sb-pos" data-scroll-pos>top</span>
+  </footer>
+  
+
+  <div class="search" data-search hidden role="dialog" aria-modal="true" aria-label="Search">
+    <div class="search-panel">
+      <div class="search-bar"><span class="search-prompt" aria-hidden="true">❯</span>
+      <input class="search-input" type="search" placeholder="Search" autocomplete="off" spellcheck="false" aria-controls="search-results"></div>
+      <ul class="search-results" id="search-results" role="listbox"></ul>
+      <div class="search-hint" aria-hidden="true"><span><kbd>↑↓</kbd> move</span><span><kbd>↵</kbd> open</span><span><kbd>tab</kbd> complete</span><span><kbd>esc</kbd> close</span></div>
+    </div>
+  </div>
+
+  <script>
+    window.GOMARK = {
+      lang: "en",
+      root: "..\/..\/..\/..\/",
+      theme: "light",
+      section: "notes",
+      i18n: { noResults: "No results", searchFilters: "Filters", searchTab: "complete",
+        qSection: "in one section of the site", qHeading: "under the headings that match", qTitle: "in the title", qCode: "in the code blocks, of one language",
+        qIn: "where the words look", qHas: "pages with code, math, table, image, link, quote, task, widget", qPath: "in the file path", qPhrase: "these words, in this order",
+        qNot: "without it", qOr: "either one", qRegex: "a regular expression", copy: "copy", copied: "copied", words: "words", minRead: "min read",
+        data: "data", search: "search", noData: "no data", other: "other",
+        total: "total", show: "show", hide: "hide", reset: "reset", all: "all" }
+    };
+  </script>
+  <script src="../../../../static/widgets.js"></script>
+  <script src="../../../../static/widgets/notes/University%20notes/financial-mathematics/amort.js"></script>
+  <script src="../../../../static/widgets/quiz.js"></script>
+  <script src="../../../../static/engine.js"></script>
+  <script src="../../../../static/ui.js"></script>
+  <script src="../../../../static/search.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+

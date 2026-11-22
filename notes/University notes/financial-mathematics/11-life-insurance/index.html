@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Digital identity and computational knowledge base: résumé, projects and notes.">
+  <meta name="author" content="Sergio Di Lapi">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains&#43;Mono:wght@400;500;600;700;800&amp;family=IBM&#43;Plex&#43;Sans:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+  <title>Life Insurance Premiums and Reserves · Notes</title>
+  <link rel="stylesheet" href="../../../../static/layout.css">
+  <link rel="stylesheet" href="../../../../static/theme.css">
+  <link rel="stylesheet" href="../../../../static/wimark.css">
+  <link rel="stylesheet" href="../../../../static/themes/light.css">
+  <style>:root { --mono:"JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;--sans:"IBM Plex Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;--font-body:var(--sans);--font-heading:var(--mono);--font-size:14px;--content-width:780px;--sidebar-width:256px;--folders-width:224px;--toc-width:232px;--radius:4px;--radius-sm:3px;--radius-lg:10px; }</style>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <script>hljs.highlightAll();</script>
+</head>
+<body data-depth="multi" data-index="right" data-theme="light" data-theme-class="monochrome" data-heading="mono" data-statusbar="on">
+
+  <header class="topbar">
+    <a class="brand" href="../../../../index.html">sergiopericolo</a>
+    <nav class="sections" aria-label="Sections">
+      
+      <a class="section-link" href="../../../../about/index.html">
+        <span class="section-idx">01</span>
+        <span class="section-title">About</span>
+      </a>
+      
+      <a class="section-link" href="../../../../projects/index.html">
+        <span class="section-idx">02</span>
+        <span class="section-title">Projects</span>
+      </a>
+      
+      <a class="section-link active" href="../../../../notes/index.html">
+        <span class="section-idx">03</span>
+        <span class="section-title">Notes</span>
+      </a>
+      
+      <a class="section-link" href="../../../../visual/index.html">
+        <span class="section-idx">04</span>
+        <span class="section-title">Visual</span>
+      </a>
+      
+      <a class="section-link" href="../../../../art/index.html">
+        <span class="section-idx">05</span>
+        <span class="section-title">Art</span>
+      </a>
+      
+    </nav>
+    <div class="topbar-end">
+      <button class="search-open" type="button" data-search-open aria-haspopup="dialog"><span>Search</span><kbd>⌘K</kbd></button>
+      
+      <span class="build-info"><a class="build-name" href="https://github.com/sergiopericolo/GoMark">GoMark</a> v1.2.0</span>
+    </div>
+  </header>
+
+  <main class="grid" style="--grid: minmax(0, 15fr) minmax(0, 15fr) minmax(0, 55fr) minmax(0, 15fr); --grid-medium: minmax(0, 15fr) minmax(0, 15fr) minmax(0, 70fr)">
+
+    
+
+      
+      <aside class="col-folders" aria-label="Folders">
+        <div class="col-head">Folders</div>
+        <div class="col-scroll">
+          <a class="tree-root" href="../../../index.html">~/notes/</a>
+          
+
+<ul class="tree">
+  
+  
+  <li class="tree-node has-children open" data-path="University notes">
+    <div class="tree-row">
+      
+      <button class="tree-toggle" type="button" aria-expanded="true" aria-label="University notes"><span class="chev" aria-hidden="true"></span></button>
+      
+      <a class="tree-folder" href="../../../University%20notes/index.html">
+        <span class="tree-name">University notes/</span>
+        
+      </a>
+    </div>
+    
+      
+
+<ul class="tree">
+  
+  
+  <li class="tree-node" data-path="University notes/computational-method">
+    <div class="tree-row">
+      
+      <span class="tree-leaf" aria-hidden="true"></span>
+      
+      <a class="tree-folder" href="../../../University%20notes/computational-method/index.html">
+        <span class="tree-name">computational-method/</span>
+        <span class="tree-count">5</span>
+      </a>
+    </div>
+    
+  </li>
+  
+  
+  <li class="tree-node" data-path="University notes/financial-economics">
+    <div class="tree-row">
+      
+      <span class="tree-leaf" aria-hidden="true"></span>
+      
+      <a class="tree-folder" href="../../../University%20notes/financial-economics/index.html">
+        <span class="tree-name">financial-economics/</span>
+        <span class="tree-count">9</span>
+      </a>
+    </div>
+    
+  </li>
+  
+  
+  <li class="tree-node open" data-path="University notes/financial-mathematics">
+    <div class="tree-row">
+      
+      <span class="tree-leaf" aria-hidden="true"></span>
+      
+      <a class="tree-folder active" href="../../../University%20notes/financial-mathematics/index.html">
+        <span class="tree-name">financial-mathematics/</span>
+        <span class="tree-count">11</span>
+      </a>
+    </div>
+    
+  </li>
+  
+</ul>
+
+    
+  </li>
+  
+</ul>
+
+        </div>
+      </aside>
+      
+
+      <aside class="col-files" aria-label="Files">
+        <div class="col-head">
+          <span>Files <span class="badge">11</span></span>
+          <span class="col-head-path">notes/University notes/financial-mathematics/</span>
+        </div>
+        <div class="col-scroll">
+          <ul class="file-list">
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-mathematics/01-interest-and-discount/index.html">
+                <span class="file-name">Interest, Discount and Financial Laws</span>
+                <span class="file-path">01-interest-and-discount.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-mathematics/02-simple-and-compound-interest/index.html">
+                <span class="file-name">Simple and Compound Interest</span>
+                <span class="file-path">02-simple-and-compound-interest.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-mathematics/03-commercial-discount/index.html">
+                <span class="file-name">Commercial Discount and Average Rates</span>
+                <span class="file-path">03-commercial-discount.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-mathematics/04-annuities/index.html">
+                <span class="file-name">Complex Operations and Annuities</span>
+                <span class="file-path">04-annuities.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-mathematics/05-accumulation-and-amortization/index.html">
+                <span class="file-name">Capital Accumulation and Loan Amortization</span>
+                <span class="file-path">05-accumulation-and-amortization.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-mathematics/06-choosing-investments/index.html">
+                <span class="file-name">Choosing Between Financial Operations</span>
+                <span class="file-path">06-choosing-investments.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-mathematics/07-bonds/index.html">
+                <span class="file-name">Bonds</span>
+                <span class="file-path">07-bonds.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-mathematics/08-term-structure/index.html">
+                <span class="file-name">The Term Structure of Interest Rates</span>
+                <span class="file-path">08-term-structure.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-mathematics/09-duration/index.html">
+                <span class="file-name">Time Indices and Duration</span>
+                <span class="file-path">09-duration.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link" href="../../../University%20notes/financial-mathematics/10-survival-models/index.html">
+                <span class="file-name">Risk, Life Tables and Survival Models</span>
+                <span class="file-path">10-survival-models.md</span>
+              </a>
+            </li>
+            
+            <li>
+              <a class="file-link active" href="../../../University%20notes/financial-mathematics/11-life-insurance/index.html">
+                <span class="file-name">Life Insurance Premiums and Reserves</span>
+                <span class="file-path">11-life-insurance.md</span>
+              </a>
+            </li>
+            
+          </ul>
+        </div>
+      </aside>
+
+      <section class="col-content" aria-label="sergiopericolo">
+        <div class="content-scroll" id="content">
+          <div class="content-inner">
+          
+            
+<div class="page-head">
+  <div class="page-crumb"><span class="crumb-home">~</span>/notes/University notes/financial-mathematics/11-life-insurance.md</div>
+  <h1 class="page-title">Life Insurance Premiums and Reserves</h1>
+  <div class="page-meta" data-page-meta><span class="meta-tag">en</span></div>
+</div>
+
+<article class="page-body"><h1 id="life-insurance-premiums-and-reserves">Life Insurance Premiums and Reserves</h1>
+<p>Lectures 14–16 of <em>Financial Mathematics</em> (University of Brescia). Discounting meets survival. A premium is fair when its value equals the <strong>expected present value</strong> of what the insurer pays. Commutation symbols turn every contract into a ratio of table entries.</p>
+<p>Roadmap:</p>
+<ol>
+<li><strong>Equivalence principle</strong> — net premium, single and periodic.</li>
+<li><strong>Pure endowment</strong> — <span class="math math-inline">\({}_m E_x\)</span>, and the symbol <span class="math math-inline">\(D_x\)</span>.</li>
+<li><strong>Life annuities</strong> — <span class="math math-inline">\(a_x\)</span>, <span class="math math-inline">\(\ddot a_x\)</span>, deferred and temporary; the symbol <span class="math math-inline">\(N_x\)</span>.</li>
+<li><strong>Death benefits</strong> — one-year, whole life, deferred, term; the symbols <span class="math math-inline">\(C_x\)</span>, <span class="math math-inline">\(M_x\)</span>.</li>
+<li><strong>Endowment insurance</strong> — survival + death cover.</li>
+<li><strong>Periodic premiums and the mathematical reserve</strong>.</li>
+</ol>
+<h2 id="equivalence-principle-and-net-premium">Equivalence principle and net premium</h2>
+<p>A contract is <strong>fair</strong> when the expected present value of the premiums paid by the insured equals the expected present value of the benefits paid by the insurer.</p>
+<ul>
+<li><strong>Net premium</strong> (<em>premio puro</em>): the premium from this principle, with no loadings for costs or profit.</li>
+<li><strong>Net single premium</strong> (<em>premio unico puro</em>): paid once, at signing.</li>
+<li><strong>Periodic premium</strong>: paid in several instalments.</li>
+<li><strong>Gross premium</strong> (<em>premio di tariffa</em>): net premium + loadings.</li>
+</ul>
+<h2 id="pure-endowment">Pure endowment</h2>
+<p>A person aged <span class="math math-inline">\(x\)</span> pays a single premium <span class="math math-inline">\(P\)</span> now. The insurer pays <span class="math math-inline">\(C\)</span> at age <span class="math math-inline">\(x + m\)</span> <strong>if the person is alive</strong>; nothing otherwise.</p>
+<p>Let <span class="math math-inline">\(X\)</span> be the present value of the benefit:</p>
+<table>
+<thead>
+<tr>
+<th>Scenario</th>
+<th><span class="math math-inline">\(X\)</span></th>
+<th>Probability</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>alive at <span class="math math-inline">\(x+m\)</span></td>
+<td><span class="math math-inline">\(C v^m\)</span></td>
+<td><span class="math math-inline">\({}_m p_x\)</span></td>
+</tr>
+<tr>
+<td>dead before <span class="math math-inline">\(x+m\)</span></td>
+<td><span class="math math-inline">\(0\)</span></td>
+<td><span class="math math-inline">\({}_{/m} q_x\)</span></td>
+</tr>
+</tbody>
+</table>
+<p>By equivalence, <span class="math math-inline">\(P = E(X)\)</span>:</p>
+<p><span class="math math-display">\[P = C v^m {}_m p_x\]</span></p>
+<p>For <span class="math math-inline">\(C = 1\)</span> this is the <strong>pure endowment factor</strong>:</p>
+<p><span class="math math-display">\[{}_m E_x = v^m {}_m p_x = (1+i)^{-m} {}_m p_x\]</span></p>
+<p>It is a financial discount (<span class="math math-inline">\(v^m\)</span>) times a <strong>demographic discount</strong> (<span class="math math-inline">\({}_m p_x\)</span>). So <span class="math math-inline">\({}_m E_x \le v^m\)</span>: survival risk makes the payment cheaper.</p>
+<h2 id="commutation-symbols">Commutation symbols</h2>
+<p>Define</p>
+<p><span class="math math-display">\[D_x = v^x l_x\]</span></p>
+<p>Then</p>
+<p><span class="math math-display">\[{}_m E_x = v^m \frac{l_{x+m}}{l_x} = \frac{v^{x+m} l_{x+m}}{v^x l_x} = \frac{D_{x+m}}{D_x}, \qquad P = C \frac{D_{x+m}}{D_x}\]</span></p>
+<p>The other symbols:</p>
+<table>
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Definition</th>
+<th>Used for</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><span class="math math-inline">\(D_x\)</span></td>
+<td><span class="math math-inline">\(v^x l_x\)</span></td>
+<td>survival benefits</td>
+</tr>
+<tr>
+<td><span class="math math-inline">\(N_x\)</span></td>
+<td><span class="math math-inline">\(D_x + D_{x+1} + \dots + D_{\omega-1}\)</span></td>
+<td>life annuities</td>
+</tr>
+<tr>
+<td><span class="math math-inline">\(C_x\)</span></td>
+<td><span class="math math-inline">\(v^{x+1} d_x\)</span></td>
+<td>death benefits</td>
+</tr>
+<tr>
+<td><span class="math math-inline">\(M_x\)</span></td>
+<td><span class="math math-inline">\(C_x + C_{x+1} + \dots + C_{\omega-1}\)</span></td>
+<td>death benefits over many years</td>
+</tr>
+</tbody>
+</table>
+<h2 id="life-annuity-immediate-in-arrears">Life annuity (immediate, in arrears)</h2>
+<p>The insurer pays 1 at the <strong>end</strong> of each year while the person is alive. If death happens in year <span class="math math-inline">\(h+1\)</span> (between <span class="math math-inline">\(x+h\)</span> and <span class="math math-inline">\(x+h+1\)</span>) the person has received <span class="math math-inline">\(h\)</span> payments, worth <span class="math math-inline">\(\sum_{k=1}^{h} v^k\)</span>, with probability <span class="math math-inline">\({}_{h/1} q_x\)</span>. The net single premium is the expected value:</p>
+<p><span class="math math-display">\[a_x = \sum_{h=1}^{\omega-x-1} \left( \sum_{k=1}^{h} v^k \right) {}_{h/1} q_x\]</span></p>
+<p>Regrouping by powers of <span class="math math-inline">\(v\)</span>:</p>
+<p><span class="math math-display">\[a_x = v p_x + v^2 {}_2 p_x + \dots = \sum_{h=1}^{\omega-x-1} v^h {}_h p_x = \sum_{h=1}^{\omega-x-1} {}_h E_x\]</span></p>
+<p><strong>A life annuity is a sum of pure endowments</strong>, one for each future year. With commutation symbols:</p>
+<p><span class="math math-display">\[a_x = \frac{D_{x+1} + D_{x+2} + \dots + D_{\omega-1}}{D_x} = \frac{N_{x+1}}{D_x}\]</span></p>
+<h3 id="other-life-annuities">Other life annuities</h3>
+<table>
+<thead>
+<tr>
+<th>Annuity (unit payment)</th>
+<th>Symbol</th>
+<th>Net single premium</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>immediate, in advance</td>
+<td><span class="math math-inline">\(\ddot a_x = 1 + a_x\)</span></td>
+<td><span class="math math-inline">\(\frac{N_x}{D_x}\)</span></td>
+</tr>
+<tr>
+<td>deferred <span class="math math-inline">\(m\)</span> years, in arrears</td>
+<td><span class="math math-inline">\({}_{m/} a_x = {}_m E_x a_{x+m}\)</span></td>
+<td><span class="math math-inline">\(\frac{N_{x+m+1}}{D_x}\)</span></td>
+</tr>
+<tr>
+<td>deferred <span class="math math-inline">\(m\)</span> years, in advance</td>
+<td><span class="math math-inline">\({}_{m/} \ddot a_x\)</span></td>
+<td><span class="math math-inline">\(\frac{N_{x+m}}{D_x}\)</span></td>
+</tr>
+<tr>
+<td>temporary <span class="math math-inline">\(m\)</span> years, in arrears</td>
+<td><span class="math math-inline">\({}_{/m} a_x = a_x - {}_{m/} a_x\)</span></td>
+<td><span class="math math-inline">\(\frac{N_{x+1} - N_{x+m+1}}{D_x}\)</span></td>
+</tr>
+<tr>
+<td>temporary <span class="math math-inline">\(m\)</span> years, in advance</td>
+<td><span class="math math-inline">\({}_{/m} \ddot a_x\)</span></td>
+<td><span class="math math-inline">\(\frac{N_x - N_{x+m}}{D_x}\)</span></td>
+</tr>
+</tbody>
+</table>
+<h2 id="death-benefits">Death benefits</h2>
+<h3 id="one-year-death-cover">One-year death cover</h3>
+<p>Pays 1 at the end of the year of death, <strong>only if</strong> death happens between <span class="math math-inline">\(x+h\)</span> and <span class="math math-inline">\(x+h+1\)</span>. Payment at <span class="math math-inline">\(h+1\)</span>, probability <span class="math math-inline">\({}_{h/1} q_x = {}_h p_x q_{x+h}\)</span>:</p>
+<p><span class="math math-display">\[{}_{h/1} A_x = v^{h+1} \frac{d_{x+h}}{l_x} = \frac{v^{x+h+1} d_{x+h}}{v^x l_x} = \frac{C_{x+h}}{D_x}\]</span></p>
+<h3 id="whole-life">Whole life</h3>
+<p>Pays 1 at the end of the year of death, <strong>whenever</strong> it happens. It is the sum of all one-year covers:</p>
+<p><span class="math math-display">\[A_x = \frac{C_x + C_{x+1} + \dots + C_{\omega-1}}{D_x} = \frac{M_x}{D_x}\]</span></p>
+<h3 id="deferred-and-term-covers">Deferred and term covers</h3>
+<table>
+<thead>
+<tr>
+<th>Death cover (unit capital)</th>
+<th>Pays if death occurs</th>
+<th>Net single premium</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>deferred <span class="math math-inline">\(m\)</span> years, whole life, <span class="math math-inline">\({}_{m/}A_x\)</span></td>
+<td>after <span class="math math-inline">\(m\)</span> years</td>
+<td><span class="math math-inline">\(\frac{M_{x+m}}{D_x}\)</span></td>
+</tr>
+<tr>
+<td>term <span class="math math-inline">\(m\)</span> years, <span class="math math-inline">\({}_{/m}A_x\)</span></td>
+<td>within <span class="math math-inline">\(m\)</span> years</td>
+<td><span class="math math-inline">\(\frac{M_x - M_{x+m}}{D_x}\)</span></td>
+</tr>
+<tr>
+<td>deferred <span class="math math-inline">\(m\)</span>, term <span class="math math-inline">\(m\)</span>, <span class="math math-inline">\({}_{m/m}A_x\)</span></td>
+<td>between <span class="math math-inline">\(m\)</span> and <span class="math math-inline">\(2m\)</span> years</td>
+<td><span class="math math-inline">\(\frac{M_{x+m} - M_{x+2m}}{D_x}\)</span></td>
+</tr>
+</tbody>
+</table>
+<h2 id="endowment-insurance">Endowment insurance</h2>
+<p><strong>Endowment</strong> (<em>mista semplice</em>): pays 1 at <span class="math math-inline">\(x + m\)</span> if alive, or 1 at the end of the year of death if death comes first. Pure endowment + term cover:</p>
+<p><span class="math math-display">\[A_{x:\overline{m}|} = \frac{D_{x+m}}{D_x} + \frac{M_x - M_{x+m}}{D_x} = \frac{D_{x+m} + M_x - M_{x+m}}{D_x}\]</span></p>
+<p><strong>Double endowment</strong> (<em>mista a capitale raddoppiato</em>): whole-life death cover plus an extra 1 at <span class="math math-inline">\(x + m\)</span> if alive:</p>
+<p><span class="math math-display">\[P = \frac{D_{x+m} + M_x}{D_x}\]</span></p>
+<p>All premiums below come from one Gompertz–Makeham table. Move age, term and rate; the bars are the pure endowments <span class="math math-inline">\({}_h E_x\)</span> that add up to the life annuity.</p>
+<pre class="wimark-src"><code class="nohighlight" data-wimark="lifeins" data-opts="{&#34;x&#34;: 40, &#34;m&#34;: 20, &#34;i&#34;: 0.03}"></code></pre>
+<h2 id="periodic-premiums">Periodic premiums</h2>
+<p>Often the insured pays <strong>periodic</strong> premiums instead of a single one. By equivalence, the expected PV of the premiums equals the expected PV of the benefits. Constant premiums <span class="math math-inline">\(\Pi\)</span> paid in advance for at most <span class="math math-inline">\(n\)</span> years, while alive, are a temporary life annuity in advance:</p>
+<p><span class="math math-display">\[\Pi \cdot {}_{/n}\ddot a_x = \text{net single premium of the benefits}\]</span></p>
+<h2 id="mathematical-reserve">Mathematical reserve</h2>
+<p>The <strong>mathematical reserve</strong> is the insurer's debt to the insured at a time <span class="math math-inline">\(k &gt; 0\)</span> after signing. With level premiums, the early premiums exceed the risk covered (death is unlikely when young). The surplus is set aside to pay for later years, when death becomes more likely.</p>
+<p>Two equivalent ways to compute it:</p>
+<ol>
+<li><strong>Prospective</strong> (look forward): expected PV at <span class="math math-inline">\(k\)</span> of the future benefits minus expected PV of the future premiums.</li>
+</ol>
+<p><span class="math math-display">\[V_{x+k} = \text{PV}_{x+k}(\text{insurer}) - \text{PV}_{x+k}(\text{insured})\]</span></p>
+<ol start="2">
+<li><strong>Retrospective</strong> (look back): expected PV of the premiums already paid minus the benefits already paid, accumulated to <span class="math math-inline">\(k\)</span> with the actuarial factor <span class="math math-inline">\(1/{}_k E_x\)</span>.</li>
+</ol>
+<p><span class="math math-display">\[V_{x+k} = \left[ \text{PV}_x(\text{insured}) - \text{PV}_x(\text{insurer}) \right] \cdot \frac{1}{{}_k E_x}\]</span></p>
+<h2 id="key-takeaways">Key takeaways</h2>
+<ul>
+<li>Equivalence: expected PV of premiums = expected PV of benefits → net premium.</li>
+<li><span class="math math-inline">\({}_m E_x = v^m {}_m p_x = D_{x+m}/D_x\)</span>, always <span class="math math-inline">\(\le v^m\)</span>.</li>
+<li><span class="math math-inline">\(a_x = \sum_h {}_h E_x = N_{x+1}/D_x\)</span>; <span class="math math-inline">\(\ddot a_x = N_x/D_x\)</span>; deferred and temporary by differences of <span class="math math-inline">\(N\)</span>.</li>
+<li><span class="math math-inline">\({}_{h/1}A_x = C_{x+h}/D_x\)</span>; <span class="math math-inline">\(A_x = M_x/D_x\)</span>; term and deferred by differences of <span class="math math-inline">\(M\)</span>.</li>
+<li>Endowment <span class="math math-inline">\(= (D_{x+m} + M_x - M_{x+m})/D_x\)</span>.</li>
+<li>Reserve: prospective (future benefits − future premiums) = retrospective (past premiums − past benefits, accumulated by <span class="math math-inline">\(1/{}_k E_x\)</span>).</li>
+</ul>
+<pre class="wimark-src"><code class="nohighlight" data-wimark="quiz" data-opts="{&#34;title&#34;: &#34;Check yourself&#34;}">[
+  {&#34;q&#34;: &#34;$v^{10} = 0.74$ and ${}_{10} p_{50} = 0.9$. The net single premium for 1000 paid at age 60 if alive is&#34;, &#34;options&#34;: [&#34;740&#34;, &#34;666&#34;, &#34;900&#34;], &#34;answer&#34;: 1, &#34;why&#34;: &#34;$1000 \\cdot 0.74 \\cdot 0.9 = 666$.&#34;},
+  {&#34;q&#34;: &#34;$\\ddot a_x$ in commutation symbols is&#34;, &#34;options&#34;: [&#34;$N_{x+1}/D_x$&#34;, &#34;$N_x/D_x$&#34;, &#34;$M_x/D_x$&#34;], &#34;answer&#34;: 1},
+  {&#34;q&#34;: &#34;A term cover of $m$ years has net single premium&#34;, &#34;options&#34;: [&#34;$(M_x - M_{x+m})/D_x$&#34;, &#34;$M_{x+m}/D_x$&#34;, &#34;$D_{x+m}/D_x$&#34;], &#34;answer&#34;: 0},
+  {&#34;q&#34;: &#34;An endowment insurance is the sum of&#34;, &#34;options&#34;: [&#34;a whole-life cover and a life annuity&#34;, &#34;a pure endowment and a term cover&#34;, &#34;two pure endowments&#34;], &#34;answer&#34;: 1},
+  {&#34;q&#34;: &#34;Why does a level-premium life policy need a reserve?&#34;, &#34;options&#34;: [&#34;Because early premiums exceed the early risk, and the surplus pays for later, riskier years&#34;, &#34;Because interest rates change&#34;, &#34;Because of taxes&#34;], &#34;answer&#34;: 0}
+]
+</code></pre>
+</article>
+
+          
+          </div>
+        </div>
+      </section>
+
+      <aside class="col-toc" aria-label="On this page">
+        <div class="col-head">On this page</div>
+        <div class="col-scroll">
+          
+            
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l1">
+    <a href="#life-insurance-premiums-and-reserves">Life Insurance Premiums and Reserves</a>
+    
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l2">
+    <a href="#equivalence-principle-and-net-premium">Equivalence principle and net premium</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#pure-endowment">Pure endowment</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#commutation-symbols">Commutation symbols</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#life-annuity-immediate-in-arrears">Life annuity (immediate, in arrears)</a>
+    
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l3">
+    <a href="#other-life-annuities">Other life annuities</a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#death-benefits">Death benefits</a>
+    
+<ul class="toc-tree">
+  
+  <li class="toc-item toc-l3">
+    <a href="#one-year-death-cover">One-year death cover</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l3">
+    <a href="#whole-life">Whole life</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l3">
+    <a href="#deferred-and-term-covers">Deferred and term covers</a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#endowment-insurance">Endowment insurance</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#periodic-premiums">Periodic premiums</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#mathematical-reserve">Mathematical reserve</a>
+    
+  </li>
+  
+  <li class="toc-item toc-l2">
+    <a href="#key-takeaways">Key takeaways</a>
+    
+  </li>
+  
+</ul>
+
+  </li>
+  
+</ul>
+
+          
+          
+        </div>
+      </aside>
+
+    
+  </main>
+
+  
+  <footer class="statusbar" aria-hidden="true">
+    <span class="sb-mode">READ</span>
+    <span class="sb-path">en/notes/University notes/financial-mathematics/11-life-insurance.md</span>
+    <span class="sb-spacer"></span>
+    <span class="sb-item">en</span>
+    <span class="sb-item">utf-8</span>
+    <span class="sb-item">markdown</span>
+    <span class="sb-pos" data-scroll-pos>top</span>
+  </footer>
+  
+
+  <div class="search" data-search hidden role="dialog" aria-modal="true" aria-label="Search">
+    <div class="search-panel">
+      <div class="search-bar"><span class="search-prompt" aria-hidden="true">❯</span>
+      <input class="search-input" type="search" placeholder="Search" autocomplete="off" spellcheck="false" aria-controls="search-results"></div>
+      <ul class="search-results" id="search-results" role="listbox"></ul>
+      <div class="search-hint" aria-hidden="true"><span><kbd>↑↓</kbd> move</span><span><kbd>↵</kbd> open</span><span><kbd>tab</kbd> complete</span><span><kbd>esc</kbd> close</span></div>
+    </div>
+  </div>
+
+  <script>
+    window.GOMARK = {
+      lang: "en",
+      root: "..\/..\/..\/..\/",
+      theme: "light",
+      section: "notes",
+      i18n: { noResults: "No results", searchFilters: "Filters", searchTab: "complete",
+        qSection: "in one section of the site", qHeading: "under the headings that match", qTitle: "in the title", qCode: "in the code blocks, of one language",
+        qIn: "where the words look", qHas: "pages with code, math, table, image, link, quote, task, widget", qPath: "in the file path", qPhrase: "these words, in this order",
+        qNot: "without it", qOr: "either one", qRegex: "a regular expression", copy: "copy", copied: "copied", words: "words", minRead: "min read",
+        data: "data", search: "search", noData: "no data", other: "other",
+        total: "total", show: "show", hide: "hide", reset: "reset", all: "all" }
+    };
+  </script>
+  <script src="../../../../static/widgets.js"></script>
+  <script src="../../../../static/widgets/notes/University%20notes/financial-mathematics/lifeins.js"></script>
+  <script src="../../../../static/widgets/quiz.js"></script>
+  <script src="../../../../static/engine.js"></script>
+  <script src="../../../../static/ui.js"></script>
+  <script src="../../../../static/search.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
